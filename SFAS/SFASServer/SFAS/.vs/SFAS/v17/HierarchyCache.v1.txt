@@ -1,0 +1,314 @@
+﻿++Solution 'SFAS' ‎(5 of 5 projects)
+++SFAS.Database
+i:{00000000-0000-0000-0000-000000000000}:SFAS.Database
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:d:\рабочий стол\учеба\вкр\sfas\sfas.database\bin\debug\net6.0\sfas.database.dll
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:d:\рабочий стол\учеба\вкр\sfas\sfas.database\bin\debug\net6.0\sfas.database.dll
+++Dependencies
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:>357
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:>358
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:>467
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:>895
+++Entities
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:d:\рабочий стол\учеба\вкр\sfas\sfas.database\entities\
+++Address.cs
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:d:\рабочий стол\учеба\вкр\sfas\sfas.database\entities\address.cs
+++Document.cs
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:d:\рабочий стол\учеба\вкр\sfas\sfas.database\entities\document.cs
+++EmailSubscriber.cs
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:d:\рабочий стол\учеба\вкр\sfas\sfas.database\entities\emailsubscriber.cs
+++Owner.cs
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:d:\рабочий стол\учеба\вкр\sfas\sfas.database\entities\owner.cs
+++SportsFacility.cs
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:d:\рабочий стол\учеба\вкр\sfas\sfas.database\entities\sportsfacility.cs
+++User.cs
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:d:\рабочий стол\учеба\вкр\sfas\sfas.database\entities\user.cs
+++Interfaces
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:d:\рабочий стол\учеба\вкр\sfas\sfas.database\interfaces\
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:d:\рабочий стол\учеба\вкр\sfas\sfas.services\interfaces\
+++EntityBase.cs
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:d:\рабочий стол\учеба\вкр\sfas\sfas.database\interfaces\entitybase.cs
+++ICreated.cs
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:d:\рабочий стол\учеба\вкр\sfas\sfas.database\interfaces\icreated.cs
+++IDeleted.cs
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:d:\рабочий стол\учеба\вкр\sfas\sfas.database\interfaces\ideleted.cs
+++IModified.cs
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:d:\рабочий стол\учеба\вкр\sfas\sfas.database\interfaces\imodified.cs
+++Migrations
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:d:\рабочий стол\учеба\вкр\sfas\sfas.database\migrations\
+++ApplicationDbContext.cs
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:d:\рабочий стол\учеба\вкр\sfas\sfas.database\applicationdbcontext.cs
+++DBInitializer.cs
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:d:\рабочий стол\учеба\вкр\sfas\sfas.database\dbinitializer.cs
+++Analyzers
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:analyzers
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:analyzers
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:analyzers
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:analyzers
+++Frameworks
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:frameworks
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:frameworks
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:frameworks
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:frameworks
+++Packages
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:packages
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:packages
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:packages
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:packages
+++Microsoft.CodeAnalysis.CSharp.NetAnalyzers
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+++Microsoft.CodeAnalysis.NetAnalyzers
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+++Microsoft.EntityFrameworkCore.Analyzers
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:c:\users\lalagvana\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.3\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:c:\users\lalagvana\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.3\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:c:\users\lalagvana\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.3\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
+++Microsoft.Extensions.Logging.Generators
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:c:\users\lalagvana\.nuget\packages\microsoft.extensions.logging.abstractions\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:c:\users\lalagvana\.nuget\packages\microsoft.extensions.logging.abstractions\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:c:\users\lalagvana\.nuget\packages\microsoft.extensions.logging.abstractions\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.4\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
+++System.Text.Json.SourceGeneration
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.4\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.4\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.4\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.4\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+++Microsoft.NETCore.App
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:d:\рабочий стол\учеба\вкр\sfas\sfas.database\microsoft.netcore.app
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:d:\рабочий стол\учеба\вкр\sfas\sfas.services\microsoft.netcore.app
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\microsoft.netcore.app
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:d:\рабочий стол\учеба\вкр\sfas\sfasapi\microsoft.netcore.app
+++EntityFramework (6.4.4)
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:>970
+++Microsoft.AspNetCore.Http.Abstractions (2.2.0)
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:>971
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:>909
+++Microsoft.AspNetCore.Identity.EntityFrameworkCore (6.0.3)
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:>965
+++Microsoft.EntityFrameworkCore.SqlServer (6.0.3)
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:>952
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:>958
+++Microsoft.EntityFrameworkCore.Tools (6.0.3)
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:>967
+++SFAS.Services
+i:{00000000-0000-0000-0000-000000000000}:SFAS.Services
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:d:\рабочий стол\учеба\вкр\sfas\sfas.services\bin\debug\net6.0\sfas.services.dll
+++Helpers
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:d:\рабочий стол\учеба\вкр\sfas\sfas.services\helpers\
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\helpers\
+++ExcelHelper.cs
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:d:\рабочий стол\учеба\вкр\sfas\sfas.services\helpers\excelhelper.cs
+++IAuthService.cs
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:d:\рабочий стол\учеба\вкр\sfas\sfas.services\interfaces\iauthservice.cs
+++IEmailService.cs
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:d:\рабочий стол\учеба\вкр\sfas\sfas.services\interfaces\iemailservice.cs
+++IFacilityService.cs
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:d:\рабочий стол\учеба\вкр\sfas\sfas.services\interfaces\ifacilityservice.cs
+++IMapService.cs
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:d:\рабочий стол\учеба\вкр\sfas\sfas.services\interfaces\imapservice.cs
+++IReportService.cs
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:d:\рабочий стол\учеба\вкр\sfas\sfas.services\interfaces\ireportservice.cs
+++IUserService.cs
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:d:\рабочий стол\учеба\вкр\sfas\sfas.services\interfaces\iuserservice.cs
+++Services
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:d:\рабочий стол\учеба\вкр\sfas\sfas.services\services\
+++Common
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:d:\рабочий стол\учеба\вкр\sfas\sfas.services\services\common\
+++AuthenticatedService.cs
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:d:\рабочий стол\учеба\вкр\sfas\sfas.services\services\common\authenticatedservice.cs
+++MappingProfile.cs
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:d:\рабочий стол\учеба\вкр\sfas\sfas.services\services\common\mappingprofile.cs
+++EmailService.cs
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:d:\рабочий стол\учеба\вкр\sfas\sfas.services\services\emailservice.cs
+++FacilityService.cs
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:d:\рабочий стол\учеба\вкр\sfas\sfas.services\services\facilityservice.cs
+++MapService.cs
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:d:\рабочий стол\учеба\вкр\sfas\sfas.services\services\mapservice.cs
+++ReportService.cs
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:d:\рабочий стол\учеба\вкр\sfas\sfas.services\services\reportservice.cs
+++UserService.cs
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:d:\рабочий стол\учеба\вкр\sfas\sfas.services\services\userservice.cs
+++Projects
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:projects
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:projects
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:projects
+++AutoMapper (11.0.1)
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:>908
+++AutoMapper.Extensions.Microsoft.DependencyInjection (11.0.0)
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:>907
+++GemBox.Spreadsheet (47.0.1418)
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:>977
+++SFAS.Common
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\bin\debug\net6.0\sfas.common.dll
+i:{00000000-0000-0000-0000-000000000000}:SFAS.Common
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\bin\debug\net6.0\sfas.common.dll
+i:{273ebe41-c18d-40aa-9f8b-b91315c90454}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\sfas.common.csproj
+++Exceptions
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\exceptions\
+++ApiResponseException.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\exceptions\apiresponseexception.cs
+++AuthException.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\exceptions\authexception.cs
+++BadRequestException.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\exceptions\badrequestexception.cs
+++BaseException.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\exceptions\baseexception.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\models\baseexception.cs
+++CreateUserException.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\exceptions\createuserexception.cs
+++DeviceException.cs
+++ForbiddenException.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\exceptions\forbiddenexception.cs
+++InternalServerException.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\exceptions\internalserverexception.cs
+++MailException.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\exceptions\mailexception.cs
+++NotFoundException.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\exceptions\notfoundexception.cs
+++ObjectToInferredTypesConverter.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\helpers\objecttoinferredtypesconverter.cs
+++Models
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\models\
+++Admin
+++Email
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\models\email\
+++EmailRequest.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\models\email\emailrequest.cs
+++Enums
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\models\enums\
+++CoveringType.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\models\enums\coveringtype.cs
+++FacilityType.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\models\enums\facilitytype.cs
+++PayingType.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\models\enums\payingtype.cs
+++PropertyForm.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\models\enums\propertyform.cs
+++Roles.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\models\enums\roles.cs
+++SportsType.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\models\enums\sportstype.cs
+++Facility
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\models\facility\
+++FacilityDto.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\models\facility\facilitydto.cs
+++FacilitySearchRequest.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\models\facility\facilitysearchrequest.cs
+++FacilityWithIdDto.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\models\facility\facilitywithiddto.cs
+++LocationDto.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\models\facility\locationdto.cs
+++LoginRequest.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\models\user\loginrequest.cs
+++LoginResponse.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\models\user\loginresponse.cs
+++Microsoft.Extensions.Identity.Core (6.0.3)
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:>1005
+++SFAS.API
+i:{00000000-0000-0000-0000-000000000000}:SFAS.API
+++Connected Services 
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:>896
+++Properties
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:d:\рабочий стол\учеба\вкр\sfas\sfasapi\properties\
+++Controllers
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:d:\рабочий стол\учеба\вкр\sfas\sfasapi\controllers\
+++appsettings.Development.json
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:d:\рабочий стол\учеба\вкр\sfas\sfasapi\appsettings.development.json
+++appsettings.json
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:d:\рабочий стол\учеба\вкр\sfas\sfasapi\appsettings.json
+++CustomErrorsHandler.cs
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:d:\рабочий стол\учеба\вкр\sfas\sfasapi\customerrorshandler.cs
+++Program.cs
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:d:\рабочий стол\учеба\вкр\sfas\sfasapi\program.cs
+++Startup.cs
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:d:\рабочий стол\учеба\вкр\sfas\sfasapi\startup.cs
+++No service dependencies discovered
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:>897
+++launchSettings.json
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:d:\рабочий стол\учеба\вкр\sfas\sfasapi\properties\launchsettings.json
+++AdminController.cs
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:d:\рабочий стол\учеба\вкр\sfas\sfasapi\controllers\admincontroller.cs
+++EmailController.cs
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:d:\рабочий стол\учеба\вкр\sfas\sfasapi\controllers\emailcontroller.cs
+++FacilityController.cs
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:d:\рабочий стол\учеба\вкр\sfas\sfasapi\controllers\facilitycontroller.cs
+++Microsoft.AspNetCore.Analyzers
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.analyzers.dll
+++Microsoft.AspNetCore.App.Analyzers
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.4\analyzers\dotnet\cs\microsoft.aspnetcore.app.analyzers.dll
+++Microsoft.AspNetCore.App.CodeFixes
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.4\analyzers\dotnet\cs\microsoft.aspnetcore.app.codefixes.dll
+++Microsoft.AspNetCore.Components.Analyzers
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.components.analyzers.dll
+++Microsoft.AspNetCore.Mvc.Analyzers
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.mvc.analyzers.dll
+++Microsoft.AspNetCore.Razor.SourceGenerator.Tooling.Internal
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk.razor\source-generators\microsoft.aspnetcore.razor.sourcegenerator.tooling.internal.dll
+++Microsoft.NET.Sdk.Razor.SourceGenerators
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:c:\program files\dotnet\sdk\6.0.202\sdks\microsoft.net.sdk.razor\source-generators\microsoft.net.sdk.razor.sourcegenerators.dll
+++Microsoft.AspNetCore.App
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:d:\рабочий стол\учеба\вкр\sfas\sfasapi\microsoft.aspnetcore.app
+++Microsoft.AspNetCore.Authentication.JwtBearer (6.0.3)
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:>962
+++Microsoft.EntityFrameworkCore (6.0.3)
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:>957
+++Microsoft.EntityFrameworkCore.Design (6.0.3)
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:>959
+++Microsoft.EntityFrameworkCore.Proxies (6.0.3)
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:>961
+++Serilog (2.10.0)
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:>963
+++Swashbuckle.AspNetCore (6.2.3)
+i:{b74a1498-8edd-40c6-bfb7-b3cedfc423ac}:>960
+++SFAS.Tests
+++coverlet.collector (3.1.0)
+++Microsoft.NET.Test.Sdk (16.11.0)
+++NUnit (3.13.2)
+++NUnit3TestAdapter (4.0.0)
+++AppSettings.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\appsettings.cs
+++Newtonsoft.Json (9.0.1)
+++ce0xfcgn.wao~
+++MailKit (3.2.0)
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:>1017
+++NETCore.MailKit (2.0.3)
+++xwsxez42.00t~
+++Microsoft.AspNetCore.WebUtilities (2.2.0)
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:>1021
+++Base62 (1.2.0)
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:>1022
+++User
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\models\user\
+++UpdateUserAdminRequest.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\models\user\updateuseradminrequest.cs
+++AdminUserDto.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\models\user\adminuserdto.cs
+++Kendo.DynamicLinqCore (3.1.1)
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:>1030
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:>1048
+++Class1.cs
+++TypedDataSourceResult.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\models\class1.cs
+++Newtonsoft.Json (13.0.1)
+i:{f87163d5-af5e-4859-93b3-f79613a8efb3}:>1034
+++CreateUserRequest.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\models\user\class1.cs
+++UserDto.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\models\user\userdto.cs
+++Extensions
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\extensions\
+++LinqExtensions.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\extensions\linqextensions.cs
+++QueryExtensions.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\extensions\queryextensions.cs
+++StringExtensions.cs
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:d:\рабочий стол\учеба\вкр\sfas\sfas\sfas.common\extensions\stringextensions.cs
+++LinqKit (1.2.2)
+i:{9312b2e8-6de7-4ea0-9df2-559c608f515d}:>1051
+++Solution 'SFAS' ‎(4 of 4 projects)
+i:{00000000-0000-0000-0000-000000000000}:SFAS.sln

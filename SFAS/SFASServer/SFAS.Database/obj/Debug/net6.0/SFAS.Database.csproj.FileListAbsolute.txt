@@ -1,0 +1,17 @@
+D:\рабочий стол\учеба\ВКР\SFAS\SFAS.Database\bin\Debug\net6.0\SFAS.Database.deps.json
+D:\рабочий стол\учеба\ВКР\SFAS\SFAS.Database\bin\Debug\net6.0\SFAS.Database.dll
+D:\рабочий стол\учеба\ВКР\SFAS\SFAS.Database\bin\Debug\net6.0\SFAS.Database.pdb
+D:\рабочий стол\учеба\ВКР\SFAS\SFAS.Database\obj\Debug\net6.0\SFAS.Database.csproj.AssemblyReference.cache
+D:\рабочий стол\учеба\ВКР\SFAS\SFAS.Database\obj\Debug\net6.0\SFAS.Database.GeneratedMSBuildEditorConfig.editorconfig
+D:\рабочий стол\учеба\ВКР\SFAS\SFAS.Database\obj\Debug\net6.0\SFAS.Database.AssemblyInfoInputs.cache
+D:\рабочий стол\учеба\ВКР\SFAS\SFAS.Database\obj\Debug\net6.0\SFAS.Database.AssemblyInfo.cs
+D:\рабочий стол\учеба\ВКР\SFAS\SFAS.Database\obj\Debug\net6.0\SFAS.Database.csproj.CoreCompileInputs.cache
+D:\рабочий стол\учеба\ВКР\SFAS\SFAS.Database\obj\Debug\net6.0\SFAS.Database.dll
+D:\рабочий стол\учеба\ВКР\SFAS\SFAS.Database\obj\Debug\net6.0\refint\SFAS.Database.dll
+D:\рабочий стол\учеба\ВКР\SFAS\SFAS.Database\obj\Debug\net6.0\SFAS.Database.pdb
+D:\рабочий стол\учеба\ВКР\SFAS\SFAS.Database\obj\Debug\net6.0\ref\SFAS.Database.dll
+D:\рабочий стол\учеба\ВКР\SFAS\SFAS.Database\bin\Debug\net6.0\SFAS.Database.runtimeconfig.json
+D:\рабочий стол\учеба\ВКР\SFAS\SFAS.Database\obj\Debug\net6.0\SFAS.Database.genruntimeconfig.cache
+D:\рабочий стол\учеба\ВКР\SFAS\SFAS.Database\bin\Debug\net6.0\SFAS.Common.dll
+D:\рабочий стол\учеба\ВКР\SFAS\SFAS.Database\bin\Debug\net6.0\SFAS.Common.pdb
+D:\рабочий стол\учеба\ВКР\SFAS\SFAS.Database\obj\Debug\net6.0\SFAS.Database.csproj.CopyComplete

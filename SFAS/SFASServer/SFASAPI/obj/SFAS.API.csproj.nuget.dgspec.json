@@ -1,0 +1,356 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFASAPI\\SFAS.API.csproj": {}
+  },
+  "projects": {
+    "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS.Database\\SFAS.Database.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS.Database\\SFAS.Database.csproj",
+        "projectName": "SFAS.Database",
+        "projectPath": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS.Database\\SFAS.Database.csproj",
+        "packagesPath": "C:\\Users\\lalagvana\\.nuget\\packages\\",
+        "outputPath": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS.Database\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\lalagvana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS\\SFAS.Common\\SFAS.Common.csproj": {
+                "projectPath": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS\\SFAS.Common\\SFAS.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS.Services\\SFAS.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS.Services\\SFAS.Services.csproj",
+        "projectName": "SFAS.Services",
+        "projectPath": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS.Services\\SFAS.Services.csproj",
+        "packagesPath": "C:\\Users\\lalagvana\\.nuget\\packages\\",
+        "outputPath": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\lalagvana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS.Database\\SFAS.Database.csproj": {
+                "projectPath": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS.Database\\SFAS.Database.csproj"
+              },
+              "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS\\SFAS.Common\\SFAS.Common.csproj": {
+                "projectPath": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS\\SFAS.Common\\SFAS.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "Base62": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "GemBox.Spreadsheet": {
+              "target": "Package",
+              "version": "[47.0.1418, )"
+            },
+            "Kendo.DynamicLinqCore": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.WebUtilities": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFASAPI\\SFAS.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFASAPI\\SFAS.API.csproj",
+        "projectName": "SFAS.API",
+        "projectPath": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFASAPI\\SFAS.API.csproj",
+        "packagesPath": "C:\\Users\\lalagvana\\.nuget\\packages\\",
+        "outputPath": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFASAPI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\lalagvana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS.Database\\SFAS.Database.csproj": {
+                "projectPath": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS.Database\\SFAS.Database.csproj"
+              },
+              "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS.Services\\SFAS.Services.csproj": {
+                "projectPath": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS.Services\\SFAS.Services.csproj"
+              },
+              "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS\\SFAS.Common\\SFAS.Common.csproj": {
+                "projectPath": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS\\SFAS.Common\\SFAS.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Proxies": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[2.10.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS\\SFAS.Common\\SFAS.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS\\SFAS.Common\\SFAS.Common.csproj",
+        "projectName": "SFAS.Common",
+        "projectPath": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS\\SFAS.Common\\SFAS.Common.csproj",
+        "packagesPath": "C:\\Users\\lalagvana\\.nuget\\packages\\",
+        "outputPath": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS\\SFAS.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\lalagvana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Kendo.DynamicLinqCore": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "LinqKit": {
+              "target": "Package",
+              "version": "[1.2.2, )"
+            },
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
