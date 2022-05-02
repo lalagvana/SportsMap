@@ -1,11 +1,13 @@
-﻿using System.Data.Entity;
-using AutoMapper;
+﻿using AutoMapper;
+using Kendo.DynamicLinqCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SFAS.Common.Models.Facility;
 using SFAS.Database;
 using SFAS.Database.Entities;
 using SFAS.Services.Interfaces;
+using System.Data.Entity;
 
 namespace SFAS.Services.Services
 {
@@ -36,7 +38,7 @@ namespace SFAS.Services.Services
             await _db.SportsFacilities.AddAsync(facility);
             _logger.LogInformation($"Sports facility {request.Name} created successfully");
 
-            return _mapper.Map<FacilityWithIdDto>(_db.SportsFacilities.FirstOrDefault(f => f.FacilityId == facility.FacilityId));
+            return _mapper.Map<FacilityWithIdDto>(facility);
         }
 
         public async Task<FacilityWithIdDto> UpdateFacility(Guid id, FacilityWithIdDto request)
@@ -66,9 +68,14 @@ namespace SFAS.Services.Services
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<FacilityWithIdDto>> SearchFacilities(FacilitySearchRequest request)
+        public IEnumerable<FacilityWithIdDto> SearchFacilities(DataSourceRequest request)
         {
-            throw new NotImplementedException();
+            return _mapper.ProjectTo<FacilityWithIdDto>(_db.SportsFacilities.Where(x => !x.Hidden && !x.DeletedAt.HasValue));
+        }
+
+        public IEnumerable<FacilityWithIdDto> SearchFacilitiesAdmin(DataSourceRequest request)
+        {
+            return _mapper.ProjectTo<FacilityWithIdDto>(_db.SportsFacilities.Where(x => !x.DeletedAt.HasValue));
         }
 
         public async Task<LocationDto> GetLocationsList()
@@ -97,9 +104,9 @@ namespace SFAS.Services.Services
             throw new NotImplementedException();
         }
 
-        public async Task<byte[]> DownloadReport()
+        public async Task<FileStreamResult> DownloadReport()
         {
-            return await _reportService.GenerateReport();
+            return await _reportService.GenerateReport(await _db.SportsFacilities.Where(x => !x.DeletedAt.HasValue).ToArrayAsync());
         }
     }
 }

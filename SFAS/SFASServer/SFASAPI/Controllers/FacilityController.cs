@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Kendo.DynamicLinqCore;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SFAS.Common.Models.Facility;
 using SFAS.Services.Interfaces;
 
@@ -17,6 +19,7 @@ namespace SFAS.API.Controllers
         
         [HttpGet]
         [Route("{id}")]
+        [AllowAnonymous]
         public async Task<ActionResult<FacilityDto>> GetFacility(Guid id)
         {
             return await _facilityService.GetFacility(id);
@@ -24,13 +27,15 @@ namespace SFAS.API.Controllers
         
         [HttpPost]
         [Route("search")]
-        public async Task<IEnumerable<FacilityWithIdDto>> SearchFacilities(FacilitySearchRequest request)
+        [AllowAnonymous]
+        public IEnumerable<FacilityWithIdDto> SearchFacilities(DataSourceRequest request)
         {
-            return await _facilityService.SearchFacilities(request);
+            return _facilityService.SearchFacilities(request);
         }
         
         [HttpPost]
         [Route("location/{id}")]
+        [AllowAnonymous]
         public async Task<ActionResult<LocationDto>> GetLocation(Guid id)
         {
             return await _facilityService.GetLocation(id);
@@ -38,6 +43,7 @@ namespace SFAS.API.Controllers
 
         [HttpPost]
         [Route("location/list")]
+        [AllowAnonymous]
         public async Task<ActionResult<LocationDto>> GetLocationsList()
         {
             return await _facilityService.GetLocationsList();

@@ -1,4 +1,6 @@
-﻿using SFAS.Common.Models.Facility;
+﻿using Kendo.DynamicLinqCore;
+using Microsoft.AspNetCore.Mvc;
+using SFAS.Common.Models.Facility;
 
 namespace SFAS.Services.Interfaces
 {
@@ -9,11 +11,12 @@ namespace SFAS.Services.Interfaces
         Task<FacilityDto> GetFacility(Guid id);
         Task DeleteFacility(Guid id);
         Task<LocationDto> GetLocation(Guid id);
-        Task<IEnumerable<FacilityWithIdDto>> SearchFacilities(FacilitySearchRequest request);
+        IEnumerable<FacilityWithIdDto> SearchFacilities(DataSourceRequest request);
+        IEnumerable<FacilityWithIdDto> SearchFacilitiesAdmin(DataSourceRequest request);
         Task<LocationDto> GetLocationsList();
         Task HideFacility(Guid id);
         Task UnhideFacility(Guid id);
         Task UploadGroupOfFacilities(byte[] file);
-        Task<byte[]> DownloadReport();
+        Task<FileStreamResult> DownloadReport();
     }
 }

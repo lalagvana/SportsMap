@@ -1,4 +1,6 @@
-﻿using Kendo.DynamicLinqCore;
+﻿using System.Net;
+using Kendo.DynamicLinqCore;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SFAS.Common.Models;
 using SFAS.Common.Models.Admin;
@@ -24,7 +26,8 @@ namespace SFAS.API.Controllers
         }
 
         [HttpPost]
-        [Route("auth")]
+        [Route("login")]
+        [AllowAnonymous]
         public async Task<ActionResult<LoginResponse>> AuthAdmin(LoginRequest request)
         {
             return await _authService.Authenticate(request);
@@ -76,7 +79,7 @@ namespace SFAS.API.Controllers
 
         [HttpPost]
         [Route("facility/downloadReport")]
-        public async Task<ActionResult<byte[]>> DownloadReport()
+        public async Task<FileStreamResult> DownloadReport()
         {
             return await _facilityService.DownloadReport();
         }

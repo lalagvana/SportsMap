@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
+using Serilog;
 using SFAS.Common;
 using SFAS.Database;
 using SFAS.Database.Entities;
@@ -17,6 +18,11 @@ namespace SFAS.API
                 .AddJsonFile("appsettings.development.json", true)
 #endif
                 .Build();
+
+            //Initialize Logger
+            Log.Logger = new LoggerConfiguration()
+                .ReadFrom.Configuration(config)
+                .CreateLogger();
 
             var host = CreateHostBuilder(args).Build();
             using (var scope = host.Services.CreateScope())
@@ -36,7 +42,7 @@ namespace SFAS.API
                     logger.LogError(ex, "An error occurred while seeding the database.");
                 }
             }
-            host.Run();
+            await host.RunAsync();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
