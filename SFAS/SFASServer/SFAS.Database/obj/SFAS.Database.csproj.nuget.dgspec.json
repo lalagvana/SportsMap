@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS.Database\\SFAS.Database.csproj": {}
+    "D:\\SportMap\\SFAS\\SFASServer\\SFAS.Database\\SFAS.Database.csproj": {}
   },
   "projects": {
-    "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS.Database\\SFAS.Database.csproj": {
+    "D:\\SportMap\\SFAS\\SFASServer\\SFAS.Database\\SFAS.Database.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS.Database\\SFAS.Database.csproj",
+        "projectUniqueName": "D:\\SportMap\\SFAS\\SFASServer\\SFAS.Database\\SFAS.Database.csproj",
         "projectName": "SFAS.Database",
-        "projectPath": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS.Database\\SFAS.Database.csproj",
+        "projectPath": "D:\\SportMap\\SFAS\\SFASServer\\SFAS.Database\\SFAS.Database.csproj",
         "packagesPath": "C:\\Users\\lalagvana\\.nuget\\packages\\",
-        "outputPath": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS.Database\\obj\\",
+        "outputPath": "D:\\SportMap\\SFAS\\SFASServer\\SFAS.Database\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lalagvana\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS\\SFAS.Common\\SFAS.Common.csproj": {
-                "projectPath": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS\\SFAS.Common\\SFAS.Common.csproj"
+              "D:\\SportMap\\SFAS\\SFASServer\\SFAS\\SFAS.Common\\SFAS.Common.csproj": {
+                "projectPath": "D:\\SportMap\\SFAS\\SFASServer\\SFAS\\SFAS.Common\\SFAS.Common.csproj"
               }
             }
           }
@@ -86,14 +86,14 @@
         }
       }
     },
-    "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS\\SFAS.Common\\SFAS.Common.csproj": {
+    "D:\\SportMap\\SFAS\\SFASServer\\SFAS\\SFAS.Common\\SFAS.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS\\SFAS.Common\\SFAS.Common.csproj",
+        "projectUniqueName": "D:\\SportMap\\SFAS\\SFASServer\\SFAS\\SFAS.Common\\SFAS.Common.csproj",
         "projectName": "SFAS.Common",
-        "projectPath": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS\\SFAS.Common\\SFAS.Common.csproj",
+        "projectPath": "D:\\SportMap\\SFAS\\SFASServer\\SFAS\\SFAS.Common\\SFAS.Common.csproj",
         "packagesPath": "C:\\Users\\lalagvana\\.nuget\\packages\\",
-        "outputPath": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS\\SFAS.Common\\obj\\",
+        "outputPath": "D:\\SportMap\\SFAS\\SFASServer\\SFAS\\SFAS.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lalagvana\\AppData\\Roaming\\NuGet\\NuGet.Config",

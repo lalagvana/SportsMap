@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NKLYGQorcNFTJjfCTdpRxT2PyDGyOQRz3pcfsOw9QelC8RffTSrO856hZ86dzGgIRhjdMOwVQtHbFvC1MONzXA==",
+  "dgSpecHash": "USFM7kcfWLm4cwExU8D3bPSEoUs6MmnzAPfAihn4DbT/GgOccnJbDC3w57frXAq1Wa+iKAZ9SYSKU7ChEJa8oA==",
   "success": true,
-  "projectFilePath": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS\\SFAS.Common\\SFAS.Common.csproj",
+  "projectFilePath": "D:\\SportMap\\SFAS\\SFASServer\\SFAS\\SFAS.Common\\SFAS.Common.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lalagvana\\.nuget\\packages\\entityframework\\6.3.0\\entityframework.6.3.0.nupkg.sha512",
     "C:\\Users\\lalagvana\\.nuget\\packages\\kendo.dynamiclinqcore\\3.1.1\\kendo.dynamiclinqcore.3.1.1.nupkg.sha512",
