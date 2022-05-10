@@ -3,17 +3,16 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SFAS.Database.Entities;
+using SFAS.Database.Interfaces;
 
 namespace SFAS.Database
 {
-    public sealed class ApplicationDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
+    public class ApplicationDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid, IdentityUserClaim<Guid>, UserRole, IdentityUserLogin<Guid>, IdentityRoleClaim<Guid>, IdentityUserToken<Guid>>
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
         private static bool _checkedForMigrations;
 
-#pragma warning disable CS8618
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IHttpContextAccessor httpContextAccessor)
-#pragma warning restore CS8618
             : base(options)
         {
             _httpContextAccessor = httpContextAccessor;
@@ -23,16 +22,30 @@ namespace SFAS.Database
                 Database.Migrate();
             }
         }
-
-        public DbSet<Document> Documents { get; set; }
-        public DbSet<Address> Addresses { get; set; }
-        public DbSet<Owner> Owners { get; set; }
-        public DbSet<SportsFacility> SportsFacilities { get; set; }
-        public DbSet<EmailSubscriber> EmailSubscribers { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserRole> UserRoles { get; set; }
+        public virtual DbSet<Document> Documents { get; set; }
+        public virtual DbSet<Address> Addresses { get; set; }
+        public virtual DbSet<Owner> Owners { get; set; }
+        public virtual DbSet<SportsFacility> SportsFacilities { get; set; }
+        public virtual DbSet<EmailSubscriber> EmailSubscribers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<UserRole>()
+                .HasOne<User>()
+                .WithMany(u => u.UserRoles)
+                .HasForeignKey(x => x.UserId).IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<UserRole>()
+                .HasOne(e => e.Role)
+                .WithMany()
+                .HasForeignKey(e => e.RoleId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<User>()
                 .HasOne(x => x.CreatedBy)
@@ -58,6 +71,36 @@ namespace SFAS.Database
                 .HasOne(x => x.Address)
                 .WithMany(x => x.Facilities)
                 .HasForeignKey(x => x.AddressId);
+        }
+
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            Guid? userId = null;
+            if (_httpContextAccessor.HttpContext != null)
+            {
+                userId = Set<User>().FirstOrDefault(x => _httpContextAccessor.HttpContext.User.Identity != null && x.Email == _httpContextAccessor.HttpContext.User.Identity.Name)?.Id;
+            }
+
+            foreach (var addedEntity in ChangeTracker.Entries<ICreated>().Where(x => x.State == EntityState.Added))
+            {
+                addedEntity.Entity.CreatedAt = DateTime.UtcNow;
+                addedEntity.Entity.CreatedByID = userId;
+            }
+
+            foreach (var modifiedEntity in ChangeTracker.Entries<IModified>().Where(x => x.State == EntityState.Modified))
+            {
+                modifiedEntity.Entity.ModifiedAt = DateTime.UtcNow;
+                modifiedEntity.Entity.ModifiedByID = userId;
+            }
+
+            foreach (var deletedEntity in ChangeTracker.Entries<IDeleted>().Where(x => x.State == EntityState.Deleted))
+            {
+                deletedEntity.Entity.DeletedAt = DateTime.UtcNow;
+                deletedEntity.Entity.DeletedByID = userId;
+                deletedEntity.State = EntityState.Modified;
+            }
+
+            return await base.SaveChangesAsync(cancellationToken);
         }
     }
 }

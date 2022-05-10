@@ -72,7 +72,7 @@ namespace SFAS.API.Controllers
 
         [HttpPost]
         [Route("facility/uploadGroup")]
-        public async Task UploadGroupOfFacilities(byte[] file)
+        public async Task UploadGroupOfFacilities(IFormFile file)
         {
             await _facilityService.UploadGroupOfFacilities(file);
         }

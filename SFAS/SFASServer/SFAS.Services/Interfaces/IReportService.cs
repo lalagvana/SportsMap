@@ -5,6 +5,7 @@ namespace SFAS.Services.Interfaces
 {
     public interface IReportService
     {
-        Task<FileStreamResult> GenerateReport(SportsFacility[] items);
+        Task<FileStreamResult> GenerateReportAsync(IEnumerable<SportsFacility> items);
+        Task<IEnumerable<SportsFacility>> UploadFromReport(Stream content);
     }
 }

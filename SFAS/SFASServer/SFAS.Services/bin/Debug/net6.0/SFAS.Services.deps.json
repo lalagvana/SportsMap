@@ -11,7 +11,8 @@
           "AutoMapper": "11.0.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "Base62": "1.2.0",
-          "GemBox.Spreadsheet": "47.0.1418",
+          "Dadata": "21.12.0",
+          "EPPlus": "6.0.3",
           "Kendo.DynamicLinqCore": "3.1.1",
           "MailKit": "3.2.0",
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
@@ -19,7 +20,9 @@
           "Microsoft.AspNetCore.WebUtilities": "2.2.0",
           "Newtonsoft.Json": "13.0.1",
           "SFAS.Common": "1.0.0",
-          "SFAS.Database": "1.0.0"
+          "SFAS.Database": "1.0.0",
+          "Yandex.Geocoder.v2": "1.0.2",
+          "YandexGeocoder": "0.4.4"
         },
         "runtime": {
           "SFAS.Services.dll": {}
@@ -56,6 +59,17 @@
           }
         }
       },
+      "Dadata/21.12.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Dadata.dll": {
+            "assemblyVersion": "21.12.0.0",
+            "fileVersion": "21.12.0.0"
+          }
+        }
+      },
       "EntityFramework/6.4.4": {
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
@@ -75,23 +89,39 @@
           }
         }
       },
-      "GemBox.Spreadsheet/47.0.1418": {
+      "EPPlus/6.0.3": {
         "dependencies": {
-          "Portable.BouncyCastle": "1.9.0",
+          "EPPlus.Interfaces": "6.0.0",
+          "EPPlus.System.Drawing": "6.0.0",
+          "Microsoft.Extensions.Configuration.Json": "5.0.0",
+          "Microsoft.IO.RecyclableMemoryStream": "2.2.0",
+          "System.Security.Cryptography.Pkcs": "6.0.0",
           "System.Text.Encoding.CodePages": "5.0.0"
         },
         "runtime": {
-          "lib/netcoreapp3.1/GemBox.Spreadsheet.dll": {
-            "assemblyVersion": "47.0.0.1418",
-            "fileVersion": "47.0.310.1418"
+          "lib/net6.0/EPPlus.dll": {
+            "assemblyVersion": "6.0.3.0",
+            "fileVersion": "6.0.3.0"
           }
+        }
+      },
+      "EPPlus.Interfaces/6.0.0": {
+        "runtime": {
+          "lib/net6.0/EPPlus.Interfaces.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.0.0"
+          }
+        }
+      },
+      "EPPlus.System.Drawing/6.0.0": {
+        "dependencies": {
+          "EPPlus.Interfaces": "6.0.0",
+          "System.Drawing.Common": "5.0.0"
         },
-        "runtimeTargets": {
-          "runtimes/unix/lib/netcoreapp3.1/GemBox.Spreadsheet.dll": {
-            "rid": "unix",
-            "assetType": "runtime",
-            "assemblyVersion": "47.0.0.1418",
-            "fileVersion": "47.0.200.1418"
+        "runtime": {
+          "lib/net6.0/EPPlus.System.Drawing.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.0.0"
           }
         }
       },
@@ -262,7 +292,7 @@
       "Microsoft.AspNetCore.Http.Extensions/2.2.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
-          "Microsoft.Extensions.FileProviders.Abstractions": "2.2.0",
+          "Microsoft.Extensions.FileProviders.Abstractions": "5.0.0",
           "Microsoft.Net.Http.Headers": "2.2.0",
           "System.Buffers": "4.5.0"
         },
@@ -321,7 +351,7 @@
           "Microsoft.AspNetCore.Routing.Abstractions": "2.2.0",
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
           "Microsoft.Extensions.DependencyModel": "2.1.0",
-          "Microsoft.Extensions.FileProviders.Abstractions": "2.2.0",
+          "Microsoft.Extensions.FileProviders.Abstractions": "5.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
           "System.Diagnostics.DiagnosticSource": "6.0.0",
           "System.Threading.Tasks.Extensions": "4.5.1"
@@ -535,6 +565,18 @@
           }
         }
       },
+      "Microsoft.Extensions.Configuration/5.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Primitives": "6.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
+          }
+        }
+      },
       "Microsoft.Extensions.Configuration.Abstractions/6.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "6.0.0"
@@ -543,6 +585,35 @@
           "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.0.21.52210"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration.FileExtensions/5.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "5.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
+          "Microsoft.Extensions.FileProviders.Abstractions": "5.0.0",
+          "Microsoft.Extensions.FileProviders.Physical": "5.0.0",
+          "Microsoft.Extensions.Primitives": "6.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.FileExtensions.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration.Json/5.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "5.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Configuration.FileExtensions": "5.0.0",
+          "Microsoft.Extensions.FileProviders.Abstractions": "5.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Extensions.Configuration.Json.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
           }
         }
       },
@@ -581,14 +652,35 @@
           }
         }
       },
-      "Microsoft.Extensions.FileProviders.Abstractions/2.2.0": {
+      "Microsoft.Extensions.FileProviders.Abstractions/5.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "6.0.0"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {
-            "assemblyVersion": "2.2.0.0",
-            "fileVersion": "2.2.0.18315"
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
+          }
+        }
+      },
+      "Microsoft.Extensions.FileProviders.Physical/5.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.FileProviders.Abstractions": "5.0.0",
+          "Microsoft.Extensions.FileSystemGlobbing": "5.0.0",
+          "Microsoft.Extensions.Primitives": "6.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Physical.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
+          }
+        }
+      },
+      "Microsoft.Extensions.FileSystemGlobbing/5.0.0": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
           }
         }
       },
@@ -596,7 +688,7 @@
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
-          "Microsoft.Extensions.FileProviders.Abstractions": "2.2.0",
+          "Microsoft.Extensions.FileProviders.Abstractions": "5.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "6.0.0"
         },
         "runtime": {
@@ -750,6 +842,14 @@
           }
         }
       },
+      "Microsoft.IO.RecyclableMemoryStream/2.2.0": {
+        "runtime": {
+          "lib/net5.0/Microsoft.IO.RecyclableMemoryStream.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
       "Microsoft.Net.Http.Headers/2.2.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "6.0.0",
@@ -770,22 +870,22 @@
           "System.Security.Principal.Windows": "4.7.0"
         }
       },
-      "Microsoft.Win32.SystemEvents/4.7.0": {
+      "Microsoft.Win32.SystemEvents/5.0.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {
-            "assemblyVersion": "4.0.2.0",
-            "fileVersion": "4.700.19.56404"
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
           }
         },
         "runtimeTargets": {
           "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll": {
             "rid": "win",
             "assetType": "runtime",
-            "assemblyVersion": "4.0.2.0",
-            "fileVersion": "4.700.19.56404"
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
           }
         }
       },
@@ -814,6 +914,14 @@
           "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
             "assemblyVersion": "1.9.0.0",
             "fileVersion": "1.9.0.1"
+          }
+        }
+      },
+      "RestSharp/106.3.1": {
+        "runtime": {
+          "lib/netstandard2.0/RestSharp.dll": {
+            "assemblyVersion": "106.3.1.0",
+            "fileVersion": "106.3.1.3"
           }
         }
       },
@@ -935,29 +1043,28 @@
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         }
       },
-      "System.Drawing.Common/4.7.0": {
+      "System.Drawing.Common/5.0.0": {
         "dependencies": {
-          "Microsoft.NETCore.Platforms": "5.0.0",
-          "Microsoft.Win32.SystemEvents": "4.7.0"
+          "Microsoft.Win32.SystemEvents": "5.0.0"
         },
         "runtime": {
-          "lib/netstandard2.0/System.Drawing.Common.dll": {
-            "assemblyVersion": "4.0.0.1",
-            "fileVersion": "4.6.26919.2"
+          "lib/netcoreapp3.0/System.Drawing.Common.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
           }
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll": {
             "rid": "unix",
             "assetType": "runtime",
-            "assemblyVersion": "4.0.2.0",
-            "fileVersion": "4.700.19.56404"
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
           },
           "runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll": {
             "rid": "win",
             "assetType": "runtime",
-            "assemblyVersion": "4.0.2.0",
-            "fileVersion": "4.700.19.56404"
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
           }
         }
       },
@@ -1281,7 +1388,7 @@
       "System.Threading.Tasks.Extensions/4.5.1": {},
       "System.Windows.Extensions/4.7.0": {
         "dependencies": {
-          "System.Drawing.Common": "4.7.0"
+          "System.Drawing.Common": "5.0.0"
         },
         "runtime": {
           "lib/netcoreapp3.0/System.Windows.Extensions.dll": {
@@ -1295,6 +1402,25 @@
             "assetType": "runtime",
             "assemblyVersion": "4.0.1.0",
             "fileVersion": "4.700.19.56404"
+          }
+        }
+      },
+      "Yandex.Geocoder.v2/1.0.2": {
+        "dependencies": {
+          "RestSharp": "106.3.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Yandex.Geocoder.dll": {
+            "assemblyVersion": "1.0.0.2",
+            "fileVersion": "1.0.0.2"
+          }
+        }
+      },
+      "YandexGeocoder/0.4.4": {
+        "runtime": {
+          "lib/netstandard2.0/YandexGeocoder.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -1349,6 +1475,13 @@
       "path": "base62/1.2.0",
       "hashPath": "base62.1.2.0.nupkg.sha512"
     },
+    "Dadata/21.12.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-e4Hnlz5j2cz2L5YQnOs2FfbjN5OfJUBf+oljx4WNK2BAbdPm8ior8ZpgmkPnlIgL1psy+se71Dqc0rfQAcTPTw==",
+      "path": "dadata/21.12.0",
+      "hashPath": "dadata.21.12.0.nupkg.sha512"
+    },
     "EntityFramework/6.4.4": {
       "type": "package",
       "serviceable": true,
@@ -1356,12 +1489,26 @@
       "path": "entityframework/6.4.4",
       "hashPath": "entityframework.6.4.4.nupkg.sha512"
     },
-    "GemBox.Spreadsheet/47.0.1418": {
+    "EPPlus/6.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-vuYGOtHdHze3lO5u65BA6Ammu47NBJvS86EHskVj3T87UoZ26cpzWtwfnx1RuKnzrJJ1tFYZalIJya0bivqidg==",
-      "path": "gembox.spreadsheet/47.0.1418",
-      "hashPath": "gembox.spreadsheet.47.0.1418.nupkg.sha512"
+      "sha512": "sha512-FepVNAluA58cFZ7grhULpPFMA7lYWx3CZtyj1ZbwyzN2rkecpLJfueDVmDgXpwCC/0BNKj/4rdpPAafFMK1kpQ==",
+      "path": "epplus/6.0.3",
+      "hashPath": "epplus.6.0.3.nupkg.sha512"
+    },
+    "EPPlus.Interfaces/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xCvJjw2dwhWnM20JiSRfgZbZzOLtpoSAQLWF6FD/VoT7CHR879yP7GxhSShsdTfmGeXVsWatbDZCVLbBVQCNeQ==",
+      "path": "epplus.interfaces/6.0.0",
+      "hashPath": "epplus.interfaces.6.0.0.nupkg.sha512"
+    },
+    "EPPlus.System.Drawing/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RbKLgqQ0O/X3QJS/sx7B3KiOhEnwIM3b8+lUoJ6suYWrrI8N8vLcqGozeiW21us5qzmzaWNw9bVw/vlIfAa/lw==",
+      "path": "epplus.system.drawing/6.0.0",
+      "hashPath": "epplus.system.drawing.6.0.0.nupkg.sha512"
     },
     "Kendo.DynamicLinqCore/3.1.1": {
       "type": "package",
@@ -1601,12 +1748,33 @@
       "path": "microsoft.extensions.caching.memory/6.0.1",
       "hashPath": "microsoft.extensions.caching.memory.6.0.1.nupkg.sha512"
     },
+    "Microsoft.Extensions.Configuration/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LN322qEKHjuVEhhXueTUe7RNePooZmS8aGid5aK2woX3NPjSnONFyKUc6+JknOS6ce6h2tCLfKPTBXE3mN/6Ag==",
+      "path": "microsoft.extensions.configuration/5.0.0",
+      "hashPath": "microsoft.extensions.configuration.5.0.0.nupkg.sha512"
+    },
     "Microsoft.Extensions.Configuration.Abstractions/6.0.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-qWzV9o+ZRWq+pGm+1dF+R7qTgTYoXvbyowRoBxQJGfqTpqDun2eteerjRQhq5PQ/14S+lqto3Ft4gYaRyl4rdQ==",
       "path": "microsoft.extensions.configuration.abstractions/6.0.0",
       "hashPath": "microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration.FileExtensions/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rRdspYKA18ViPOISwAihhCMbusHsARCOtDMwa23f+BGEdIjpKPlhs3LLjmKlxfhpGXBjIsS0JpXcChjRUN+PAw==",
+      "path": "microsoft.extensions.configuration.fileextensions/5.0.0",
+      "hashPath": "microsoft.extensions.configuration.fileextensions.5.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration.Json/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Pak8ymSUfdzPfBTLHxeOwcR32YDbuVfhnH2hkfOLnJNQd19ItlBdpMjIDY9C5O/nS2Sn9bzDMai0ZrvF7KyY/Q==",
+      "path": "microsoft.extensions.configuration.json/5.0.0",
+      "hashPath": "microsoft.extensions.configuration.json.5.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.DependencyInjection/6.0.0": {
       "type": "package",
@@ -1629,12 +1797,26 @@
       "path": "microsoft.extensions.dependencymodel/2.1.0",
       "hashPath": "microsoft.extensions.dependencymodel.2.1.0.nupkg.sha512"
     },
-    "Microsoft.Extensions.FileProviders.Abstractions/2.2.0": {
+    "Microsoft.Extensions.FileProviders.Abstractions/5.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-EcnaSsPTqx2MGnHrmWOD0ugbuuqVT8iICqSqPzi45V5/MA1LjUNb0kwgcxBGqizV1R+WeBK7/Gw25Jzkyk9bIw==",
-      "path": "microsoft.extensions.fileproviders.abstractions/2.2.0",
-      "hashPath": "microsoft.extensions.fileproviders.abstractions.2.2.0.nupkg.sha512"
+      "sha512": "sha512-iuZIiZ3mteEb+nsUqpGXKx2cGF+cv6gWPd5jqQI4hzqdiJ6I94ddLjKhQOuRW1lueHwocIw30xbSHGhQj0zjdQ==",
+      "path": "microsoft.extensions.fileproviders.abstractions/5.0.0",
+      "hashPath": "microsoft.extensions.fileproviders.abstractions.5.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.FileProviders.Physical/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1rkd8UO2qf21biwO7X0hL9uHP7vtfmdv/NLvKgCRHkdz1XnW8zVQJXyEYiN68WYpExgtVWn55QF0qBzgfh1mGg==",
+      "path": "microsoft.extensions.fileproviders.physical/5.0.0",
+      "hashPath": "microsoft.extensions.fileproviders.physical.5.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.FileSystemGlobbing/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ArliS8lGk8sWRtrWpqI8yUVYJpRruPjCDT+EIjrgkA/AAPRctlAkRISVZ334chAKktTLzD1+PK8F5IZpGedSqA==",
+      "path": "microsoft.extensions.filesystemglobbing/5.0.0",
+      "hashPath": "microsoft.extensions.filesystemglobbing.5.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Hosting.Abstractions/2.2.0": {
       "type": "package",
@@ -1734,6 +1916,13 @@
       "path": "microsoft.identitymodel.tokens/6.8.0",
       "hashPath": "microsoft.identitymodel.tokens.6.8.0.nupkg.sha512"
     },
+    "Microsoft.IO.RecyclableMemoryStream/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uyjY/cqomw1irT4L7lDeg4sJ36MsjHg3wKqpGrBAdzvZaxo85yMF+sAA9RIzTV92fDxuUzjqksMqA0+SNMkMgA==",
+      "path": "microsoft.io.recyclablememorystream/2.2.0",
+      "hashPath": "microsoft.io.recyclablememorystream.2.2.0.nupkg.sha512"
+    },
     "Microsoft.Net.Http.Headers/2.2.0": {
       "type": "package",
       "serviceable": true,
@@ -1762,12 +1951,12 @@
       "path": "microsoft.win32.registry/4.7.0",
       "hashPath": "microsoft.win32.registry.4.7.0.nupkg.sha512"
     },
-    "Microsoft.Win32.SystemEvents/4.7.0": {
+    "Microsoft.Win32.SystemEvents/5.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-mtVirZr++rq+XCDITMUdnETD59XoeMxSpLRIII7JRI6Yj0LEDiO1pPn0ktlnIj12Ix8bfvQqQDMMIF9wC98oCA==",
-      "path": "microsoft.win32.systemevents/4.7.0",
-      "hashPath": "microsoft.win32.systemevents.4.7.0.nupkg.sha512"
+      "sha512": "sha512-Bh6blKG8VAKvXiLe2L+sEsn62nc1Ij34MrNxepD2OCrS5cpCwQa9MeLyhVQPQ/R4Wlzwuy6wMK8hLb11QPDRsQ==",
+      "path": "microsoft.win32.systemevents/5.0.0",
+      "hashPath": "microsoft.win32.systemevents.5.0.0.nupkg.sha512"
     },
     "MimeKit/3.2.0": {
       "type": "package",
@@ -1789,6 +1978,13 @@
       "sha512": "sha512-eZZBCABzVOek+id9Xy04HhmgykF0wZg9wpByzrWN7q8qEI0Qen9b7tfd7w8VA3dOeesumMG7C5ZPy0jk7PSRHw==",
       "path": "portable.bouncycastle/1.9.0",
       "hashPath": "portable.bouncycastle.1.9.0.nupkg.sha512"
+    },
+    "RestSharp/106.3.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TmlN7SXjK52zzpQDTuzw7IH3XQ2Svtss/4zvQBKIgf74QIVxvlxoAqQYu1EhNQ1bMSBIQ4aK120BO7W+v8/kiQ==",
+      "path": "restsharp/106.3.1",
+      "hashPath": "restsharp.106.3.1.nupkg.sha512"
     },
     "runtime.native.System/4.0.0": {
       "type": "package",
@@ -1895,12 +2091,12 @@
       "path": "system.diagnostics.diagnosticsource/6.0.0",
       "hashPath": "system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512"
     },
-    "System.Drawing.Common/4.7.0": {
+    "System.Drawing.Common/5.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-v+XbyYHaZjDfn0ENmJEV1VYLgGgCTx1gnfOBcppowbpOAriglYgGCvFCPr2EEZyBvXlpxbEsTwkOlInl107ahA==",
-      "path": "system.drawing.common/4.7.0",
-      "hashPath": "system.drawing.common.4.7.0.nupkg.sha512"
+      "sha512": "sha512-SztFwAnpfKC8+sEKXAFxCBWhKQaEd97EiOL7oZJZP56zbqnLpmxACWA8aGseaUExciuEAUuR9dY8f7HkTRAdnw==",
+      "path": "system.drawing.common/5.0.0",
+      "hashPath": "system.drawing.common.5.0.0.nupkg.sha512"
     },
     "System.Dynamic.Runtime/4.0.11": {
       "type": "package",
@@ -2174,6 +2370,20 @@
       "sha512": "sha512-CeWTdRNfRaSh0pm2gDTJFwVaXfTq6Xwv/sA887iwPTneW7oMtMlpvDIO+U60+3GWTB7Aom6oQwv5VZVUhQRdPQ==",
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
+    },
+    "Yandex.Geocoder.v2/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YOXZ7MWFXC4EZc4sV4p16DXK2T3PgBoHeYIJ5xYBNQ+Vy6VPzI4CZ/ReGIkfhd/AOWk07jy9K4eDxxzq/+kpNA==",
+      "path": "yandex.geocoder.v2/1.0.2",
+      "hashPath": "yandex.geocoder.v2.1.0.2.nupkg.sha512"
+    },
+    "YandexGeocoder/0.4.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VjA6mqMLoTNAZ4H6ZaGgubWmHM2FPzqHjtNNejOqsRw2m1QXW+6qkhlpPqgw4GRutjPScpINnajvJFQtcN6IgA==",
+      "path": "yandexgeocoder/0.4.4",
+      "hashPath": "yandexgeocoder.0.4.4.nupkg.sha512"
     },
     "SFAS.Common/1.0.0": {
       "type": "project",

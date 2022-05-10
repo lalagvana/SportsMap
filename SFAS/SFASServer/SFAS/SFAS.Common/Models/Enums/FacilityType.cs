@@ -7,7 +7,7 @@
         Pool,
         SkatingRink,
         Shooting,
-        Outdoor,
-        Other
+        Other,
+        Outdoor
     }
 }

@@ -8,6 +8,7 @@ using SFAS.Database;
 using SFAS.Database.Entities;
 using SFAS.Services.Interfaces;
 using System.Data.Entity;
+using Microsoft.AspNetCore.Http;
 
 namespace SFAS.Services.Services
 {
@@ -34,10 +35,11 @@ namespace SFAS.Services.Services
         {
             var facility = _mapper.Map<SportsFacility>(request);
             facility.FacilityId = new Guid();
-
+            facility.AddressId = Guid.NewGuid();
+            await _db.Addresses.AddAsync(new Address() { AddressId = facility.AddressId, AddressString = "fwefwe" , AdmArea = "da", Coordinates = "vsfew", District = "dew", GeoData = "sax", Latitude_WGS84 = "xqw", Longitude_WGS84 = "cwecew"});
             await _db.SportsFacilities.AddAsync(facility);
+            await _db.SaveChangesAsync();
             _logger.LogInformation($"Sports facility {request.Name} created successfully");
-
             return _mapper.Map<FacilityWithIdDto>(facility);
         }
 
@@ -46,6 +48,7 @@ namespace SFAS.Services.Services
             var facility = _mapper.Map<SportsFacility>(request);
 
             var facilityDb = _db.SportsFacilities.Update(facility);
+            await _db.SaveChangesAsync();
             _logger.LogInformation($"Sports facility {request.Name} updated successfully");
 
             return _mapper.Map<FacilityWithIdDto>(facilityDb.Entity);
@@ -60,6 +63,7 @@ namespace SFAS.Services.Services
         {
             var facility = await _db.SportsFacilities.FirstOrDefaultAsync(f => f.FacilityId == id);
             _db.SportsFacilities.Remove(facility);
+            await _db.SaveChangesAsync();
             _logger.LogInformation($"Sports facility {facility.Name} deleted successfully");
         }
 
@@ -87,7 +91,8 @@ namespace SFAS.Services.Services
         {
             var facility = await _db.SportsFacilities.FirstOrDefaultAsync(f => f.FacilityId == id);
             facility.Hidden = true;
-            _db.SportsFacilities.Update(facility);
+            _db.SportsFacilities.Update(facility); 
+            await _db.SaveChangesAsync();
             _logger.LogInformation($"Sports facility {facility.Name} hidden successfully");
         }
 
@@ -96,17 +101,20 @@ namespace SFAS.Services.Services
             var facility = await _db.SportsFacilities.FirstOrDefaultAsync(f => f.FacilityId == id);
             facility.Hidden = false;
             _db.SportsFacilities.Update(facility);
+            await _db.SaveChangesAsync();
             _logger.LogInformation($"Sports facility {facility.Name} hidden successfully");
         }
 
-        public async Task UploadGroupOfFacilities(byte[] file)
+        public async Task UploadGroupOfFacilities(IFormFile file)
         {
-            throw new NotImplementedException();
+            var facilities = await _reportService.UploadFromReport(file.OpenReadStream());
+
+            await _db.SportsFacilities.AddRangeAsync(facilities);
         }
 
         public async Task<FileStreamResult> DownloadReport()
         {
-            return await _reportService.GenerateReport(await _db.SportsFacilities.Where(x => !x.DeletedAt.HasValue).ToArrayAsync());
+            return await _reportService.GenerateReportAsync(_db.SportsFacilities.Where(x => !x.DeletedAt.HasValue));
         }
     }
 }

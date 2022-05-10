@@ -8,11 +8,11 @@ namespace SFAS.API.Controllers
 {
     [ApiController]
     [Route("/api/facility")]
-    public class PatientsController : ControllerBase
+    public class FacilityController : ControllerBase
     {
         private readonly IFacilityService _facilityService;
 
-        public PatientsController(IFacilityService facilityService)
+        public FacilityController(IFacilityService facilityService)
         {
             _facilityService = facilityService;
         }

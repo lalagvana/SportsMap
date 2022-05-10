@@ -23,7 +23,7 @@ namespace SFAS.Database.Entities
         public Guid? DeletedByID { get; set; }
         public virtual User DeletedBy { get; set; }
         public DateTime? DeletedAt { get; set; }
-
+        public virtual ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
         public virtual ICollection<User> CreatedUsers { get; set; } = new HashSet<User>();
         public virtual ICollection<User> ModifiedUsers { get; set; } = new HashSet<User>();
         public virtual ICollection<User> DeletedUsers { get; set; } = new HashSet<User>();

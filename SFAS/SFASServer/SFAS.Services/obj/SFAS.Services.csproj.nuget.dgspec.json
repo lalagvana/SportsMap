@@ -141,9 +141,13 @@
               "target": "Package",
               "version": "[1.2.0, )"
             },
-            "GemBox.Spreadsheet": {
+            "Dadata": {
               "target": "Package",
-              "version": "[47.0.1418, )"
+              "version": "[21.12.0, )"
+            },
+            "EPPlus": {
+              "target": "Package",
+              "version": "[6.0.3, )"
             },
             "Kendo.DynamicLinqCore": {
               "target": "Package",
@@ -168,6 +172,14 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"
+            },
+            "Yandex.Geocoder.v2": {
+              "target": "Package",
+              "version": "[1.0.2, )"
+            },
+            "YandexGeocoder": {
+              "target": "Package",
+              "version": "[0.4.4, )"
             }
           },
           "imports": [

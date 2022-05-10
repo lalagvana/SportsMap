@@ -119,21 +119,6 @@ namespace SFAS.Database.Migrations
                     b.ToTable("AspNetUserLogins", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
-                {
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("RoleId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("UserId", "RoleId");
-
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("AspNetUserRoles", (string)null);
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
                 {
                     b.Property<Guid>("UserId")
@@ -358,7 +343,6 @@ namespace SFAS.Database.Migrations
                         .HasColumnType("float");
 
                     b.Property<Guid?>("DocumentId")
-                        .IsRequired()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int?>("EPS")
@@ -399,7 +383,6 @@ namespace SFAS.Database.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid?>("OwnerId")
-                        .IsRequired()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int?>("PayingType")
@@ -410,7 +393,6 @@ namespace SFAS.Database.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("Photo")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<int>("PropertyForm")
@@ -547,6 +529,21 @@ namespace SFAS.Database.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("SFAS.Database.Entities.UserRole", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", null)
@@ -567,21 +564,6 @@ namespace SFAS.Database.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
                 {
-                    b.HasOne("SFAS.Database.Entities.User", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", null)
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("SFAS.Database.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
@@ -679,9 +661,7 @@ namespace SFAS.Database.Migrations
 
                     b.HasOne("SFAS.Database.Entities.Document", "Document")
                         .WithMany("Facilities")
-                        .HasForeignKey("DocumentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DocumentId");
 
                     b.HasOne("SFAS.Database.Entities.User", "ModifiedBy")
                         .WithMany()
@@ -689,9 +669,7 @@ namespace SFAS.Database.Migrations
 
                     b.HasOne("SFAS.Database.Entities.Owner", "Owner")
                         .WithMany("Facilities")
-                        .HasForeignKey("OwnerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OwnerId");
 
                     b.Navigation("Address");
 
@@ -727,6 +705,23 @@ namespace SFAS.Database.Migrations
                     b.Navigation("ModifiedBy");
                 });
 
+            modelBuilder.Entity("SFAS.Database.Entities.UserRole", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SFAS.Database.Entities.User", null)
+                        .WithMany("UserRoles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+                });
+
             modelBuilder.Entity("SFAS.Database.Entities.Address", b =>
                 {
                     b.Navigation("Facilities");
@@ -749,6 +744,8 @@ namespace SFAS.Database.Migrations
                     b.Navigation("DeletedUsers");
 
                     b.Navigation("ModifiedUsers");
+
+                    b.Navigation("UserRoles");
                 });
 #pragma warning restore 612, 618
         }

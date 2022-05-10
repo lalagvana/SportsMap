@@ -1,4 +1,5 @@
 ﻿using Kendo.DynamicLinqCore;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SFAS.Common.Models.Facility;
 
@@ -16,7 +17,7 @@ namespace SFAS.Services.Interfaces
         Task<LocationDto> GetLocationsList();
         Task HideFacility(Guid id);
         Task UnhideFacility(Guid id);
-        Task UploadGroupOfFacilities(byte[] file);
+        Task UploadGroupOfFacilities(IFormFile file);
         Task<FileStreamResult> DownloadReport();
     }
 }
