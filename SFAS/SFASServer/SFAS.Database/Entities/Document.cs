@@ -9,14 +9,11 @@ namespace SFAS.Database.Entities
         [Required]
         public Guid DocumentId { get; set; }
 
-        [Required]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
-        [Required]
-        public string Link { get; set; }
+        public string? Link { get; set; }
 
-        [Required]
-        public byte[] Content { get; set; }
+        public byte[]? Content { get; set; }
 
         public virtual ICollection<SportsFacility> Facilities { get; set; } = new HashSet<SportsFacility>();
     }

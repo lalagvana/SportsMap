@@ -16,11 +16,11 @@ namespace SFAS.Database.Entities
         public string Name { get; set; }
 
         [Required]
-        public Guid AddressId { get; set; }
+        public Guid? AddressId { get; set; }
 
         public Guid? OwnerId { get; set; }
 
-        public int PropertyForm { get; set; }
+        public int? PropertyForm { get; set; }
 
         public double? Length { get; set; }
 
@@ -28,13 +28,13 @@ namespace SFAS.Database.Entities
 
         public double? Area { get; set; }
 
-        public long? ActualWorkload { get; set; }
+        public int? ActualWorkload { get; set; }
 
-        public long? AnnualCapacity { get; set; }
+        public int? AnnualCapacity { get; set; }
 
         public Guid? DocumentId { get; set; }
 
-        public string Notes { get; set; }
+        public string? Notes { get; set; }
 
         public double? Height { get; set; }
 
@@ -50,13 +50,13 @@ namespace SFAS.Database.Entities
 
         public int? PayingType { get; set; }
 
-        public string WhoCanUse { get; set; }
+        public string? WhoCanUse { get; set; }
 
-        public string Link { get; set; }
+        public string? Link { get; set; }
 
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
 
-        public string OpenHours { get; set; }
+        public string? OpenHours { get; set; }
 
         public int? EPS { get; set; }
 

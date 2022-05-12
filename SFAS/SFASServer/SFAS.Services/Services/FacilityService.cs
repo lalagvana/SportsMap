@@ -31,19 +31,19 @@ namespace SFAS.Services.Services
             _db = db;
         }
 
-        public async Task<FacilityWithIdDto> CreateFacility(FacilityDto request)
+        public async Task<FacilityDto> CreateFacility(FacilityDto request)
         {
             var facility = _mapper.Map<SportsFacility>(request);
             facility.FacilityId = new Guid();
             facility.AddressId = Guid.NewGuid();
-            await _db.Addresses.AddAsync(new Address() { AddressId = facility.AddressId, AddressString = "fwefwe" , AdmArea = "da", Coordinates = "vsfew", District = "dew", GeoData = "sax", Latitude_WGS84 = "xqw", Longitude_WGS84 = "cwecew"});
+            //await _db.Addresses.AddAsync(new Address() { AddressId = facility.AddressId, AddressString = ""});
             await _db.SportsFacilities.AddAsync(facility);
             await _db.SaveChangesAsync();
             _logger.LogInformation($"Sports facility {request.Name} created successfully");
-            return _mapper.Map<FacilityWithIdDto>(facility);
+            return _mapper.Map<FacilityDto>(facility);
         }
 
-        public async Task<FacilityWithIdDto> UpdateFacility(Guid id, FacilityWithIdDto request)
+        public async Task<FacilityDto> UpdateFacility(Guid id, FacilityDto request)
         {
             var facility = _mapper.Map<SportsFacility>(request);
 
@@ -51,7 +51,7 @@ namespace SFAS.Services.Services
             await _db.SaveChangesAsync();
             _logger.LogInformation($"Sports facility {request.Name} updated successfully");
 
-            return _mapper.Map<FacilityWithIdDto>(facilityDb.Entity);
+            return _mapper.Map<FacilityDto>(facilityDb.Entity);
         }
 
         public async Task<FacilityDto> GetFacility(Guid id)
@@ -72,14 +72,14 @@ namespace SFAS.Services.Services
             throw new NotImplementedException();
         }
 
-        public IEnumerable<FacilityWithIdDto> SearchFacilities(DataSourceRequest request)
+        public IEnumerable<FacilityDto> SearchFacilities(DataSourceRequest request)
         {
-            return _mapper.ProjectTo<FacilityWithIdDto>(_db.SportsFacilities.Where(x => !x.Hidden && !x.DeletedAt.HasValue));
+            return _mapper.ProjectTo<FacilityDto>(_db.SportsFacilities.Where(x => !x.Hidden && !x.DeletedAt.HasValue));
         }
 
-        public IEnumerable<FacilityWithIdDto> SearchFacilitiesAdmin(DataSourceRequest request)
+        public IEnumerable<FacilityDto> SearchFacilitiesAdmin(DataSourceRequest request)
         {
-            return _mapper.ProjectTo<FacilityWithIdDto>(_db.SportsFacilities.Where(x => !x.DeletedAt.HasValue));
+            return _mapper.ProjectTo<FacilityDto>(_db.SportsFacilities.Where(x => !x.DeletedAt.HasValue));
         }
 
         public async Task<LocationDto> GetLocationsList()
@@ -110,6 +110,7 @@ namespace SFAS.Services.Services
             var facilities = await _reportService.UploadFromReport(file.OpenReadStream());
 
             await _db.SportsFacilities.AddRangeAsync(facilities);
+            await _db.SaveChangesAsync();
         }
 
         public async Task<FileStreamResult> DownloadReport()

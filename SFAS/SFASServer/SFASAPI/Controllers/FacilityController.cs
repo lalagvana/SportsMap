@@ -28,7 +28,7 @@ namespace SFAS.API.Controllers
         [HttpPost]
         [Route("search")]
         [AllowAnonymous]
-        public IEnumerable<FacilityWithIdDto> SearchFacilities(DataSourceRequest request)
+        public IEnumerable<FacilityDto> SearchFacilities(DataSourceRequest request)
         {
             return _facilityService.SearchFacilities(request);
         }

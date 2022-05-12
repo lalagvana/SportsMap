@@ -4,11 +4,11 @@ import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
-
+import EmailIllustrationSrc from "images/sapiens-contact.svg"
 const Container = tw.div`relative`;
-const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24`;
+const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-10`;
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
-const ImageColumn = tw(Column)`md:w-5/12 flex-shrink-0 h-80 md:h-auto`;
+const ImageColumn = tw(Column)`md:w-5/12 flex-shrink-0 h-full md:h-auto`;
 const TextColumn = styled(Column)(props => [
   tw`md:w-7/12 mt-16 md:mt-0`,
   props.textOnLeft ? tw`md:mr-12 lg:mr-16 md:order-first` : tw`md:ml-12 lg:ml-16 md:order-last`
@@ -41,13 +41,12 @@ export default ({
   formMethod = "get",
   textOnLeft = true,
 }) => {
-  // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
 
   return (
     <Container>
       <TwoColumn>
         <ImageColumn>
-          {/* <Image imageSrc={EmailIllustrationSrc} /> */}
+          { <Image imageSrc={EmailIllustrationSrc} /> }
         </ImageColumn>
         <TextColumn textOnLeft={textOnLeft}>
           <TextContent>
@@ -57,7 +56,6 @@ export default ({
             <Form action={formAction} method={formMethod}>
               <Input type="email" name="email" placeholder="Your Email Address" />
               <Input type="text" name="name" placeholder="Full Name" />
-              <Input type="text" name="subject" placeholder="Subject" />
               <Textarea name="message" placeholder="Your Message Here" />
               <SubmitButton type="submit">{submitButtonText}</SubmitButton>
             </Form>

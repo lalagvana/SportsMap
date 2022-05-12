@@ -2,15 +2,13 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import AnimationRevealPage from "helpers/AnimationRevealPage.js"
 
-import RestaurantLandingPage from "demos/RestaurantLandingPage.js";
-
+import MainPage from "pages/Main.js";
+import MapPage from "pages/Map.js";
 import LoginPage from "pages/Login.js";
-import AboutUsPage from "pages/AboutUs.js";
 import ContactUsPage from "pages/ContactUs.js";
+import SearchPage from "pages/Search.js";
 
-import IllustrationAndInputHero from "components/hero/TwoColumnWithInput.js";
 import FeaturesAndTestimonialHero from "components/hero/TwoColumnWithFeaturesAndTestimonial.js";
-import FullWidthWithImageHero from "components/hero/FullWidthWithImage.js";
 
 import ThreeColWithSideImageFeatures from "components/features/ThreeColWithSideImage.js";
 import TwoColWithButtonFeatures from "components/features/TwoColWithButton.js";
@@ -20,8 +18,6 @@ import TwoColHorizontalWithButtonFeatures from "components/features/TwoColWithTw
 import WithStepsAndImageFeatures from "components/features/TwoColWithSteps.js";
 import ThreeColumnDashedBorderFeatures from "components/features/DashedBorderSixFeatures";
 import ThreeColCenteredStatsWithPrimaryBackgroundFeatures from "components/features/ThreeColCenteredStatsPrimaryBackground.js";
-import WithStatsAndImageFeatures from "components/features/TwoColSingleFeatureWithStats.js";
-import WithStatsAndImage2Features from "components/features/TwoColSingleFeatureWithStats2.js";
 
 import SliderCards from "components/cards/ThreeColSlider.js";
 import TrendingCards from "components/cards/TwoTrendingPreviewCardsWithImage.js";
@@ -48,9 +44,9 @@ import MiniCenteredFooter from "components/footers/MiniCenteredFooter.js";
 
 export const components = {
   landingPages: {
-    RestaurantLandingPage: {
-      component: RestaurantLandingPage,
-      url: "/components/landingPages/RestaurantLandingPage",
+    MainPage: {
+      component: MainPage,
+      url: "/landingPages/Main",
     }
   },
 
@@ -58,15 +54,19 @@ export const components = {
     LoginPage: {
       component: LoginPage,
       scrollAnimationDisabled: true,
-      url: "/components/innerPages/LoginPage",
-    },
-    AboutUsPage: {
-      component: AboutUsPage,
-      url: `/components/innerPages/AboutUsPage`
+      url: "/innerPages/LoginPage",
     },
     ContactUsPage: {
       component: ContactUsPage,
-      url: `/components/innerPages/ContactUsPage`
+      url: `/innerPages/ContactUsPage`
+    },
+    MapPage: {
+      component: MapPage,
+      url: `/innerPages/MapPage`
+    },
+    SearchPage: {
+      component: SearchPage,
+      url: `/innerPages/Search`
     }
   },
 
@@ -74,20 +74,10 @@ export const components = {
     Hero: {
       type: "Hero Section",
       elements: {
-        IllustrationAndInput: {
-          name: "With Image Illustration and Input",
-          component: IllustrationAndInputHero,
-          url: "/components/blocks/Hero/IllustrationAndInput",
-        },
         FeaturesAndTestimonial: {
           name: "With Features And Customer Testimonial",
           component: FeaturesAndTestimonialHero,
           url: "/components/blocks/Hero/FeaturesAndTestimonial",
-        },
-        FullWidthWithImage: {
-          name: "Full Width With Image",
-          component: FullWidthWithImageHero,
-          url: "/components/blocks/Hero/FullWidthWithImage",
         }
       }
     },
@@ -133,16 +123,6 @@ export const components = {
           name: "Three Column With Centered Stats on Primary Background",
           component: ThreeColCenteredStatsWithPrimaryBackgroundFeatures,
           url: "/components/blocks/Features/ThreeColCenteredStatsPrimaryBackground",
-        },
-        WithStatsAndImage: {
-          name: "Stats With Image",
-          component: WithStatsAndImageFeatures,
-          url: "/components/blocks/Features/WithStatsAndImage",
-        },
-        WithStatsAndImage2: {
-          name: "Stats With Image 2",
-          component: WithStatsAndImage2Features,
-          url: "/components/blocks/Features/WithStatsAndImage2",
         }
       }
     },

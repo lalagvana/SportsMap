@@ -2,6 +2,7 @@
 {
     public enum PropertyForm
     {
+        Unknown,
         RussianFederationSubject,
         Federal,
         Municipal,

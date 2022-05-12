@@ -60,7 +60,7 @@ public class ReportService : IReportService
         var package = new ExcelPackage(content);
         var sheets = package.Workbook.Worksheets;
 
-        for (int i = 0; i <= sheets.Count; i++)
+        for (int i = 0; i < sheets.Count; i++)
         {
             sportsFacilities.AddRange(await ReadExcelToList(sheets[i], i));
         }
@@ -76,31 +76,45 @@ public class ReportService : IReportService
                 try
                 {
                     var result = await _dadataApi.SuggestAddress(worksheet.Cells[rowNum, 3].Value.ToString()?.Trim());
-                    var res = result.suggestions.First();
-                    var addressString = res.value;
-                    var district = res.data.city_district;
+                    //var res = result.suggestions.First();
+                    //var addressString = res.value;
+                    //var district = res.data.city_district;
+
+                    var address = new Address
+                    {
+                        AddressId = Guid.NewGuid(),
+                        AddressString = ""
+                    };
 
                     SportsFacility item = new()
                     {
                         Name = worksheet.Cells[rowNum, 2].Value.ToString()?.Trim() ?? throw new ArgumentException($"No name for an item on row {rowNum}"),
-                        Address = new Address(),//TODO
-                        Owner = new Owner//TODO
+                        Type = type,
+                        Address = address,
+                        Owner = worksheet.Cells[rowNum, 4]?.Value?.ToString() != null ? new Owner
                         {
-                            Name = worksheet.Cells[rowNum, 4].Value.ToString()?.Trim() ?? throw new ArgumentException($"No name for an item on row {rowNum}")
-                        },
-                       // PropertyForm = worksheet.Cells[rowNum, 5].Value.ToString()?.Trim() ?? throw new ArgumentException($"No name for an item on row {rowNum}"),
+                            OwnerId = Guid.NewGuid(),
+                            Name = worksheet.Cells[rowNum, 4]?.Value?.ToString() ?? "Owner"
+                        }:null,
+                        PropertyForm = (int)Enum.Parse<PropertyForm>(worksheet.Cells[rowNum, 5]?.Value?.ToString() ?? "Unknown"),
                         Length = (double?)worksheet.Cells[rowNum, 6].Value,
                         Width = (double?)worksheet.Cells[rowNum, 7].Value,
                         Area = (double?)worksheet.Cells[rowNum, 8].Value,
                         Height = (double?)worksheet.Cells[rowNum, 9].Value,
                         Depth = (double?)worksheet.Cells[rowNum, 10].Value,
-                        Size = worksheet.Cells[rowNum, 11].Value.ToString()?.Trim(),
-                        //CoveringType = worksheet.Cells[rowNum, 12].Value.ToString()?.Trim() ?? throw new ArgumentException($"No name for an item on row {rowNum}"),
-                        EPS = (int?)worksheet.Cells[rowNum, 13].Value,
-                        ActualWorkload = (long?)worksheet.Cells[rowNum, 14].Value,
-                        AnnualCapacity = (long?)worksheet.Cells[rowNum, 15].Value,
-                        //Document = worksheet.Cells[rowNum, 16].Value.ToString()?.Trim() ?? throw new ArgumentException($"No name for an item on row {rowNum}"),
-                        Notes = worksheet.Cells[rowNum, 17].Value.ToString()?.Trim() ?? "",
+                        Size = worksheet.Cells[rowNum, 11]?.Value?.ToString()?.Trim(),
+                        CoveringType = worksheet.Cells[rowNum, 12]?.Value?.ToString() != null ? (int?)Enum.Parse<CoveringType>(worksheet.Cells[rowNum, 12].Value.ToString() ?? string.Empty) : null,
+                        //EPS = (int?)worksheet.Cells[rowNum, 13].Value,
+                        //ActualWorkload = (int?)worksheet.Cells[rowNum, 14]?.Value,
+                        //AnnualCapacity = (int?)worksheet.Cells[rowNum, 15]?.Value,
+                        Document = worksheet.Cells[rowNum, 16]?.Value?.ToString() != null ? new Document
+                        {
+                            DocumentId = Guid.NewGuid(),
+                            Name = worksheet.Cells[rowNum, 16]?.Value?.ToString() ?? "Document",
+                            Link = ""
+                        }:null,
+                        Notes = worksheet.Cells[rowNum, 17]?.Value?.ToString()?.Trim() ?? "",
+                        Link = ""
                     };
 
                     collection.Add(item);

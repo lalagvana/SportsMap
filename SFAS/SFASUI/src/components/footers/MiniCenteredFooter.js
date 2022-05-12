@@ -3,7 +3,6 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import {Container as ContainerBase } from "components/misc/Layouts.js"
 import logo from "../../images/logo-simple.svg";
-import { ReactComponent as FacebookIcon } from "../../images/facebook-icon.svg";
 
 const Container = tw(ContainerBase)`bg-gray-900 text-gray-100 -mx-8 -mb-8`
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
@@ -42,7 +41,7 @@ export default () => {
           </LinksContainer>
           <SocialLinksContainer>
             <SocialLink href="https://facebook.com">
-              <FacebookIcon />
+              {/* <FacebookIcon /> */}
             </SocialLink>
           </SocialLinksContainer>
           <CopyrightText>

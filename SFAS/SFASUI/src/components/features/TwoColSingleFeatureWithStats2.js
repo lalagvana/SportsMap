@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
-import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg";
 
 const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24`;
@@ -34,10 +33,6 @@ const Key = tw.div`font-medium text-primary-700`;
 
 const PrimaryButton = tw(PrimaryButtonBase)`mt-8 md:mt-10 text-sm inline-block mx-auto md:mx-0`;
 
-const DecoratorBlob = styled(SvgDotPattern)(props => [
-  tw`w-20 h-20 absolute right-0 bottom-0 transform translate-x-1/2 translate-y-1/2 fill-current text-primary-500 -z-10`
-]);
-
 export default ({
   subheading = "Our Track Record",
   heading = (
@@ -49,7 +44,6 @@ export default ({
   primaryButtonText = "Learn More",
   primaryButtonUrl = "https://timerse.com",
   //imageSrc = StatsIllustrationSrc,
-  imageCss = null,
   imageContainerCss = null,
   imageDecoratorBlob = false,
   imageDecoratorBlobCss = null,
@@ -81,7 +75,6 @@ export default ({
       <TwoColumn css={!imageInsideDiv && tw`md:items-center`}>
         <ImageColumn css={imageContainerCss}>
           {/* {imageInsideDiv ? <Image imageSrc={imageSrc} css={imageCss} /> : <img src={imageSrc} css={imageCss} alt="" />} */}
-          {imageDecoratorBlob && <DecoratorBlob css={imageDecoratorBlobCss} />}
         </ImageColumn>
         <TextColumn textOnLeft={textOnLeft}>
           <TextContent>

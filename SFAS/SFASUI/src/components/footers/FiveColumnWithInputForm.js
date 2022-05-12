@@ -5,19 +5,19 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 
 import LogoImage from "images/logo-simple.svg";
-import { ReactComponent as FacebookIcon } from "images/facebook-icon.svg";
+import { ReactComponent as VkIcon } from "images/vk-logo.svg";
+import { ReactComponent as TelegramIcon } from "images/telegram-logo.svg";
+import { ReactComponent as EmailIcon } from "images/email-icon.svg";
 
 const Container = tw.div`relative bg-gray-200 text-gray-700 -mb-8 -mx-8 px-8 py-20 lg:py-24`;
 const Content = tw.div`max-w-screen-xl mx-auto relative z-10`;
 const SixColumns = tw.div`flex flex-wrap text-center sm:text-left justify-center sm:justify-start md:justify-between -mt-12`;
 
 const Column = tw.div`px-4 sm:px-0 sm:w-1/4 md:w-auto mt-12`;
-
 const ColumnHeading = tw.h5`uppercase font-bold`;
 
-const LinkList = tw.ul`mt-6 text-sm font-medium`;
-const LinkListItem = tw.li`mt-3`;
-const Link = tw.a`border-b-2 border-transparent hocus:border-gray-700 pb-1 transition duration-300`;
+const Link = tw.a`border-b-2 border-transparent hocus:text-gray-300 hocus:border-gray-300 pb-1 transition duration-300 mt-2 mr-8`;
+const LinksContainer = tw.div`mt-8 font-medium flex flex-wrap justify-center items-center flex-col sm:flex-row`
 
 const SubscribeNewsletterColumn = tw(Column)`text-center lg:text-left w-full! lg:w-auto! mt-20 lg:mt-12`;
 const SubscribeNewsletterContainer = tw.div`max-w-sm mx-auto lg:mx-0 `;
@@ -37,7 +37,7 @@ const CopywrightNotice = tw.p`text-center text-sm sm:text-base mt-8 md:mt-0 font
 
 const SocialLinksContainer = tw.div`mt-8 md:mt-0 flex`;
 const SocialLink = styled.a`
-  ${tw`cursor-pointer p-2 rounded-full bg-gray-900 text-gray-100 hover:bg-gray-700 transition duration-300 mr-4 last:mr-0`}
+  ${tw`cursor-pointer p-2 rounded-full bg-gray-300 text-gray-100 hover:bg-gray-700 transition duration-300 mr-4 last:mr-0`}
   svg {
     ${tw`w-4 h-4`}
   }
@@ -49,82 +49,23 @@ export default () => {
       <Content>
         <SixColumns>
           <Column>
-            <ColumnHeading>Main</ColumnHeading>
-            <LinkList>
-              <LinkListItem>
-                <Link href="#">Blog</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">FAQs</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Support</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">About Us</Link>
-              </LinkListItem>
-            </LinkList>
-          </Column>
-          <Column>
-            <ColumnHeading>Product</ColumnHeading>
-            <LinkList>
-              <LinkListItem>
-                <Link href="#">Log In</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Personal</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Business</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Team</Link>
-              </LinkListItem>
-            </LinkList>
-          </Column>
-          <Column>
-            <ColumnHeading>Press</ColumnHeading>
-            <LinkList>
-              <LinkListItem>
-                <Link href="#">Logos</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Events</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Stories</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Office</Link>
-              </LinkListItem>
-            </LinkList>
-          </Column>
-          <Column>
-            <ColumnHeading>Legal</ColumnHeading>
-            <LinkList>
-              <LinkListItem>
-                <Link href="#">GDPR</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Privacy Policy</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Terms of Service</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Disclaimer</Link>
-              </LinkListItem>
-            </LinkList>
+            <ColumnHeading>Навигация</ColumnHeading>
+            <LinksContainer>
+                <Link href="#">Главная</Link>
+                <Link href="#">Карта</Link>
+                <Link href="#">Поиск</Link>
+                <Link href="#">Контакты</Link>
+            </LinksContainer>
           </Column>
           <SubscribeNewsletterColumn>
             <SubscribeNewsletterContainer>
-              <ColumnHeading>Subscribe to our Newsletter</ColumnHeading>
+              <ColumnHeading>Подписывайтесь на наши обновления</ColumnHeading>
               <SubscribeText>
-                We deliver high quality blog posts written by professionals weekly. And we promise no spam.
+                Так вы первыми узнаете о новых спортивных объектах и мероприятиях вашего района
               </SubscribeText>
               <SubscribeForm method="get" action="#">
-                <Input type="email" placeholder="Your Email Address" />
-                <SubscribeButton type="submit">Subscribe</SubscribeButton>
+                <Input type="email" placeholder="Ваша электронная почта" />
+                <SubscribeButton type="submit">Подписаться</SubscribeButton>
               </SubscribeForm>
             </SubscribeNewsletterContainer>
           </SubscribeNewsletterColumn>
@@ -134,10 +75,16 @@ export default () => {
           <LogoContainer>
             <LogoImg src={LogoImage} />
           </LogoContainer>
-          <CopywrightNotice>&copy; 2018 Treact Inc. All Rights Reserved.</CopywrightNotice>
+          <CopywrightNotice>&copy; 2022 Lalagvana</CopywrightNotice>
           <SocialLinksContainer>
-            <SocialLink href="https://facebook.com">
-              <FacebookIcon />
+            <SocialLink href="https://vk.com">
+              <VkIcon />
+            </SocialLink>
+            <SocialLink href="https://telegram.org">
+              <TelegramIcon />
+            </SocialLink>
+            <SocialLink href="https://vk.com">
+              <EmailIcon />
             </SocialLink>
           </SocialLinksContainer>
         </ThreeColRow>

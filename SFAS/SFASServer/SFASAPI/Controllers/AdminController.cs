@@ -1,5 +1,4 @@
-﻿using System.Net;
-using Kendo.DynamicLinqCore;
+﻿using Kendo.DynamicLinqCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SFAS.Common.Models;
@@ -36,14 +35,14 @@ namespace SFAS.API.Controllers
         #region Facility
         [HttpPost]
         [Route("facility")]
-        public async Task<ActionResult<FacilityWithIdDto>> CreateFacility(FacilityDto request)
+        public async Task<ActionResult<FacilityDto>> CreateFacility(FacilityDto request)
         {
             return await _facilityService.CreateFacility(request);
         }
 
         [HttpPut]
         [Route("facility")]
-        public async Task<ActionResult<FacilityWithIdDto>> UpdateFacility(Guid id, FacilityWithIdDto request)
+        public async Task<ActionResult<FacilityDto>> UpdateFacility(Guid id, FacilityDto request)
         {
             return await _facilityService.UpdateFacility(id, request);
         }

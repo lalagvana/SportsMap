@@ -148,14 +148,6 @@ namespace SFAS.Database.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("AdmArea")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Coordinates")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2");
@@ -168,22 +160,6 @@ namespace SFAS.Database.Migrations
 
                     b.Property<Guid?>("DeletedByID")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("District")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("GeoData")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Latitude_WGS84")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Longitude_WGS84")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("ModifiedAt")
                         .HasColumnType("datetime2");
@@ -209,7 +185,6 @@ namespace SFAS.Database.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<byte[]>("Content")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<DateTime>("CreatedAt")
@@ -226,7 +201,6 @@ namespace SFAS.Database.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Link")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("ModifiedAt")
@@ -236,7 +210,6 @@ namespace SFAS.Database.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("DocumentId");
@@ -311,14 +284,15 @@ namespace SFAS.Database.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<long?>("ActualWorkload")
-                        .HasColumnType("bigint");
+                    b.Property<int?>("ActualWorkload")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("AddressId")
+                    b.Property<Guid?>("AddressId")
+                        .IsRequired()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<long?>("AnnualCapacity")
-                        .HasColumnType("bigint");
+                    b.Property<int?>("AnnualCapacity")
+                        .HasColumnType("int");
 
                     b.Property<double?>("Area")
                         .HasColumnType("float");
@@ -361,7 +335,6 @@ namespace SFAS.Database.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("Link")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("ModifiedAt")
@@ -375,11 +348,9 @@ namespace SFAS.Database.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Notes")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("OpenHours")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid?>("OwnerId")
@@ -389,13 +360,12 @@ namespace SFAS.Database.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("Photo")
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<int>("PropertyForm")
+                    b.Property<int?>("PropertyForm")
                         .HasColumnType("int");
 
                     b.Property<string>("Size")
@@ -405,7 +375,6 @@ namespace SFAS.Database.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("WhoCanUse")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double?>("Width")
