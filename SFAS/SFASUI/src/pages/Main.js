@@ -13,7 +13,8 @@ import LikeIcon from "images/like.svg";
 import StatIcon from "images/stats.svg";
 import EventIcon from "images/events.svg";
 
-export default () => {
+export default Main;
+function Main () {
   const HighlightedText = tw.span`bg-primary-500 text-gray-100 px-4 transform -skew-x-12 inline-block`;
   return (
     <AnimationRevealPage>
