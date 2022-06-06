@@ -1,4 +1,5 @@
 ﻿using Kendo.DynamicLinqCore;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SFAS.Common.Models;
 using SFAS.Common.Models.Admin;
@@ -24,7 +25,8 @@ namespace SFAS.API.Controllers
         }
 
         [HttpPost]
-        [Route("auth")]
+        [Route("login")]
+        [AllowAnonymous]
         public async Task<ActionResult<LoginResponse>> AuthAdmin(LoginRequest request)
         {
             return await _authService.Authenticate(request);
@@ -33,14 +35,14 @@ namespace SFAS.API.Controllers
         #region Facility
         [HttpPost]
         [Route("facility")]
-        public async Task<ActionResult<FacilityWithIdDto>> CreateFacility(FacilityDto request)
+        public async Task<ActionResult<FacilityDto>> CreateFacility(FacilityDto request)
         {
             return await _facilityService.CreateFacility(request);
         }
 
         [HttpPut]
         [Route("facility")]
-        public async Task<ActionResult<FacilityWithIdDto>> UpdateFacility(Guid id, FacilityWithIdDto request)
+        public async Task<ActionResult<FacilityDto>> UpdateFacility(Guid id, FacilityDto request)
         {
             return await _facilityService.UpdateFacility(id, request);
         }
@@ -69,14 +71,14 @@ namespace SFAS.API.Controllers
 
         [HttpPost]
         [Route("facility/uploadGroup")]
-        public async Task UploadGroupOfFacilities(byte[] file)
+        public async Task UploadGroupOfFacilities(IFormFile file)
         {
             await _facilityService.UploadGroupOfFacilities(file);
         }
 
         [HttpPost]
         [Route("facility/downloadReport")]
-        public async Task<ActionResult<byte[]>> DownloadReport()
+        public async Task<FileStreamResult> DownloadReport()
         {
             return await _facilityService.DownloadReport();
         }

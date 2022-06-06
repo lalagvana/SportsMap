@@ -1,3 +1,4 @@
+using System.Reflection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -5,7 +6,12 @@ using Microsoft.IdentityModel.Tokens;
 using SFAS.Database;
 using SFAS.Database.Entities;
 using System.Text.Json.Serialization;
+using Microsoft.OpenApi.Models;
+using SFAS.Common;
 using SFAS.Common.Helpers;
+using SFAS.Services.Interfaces;
+using SFAS.Services.Services;
+using SFAS.Services.Services.Common;
 
 namespace SFAS.API
 {
@@ -20,7 +26,11 @@ namespace SFAS.API
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(x => x.AddProfile(typeof(MappingProfile)));
+            services.AddScoped<IAuthService, AuthenticatedService>();
+
             var appSettingSection = Configuration.GetSection("AppSettings");
+            services.Configure<AppSettings>(appSettingSection);
 
             services.AddCors(
                 x =>
@@ -74,6 +84,17 @@ namespace SFAS.API
                         }
                     };
                 });
+            services.AddAuthorization(options =>
+            {
+            });
+
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "SportsMap", Version = "v1" });
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+            });
 
             services.AddDbContext<ApplicationDbContext>(options => options
                     .UseLazyLoadingProxies()
@@ -90,6 +111,11 @@ namespace SFAS.API
 
             services.AddHttpContextAccessor();
 
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IReportService, ReportService>();
+            services.AddTransient<IFacilityService, FacilityService>();
+            services.AddTransient<IMapService, MapService>();
+            services.AddTransient<IEmailService, EmailService>();
 
             services.AddControllers().AddJsonOptions(x =>
             {
@@ -112,11 +138,22 @@ namespace SFAS.API
             app.UseSwaggerUI(c =>
             {
                 c.RoutePrefix = "swagger";
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "SFAS V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "SportsMap V1");
             });
 
             app.UseRouting();
             app.UseAuthentication();
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+
+            if (!env.IsDevelopment())
+            {
+                app.UseStaticFiles();
+            }
         }
     }
 }

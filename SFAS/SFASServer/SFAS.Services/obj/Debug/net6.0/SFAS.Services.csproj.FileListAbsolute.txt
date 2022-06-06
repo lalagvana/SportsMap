@@ -17,3 +17,22 @@ D:\рабочий стол\учеба\ВКР\SFAS\SFAS.Services\obj\Debug\net6.0
 D:\рабочий стол\учеба\ВКР\SFAS\SFAS.Services\obj\Debug\net6.0\ref\SFAS.Services.dll
 D:\рабочий стол\учеба\ВКР\SFAS\SFAS.Services\bin\Debug\net6.0\SFAS.Common.dll
 D:\рабочий стол\учеба\ВКР\SFAS\SFAS.Services\bin\Debug\net6.0\SFAS.Common.pdb
+D:\SportMap\SFAS\SFASServer\SFAS.Services\bin\Debug\net6.0\SFAS.Services.deps.json
+D:\SportMap\SFAS\SFASServer\SFAS.Services\bin\Debug\net6.0\SFAS.Services.runtimeconfig.json
+D:\SportMap\SFAS\SFASServer\SFAS.Services\bin\Debug\net6.0\SFAS.Services.dll
+D:\SportMap\SFAS\SFASServer\SFAS.Services\bin\Debug\net6.0\SFAS.Services.pdb
+D:\SportMap\SFAS\SFASServer\SFAS.Services\bin\Debug\net6.0\SFAS.Common.dll
+D:\SportMap\SFAS\SFASServer\SFAS.Services\bin\Debug\net6.0\SFAS.Database.dll
+D:\SportMap\SFAS\SFASServer\SFAS.Services\bin\Debug\net6.0\SFAS.Database.pdb
+D:\SportMap\SFAS\SFASServer\SFAS.Services\bin\Debug\net6.0\SFAS.Common.pdb
+D:\SportMap\SFAS\SFASServer\SFAS.Services\obj\Debug\net6.0\SFAS.Services.csproj.AssemblyReference.cache
+D:\SportMap\SFAS\SFASServer\SFAS.Services\obj\Debug\net6.0\SFAS.Services.GeneratedMSBuildEditorConfig.editorconfig
+D:\SportMap\SFAS\SFASServer\SFAS.Services\obj\Debug\net6.0\SFAS.Services.AssemblyInfoInputs.cache
+D:\SportMap\SFAS\SFASServer\SFAS.Services\obj\Debug\net6.0\SFAS.Services.AssemblyInfo.cs
+D:\SportMap\SFAS\SFASServer\SFAS.Services\obj\Debug\net6.0\SFAS.Services.csproj.CoreCompileInputs.cache
+D:\SportMap\SFAS\SFASServer\SFAS.Services\obj\Debug\net6.0\SFAS.Services.csproj.CopyComplete
+D:\SportMap\SFAS\SFASServer\SFAS.Services\obj\Debug\net6.0\SFAS.Services.dll
+D:\SportMap\SFAS\SFASServer\SFAS.Services\obj\Debug\net6.0\refint\SFAS.Services.dll
+D:\SportMap\SFAS\SFASServer\SFAS.Services\obj\Debug\net6.0\SFAS.Services.pdb
+D:\SportMap\SFAS\SFASServer\SFAS.Services\obj\Debug\net6.0\SFAS.Services.genruntimeconfig.cache
+D:\SportMap\SFAS\SFASServer\SFAS.Services\obj\Debug\net6.0\ref\SFAS.Services.dll

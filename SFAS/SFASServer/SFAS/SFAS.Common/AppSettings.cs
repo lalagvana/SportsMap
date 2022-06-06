@@ -10,7 +10,7 @@
         public int PortalMailPort { get; set; }
         public string PortalMailFromEmail { get; set; }
         public string PortalMailFromName { get; set; }
-        public string PortalMailKey { get; set; }
+        public string PortalMailPassword { get; set; }
         public string AdminPassword { get; set; }
     }
 }

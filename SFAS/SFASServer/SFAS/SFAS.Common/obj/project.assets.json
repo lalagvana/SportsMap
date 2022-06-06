@@ -1588,11 +1588,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS\\SFAS.Common\\SFAS.Common.csproj",
+      "projectUniqueName": "D:\\SportMap\\SFAS\\SFASServer\\SFAS\\SFAS.Common\\SFAS.Common.csproj",
       "projectName": "SFAS.Common",
-      "projectPath": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS\\SFAS.Common\\SFAS.Common.csproj",
+      "projectPath": "D:\\SportMap\\SFAS\\SFASServer\\SFAS\\SFAS.Common\\SFAS.Common.csproj",
       "packagesPath": "C:\\Users\\lalagvana\\.nuget\\packages\\",
-      "outputPath": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS\\SFAS.Common\\obj\\",
+      "outputPath": "D:\\SportMap\\SFAS\\SFASServer\\SFAS\\SFAS.Common\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lalagvana\\AppData\\Roaming\\NuGet\\NuGet.Config",

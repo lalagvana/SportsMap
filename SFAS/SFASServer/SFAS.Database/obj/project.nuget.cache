@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kJ6a3bYU3P2v7iSyeqSD7W9E+O8UyfOgfRaFbABzPh75MiRpydcf12KuQIt1Y6nVLJoQMNJLDNLkiI7GwZ0MYg==",
+  "dgSpecHash": "fmXfC/Cu7FmcjnHzQqRap1eQKImF2gUrjvi8Qu7Zsn2lVaz3YBMrjg1OYDm6SrjcnOPJH6HEFtS548Vd4I2u9g==",
   "success": true,
-  "projectFilePath": "D:\\рабочий стол\\учеба\\ВКР\\SFAS\\SFAS.Database\\SFAS.Database.csproj",
+  "projectFilePath": "D:\\SportMap\\SFAS\\SFASServer\\SFAS.Database\\SFAS.Database.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lalagvana\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\lalagvana\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

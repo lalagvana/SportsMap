@@ -10,3 +10,15 @@ D:\рабочий стол\учеба\ВКР\SFAS\SFAS\SFAS.Common\obj\Debug\net
 D:\рабочий стол\учеба\ВКР\SFAS\SFAS\SFAS.Common\obj\Debug\net6.0\refint\SFAS.Common.dll
 D:\рабочий стол\учеба\ВКР\SFAS\SFAS\SFAS.Common\obj\Debug\net6.0\SFAS.Common.pdb
 D:\рабочий стол\учеба\ВКР\SFAS\SFAS\SFAS.Common\obj\Debug\net6.0\ref\SFAS.Common.dll
+D:\SportMap\SFAS\SFASServer\SFAS\SFAS.Common\bin\Debug\net6.0\SFAS.Common.deps.json
+D:\SportMap\SFAS\SFASServer\SFAS\SFAS.Common\bin\Debug\net6.0\SFAS.Common.dll
+D:\SportMap\SFAS\SFASServer\SFAS\SFAS.Common\bin\Debug\net6.0\SFAS.Common.pdb
+D:\SportMap\SFAS\SFASServer\SFAS\SFAS.Common\obj\Debug\net6.0\SFAS.Common.csproj.AssemblyReference.cache
+D:\SportMap\SFAS\SFASServer\SFAS\SFAS.Common\obj\Debug\net6.0\SFAS.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\SportMap\SFAS\SFASServer\SFAS\SFAS.Common\obj\Debug\net6.0\SFAS.Common.AssemblyInfoInputs.cache
+D:\SportMap\SFAS\SFASServer\SFAS\SFAS.Common\obj\Debug\net6.0\SFAS.Common.AssemblyInfo.cs
+D:\SportMap\SFAS\SFASServer\SFAS\SFAS.Common\obj\Debug\net6.0\SFAS.Common.csproj.CoreCompileInputs.cache
+D:\SportMap\SFAS\SFASServer\SFAS\SFAS.Common\obj\Debug\net6.0\SFAS.Common.dll
+D:\SportMap\SFAS\SFASServer\SFAS\SFAS.Common\obj\Debug\net6.0\refint\SFAS.Common.dll
+D:\SportMap\SFAS\SFASServer\SFAS\SFAS.Common\obj\Debug\net6.0\SFAS.Common.pdb
+D:\SportMap\SFAS\SFASServer\SFAS\SFAS.Common\obj\Debug\net6.0\ref\SFAS.Common.dll

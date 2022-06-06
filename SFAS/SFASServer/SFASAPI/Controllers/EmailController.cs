@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SFAS.Common.Models.Email;
 using SFAS.Services.Interfaces;
 
@@ -17,6 +18,7 @@ namespace SFAS.API.Controllers
 
         [HttpPost]
         [Route("subscribe/{email}")]
+        [AllowAnonymous]
         public async Task SubscribeEmail(string email)
         {
             await _emailService.SubscribeEmailAsync(email);
@@ -24,6 +26,7 @@ namespace SFAS.API.Controllers
 
         [HttpPost]
         [Route("forgotPassword/{email}")]
+        [AllowAnonymous]
         public async Task ForgotPassword(string email)
         {
             await _emailService.ForgotPasswordAsync(email);
@@ -31,6 +34,7 @@ namespace SFAS.API.Controllers
 
         [HttpPost]
         [Route("send")]
+        [AllowAnonymous]
         public async Task SendEmail(EmailRequest request)
         {
             await _emailService.SendEmailAsync(request);

@@ -4,31 +4,7 @@ namespace SFAS.Common.Models.Facility
 {
     public class FacilityDto
     {
-        public FacilityDto(FacilityType type, string name, string owner, PropertyForm propertyForm, double? length, double? width, double? area, long? actualWorkload, long? annualCapacity, string notes, double? height, string? size, double? depth, CoveringType? coveringType, bool? isAccessibleForDisabled, PayingType? payingType, string whoCanUse, string link, string phoneNumber, string openHours, int? eps, bool hidden)
-        {
-            Type = type;
-            Name = name;
-            Owner = owner;
-            PropertyForm = propertyForm;
-            Length = length;
-            Width = width;
-            Area = area;
-            ActualWorkload = actualWorkload;
-            AnnualCapacity = annualCapacity;
-            Notes = notes;
-            Height = height;
-            Size = size;
-            Depth = depth;
-            CoveringType = coveringType;
-            IsAccessibleForDisabled = isAccessibleForDisabled;
-            PayingType = payingType;
-            WhoCanUse = whoCanUse;
-            Link = link;
-            PhoneNumber = phoneNumber;
-            OpenHours = openHours;
-            EPS = eps;
-            Hidden = hidden;
-        }
+        public Guid? FacilityId { get; set; }
 
         public FacilityType Type { get; set; }
 
@@ -36,9 +12,9 @@ namespace SFAS.Common.Models.Facility
 
         //public Guid AddressId { get; set; }
 
-        public string Owner { get; set; }
+        public string? OwnerName { get; set; }
 
-        public PropertyForm PropertyForm { get; set; }
+        public PropertyForm? PropertyForm { get; set; }
 
         public double? Length { get; set; }
 
@@ -46,13 +22,13 @@ namespace SFAS.Common.Models.Facility
 
         public double? Area { get; set; }
 
-        public long? ActualWorkload { get; set; }
+        public int? ActualWorkload { get; set; }
 
-        public long? AnnualCapacity { get; set; }
+        public int? AnnualCapacity { get; set; }
 
         //public Guid? DocumentId { get; set; }
 
-        public string Notes { get; set; }
+        public string? Notes { get; set; }
 
         public double? Height { get; set; }
 
@@ -68,13 +44,13 @@ namespace SFAS.Common.Models.Facility
 
         public PayingType? PayingType { get; set; }
 
-        public string WhoCanUse { get; set; }
+        public string? WhoCanUse { get; set; }
 
-        public string Link { get; set; }
+        public string? Link { get; set; }
 
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
 
-        public string OpenHours { get; set; }
+        public string? OpenHours { get; set; }
 
         public int? EPS { get; set; }
 

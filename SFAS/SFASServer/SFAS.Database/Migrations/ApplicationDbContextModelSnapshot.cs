@@ -119,21 +119,6 @@ namespace SFAS.Database.Migrations
                     b.ToTable("AspNetUserLogins", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
-                {
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("RoleId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("UserId", "RoleId");
-
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("AspNetUserRoles", (string)null);
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
                 {
                     b.Property<Guid>("UserId")
@@ -163,14 +148,6 @@ namespace SFAS.Database.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("AdmArea")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Coordinates")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2");
@@ -183,22 +160,6 @@ namespace SFAS.Database.Migrations
 
                     b.Property<Guid?>("DeletedByID")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("District")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("GeoData")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Latitude_WGS84")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Longitude_WGS84")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("ModifiedAt")
                         .HasColumnType("datetime2");
@@ -224,7 +185,6 @@ namespace SFAS.Database.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<byte[]>("Content")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<DateTime>("CreatedAt")
@@ -241,7 +201,6 @@ namespace SFAS.Database.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Link")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("ModifiedAt")
@@ -251,7 +210,6 @@ namespace SFAS.Database.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("DocumentId");
@@ -326,14 +284,15 @@ namespace SFAS.Database.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<long?>("ActualWorkload")
-                        .HasColumnType("bigint");
+                    b.Property<int?>("ActualWorkload")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("AddressId")
+                    b.Property<Guid?>("AddressId")
+                        .IsRequired()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<long?>("AnnualCapacity")
-                        .HasColumnType("bigint");
+                    b.Property<int?>("AnnualCapacity")
+                        .HasColumnType("int");
 
                     b.Property<double?>("Area")
                         .HasColumnType("float");
@@ -358,7 +317,6 @@ namespace SFAS.Database.Migrations
                         .HasColumnType("float");
 
                     b.Property<Guid?>("DocumentId")
-                        .IsRequired()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int?>("EPS")
@@ -377,7 +335,6 @@ namespace SFAS.Database.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("Link")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("ModifiedAt")
@@ -391,29 +348,24 @@ namespace SFAS.Database.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Notes")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("OpenHours")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid?>("OwnerId")
-                        .IsRequired()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int?>("PayingType")
                         .HasColumnType("int");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("Photo")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<int>("PropertyForm")
+                    b.Property<int?>("PropertyForm")
                         .HasColumnType("int");
 
                     b.Property<string>("Size")
@@ -423,7 +375,6 @@ namespace SFAS.Database.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("WhoCanUse")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double?>("Width")
@@ -547,6 +498,21 @@ namespace SFAS.Database.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("SFAS.Database.Entities.UserRole", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", null)
@@ -567,21 +533,6 @@ namespace SFAS.Database.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
                 {
-                    b.HasOne("SFAS.Database.Entities.User", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", null)
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("SFAS.Database.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
@@ -679,9 +630,7 @@ namespace SFAS.Database.Migrations
 
                     b.HasOne("SFAS.Database.Entities.Document", "Document")
                         .WithMany("Facilities")
-                        .HasForeignKey("DocumentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DocumentId");
 
                     b.HasOne("SFAS.Database.Entities.User", "ModifiedBy")
                         .WithMany()
@@ -689,9 +638,7 @@ namespace SFAS.Database.Migrations
 
                     b.HasOne("SFAS.Database.Entities.Owner", "Owner")
                         .WithMany("Facilities")
-                        .HasForeignKey("OwnerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OwnerId");
 
                     b.Navigation("Address");
 
@@ -727,6 +674,23 @@ namespace SFAS.Database.Migrations
                     b.Navigation("ModifiedBy");
                 });
 
+            modelBuilder.Entity("SFAS.Database.Entities.UserRole", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SFAS.Database.Entities.User", null)
+                        .WithMany("UserRoles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+                });
+
             modelBuilder.Entity("SFAS.Database.Entities.Address", b =>
                 {
                     b.Navigation("Facilities");
@@ -749,6 +713,8 @@ namespace SFAS.Database.Migrations
                     b.Navigation("DeletedUsers");
 
                     b.Navigation("ModifiedUsers");
+
+                    b.Navigation("UserRoles");
                 });
 #pragma warning restore 612, 618
         }
