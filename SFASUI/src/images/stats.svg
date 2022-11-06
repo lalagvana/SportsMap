@@ -1,6 +1,1 @@
-<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M3.33337 33.3333H36.6667" stroke="#19B2B8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M8.33337 33.3333V13.6666C8.33337 13.5782 8.36849 13.4934 8.431 13.4309C8.49352 13.3684 8.5783 13.3333 8.66671 13.3333H13C13.0884 13.3333 13.1732 13.3684 13.2357 13.4309C13.2983 13.4934 13.3334 13.5782 13.3334 13.6666V33.3333" stroke="#19B2B8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M18.3334 33.3333V7.11663C18.3334 6.86663 18.4834 6.66663 18.6667 6.66663H23C23.1834 6.66663 23.3334 6.86663 23.3334 7.11663V33.3333" stroke="#19B2B8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M28.3334 33.3333V18.5833C28.3334 18.4499 28.4834 18.3333 28.6667 18.3333H33C33.1834 18.3333 33.3334 18.4499 33.3334 18.5833V33.3333" stroke="#19B2B8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+<svg width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.333 33.333h33.334M8.333 33.333V13.667a.333.333 0 0 1 .334-.334H13a.333.333 0 0 1 .333.334v19.666M18.333 33.333V7.117c0-.25.15-.45.334-.45H23c.183 0 .333.2.333.45v26.216M28.333 33.333v-14.75c0-.133.15-.25.334-.25H33c.183 0 .333.117.333.25v14.75" stroke="#19B2B8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>

@@ -21,7 +21,7 @@
     "react-modal": "^3.13.1",
     "react-rnd": "^10.2.4",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^0.9.3",
+    "react-scripts": "5.0.1",
     "react-slick": "^0.28.1",
     "react-yandex-maps": "^4.6.0",
     "reactstrap": "^9.0.2",
@@ -65,6 +65,7 @@
     ]
   },
   "devDependencies": {
+    "babel-plugin-macros": "^3.1.0",
     "gh-pages": "^4.0.0",
     "postcss": "^8.4.13"
   }

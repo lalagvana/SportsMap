@@ -5,7 +5,7 @@ import tw from "twin.macro";
 import { css } from "styled-components/macro";
 
 import Header from "../headers/light.js";
-import SapiensImg from "../../images/sapiens-main.svg"
+import { ReactComponent as SapiensImg } from "images/sapiens-main.svg"
 const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col lg:flex-row md:items-center max-w-screen-xl mx-auto py-10 md:py-5`;
 const LeftColumn = tw.div`relative lg:w-6/12 lg:pr-12 flex-shrink-0 text-center lg:text-left`;
