@@ -98,7 +98,7 @@ namespace SFAS.API
 
             services.AddDbContext<ApplicationDbContext>(options => options
                     .UseLazyLoadingProxies()
-                    .UseSqlServer(Configuration.GetConnectionString("ApplicationDbContext")));
+                    .UseNpgsql(Configuration.GetConnectionString("ApplicationDbContext")));
 
             services.AddIdentityCore<User>(options =>
                 {
