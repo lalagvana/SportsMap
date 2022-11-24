@@ -29,4 +29,10 @@
     <ProjectReference Include="..\SFAS\SFAS.Common\SFAS.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Kendo.DynamicLinqCore">
+      <HintPath>..\Kendo.DynamicLinqCore\Kendo.DynamicLinqCore.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
