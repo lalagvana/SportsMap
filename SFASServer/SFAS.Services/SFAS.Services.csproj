@@ -18,7 +18,6 @@
     <PackageReference Include="Base62" Version="1.2.0" />
     <PackageReference Include="Dadata" Version="21.12.0" />
     <PackageReference Include="EPPlus" Version="6.0.3" />
-    <PackageReference Include="Kendo.DynamicLinqCore" Version="3.1.1" />
     <PackageReference Include="MailKit" Version="3.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
@@ -29,6 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Kendo.DynamicLinqCore\Kendo.DynamicLinqCore.csproj" />
     <ProjectReference Include="..\SFAS.Database\SFAS.Database.csproj" />
     <ProjectReference Include="..\SFAS\SFAS.Common\SFAS.Common.csproj" />
   </ItemGroup>

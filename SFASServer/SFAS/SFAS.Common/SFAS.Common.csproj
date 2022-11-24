@@ -7,9 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Kendo.DynamicLinqCore" Version="3.1.1" />
     <PackageReference Include="LinqKit" Version="1.2.2" />
     <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="6.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Kendo.DynamicLinqCore\Kendo.DynamicLinqCore.csproj" />
   </ItemGroup>
 
 </Project>
