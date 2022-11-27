@@ -1,0 +1,259 @@
+.claritycloseLineIcon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+}
+.div1 {
+  position: absolute;
+  top: 35px;
+  left: 68px;
+  font-size: var(--font-size-5xl);
+  letter-spacing: -0.18px;
+  line-height: 32px;
+  font-weight: 600;
+  color: var(--color-gray-2200);
+  display: inline-block;
+  width: 608px;
+}
+.hintDiv {
+  flex: 1;
+  position: relative;
+  letter-spacing: 0.4px;
+  line-height: 16px;
+  display: none;
+}
+.lLabelDiv {
+  position: absolute;
+  top: 399px;
+  left: 1030px;
+  width: 296px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: right;
+  font-size: var(--font-size-xs);
+}
+.hintDiv1,
+.labelDiv {
+  flex: 1;
+  position: relative;
+}
+.labelDiv {
+  letter-spacing: 0.1px;
+  line-height: 24px;
+  font-weight: 500;
+  display: inline-block;
+}
+.hintDiv1 {
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.4px;
+  line-height: 16px;
+  color: var(--color-gray-2000);
+  text-align: right;
+  display: none;
+}
+.lLabelDiv1 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--gap-sm);
+  color: var(--color-gray-2200);
+}
+.caretDiv,
+.iconStart {
+  position: relative;
+  height: 20px;
+  display: none;
+}
+.iconStart {
+  width: 20px;
+  overflow: hidden;
+}
+.caretDiv {
+  background-color: var(--color-gray-2000);
+  width: 1px;
+}
+.textDiv {
+  flex: 1;
+  position: relative;
+  letter-spacing: 0.25px;
+  line-height: 24px;
+  display: inline-block;
+}
+.iconEnd {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  display: none;
+}
+.cInputDiv {
+  align-self: stretch;
+  border-radius: var(--br-xs);
+  background-color: var(--color-gray-500);
+  border: 1px solid var(--color-gray-400);
+  box-sizing: border-box;
+  position: relative;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-lg) var(--padding-xl);
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-xs);
+}
+.iconMessage {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+}
+.messageDiv {
+  position: relative;
+  letter-spacing: 0.4px;
+  line-height: 16px;
+  display: inline-block;
+}
+.lMessageDiv {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-2xs);
+  font-size: var(--font-size-xs);
+}
+.inputDiv,
+.inputStandardDiv,
+.inputStandardDiv1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.inputDiv {
+  align-self: stretch;
+  gap: var(--gap-xs);
+}
+.inputStandardDiv,
+.inputStandardDiv1 {
+  position: absolute;
+  top: 102px;
+  left: 68px;
+  width: 798px;
+}
+.inputStandardDiv1 {
+  top: 199px;
+}
+.cInputDiv2 {
+  align-self: stretch;
+  border-radius: var(--br-xs);
+  background-color: var(--color-gray-500);
+  border: 1px solid var(--color-gray-400);
+  box-sizing: border-box;
+  position: relative;
+  height: 48px;
+  display: none;
+  flex-direction: row;
+  padding: var(--padding-lg) var(--padding-xl);
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-xs);
+}
+.inputStandardDiv2 {
+  position: absolute;
+  top: 303px;
+  left: 68px;
+  width: 798px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.textDiv3 {
+  flex: 1;
+  align-self: stretch;
+  position: relative;
+  letter-spacing: 0.25px;
+  line-height: 24px;
+  display: inline-block;
+}
+.cInputDiv3 {
+  position: absolute;
+  top: 344px;
+  left: 68px;
+  border-radius: var(--br-xs);
+  background-color: var(--color-gray-500);
+  border: 1px solid var(--color-gray-400);
+  box-sizing: border-box;
+  width: 798px;
+  height: 337px;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-lg) var(--padding-xl);
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-xs);
+}
+.buttonDiv2 {
+  position: relative;
+  line-height: 132%;
+  display: inline-block;
+}
+.buttonDiv1 {
+  border-radius: var(--br-xs);
+  background-color: var(--white);
+  border: 1px solid var(--color-turquoise-200);
+  box-sizing: border-box;
+  position: relative;
+  padding: var(--padding-lg) var(--padding-4xl);
+  align-items: center;
+  justify-content: center;
+}
+.buttonDiv,
+.buttonDiv1,
+.buttonDiv3 {
+  display: flex;
+  flex-direction: row;
+}
+.buttonDiv3 {
+  border-radius: var(--br-xs);
+  background-color: var(--color-turquoise-200);
+  padding: var(--padding-lg) var(--padding-4xl);
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--white);
+}
+.buttonDiv {
+  position: absolute;
+  top: 716px;
+  left: 220px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: var(--gap-lg);
+  text-align: center;
+  font-size: var(--font-size-2xl);
+  color: var(--color-turquoise-200);
+  font-family: var(--body-txt-body-s-regular);
+}
+.div {
+  position: relative;
+  background-color: var(--white);
+  box-shadow: var(--large-shadow-for-pop-up-windows1);
+  width: 939px;
+  height: 816px;
+  overflow: hidden;
+  max-width: 90%;
+  max-height: 90%;
+  text-align: left;
+  font-size: var(--body-default-size);
+  color: var(--color-gray-2000);
+  font-family: var(--font-inter);
+}

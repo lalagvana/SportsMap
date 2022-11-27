@@ -1,0 +1,136 @@
+.icArrowsLeftIcon {
+  position: absolute;
+  top: 38px;
+  left: 439px;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+}
+.imagePlaceholderIcon {
+  position: absolute;
+  top: 58px;
+  left: 40px;
+  border-radius: var(--br-md);
+  width: 328px;
+  height: 321px;
+  object-fit: cover;
+}
+.hintDiv,
+.labelDiv {
+  flex: 1;
+  position: relative;
+}
+.labelDiv {
+  letter-spacing: 0.1px;
+  line-height: 24px;
+  font-weight: 500;
+  display: inline-block;
+}
+.hintDiv {
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.4px;
+  line-height: 16px;
+  color: var(--color-gray-2000);
+  text-align: right;
+  display: none;
+}
+.lLabelDiv,
+.labelDiv1,
+.labelDiv2,
+.labelDiv3 {
+  position: absolute;
+  left: 40px;
+  display: flex;
+  align-items: center;
+}
+.lLabelDiv {
+  top: 453px;
+  width: 296px;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: var(--gap-sm);
+}
+.labelDiv1,
+.labelDiv2,
+.labelDiv3 {
+  letter-spacing: 0.1px;
+  line-height: 24px;
+  font-weight: 500;
+}
+.labelDiv1 {
+  top: 404px;
+  font-size: var(--font-size-4xl);
+  width: 328px;
+}
+.labelDiv2,
+.labelDiv3 {
+  top: 505px;
+  width: 432px;
+}
+.labelDiv3 {
+  top: 554px;
+}
+.httpsfitnessHouseruSpan {
+  color: var(--color-teal-500);
+}
+.labelTxtSpan {
+  line-break: anywhere;
+  width: 100%;
+}
+.labelDiv4 {
+  position: absolute;
+  top: 606px;
+  left: 40px;
+  letter-spacing: 0.1px;
+  line-height: 24px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  width: 432px;
+}
+.labelDiv5 {
+  top: 655px;
+  color: var(--color-gray-2400);
+  width: 432px;
+}
+.labelDiv5,
+.labelDiv6,
+.labelDiv7 {
+  position: absolute;
+  left: 40px;
+  letter-spacing: 0.1px;
+  line-height: 24px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+.labelDiv6 {
+  top: 707px;
+  color: var(--color-gray-2400);
+  width: 432px;
+}
+.labelDiv7 {
+  top: 759px;
+  width: 181px;
+}
+.togglerIcon {
+  position: absolute;
+  top: 800px;
+  left: 79px;
+  width: 51px;
+  height: 32px;
+}
+.div {
+  position: relative;
+  background-color: var(--white);
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.05);
+  width: 521px;
+  height: 883px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  text-align: left;
+  font-size: var(--body-default-size);
+  color: var(--color-gray-2200);
+  font-family: var(--font-inter);
+}

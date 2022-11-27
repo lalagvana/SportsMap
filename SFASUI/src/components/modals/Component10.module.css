@@ -1,0 +1,349 @@
+.claritycloseLineIcon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+}
+.buttonDiv2 {
+  position: relative;
+  line-height: 132%;
+  display: inline-block;
+}
+.buttonDiv1 {
+  border-radius: var(--br-xs);
+  background-color: var(--white);
+  border: 1px solid var(--color-turquoise-200);
+  box-sizing: border-box;
+  position: relative;
+  width: 144px;
+  padding: var(--padding-lg) var(--padding-4xl);
+  align-items: center;
+  justify-content: center;
+}
+.buttonDiv,
+.buttonDiv1,
+.buttonDiv3 {
+  display: flex;
+  flex-direction: row;
+}
+.buttonDiv3 {
+  border-radius: var(--br-xs);
+  background-color: var(--color-turquoise-200);
+  width: 143px;
+  padding: var(--padding-lg) var(--padding-4xl);
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+}
+.buttonDiv {
+  position: absolute;
+  top: 331px;
+  left: 364px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: var(--gap-lg);
+  text-align: center;
+  font-size: var(--font-size-2xl);
+  color: var(--color-turquoise-200);
+  font-family: var(--body-txt-body-s-regular);
+}
+.div1 {
+  position: absolute;
+  top: 35px;
+  left: 68px;
+  font-size: var(--font-size-5xl);
+  letter-spacing: -0.18px;
+  line-height: 32px;
+  font-weight: 600;
+  display: inline-block;
+  width: 608px;
+}
+.hintDiv,
+.labelDiv {
+  flex: 1;
+  position: relative;
+}
+.labelDiv {
+  letter-spacing: 0.1px;
+  line-height: 24px;
+  font-weight: 500;
+  display: inline-block;
+}
+.hintDiv {
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.4px;
+  line-height: 16px;
+  color: var(--color-gray-2000);
+  text-align: right;
+  display: none;
+}
+.lLabelDiv {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--gap-sm);
+  color: var(--color-gray-2200);
+}
+.caretDiv,
+.iconStart {
+  position: relative;
+  height: 20px;
+  display: none;
+}
+.iconStart {
+  width: 20px;
+  overflow: hidden;
+}
+.caretDiv {
+  background-color: var(--color-gray-2000);
+  width: 1px;
+}
+.textDiv {
+  flex: 1;
+  position: relative;
+  letter-spacing: 0.25px;
+  line-height: 24px;
+  display: inline-block;
+}
+.iconEnd {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  display: none;
+}
+.cInputDiv {
+  align-self: stretch;
+  border-radius: var(--br-xs);
+  background-color: var(--color-gray-200);
+  border: 1px solid var(--color-gray-400);
+  box-sizing: border-box;
+  position: relative;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-lg) var(--padding-xl);
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-xs);
+}
+.iconMessage {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+}
+.messageDiv {
+  position: relative;
+  letter-spacing: 0.4px;
+  line-height: 16px;
+  display: inline-block;
+}
+.inputDiv,
+.lMessageDiv {
+  justify-content: flex-start;
+}
+.lMessageDiv {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--gap-2xs);
+  font-size: var(--font-size-xs);
+}
+.inputDiv {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-xs);
+}
+.inputStandardDiv,
+.labelDiv1 {
+  position: absolute;
+  top: 91px;
+  display: flex;
+}
+.inputStandardDiv {
+  left: 68px;
+  width: 296px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  color: var(--color-gray-2000);
+}
+.labelDiv1 {
+  left: 377px;
+  letter-spacing: 0.1px;
+  line-height: 24px;
+  font-weight: 500;
+  align-items: center;
+  width: 299px;
+}
+.iconEnd1 {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+}
+.cInputDiv1,
+.cInputDiv2,
+.labelDiv2 {
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+.cInputDiv1 {
+  top: 123px;
+  left: 377px;
+  border-radius: var(--br-xs);
+  background-color: var(--color-gray-200);
+  border: 1px solid var(--color-gray-400);
+  box-sizing: border-box;
+  width: 299px;
+  height: 48px;
+  flex-direction: row;
+  padding: var(--padding-lg) var(--padding-xl);
+  justify-content: flex-start;
+  gap: var(--gap-xs);
+  color: var(--color-gray-2000);
+}
+.cInputDiv2,
+.labelDiv2 {
+  left: 0;
+}
+.labelDiv2 {
+  top: 0;
+  letter-spacing: 0.1px;
+  line-height: 24px;
+  font-weight: 500;
+  width: 218px;
+}
+.cInputDiv2 {
+  top: 32px;
+  border-radius: var(--br-xs);
+  background-color: var(--color-gray-200);
+  border: 1px solid var(--color-gray-400);
+  box-sizing: border-box;
+  width: 177px;
+  height: 48px;
+  flex-direction: row;
+  padding: var(--padding-lg) var(--padding-xl);
+  justify-content: flex-start;
+  gap: var(--gap-xs);
+  color: var(--color-gray-2000);
+}
+.groupDiv {
+  position: absolute;
+  top: 195px;
+  left: 286px;
+  width: 218px;
+  height: 80px;
+}
+.labelDiv3 {
+  top: 195px;
+  left: 68px;
+  letter-spacing: 0.1px;
+  line-height: 24px;
+  font-weight: 500;
+  width: 218px;
+}
+.cInputDiv3,
+.cInputDiv4,
+.labelDiv3,
+.labelDiv4 {
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+.cInputDiv3 {
+  top: 227px;
+  left: 68px;
+  border-radius: var(--br-xs);
+  background-color: var(--color-gray-200);
+  border: 1px solid var(--color-gray-400);
+  box-sizing: border-box;
+  width: 177px;
+  height: 48px;
+  flex-direction: row;
+  padding: var(--padding-lg) var(--padding-xl);
+  justify-content: flex-start;
+  gap: var(--gap-xs);
+  color: var(--color-gray-2000);
+}
+.cInputDiv4,
+.labelDiv4 {
+  left: 0;
+}
+.labelDiv4 {
+  top: 0;
+  letter-spacing: 0.1px;
+  line-height: 24px;
+  font-weight: 500;
+  width: 280px;
+}
+.cInputDiv4 {
+  top: 32px;
+  border-radius: var(--br-xs);
+  background-color: var(--color-gray-200);
+  border: 1px solid var(--color-gray-400);
+  box-sizing: border-box;
+  width: 253.03px;
+  height: 48px;
+  flex-direction: row;
+  padding: var(--padding-lg) var(--padding-xl);
+  justify-content: flex-start;
+  gap: var(--gap-xs);
+  color: var(--color-gray-2000);
+}
+.groupDiv1 {
+  position: absolute;
+  top: 299px;
+  left: 68px;
+  width: 280px;
+  height: 80px;
+}
+.lLabelDiv1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 229px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--gap-sm);
+}
+.groupDiv2,
+.togglerIcon {
+  position: absolute;
+  top: 40px;
+  left: 89px;
+  width: 51px;
+  height: 32px;
+}
+.groupDiv2 {
+  top: 203px;
+  left: 463px;
+  width: 229px;
+  height: 72px;
+  text-align: center;
+}
+.div {
+  position: relative;
+  background-color: var(--white);
+  box-shadow: var(--large-shadow-for-pop-up-windows1);
+  width: 756px;
+  height: 439px;
+  overflow: hidden;
+  max-width: 90%;
+  max-height: 90%;
+  text-align: left;
+  font-size: var(--body-default-size);
+  color: var(--color-gray-2200);
+  font-family: var(--font-inter);
+}
