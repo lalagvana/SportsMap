@@ -5,6 +5,7 @@
 
 
 SFASUI/build
+SFASUI/.next
 
 # User-specific files
 *.rsuser
@@ -404,3 +405,5 @@ FodyWeavers.xsd
 # secrets
 *.env
 /SFASServer/ssl/
+
+
