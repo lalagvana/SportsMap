@@ -15,4 +15,8 @@
     <ProjectReference Include="..\..\Kendo.DynamicLinqCore\Kendo.DynamicLinqCore.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+
 </Project>

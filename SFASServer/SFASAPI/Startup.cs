@@ -8,7 +8,6 @@ using SFAS.Database.Entities;
 using System.Text.Json.Serialization;
 using Microsoft.OpenApi.Models;
 using SFAS.Common;
-using SFAS.Common.Helpers;
 using SFAS.Services.Interfaces;
 using SFAS.Services.Services;
 using SFAS.Services.Services.Common;
@@ -119,7 +118,6 @@ namespace SFAS.API
 
             services.AddControllers().AddJsonOptions(x =>
             {
-                x.JsonSerializerOptions.Converters.Add(new ObjectToInferredTypesConverter());
                 x.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
             });
         }

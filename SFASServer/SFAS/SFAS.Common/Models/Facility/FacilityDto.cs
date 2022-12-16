@@ -10,7 +10,7 @@ namespace SFAS.Common.Models.Facility
 
         public string Name { get; set; }
 
-        //public Guid AddressId { get; set; }
+        //public Guid? AddressId { get; set; }
 
         public string? OwnerName { get; set; }
 
