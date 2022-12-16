@@ -1,7 +1,7 @@
 import { GetServerSideProps, NextPage } from 'next';
 import React from 'react';
 
-import { Main } from 'client/pageComponents/Main';
+import { Main } from 'src/client/screens/Main';
 
 import NextError from 'src/pages/_error';
 

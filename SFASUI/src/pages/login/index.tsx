@@ -1,7 +1,7 @@
 import React from 'react';
 import { GetServerSideProps, NextPage } from 'next';
 
-import Login from 'client/pageComponents/Login';
+import { Login } from 'src/client/screens/Login';
 
 import NextError from 'src/pages/_error';
 
