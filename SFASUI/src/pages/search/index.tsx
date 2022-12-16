@@ -1,7 +1,7 @@
 import React from 'react';
 import { GetServerSideProps, NextPage } from 'next';
 
-import Search from 'client/pageComponents/Search';
+import { Search } from 'client/screens/Search';
 
 import NextError from 'src/pages/_error';
 

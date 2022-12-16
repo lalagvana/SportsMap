@@ -1,7 +1,7 @@
 import React from 'react';
 import { GetServerSideProps, NextPage } from 'next';
 
-import ContactUs from 'client/pageComponents/ContactUs';
+import { ContactUs } from 'client/screens/ContactUs';
 
 import NextError from 'src/pages/_error';
 
