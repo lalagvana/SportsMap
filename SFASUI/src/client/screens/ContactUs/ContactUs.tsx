@@ -1,12 +1,12 @@
 import React from 'react';
 import tw from 'twin.macro';
 
-import { AnimationReveal } from 'client/shared/components/AnimationReveal';
-import { Header } from 'client/shared/components/Header';
-import { Footer } from 'client/shared/components/Footer';
+import { AnimationReveal } from 'src/client/shared/components/AnimationReveal';
+import { Header } from 'src/client/shared/components/Header';
+import { Footer } from 'src/client/shared/components/Footer';
 
-import { Form } from 'client/screens/ContactUs/components/Form';
-import { Details } from 'client/screens/ContactUs/components/Details';
+import { Form } from 'src/client/screens/ContactUs/components/Form';
+import { Details } from 'src/client/screens/ContactUs/components/Details';
 
 const Address = tw.span`leading-relaxed`;
 const AddressLine = tw.span`block`;
