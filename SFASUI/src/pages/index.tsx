@@ -1,4 +1,4 @@
-import { GetServerSideProps, NextPage } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 
 import { Main } from 'src/client/screens/Main';
@@ -10,9 +10,7 @@ type MainPageProps = {
     error?: any;
 };
 
-export const getServerSideProps: GetServerSideProps<
-    MainPageProps
-> = async () => {
+export const getStaticProps: GetStaticProps<MainPageProps> = async () => {
     return {
         props: {},
     };

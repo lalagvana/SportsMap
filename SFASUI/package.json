@@ -27,6 +27,7 @@
     "react-slick": "^0.28.1",
     "react-yandex-maps": "^4.6.0",
     "reactstrap": "^9.0.2",
+    "sharp": "^0.31.2",
     "styled-components": "^5.3.6",
     "tailwindcss": "^2.1.1",
     "twin.macro": "^2.3.3",
