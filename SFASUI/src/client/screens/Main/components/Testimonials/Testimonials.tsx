@@ -2,10 +2,10 @@ import React from 'react';
 import tw from 'twin.macro';
 import Image from 'next/image';
 
-import { Container } from 'client/shared/components/Misc/Layouts';
-import SpbuLogo from 'client/images/logo-spbu.svg';
-import KrasLogo from 'client/images/logo-kras.svg';
-import AdmLogo from 'client/images/logo-adm.png';
+import { Container } from 'src/client/shared/components/Misc/Layouts';
+import SpbuLogo from 'src/client/images/logo-spbu.svg';
+import KrasLogo from 'src/client/images/logo-kras.svg';
+import AdmLogo from 'src/client/images/logo-adm.png';
 
 const TestimonialsBase = tw.div`flex flex-col lg:flex-row items-center lg:items-stretch lg:h-1/4`;
 const TestimonialContainer = tw.div`mt-0 lg:w-1/3`;
