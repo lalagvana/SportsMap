@@ -1,4 +1,4 @@
-﻿using SFAS.Common.Models.Admin;
+﻿using SFAS.Common.Models.User;
 
 namespace SFAS.Services.Interfaces
 {

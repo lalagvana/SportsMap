@@ -11,7 +11,9 @@ namespace SFAS.Database.Entities
 
         [Required]
         public string LastName { get; set; }
-        
+        public string Username { get; set; }
+        public string Password { get; set; }
+
         public bool IsDeleted { get; set; }
 
         public Guid? CreatedByID { get; set; }

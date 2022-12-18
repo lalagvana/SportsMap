@@ -6,11 +6,11 @@ namespace SFAS.Services.Interfaces
 {
     public interface IUserService
     {
-        Task<AdminUserDto> UpdateUser(Guid id, UpdateUserAdminRequest request);
+        Task<UserDto> UpdateUser(UserDto request);
         Task<TypedDataSourceResult<UserDto>> GetUsers(DataSourceRequest request);
-        TypedDataSourceResult<AdminUserDto> GetAllUsers(DataSourceRequest request);
+        TypedDataSourceResult<UserDto> GetAllUsers(DataSourceRequest request);
         Task DeleteUser(Guid id);
-        Task<AdminUserDto> CreateUser(CreateUserRequest request);
+        Task<UserDto> CreateUser(CreateUserRequest request);
         Task<UserDto> GetUser(Guid id);
     }
 }

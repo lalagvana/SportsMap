@@ -40,9 +40,9 @@ namespace SFAS.Services.Services
             _roleManager = roleManager;
         }
 
-        public async Task<AdminUserDto> UpdateUser(Guid id, UpdateUserAdminRequest request)
+        public async Task<UserDto> UpdateUser(UserDto request)
         {
-            var user = await _userManager.Users.FirstOrDefaultAsync(x => x.Id == id);
+            var user = await _userManager.Users.FirstOrDefaultAsync(x => x.Id == request.UserId);
             if (user == null)
             {
                 throw new NotFoundException("Physician not found");
@@ -80,18 +80,18 @@ namespace SFAS.Services.Services
                 }
             }
 
-            var roles = await _userManager.GetRolesAsync(user);
-            var singleRole = roles.FirstOrDefault();
-            var existingRoles = await GetAllRolesAsync();
-            if (!string.IsNullOrEmpty(singleRole) && existingRoles.Contains(request.Role) && singleRole != request.Role)
-            {
-                //which means we need to change user role
-                await _userManager.RemoveFromRolesAsync(user, roles);
-                await _userManager.AddToRoleAsync(user, request.Role);
-            }
+            //var roles = await _userManager.GetRolesAsync(user);
+            //var singleRole = roles.FirstOrDefault();
+            //var existingRoles = await GetAllRolesAsync();
+            //if (!string.IsNullOrEmpty(singleRole) && existingRoles.Contains(request.Role) && singleRole != request.Role)
+            //{
+            //    //which means we need to change user role
+            //    await _userManager.RemoveFromRolesAsync(user, roles);
+            //    await _userManager.AddToRoleAsync(user, request.Role);
+            //}
 
-            _logger.LogInformation($"Finished physician update: {user.UserName}");
-            return _mapper.Map<AdminUserDto>(user);
+            _logger.LogInformation($"Finished user update: {user.UserName}");
+            return _mapper.Map<UserDto>(user);
         }
 
         public async Task<TypedDataSourceResult<UserDto>> GetUsers(DataSourceRequest request)
@@ -100,9 +100,9 @@ namespace SFAS.Services.Services
                 .ToTypedDataSourceResult(request);
         }
 
-        public TypedDataSourceResult<AdminUserDto> GetAllUsers(DataSourceRequest request)
+        public TypedDataSourceResult<UserDto> GetAllUsers(DataSourceRequest request)
         {
-            return _mapper.ProjectTo<AdminUserDto>(_userManager.Users.Where(x => !x.DeletedAt.HasValue))
+            return _mapper.ProjectTo<UserDto>(_userManager.Users.Where(x => !x.DeletedAt.HasValue))
                 .ToTypedDataSourceResult(request);
         }
 
@@ -123,7 +123,7 @@ namespace SFAS.Services.Services
             await DeleteUser(user);
         }
 
-        public async Task<AdminUserDto> CreateUser(CreateUserRequest request)
+        public async Task<UserDto> CreateUser(CreateUserRequest request)
         {
             var user = _mapper.Map<User>(request);
             user.EmailConfirmed = false;
@@ -166,16 +166,16 @@ namespace SFAS.Services.Services
                 }
             }
 
-            var addRoleResult = await _userManager.AddToRoleAsync(user, request.Role);
-            if (!addRoleResult.Succeeded)
-            {
-                await DeleteUser(user);
-                throw new CreateUserException(addRoleResult.Errors, "Failed to add user role");
-            }
+            //var addRoleResult = await _userManager.AddToRoleAsync(user, request.Role);
+            //if (!addRoleResult.Succeeded)
+            //{
+            //    await DeleteUser(user);
+            //    throw new CreateUserException(addRoleResult.Errors, "Failed to add user role");
+            //}
 
             _logger.LogInformation($"Password, threshold and roles are configured for new user {user.Id}");
 
-            return _mapper.Map<AdminUserDto>(user);
+            return _mapper.Map<UserDto>(user);
         }
 
         private async Task DeleteUser(User user)

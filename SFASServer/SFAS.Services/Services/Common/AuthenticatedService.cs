@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using SFAS.Common.Models.Admin;
+using SFAS.Common.Models.User;
 using SFAS.Database.Entities;
 using SFAS.Services.Interfaces;
 
