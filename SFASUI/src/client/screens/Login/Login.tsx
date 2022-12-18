@@ -1,14 +1,18 @@
 import React from 'react';
-
+import { FormikProvider, useFormik } from 'formik';
 import tw from 'twin.macro';
 import styled from 'styled-components';
 import Image from 'next/image';
 
-import { AnimationReveal } from 'client/shared/components/AnimationReveal';
-import { Container as ContainerBase } from 'client/shared/components/Misc/Layouts';
+import { AnimationReveal } from 'src/client/shared/components/AnimationReveal';
+import { Container as ContainerBase } from 'src/client/shared/components/Misc/Layouts';
 
-import logo from 'client/images/logo-simple.svg';
+import logo from 'src/client/images/logo-simple.svg';
 import LoginIcon from 'feather-icons/dist/icons/log-in.svg';
+
+import { TextInput } from 'src/client/screens/Login/components/TextInput';
+import { LoginFields } from './Login.types';
+import { useLoginHandler } from './Login.hooks'
 
 const Container = tw(
     ContainerBase
@@ -20,7 +24,6 @@ const MainContent = tw.div`mt-12 flex flex-col items-center`;
 const Heading = tw.h1`text-2xl xl:text-3xl font-extrabold`;
 const FormContainer = tw.div`w-full flex-1 mt-8`;
 const Form = tw.form`mx-auto max-w-xs`;
-const Input = tw.input`w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5 first:mt-0`;
 const SubmitButton = styled.button`
     ${tw`mt-5 tracking-wide font-semibold bg-primary-500 text-gray-100 w-full py-4 rounded-lg hover:bg-primary-900 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none`}
     .icon {
@@ -41,39 +44,65 @@ export const Login = ({
     headingText = 'Войти в SportsMap',
     submitButtonText = 'Войти',
     forgotPasswordUrl = '#',
-}: LoginPageProps) => (
-    <AnimationReveal>
-        <Container>
-            <Content>
-                <MainContainer>
-                    <LogoLink href="/#">
-                        <Image src={logo} tw="h-12 mx-auto" />
-                    </LogoLink>
-                    <MainContent>
-                        <Heading>{headingText}</Heading>
-                        <FormContainer>
-                            <Form>
-                                <Input type="email" placeholder="Логин" />
-                                <Input type="password" placeholder="Пароль" />
-                                <SubmitButton type="submit">
-                                    <Image src={LoginIcon} className="icon" />
-                                    <span className="text">
-                                        {submitButtonText}
-                                    </span>
-                                </SubmitButton>
-                            </Form>
-                            <p tw="mt-6 text-xs text-gray-600 text-center">
-                                <a
-                                    href={forgotPasswordUrl}
-                                    tw="border-b border-gray-500 border-dotted"
-                                >
-                                    Забыли пароль ?
-                                </a>
-                            </p>
-                        </FormContainer>
-                    </MainContent>
-                </MainContainer>
-            </Content>
-        </Container>
-    </AnimationReveal>
-);
+}: LoginPageProps) => {
+    const handleSubmit = useLoginHandler();
+
+    const formikStateAndHelpers = useFormik<LoginFields>({
+        initialValues: { email: '', password: '' },
+        onSubmit: handleSubmit,
+    });
+
+    return (
+        <AnimationReveal>
+            <Container>
+                <Content>
+                    <MainContainer>
+                        <LogoLink href="/#">
+                            <Image src={logo} tw="h-12 mx-auto" />
+                        </LogoLink>
+                        <MainContent>
+                            <Heading>{headingText}</Heading>
+                            <FormContainer>
+                                <FormikProvider value={formikStateAndHelpers}>
+                                    <Form>
+                                        <TextInput
+                                            type="email"
+                                            placeholder="Логин"
+                                            name="email"
+                                        />
+                                        <TextInput
+                                            type="password"
+                                            placeholder="Пароль"
+                                            name="password"
+                                        />
+                                        <SubmitButton
+                                            onClick={
+                                                formikStateAndHelpers.submitForm
+                                            }
+                                        >
+                                            <Image
+                                                src={LoginIcon}
+                                                className="icon"
+                                            />
+                                            <span className="text">
+                                                {submitButtonText}
+                                            </span>
+                                        </SubmitButton>
+                                    </Form>
+                                </FormikProvider>
+                                <p tw="mt-6 text-xs text-gray-600 text-center">
+                                    <a
+                                        href={forgotPasswordUrl}
+                                        tw="border-b border-gray-500 border-dotted"
+                                    >
+                                        Забыли пароль ?
+                                    </a>
+                                </p>
+                            </FormContainer>
+                        </MainContent>
+                    </MainContainer>
+                </Content>
+            </Container>
+        </AnimationReveal>
+    );
+};
