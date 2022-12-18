@@ -5,10 +5,11 @@ import styled from 'styled-components';
 import {
     SectionHeading,
     Subheading as SubheadingBase,
-} from 'client/shared/components/Misc/Headings';
-import { PrimaryButton as PrimaryButtonBase } from 'client/shared/components/Misc/Buttons';
-import EmailIllustrationSrc from 'client/images/sapiens-contact.svg';
-import { FormProps } from 'client/screens/ContactUs/components/Form/Form.types';
+} from 'src/client/shared/components/Misc/Headings';
+import { PrimaryButton as PrimaryButtonBase } from 'src/client/shared/components/Misc/Buttons';
+import EmailIllustrationSrc from 'src/client/images/sapiens-contact.svg';
+
+import { FormProps } from 'src/client/screens/ContactUs/components/Form';
 
 const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-10`;
@@ -21,8 +22,8 @@ const TextColumn = styled(Column)(({ textOnLeft }: { textOnLeft: boolean }) => [
         : tw`md:ml-12 lg:ml-16 md:order-last`,
 ]);
 
-const Image = styled.div(({ imageSrc }: { imageSrc: string }) => [
-    `background-image: url("${imageSrc}");`,
+const Image = styled.div(({ imageSrc }: { imageSrc: { src: string } }) => [
+    `background-image: url("${imageSrc.src}");`,
     tw`rounded bg-contain bg-no-repeat bg-center h-full`,
 ]);
 const TextContent = tw.div`lg:py-8 text-center md:text-left`;

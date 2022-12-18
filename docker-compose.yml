@@ -1,21 +1,18 @@
 version: "3.9"
-
 services:
   front:
-    build: ./SFASUI
+    image: "cr.yandex/${REGISTRY_ID}/sportsmap:latest"
     ports:
       - "3000:3000"
-  back:
-    build: ./SFASServer
-    ports:
-      - "80:80"
-  db:
-    image: postgres:14-alpine
-    container_name: sportsmap-postgres
-    hostname: postgres
-    volumes:
-      - sportsmap-db:/var/lib/postgresql/data
-    ports:
-      - "${POSTGRES_PORT-5432}:${POSTGRES_PORT-5432}"
     env_file:
       - local.env
+  back:
+    image: "cr.yandex/${REGISTRY_ID}/sportsmap-backend:latest"
+    ports:
+      - "80:80"
+      - "443:443"
+    env_file:
+      - local.env
+networks:
+  default:
+    driver: host

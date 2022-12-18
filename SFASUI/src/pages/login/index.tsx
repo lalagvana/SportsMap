@@ -1,5 +1,5 @@
 import React from 'react';
-import { GetServerSideProps, NextPage } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 
 import { Login } from 'src/client/screens/Login';
 
@@ -10,9 +10,7 @@ type LoginPageProps = {
     error?: any;
 };
 
-export const getServerSideProps: GetServerSideProps<
-    LoginPageProps
-> = async () => {
+export const getStaticProps: GetStaticProps<LoginPageProps> = async () => {
     return {
         props: {},
     };

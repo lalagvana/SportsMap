@@ -1,5 +1,5 @@
 import React from 'react';
-import { GetServerSideProps, NextPage } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 
 import { ContactUs } from 'client/screens/ContactUs';
 
@@ -10,9 +10,7 @@ type ContactUsPageProps = {
     error?: any;
 };
 
-export const getServerSideProps: GetServerSideProps<
-    ContactUsPageProps
-> = async () => {
+export const getStaticProps: GetStaticProps<ContactUsPageProps> = async () => {
     return {
         props: {},
     };
