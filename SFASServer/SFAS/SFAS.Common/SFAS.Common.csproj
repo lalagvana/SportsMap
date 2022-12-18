@@ -8,11 +8,9 @@
 
   <ItemGroup>
     <PackageReference Include="LinqKit" Version="1.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="6.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Helpers\" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.10.0" />
   </ItemGroup>
 
   <ItemGroup>

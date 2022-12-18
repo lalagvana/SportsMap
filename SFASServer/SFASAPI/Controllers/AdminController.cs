@@ -1,38 +1,78 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SFAS.Common.Models.AuthDtos;
 using SFAS.Common.Models.User;
 using SFAS.Services.Interfaces;
 
 namespace SFAS.API.Controllers
 {
-    /// <summary>
-    /// Kek
-    /// </summary>
     [ApiController]
     [Route("/api/admin")]
     public class AdminController : ControllerBase
     {
         private readonly IAuthService _authService;
-        private readonly IUserService _userService;
+        private readonly IUsersService _userService;
 
-        public AdminController(IAuthService authService, IUserService userService)
+        public AdminController(IAuthService authService, IUsersService userService)
         {
             _authService = authService;
             _userService = userService;
         }
 
         /// <summary>
-        /// Authenticates user and returns LoginResponse with user info and token + refresh token. Used on a login page.
-        /// After login - go to the list of facilities.
+        /// Refresh access token
         /// </summary>
-        /// <param name="request">LoginRequest: Name and Password of the user</param>
-        /// <returns>LoginResponse with user info and token + refresh token</returns>
-        [HttpPost]
-        [Route("login")]
         [AllowAnonymous]
-        public async Task<ActionResult<LoginResponse>> Token(LoginRequest request)
+        [HttpPost("token/refresh")]
+        public async Task<ActionResult<LoginResponse>> RefreshToken(RefreshTokenRequest request)
         {
-            return await _authService.Authenticate(request);
+            var response = await _authService.RefreshToken(request);
+            return Ok(response);
+        }
+
+        /// <summary>
+        /// Confirm user account
+        /// </summary>
+        [HttpPost("confirm")]
+        [AllowAnonymous]
+        public async Task<ActionResult<bool>> ConfirmEmail(PasswordResetRequest request)
+        {
+            var response = await _authService.ConfirmUser(request);
+            return Ok(response);
+        }
+
+        /// <summary>
+        /// Send mail with password reset link
+        /// </summary>
+        [HttpPost("sendpasswordresetlink")]
+        [AllowAnonymous]
+        public async Task<ActionResult<bool>> SendPasswordResetLink(SendPasswordResetLinkRequest request)
+        {
+            var response = await _authService.SendPasswordResetLink(request);
+            return Ok(response);
+        }
+
+        /// <summary>
+        /// Reset user password
+        /// </summary>
+        [HttpPost("passwordreset")]
+        [AllowAnonymous]
+        public async Task<ActionResult<bool>> PasswordReset(PasswordResetRequest request)
+        {
+            var response = await _authService.ResetPassword(request);
+            return Ok(response);
+        }
+        
+        /// <summary>
+        /// Get own account information
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<ActionResult<UserDto>> GetAccountInfo()
+        {
+            return await _authService.GetAccountInfo();
         }
 
         #region Users
@@ -45,7 +85,7 @@ namespace SFAS.API.Controllers
         [HttpPut("users/{userID}")]
         public async Task<ActionResult<UserDto>> UpdateUser(UserDto request)
         {
-            return await _userService.UpdateUser(request);
+            return await _userService.UpdateUser(request.UserId, request);
         }
 
         ///// <summary>
@@ -94,6 +134,7 @@ namespace SFAS.API.Controllers
         {
             return await _userService.CreateUser(request);
         }
+
         #endregion
     }
 }
