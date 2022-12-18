@@ -14,7 +14,7 @@ export const useLoginHandler = () => {
         async (fields: LoginFields) => {
             try {
                 const res = await login(createLoginUser(fields));
-                setClientConfig({ ...clientConfig, token: res.AccessToken });
+                setClientConfig({ ...clientConfig, token: res.accessToken });
 
                 await router.replace(pageRoutes.search);
             } catch (error) {

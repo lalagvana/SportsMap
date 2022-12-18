@@ -1,10 +1,5 @@
 declare namespace Components {
     namespace Schemas {
-        export interface AdminUserDto {}
-        export interface AdminUserDtoTypedDataSourceResult {
-            data?: AdminUserDto[] | null;
-            total?: number; // int32
-        }
         export interface Aggregator {
             field?: string | null;
             aggregate?: string | null;
@@ -16,7 +11,10 @@ declare namespace Components {
             | 'Polymer'
             | 'Synthetic';
         export interface CreateUserRequest {
-            role?: string | null;
+            firstName: string;
+            lastName: string;
+            username?: string | null;
+            password?: string | null;
         }
         export interface DataSourceRequest {
             take?: number; // int32
@@ -76,18 +74,18 @@ declare namespace Components {
             dir?: string | null;
             aggregates?: Aggregator[] | null;
         }
-        export interface LocationDto {}
         export interface LoginRequest {
-            name: string;
-            password: string;
+            name?: string | null;
+            password?: string | null;
         }
         export interface LoginResponse {
-            id: number;
-            firstName: string;
-            username: string;
-            AccessToken: string;
-            AccessTokenExpiresIn: number;
-            RefreshToken: string;
+            id?: string | null;
+            firstName?: string | null;
+            lastName?: string | null;
+            username?: string | null;
+            accessToken?: string | null;
+            accessTokenExpiresIn?: number; // int32
+            refreshToken?: string | null;
         }
         export type PayingType = 'FullFree' | 'PartlyFree' | 'NotFree';
         export type PropertyForm =
@@ -101,90 +99,16 @@ declare namespace Components {
             field?: string | null;
             dir?: string | null;
         }
-        export interface UpdateUserAdminRequest {
+        export interface UserDto {
+            userId?: string; // uuid
+            firstName?: string | null;
+            lastName?: string | null;
+            username?: string | null;
             password?: string | null;
-            role?: string | null;
         }
-        export interface UserDto {}
     }
 }
 declare namespace Paths {
-    namespace ApiAdminFacility {
-        namespace Post {
-            export type RequestBody = Components.Schemas.FacilityDto;
-            namespace Responses {
-                export type $200 = Components.Schemas.FacilityDto;
-            }
-        }
-        namespace Put {
-            namespace Parameters {
-                export type Id = string; // uuid
-            }
-            export interface QueryParameters {
-                id?: Parameters.Id /* uuid */;
-            }
-            export type RequestBody = Components.Schemas.FacilityDto;
-            namespace Responses {
-                export type $200 = Components.Schemas.FacilityDto;
-            }
-        }
-    }
-    namespace ApiAdminFacility$Id {
-        namespace Delete {
-            namespace Parameters {
-                export type Id = string; // uuid
-            }
-            export interface PathParameters {
-                id: Parameters.Id /* uuid */;
-            }
-            namespace Responses {
-                export interface $200 {}
-            }
-        }
-    }
-    namespace ApiAdminFacilityDownloadReport {
-        namespace Post {
-            namespace Responses {
-                export interface $200 {}
-            }
-        }
-    }
-    namespace ApiAdminFacilityHide {
-        namespace Put {
-            namespace Parameters {
-                export type Id = string; // uuid
-            }
-            export interface QueryParameters {
-                id?: Parameters.Id /* uuid */;
-            }
-            namespace Responses {
-                export interface $200 {}
-            }
-        }
-    }
-    namespace ApiAdminFacilityUnhide {
-        namespace Put {
-            namespace Parameters {
-                export type Id = string; // uuid
-            }
-            export interface QueryParameters {
-                id?: Parameters.Id /* uuid */;
-            }
-            namespace Responses {
-                export interface $200 {}
-            }
-        }
-    }
-    namespace ApiAdminFacilityUploadGroup {
-        namespace Post {
-            export interface RequestBody {
-                file?: string; // binary
-            }
-            namespace Responses {
-                export interface $200 {}
-            }
-        }
-    }
     namespace ApiAdminLogin {
         namespace Post {
             export type RequestBody = Components.Schemas.LoginRequest;
@@ -197,7 +121,7 @@ declare namespace Paths {
         namespace Post {
             export type RequestBody = Components.Schemas.CreateUserRequest;
             namespace Responses {
-                export type $200 = Components.Schemas.AdminUserDto;
+                export type $200 = Components.Schemas.UserDto;
             }
         }
     }
@@ -213,51 +137,18 @@ declare namespace Paths {
                 export interface $200 {}
             }
         }
-        namespace Get {
-            namespace Parameters {
-                export type Id = string; // uuid
-            }
-            export interface PathParameters {
-                id: Parameters.Id /* uuid */;
-            }
-            namespace Responses {
-                export type $200 = Components.Schemas.UserDto;
-            }
-        }
     }
     namespace ApiAdminUsers$UserID {
         namespace Put {
             namespace Parameters {
-                export type UserID = string; // uuid
+                export type UserID = string;
             }
             export interface PathParameters {
-                userID: Parameters.UserID /* uuid */;
+                userID: Parameters.UserID;
             }
-            export type RequestBody = Components.Schemas.UpdateUserAdminRequest;
+            export type RequestBody = Components.Schemas.UserDto;
             namespace Responses {
-                export type $200 = Components.Schemas.AdminUserDto;
-            }
-        }
-    }
-    namespace ApiAdminUsersGet {
-        namespace Post {
-            export type RequestBody = Components.Schemas.DataSourceRequest;
-            namespace Responses {
-                export type $200 =
-                    Components.Schemas.AdminUserDtoTypedDataSourceResult;
-            }
-        }
-    }
-    namespace ApiEmailForgotPassword$Email {
-        namespace Post {
-            namespace Parameters {
-                export type Email = string;
-            }
-            export interface PathParameters {
-                email: Parameters.Email;
-            }
-            namespace Responses {
-                export interface $200 {}
+                export type $200 = Components.Schemas.UserDto;
             }
         }
     }
@@ -295,8 +186,22 @@ declare namespace Paths {
             }
         }
     }
-    namespace ApiFacilityLocation$Id {
+    namespace ApiFacilityFacility {
         namespace Post {
+            export type RequestBody = Components.Schemas.FacilityDto;
+            namespace Responses {
+                export type $200 = Components.Schemas.FacilityDto;
+            }
+        }
+        namespace Put {
+            export type RequestBody = Components.Schemas.FacilityDto;
+            namespace Responses {
+                export type $200 = Components.Schemas.FacilityDto;
+            }
+        }
+    }
+    namespace ApiFacilityFacility$Id {
+        namespace Delete {
             namespace Parameters {
                 export type Id = string; // uuid
             }
@@ -304,14 +209,7 @@ declare namespace Paths {
                 id: Parameters.Id /* uuid */;
             }
             namespace Responses {
-                export type $200 = Components.Schemas.LocationDto;
-            }
-        }
-    }
-    namespace ApiFacilityLocationList {
-        namespace Post {
-            namespace Responses {
-                export type $200 = Components.Schemas.LocationDto;
+                export interface $200 {}
             }
         }
     }
