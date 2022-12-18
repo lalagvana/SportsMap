@@ -1,4 +1,4 @@
-﻿namespace SFAS.Common.Models.User
+﻿namespace SFAS.Common.Models.AuthDtos
 {
     public class LoginRequest
     {

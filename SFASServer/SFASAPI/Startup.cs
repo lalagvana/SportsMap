@@ -8,6 +8,8 @@ using SFAS.Database.Entities;
 using System.Text.Json.Serialization;
 using Microsoft.OpenApi.Models;
 using SFAS.Common;
+using SFAS.Common.Helpers;
+using SFAS.Services;
 using SFAS.Services.Interfaces;
 using SFAS.Services.Services;
 using SFAS.Services.Services.Common;
@@ -26,7 +28,9 @@ namespace SFAS.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(x => x.AddProfile(typeof(MappingProfile)));
-            services.AddScoped<IAuthService, AuthenticatedService>();
+            services.AddScoped<IUserResolverService, UserResolverService>();
+            services.AddScoped<IClaimsService, ClaimsService>();
+            services.AddScoped<IAuthService, AuthService>();
 
             var appSettingSection = Configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingSection);
@@ -110,7 +114,7 @@ namespace SFAS.API
 
             services.AddHttpContextAccessor();
 
-            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IUsersService, UserService>();
             services.AddTransient<IReportService, ReportService>();
             services.AddTransient<IFacilityService, FacilityService>();
             services.AddTransient<IMapService, MapService>();

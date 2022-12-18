@@ -4,10 +4,9 @@ using SFAS.Common.Models.User;
 
 namespace SFAS.Services.Interfaces
 {
-    public interface IUserService
+    public interface IUsersService
     {
-        Task<UserDto> UpdateUser(UserDto request);
-        Task<TypedDataSourceResult<UserDto>> GetUsers(DataSourceRequest request);
+        Task<UserDto> UpdateUser(Guid id, UserDto request);
         TypedDataSourceResult<UserDto> GetAllUsers(DataSourceRequest request);
         Task DeleteUser(Guid id);
         Task<UserDto> CreateUser(CreateUserRequest request);
