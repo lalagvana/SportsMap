@@ -41,8 +41,7 @@ namespace SFAS.API
                     x.AddDefaultPolicy(builder =>
                         builder.AllowAnyMethod().
                                 AllowAnyHeader().
-                                WithOrigins("http://localhost:4200").
-                                AllowCredentials().
+                                AllowAnyOrigin().
                                 WithExposedHeaders("Token-Expired"));
                 });
 
