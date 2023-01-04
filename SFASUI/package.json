@@ -43,7 +43,7 @@
     "build": "next build",
     "start": "next start",
     "test:jest": "jest --config jest/jest.config.js",
-    "dtsgen": "./scripts/types-gen.sh"
+    "dtsgen": "dtsgen --out ../src/client/shared/types/gen/types.d.ts scripts/swagger.json"
   },
   "browserslist": {
     "production": [

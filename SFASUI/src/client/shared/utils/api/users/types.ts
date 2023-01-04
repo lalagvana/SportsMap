@@ -13,3 +13,7 @@ export namespace DeleteUser {
     export type Response = Paths.ApiAdminUsers$Id.Delete.Responses.$200;
     export type Parameters = Paths.ApiAdminUsers$Id.Delete.PathParameters;
 }
+
+export namespace GetUsers {
+    export type Response = Paths.ApiAdmin.Get.Responses.$200;
+}

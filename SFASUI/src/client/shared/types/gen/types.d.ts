@@ -4,12 +4,7 @@ declare namespace Components {
             field?: string | null;
             aggregate?: string | null;
         }
-        export type CoveringType =
-            | 'Printed'
-            | 'RubberBitumen'
-            | 'RubberTile'
-            | 'Polymer'
-            | 'Synthetic';
+        export type CoveringType = "Printed" | "RubberBitumen" | "RubberTile" | "Polymer" | "Synthetic";
         export interface CreateUserRequest {
             firstName: string;
             lastName: string;
@@ -54,14 +49,7 @@ declare namespace Components {
             eps?: number | null; // int32
             hidden?: boolean;
         }
-        export type FacilityType =
-            | 'Flat'
-            | 'Gym'
-            | 'Pool'
-            | 'SkatingRink'
-            | 'Shooting'
-            | 'Other'
-            | 'Outdoor';
+        export type FacilityType = "Flat" | "Gym" | "Pool" | "SkatingRink" | "Shooting" | "Other" | "Outdoor";
         export interface Filter {
             field?: string | null;
             operator?: string | null;
@@ -74,10 +62,6 @@ declare namespace Components {
             dir?: string | null;
             aggregates?: Aggregator[] | null;
         }
-        export interface LoginRequest {
-            name?: string | null;
-            password?: string | null;
-        }
         export interface LoginResponse {
             id?: string | null;
             firstName?: string | null;
@@ -86,15 +70,23 @@ declare namespace Components {
             accessToken?: string | null;
             accessTokenExpiresIn?: number; // int32
             refreshToken?: string | null;
+            role?: string | null;
+            isExternalUser?: boolean;
         }
-        export type PayingType = 'FullFree' | 'PartlyFree' | 'NotFree';
-        export type PropertyForm =
-            | 'Unknown'
-            | 'RussianFederationSubject'
-            | 'Federal'
-            | 'Municipal'
-            | 'Private'
-            | 'Other';
+        export interface PasswordResetRequest {
+            userId?: string; // uuid
+            code?: string | null;
+            password?: string | null;
+        }
+        export type PayingType = "FullFree" | "PartlyFree" | "NotFree";
+        export type PropertyForm = "Unknown" | "RussianFederationSubject" | "Federal" | "Municipal" | "Private" | "Other";
+        export interface RefreshTokenRequest {
+            accessToken?: string | null;
+            refreshToken?: string | null;
+        }
+        export interface SendPasswordResetLinkRequest {
+            username?: string | null;
+        }
         export interface Sort {
             field?: string | null;
             dir?: string | null;
@@ -109,9 +101,40 @@ declare namespace Components {
     }
 }
 declare namespace Paths {
-    namespace ApiAdminLogin {
+    namespace ApiAdmin {
+        namespace Get {
+            namespace Responses {
+                export type $200 = Components.Schemas.UserDto;
+            }
+        }
+    }
+    namespace ApiAdminConfirm {
         namespace Post {
-            export type RequestBody = Components.Schemas.LoginRequest;
+            export type RequestBody = Components.Schemas.PasswordResetRequest;
+            namespace Responses {
+                export type $200 = boolean;
+            }
+        }
+    }
+    namespace ApiAdminPasswordreset {
+        namespace Post {
+            export type RequestBody = Components.Schemas.PasswordResetRequest;
+            namespace Responses {
+                export type $200 = boolean;
+            }
+        }
+    }
+    namespace ApiAdminSendpasswordresetlink {
+        namespace Post {
+            export type RequestBody = Components.Schemas.SendPasswordResetLinkRequest;
+            namespace Responses {
+                export type $200 = boolean;
+            }
+        }
+    }
+    namespace ApiAdminTokenRefresh {
+        namespace Post {
+            export type RequestBody = Components.Schemas.RefreshTokenRequest;
             namespace Responses {
                 export type $200 = Components.Schemas.LoginResponse;
             }
@@ -134,7 +157,8 @@ declare namespace Paths {
                 id: Parameters.Id /* uuid */;
             }
             namespace Responses {
-                export interface $200 {}
+                export interface $200 {
+                }
             }
         }
     }
@@ -156,7 +180,8 @@ declare namespace Paths {
         namespace Post {
             export type RequestBody = Components.Schemas.EmailRequest;
             namespace Responses {
-                export interface $200 {}
+                export interface $200 {
+                }
             }
         }
     }
@@ -169,7 +194,8 @@ declare namespace Paths {
                 email: Parameters.Email;
             }
             namespace Responses {
-                export interface $200 {}
+                export interface $200 {
+                }
             }
         }
     }
@@ -209,7 +235,8 @@ declare namespace Paths {
                 id: Parameters.Id /* uuid */;
             }
             namespace Responses {
-                export interface $200 {}
+                export interface $200 {
+                }
             }
         }
     }
