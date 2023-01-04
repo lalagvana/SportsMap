@@ -1,4 +1,4 @@
-import tw, { TwComponent } from 'twin.macro';
+import tw from 'twin.macro';
 import { useField } from 'formik';
 
 const BaseInput = tw.input`w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5 first:mt-0`;
@@ -10,7 +10,7 @@ type TextInputProps = {
     className?: string;
     placeholder?: string;
     required?: boolean;
-    inputComponent?: TwComponent<'input'>;
+    inputComponent?: any;
 };
 
 export const TextInput = ({

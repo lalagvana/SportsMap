@@ -1,3 +1,5 @@
+@tailwind base;
+
 /* Below animations are fore modal created using React-Modal */
 .ReactModal__Overlay {
   transition: transform 300ms ease-in-out;

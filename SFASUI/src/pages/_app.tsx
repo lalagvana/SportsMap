@@ -5,6 +5,7 @@ import { AppProps } from 'next/app';
 import 'tailwindcss/dist/base.css';
 import 'src/client/styles/globalStyles.css';
 import 'src/client/styles/style.css';
+import { ClientConfigProvider } from '../client/shared/contexts/client-config';
 
 export default function App({ Component, pageProps }: AppProps) {
     return (
@@ -18,7 +19,9 @@ export default function App({ Component, pageProps }: AppProps) {
                     SportsMap - твоя спортивная карта Санкт-Петербурга
                 </title>
             </Head>
-            <Component {...pageProps} />
+            <ClientConfigProvider>
+                <Component {...pageProps} />
+            </ClientConfigProvider>
         </>
     );
 }

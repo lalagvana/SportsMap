@@ -1,4 +1,4 @@
-import tw, { TwComponent } from 'twin.macro';
+import tw from 'twin.macro';
 import { useField } from 'formik';
 import styled from 'styled-components';
 
@@ -12,7 +12,7 @@ type TextInputProps = {
     className?: string;
     placeholder?: string;
     required?: boolean;
-    textareaComponent?: TwComponent<'input'>;
+    textareaComponent?: any;
 };
 
 export const TextArea = ({
