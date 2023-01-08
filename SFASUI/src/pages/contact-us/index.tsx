@@ -1,7 +1,7 @@
 import React from 'react';
 import { GetStaticProps, NextPage } from 'next';
 
-import { ContactUs } from 'client/screens/ContactUs';
+import { ContactUs } from 'src/client/screens/ContactUs';
 
 import NextError from 'src/pages/_error';
 

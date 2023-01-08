@@ -1,5 +1,3 @@
-@tailwind base;
-
 /* Below animations are fore modal created using React-Modal */
 .ReactModal__Overlay {
   transition: transform 300ms ease-in-out;
@@ -16,4 +14,8 @@
 .ReactModal__Overlay--before-close {
   transform: scale(0);
   /* transform: translateY(-150%); */
+}
+
+:root {
+  --modal-z-index: 1000;
 }

@@ -1,5 +1,5 @@
 import { PropsWithChildren, useState } from 'react';
-import { ClientConfigContext } from './context';
+import { ClientConfigContext } from '.';
 
 type ClientConfigProviderProps = PropsWithChildren<{}>;
 

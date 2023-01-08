@@ -1,7 +1,11 @@
-import { createContext } from 'react';
+import { createContext } from 'react'
 
-import { CLIENT_CONFIG_INITIAL, ClientConfig } from './index';
+import { ClientConfig } from '.'
 
 export const ClientConfigContext = createContext<ClientConfig>(
-    CLIENT_CONFIG_INITIAL
-);
+    {
+        clientConfig: { token: '' },
+        setClientConfig: () => {
+        },
+    },
+)
