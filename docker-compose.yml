@@ -1,18 +1,19 @@
 version: "3.9"
 services:
-  front:
-    image: "cr.yandex/${REGISTRY_ID}/sportsmap:latest"
-    ports:
-      - "3000:3000"
-    env_file:
-      - local.env
-  back:
-    image: "cr.yandex/${REGISTRY_ID}/sportsmap-backend:latest"
+  frontend:
+    build: ./SFASUI
+    expose:
+      - 3000
+  backend:
+    build: ./SFASServer
+    expose:
+      - 6002
+      - 6001
+  nginx:
+    build: ./nginx
     ports:
       - "80:80"
       - "443:443"
-    env_file:
-      - local.env
-networks:
-  default:
-    driver: host
+    depends_on:
+      - frontend
+      - backend
