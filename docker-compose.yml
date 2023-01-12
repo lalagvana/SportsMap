@@ -4,11 +4,17 @@ services:
     build: ./SFASUI
     expose:
       - 3000
-  backend:
+  backend-old:
     build: ./SFASServer
     expose:
       - 6002
       - 6001
+  backend:
+    build: ../sportsmap-api
+    expose:
+      - ${API_PORT}
+    env_file:
+      - .env
   nginx:
     build: ./nginx
     ports:
@@ -17,3 +23,4 @@ services:
     depends_on:
       - frontend
       - backend
+      - backend-old
