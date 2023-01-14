@@ -43,7 +43,7 @@
     "build": "next build",
     "start": "next start",
     "test:jest": "jest --config jest/jest.config.js",
-    "dtsgen": "dtsgen --out ../src/client/shared/types/gen/types.d.ts scripts/swagger.json"
+    "dtsgen": "dtsgen --out src/client/shared/types/gen/types.d.ts --url https://sportsmap.spb.ru/swagger/swagger.json"
   },
   "browserslist": {
     "production": [

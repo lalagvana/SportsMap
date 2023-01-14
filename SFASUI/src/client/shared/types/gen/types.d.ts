@@ -1,250 +1,104 @@
-declare namespace Components {
-    namespace Schemas {
-        export interface Aggregator {
-            field?: string | null;
-            aggregate?: string | null;
-        }
-        export type CoveringType = "Printed" | "RubberBitumen" | "RubberTile" | "Polymer" | "Synthetic";
-        export interface CreateUserRequest {
-            firstName: string;
-            lastName: string;
-            username?: string | null;
-            password?: string | null;
-        }
-        export interface DataSourceRequest {
-            take?: number; // int32
-            skip?: number; // int32
-            sort?: Sort[] | null;
-            filter?: Filter;
-            group?: Group[] | null;
-            aggregate?: Aggregator[] | null;
-        }
-        export interface EmailRequest {
-            fullName?: string | null;
-            email?: string | null;
-            text?: string | null;
-        }
-        export interface FacilityDto {
-            facilityId?: string | null; // uuid
-            type?: FacilityType;
-            name?: string | null;
-            ownerName?: string | null;
-            propertyForm?: PropertyForm;
-            length?: number | null; // double
-            width?: number | null; // double
-            area?: number | null; // double
-            actualWorkload?: number | null; // int32
-            annualCapacity?: number | null; // int32
-            notes?: string | null;
-            height?: number | null; // double
-            size?: string | null;
-            depth?: number | null; // double
-            coveringType?: CoveringType;
-            isAccessibleForDisabled?: boolean | null;
-            payingType?: PayingType;
-            whoCanUse?: string | null;
-            link?: string | null;
-            phoneNumber?: string | null;
-            openHours?: string | null;
-            eps?: number | null; // int32
-            hidden?: boolean;
-        }
-        export type FacilityType = "Flat" | "Gym" | "Pool" | "SkatingRink" | "Shooting" | "Other" | "Outdoor";
-        export interface Filter {
-            field?: string | null;
-            operator?: string | null;
-            value?: null;
-            logic?: string | null;
-            filters?: Filter[] | null;
-        }
-        export interface Group {
-            field?: string | null;
-            dir?: string | null;
-            aggregates?: Aggregator[] | null;
-        }
-        export interface LoginResponse {
-            id?: string | null;
-            firstName?: string | null;
-            lastName?: string | null;
-            username?: string | null;
-            accessToken?: string | null;
-            accessTokenExpiresIn?: number; // int32
-            refreshToken?: string | null;
-            role?: string | null;
-            isExternalUser?: boolean;
-        }
-        export interface PasswordResetRequest {
-            userId?: string; // uuid
-            code?: string | null;
-            password?: string | null;
-        }
-        export type PayingType = "FullFree" | "PartlyFree" | "NotFree";
-        export type PropertyForm = "Unknown" | "RussianFederationSubject" | "Federal" | "Municipal" | "Private" | "Other";
-        export interface RefreshTokenRequest {
-            accessToken?: string | null;
-            refreshToken?: string | null;
-        }
-        export interface SendPasswordResetLinkRequest {
-            username?: string | null;
-        }
-        export interface Sort {
-            field?: string | null;
-            dir?: string | null;
-        }
-        export interface UserDto {
-            userId?: string; // uuid
-            firstName?: string | null;
-            lastName?: string | null;
-            username?: string | null;
-            password?: string | null;
-        }
+declare namespace Definitions {
+    export interface CreateUserRequest {
+        last_name?: string;
+        first_name?: string;
+        email: string; // email
+        password: string;
+    }
+    export interface ErrorResponse {
+        detail?: {
+            [key: string]: any;
+        };
+        message?: string;
+    }
+    export interface LoginRequest {
+        email: string; // email
+        password: string;
+    }
+    export interface LoginResponse {
+        first_name?: string;
+        email?: string; // email
+        access_token?: string;
+        id?: string;
+        last_name?: string;
+        group?: string;
+        access_token_expires_in?: number; // int32
+        refresh_token?: string;
+    }
+    export interface RefreshTokenRequest {
+        refresh_token: string;
+        access_token: string;
+    }
+    export interface UpdateSelfRequest {
+        last_name?: string;
+        first_name?: string;
+        password?: string;
+    }
+    export interface UserResponse {
+        first_name?: string;
+        email: string; // email
+        id: string;
+        last_name?: string;
+        group?: string;
     }
 }
 declare namespace Paths {
-    namespace ApiAdmin {
-        namespace Get {
-            namespace Responses {
-                export type $200 = Components.Schemas.UserDto;
-            }
-        }
-    }
-    namespace ApiAdminConfirm {
+    namespace AdminLogin {
         namespace Post {
-            export type RequestBody = Components.Schemas.PasswordResetRequest;
+            export interface BodyParameters {
+                body?: Parameters.Body;
+            }
+            namespace Parameters {
+                export type Body = Definitions.LoginRequest;
+            }
             namespace Responses {
-                export type $200 = boolean;
+                export type $200 = Definitions.LoginResponse;
+                export type $400 = Definitions.ErrorResponse;
             }
         }
     }
-    namespace ApiAdminPasswordreset {
+    namespace AdminTokenRefresh {
         namespace Post {
-            export type RequestBody = Components.Schemas.PasswordResetRequest;
+            export interface BodyParameters {
+                body?: Parameters.Body;
+            }
+            namespace Parameters {
+                export type Body = Definitions.RefreshTokenRequest;
+            }
             namespace Responses {
-                export type $200 = boolean;
+                export type $200 = Definitions.LoginResponse;
+                export type $400 = Definitions.ErrorResponse;
             }
         }
     }
-    namespace ApiAdminSendpasswordresetlink {
-        namespace Post {
-            export type RequestBody = Components.Schemas.SendPasswordResetLinkRequest;
-            namespace Responses {
-                export type $200 = boolean;
-            }
-        }
-    }
-    namespace ApiAdminTokenRefresh {
-        namespace Post {
-            export type RequestBody = Components.Schemas.RefreshTokenRequest;
-            namespace Responses {
-                export type $200 = Components.Schemas.LoginResponse;
-            }
-        }
-    }
-    namespace ApiAdminUsers {
-        namespace Post {
-            export type RequestBody = Components.Schemas.CreateUserRequest;
-            namespace Responses {
-                export type $200 = Components.Schemas.UserDto;
-            }
-        }
-    }
-    namespace ApiAdminUsers$Id {
+    namespace AdminUsers {
         namespace Delete {
-            namespace Parameters {
-                export type Id = string; // uuid
-            }
-            export interface PathParameters {
-                id: Parameters.Id /* uuid */;
-            }
             namespace Responses {
-                export interface $200 {
-                }
+                export type $400 = Definitions.ErrorResponse;
             }
         }
-    }
-    namespace ApiAdminUsers$UserID {
-        namespace Put {
-            namespace Parameters {
-                export type UserID = string;
-            }
-            export interface PathParameters {
-                userID: Parameters.UserID;
-            }
-            export type RequestBody = Components.Schemas.UserDto;
-            namespace Responses {
-                export type $200 = Components.Schemas.UserDto;
-            }
-        }
-    }
-    namespace ApiEmailSend {
         namespace Post {
-            export type RequestBody = Components.Schemas.EmailRequest;
-            namespace Responses {
-                export interface $200 {
-                }
+            export interface BodyParameters {
+                body?: Parameters.Body;
             }
-        }
-    }
-    namespace ApiEmailSubscribe$Email {
-        namespace Post {
             namespace Parameters {
-                export type Email = string;
-            }
-            export interface PathParameters {
-                email: Parameters.Email;
+                export type Body = Definitions.CreateUserRequest;
             }
             namespace Responses {
-                export interface $200 {
-                }
-            }
-        }
-    }
-    namespace ApiFacility$Id {
-        namespace Get {
-            namespace Parameters {
-                export type Id = string; // uuid
-            }
-            export interface PathParameters {
-                id: Parameters.Id /* uuid */;
-            }
-            namespace Responses {
-                export type $200 = Components.Schemas.FacilityDto;
-            }
-        }
-    }
-    namespace ApiFacilityFacility {
-        namespace Post {
-            export type RequestBody = Components.Schemas.FacilityDto;
-            namespace Responses {
-                export type $200 = Components.Schemas.FacilityDto;
+                export type $201 = Definitions.UserResponse;
+                export type $400 = Definitions.ErrorResponse;
             }
         }
         namespace Put {
-            export type RequestBody = Components.Schemas.FacilityDto;
-            namespace Responses {
-                export type $200 = Components.Schemas.FacilityDto;
+            export interface BodyParameters {
+                body?: Parameters.Body;
             }
-        }
-    }
-    namespace ApiFacilityFacility$Id {
-        namespace Delete {
             namespace Parameters {
-                export type Id = string; // uuid
-            }
-            export interface PathParameters {
-                id: Parameters.Id /* uuid */;
+                export type Body = Definitions.UpdateSelfRequest;
             }
             namespace Responses {
-                export interface $200 {
-                }
-            }
-        }
-    }
-    namespace ApiFacilitySearch {
-        namespace Post {
-            export type RequestBody = Components.Schemas.DataSourceRequest;
-            namespace Responses {
-                export type $200 = Components.Schemas.FacilityDto[];
+                export type $200 = Definitions.UserResponse;
+                export type $400 = Definitions.ErrorResponse;
             }
         }
     }
