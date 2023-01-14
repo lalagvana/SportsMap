@@ -2,11 +2,16 @@ import React from 'react';
 import tw from 'twin.macro';
 import styled from 'styled-components';
 import Image from 'next/image';
+import { FormikProvider, useFormik } from 'formik';
 
 import LogoImage from 'src/client/images/logo-simple.svg';
 import VkIcon from 'src/client/images/vk-logo.svg';
 import TelegramIcon from 'src/client/images/telegram-logo.svg';
 import EmailIcon from 'src/client/images/email-icon.svg';
+
+import { TextInput } from 'src/client/shared/components/TextInput';
+
+import { useSubscribeHandler, FOOTER_INITIAL_FIELDS, FooterFields } from '.';
 
 const PrimaryButtonBase = tw.button`px-8 py-3 font-bold rounded bg-primary-500 text-gray-100 hocus:bg-primary-700 hocus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300`;
 
@@ -49,6 +54,13 @@ const SocialLink = styled.a`
 `;
 
 export const Footer = () => {
+    const handleSubmit = useSubscribeHandler();
+
+    const formikStateAndHelpers = useFormik<FooterFields>({
+        initialValues: FOOTER_INITIAL_FIELDS,
+        onSubmit: handleSubmit,
+    });
+
     return (
         <Container>
             <Content>
@@ -56,10 +68,10 @@ export const Footer = () => {
                     <Column>
                         <ColumnHeading>Навигация</ColumnHeading>
                         <LinksContainer>
-                            <Link href="#">Главная</Link>
-                            <Link href="#">Карта</Link>
-                            <Link href="#">Поиск</Link>
-                            <Link href="#">Контакты</Link>
+                            <Link href="/">Главная</Link>
+                            <Link href="/map">Карта</Link>
+                            <Link href="/search">Поиск</Link>
+                            <Link href="/contact-us">Контакты</Link>
                         </LinksContainer>
                     </Column>
                     <SubscribeNewsletterColumn>
@@ -71,15 +83,19 @@ export const Footer = () => {
                                 Так вы первыми узнаете о новых спортивных
                                 объектах и мероприятиях вашего района
                             </SubscribeText>
-                            <SubscribeForm method="get" action="#">
-                                <Input
-                                    type="email"
-                                    placeholder="Ваша электронная почта"
-                                />
-                                <SubscribeButton type="submit">
-                                    Подписаться
-                                </SubscribeButton>
-                            </SubscribeForm>
+                            <FormikProvider value={formikStateAndHelpers}>
+                                <SubscribeForm>
+                                    <TextInput
+                                        name="email"
+                                        type="email"
+                                        placeholder="Ваша электронная почта"
+                                        inputComponent={Input}
+                                    />
+                                    <SubscribeButton type="submit">
+                                        Подписаться
+                                    </SubscribeButton>
+                                </SubscribeForm>
+                            </FormikProvider>
                         </SubscribeNewsletterContainer>
                     </SubscribeNewsletterColumn>
                 </SixColumns>

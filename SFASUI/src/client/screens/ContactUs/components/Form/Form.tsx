@@ -1,6 +1,7 @@
 import React from 'react';
 import tw from 'twin.macro';
 import styled from 'styled-components';
+import { FormikProvider, useFormik } from 'formik';
 
 import {
     SectionHeading,
@@ -8,8 +9,15 @@ import {
 } from 'src/client/shared/components/Misc/Headings';
 import { PrimaryButton as PrimaryButtonBase } from 'src/client/shared/components/Misc/Buttons';
 import EmailIllustrationSrc from 'src/client/images/sapiens-contact.svg';
+import { TextArea } from 'src/client/shared/components/TextArea';
+import { TextInput } from 'src/client/shared/components/TextInput/TextInput';
 
-import { FormProps } from 'src/client/screens/ContactUs/components/Form';
+import {
+    FormFields,
+    FormProps,
+    FORM_INITIAL_VALUES,
+    useSendEmailHandler,
+} from 'src/client/screens/ContactUs/components/Form';
 
 const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-10`;
@@ -36,26 +44,17 @@ const Description = tw.p`mt-4 text-center md:text-left text-sm md:text-base lg:t
 
 const FormBase = tw.form`mt-8 md:mt-10 text-sm flex flex-col max-w-sm mx-auto md:mx-0`;
 const Input = tw.input`mt-6 first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary-500`;
-const Textarea = styled(Input).attrs({ as: 'textarea' })`
-    ${tw`h-24`}
-`;
 
 const SubmitButton = tw(PrimaryButtonBase)`inline-block mt-8`;
 
-export const Form = ({
-    subheading = 'Контакты',
-    heading = (
-        <>
-            Как с нами<span tw="text-primary-500"> связаться?</span>
-            <wbr />
-        </>
-    ),
-    description = 'Просто отправьте нам письмо с вашими пожеланиями и обратным почтовым адресом, и мы обязательно вам ответим!',
-    submitButtonText = 'Отправить',
-    formAction = '#',
-    formMethod = 'get',
-    textOnLeft = true,
-}: FormProps) => {
+export const Form = ({ textOnLeft = true }: FormProps) => {
+    const handleSubmit = useSendEmailHandler();
+
+    const formikStateAndHelpers = useFormik<FormFields>({
+        initialValues: FORM_INITIAL_VALUES,
+        onSubmit: handleSubmit,
+    });
+
     return (
         <Container>
             <TwoColumn>
@@ -64,30 +63,40 @@ export const Form = ({
                 </ImageColumn>
                 <TextColumn textOnLeft={textOnLeft}>
                     <TextContent>
-                        {subheading && <Subheading>{subheading}</Subheading>}
-                        <Heading>{heading}</Heading>
-                        {description && (
-                            <Description>{description}</Description>
-                        )}
-                        <FormBase action={formAction} method={formMethod}>
-                            <Input
-                                type="email"
-                                name="email"
-                                placeholder="Ваш адрес электронной почты"
-                            />
-                            <Input
-                                type="text"
-                                name="name"
-                                placeholder="Ваше имя"
-                            />
-                            <Textarea
-                                name="message"
-                                placeholder="Ваше пожелание/предложение"
-                            />
-                            <SubmitButton type="submit">
-                                {submitButtonText}
-                            </SubmitButton>
-                        </FormBase>
+                        <Subheading>Контакты</Subheading>
+                        <Heading>
+                            Как с нами
+                            <span tw="text-primary-500"> связаться?</span>
+                            <wbr />
+                        </Heading>
+                        <Description>
+                            Просто отправьте нам письмо с вашими пожеланиями и
+                            обратным почтовым адресом, и мы обязательно вам
+                            ответим!
+                        </Description>
+                        <FormikProvider value={formikStateAndHelpers}>
+                            <FormBase>
+                                <TextInput
+                                    type="email"
+                                    name="email"
+                                    placeholder="Ваш адрес электронной почты"
+                                    inputComponent={Input}
+                                />
+                                <TextInput
+                                    type="text"
+                                    name="name"
+                                    placeholder="Ваше имя"
+                                    inputComponent={Input}
+                                />
+                                <TextArea
+                                    name="message"
+                                    placeholder="Ваше пожелание/предложение"
+                                />
+                                <SubmitButton type="submit">
+                                    Отправить
+                                </SubmitButton>
+                            </FormBase>
+                        </FormikProvider>
                     </TextContent>
                 </TextColumn>
             </TwoColumn>

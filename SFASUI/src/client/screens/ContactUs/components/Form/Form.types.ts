@@ -1,9 +1,9 @@
 export type FormProps = {
-    subheading?: string;
-    heading?: JSX.Element | string;
-    description?: string;
-    submitButtonText?: string;
-    formAction?: string;
-    formMethod?: 'get' | 'post';
     textOnLeft?: boolean;
+};
+
+export type FormFields = {
+    email: string;
+    name: string;
+    message: string;
 };

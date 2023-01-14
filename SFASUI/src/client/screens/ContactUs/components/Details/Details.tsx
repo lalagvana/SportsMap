@@ -5,9 +5,9 @@ import tw from 'twin.macro';
 import {
     SectionHeading,
     Subheading as SubheadingBase,
-} from 'client/shared/components/Misc/Headings';
-import { SectionDescription } from 'client/shared/components/Misc/Typography';
-import { FeaturePropWithCards } from 'client/shared/types/cards';
+} from 'src/client/shared/components/Misc/Headings';
+import { SectionDescription } from 'src/client/shared/components/Misc/Typography';
+import { FeaturePropWithCards } from 'src/client/shared/types/cards';
 
 const Container = tw.div`relative`;
 

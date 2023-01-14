@@ -139,7 +139,7 @@ namespace SFAS.API
             app.UseSwaggerUI(c =>
             {
                 c.RoutePrefix = "swagger";
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "SportsMap V1");
+                c.SwaggerEndpoint("v1/swagger.json", "SportsMap V1");
             });
 
             app.UseRouting();
