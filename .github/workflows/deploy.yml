@@ -1,0 +1,22 @@
+name: deploy
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: docker-backend
+        run: sh SFASServer/scripts/deploy.sh
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+          REGISTRY_ID: ${{ secrets.REGISTRY_ID }}
+          VERSION: ${{ secrets.VERSION }}
+      - name: docker-frontend
+        run: sh SFASUI/scripts/deploy.sh
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+          REGISTRY_ID: ${{ secrets.REGISTRY_ID }}
+          VERSION: ${{ secrets.VERSION }}

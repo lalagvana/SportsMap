@@ -1,9 +1,6 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": {
-      "client/*": ["src/client/*"]
-    },
     "target": "esnext",
     "module": "commonjs",
     "jsx": "preserve",

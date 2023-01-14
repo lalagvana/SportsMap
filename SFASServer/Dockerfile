@@ -6,8 +6,8 @@ COPY . ./
 
 WORKDIR ./SFASAPI
 
-EXPOSE 443
-EXPOSE 80
+EXPOSE 6001
+EXPOSE 6002
 
 RUN dotnet build
 RUN dotnet dev-certs https -t

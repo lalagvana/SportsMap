@@ -2,9 +2,11 @@ import React from 'react';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 
+import { ClientConfigProvider } from 'src/client/shared/contexts/client-config';
+
 import 'tailwindcss/dist/base.css';
 import 'src/client/styles/globalStyles.css';
-import 'src/client/styles/style.css';
+import 'src/client/styles/fonts.css';
 
 export default function App({ Component, pageProps }: AppProps) {
     return (
@@ -18,7 +20,9 @@ export default function App({ Component, pageProps }: AppProps) {
                     SportsMap - твоя спортивная карта Санкт-Петербурга
                 </title>
             </Head>
-            <Component {...pageProps} />
+            <ClientConfigProvider>
+                <Component {...pageProps} />
+            </ClientConfigProvider>
         </>
     );
 }

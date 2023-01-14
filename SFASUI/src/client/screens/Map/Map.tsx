@@ -2,10 +2,10 @@ import React from 'react';
 import tw from 'twin.macro';
 // import { YMaps, Placemark } from 'react-yandex-maps';
 
-import { AnimationReveal } from 'client/shared/components/AnimationReveal';
-import { Container as ContainerBase } from 'client/shared/components/Misc/Layouts';
-import { Header } from 'client/shared/components/Header';
-import { Footer } from 'client/shared/components/Footer';
+import { AnimationReveal } from 'src/client/shared/components/AnimationReveal';
+import { Container as ContainerBase } from 'src/client/shared/components/Misc/Layouts';
+import { Header } from 'src/client/shared/components/Header';
+import { Footer } from 'src/client/shared/components/Footer';
 
 const Container = tw(
     ContainerBase
