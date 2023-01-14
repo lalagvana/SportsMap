@@ -1,39 +1,35 @@
-const BACKEND_URL = 'https://84.201.130.50';
+const BACKEND_URL = 'https://sportsmap.spb.ru/api';
 
 export const apiRoutes = {
-    admin: `${BACKEND_URL}/api/admin/login`,
+    ping: `${BACKEND_URL}/ping`,
 
-    login: `${BACKEND_URL}/api/admin/login`,
+    authping: `${BACKEND_URL}/authping`,
 
-    confirm: `${BACKEND_URL}/api/admin/confirm`,
+    login: `${BACKEND_URL}/admin/login`,
 
-    passwordResetLink: `${BACKEND_URL}/api/admin/sendpasswordresetlink`,
+    resfreshToken: `${BACKEND_URL}/admin/token/refresh`,
 
-    passwordReset: `${BACKEND_URL}/api/admin/passwordreset`,
-
-    resfreshToken: `${BACKEND_URL}/api/admin/token/refresh`,
-
-    user: `${BACKEND_URL}/api/admin/users`,
+    user: `${BACKEND_URL}/admin/users`,
 
     users(id: number) {
-        return `${BACKEND_URL}/api/admin/login/users/${id}`;
+        return `${BACKEND_URL}/admin/login/users/${id}`;
     },
 
     emailSubscribe(email: string) {
-        return `${BACKEND_URL}/api/email/subscribe/${email}`;
+        return `${BACKEND_URL}/email/subscribe/${email}`;
     },
 
-    emailSend: `${BACKEND_URL}/api/email/send`,
+    emailSend: `${BACKEND_URL}/email/send`,
 
-    facility: `${BACKEND_URL}/api/facility/facility`,
+    facility: `${BACKEND_URL}/facility/facility`,
 
-    facilitySearch: `${BACKEND_URL}/api/facility/search`,
+    facilitySearch: `${BACKEND_URL}/facility/search`,
 
     facilities(id: number) {
-        return `${BACKEND_URL}/api/facility/facility/${id}`;
+        return `${BACKEND_URL}/facility/facility/${id}`;
     },
 
     facilityInfo(id: number) {
-        return `${BACKEND_URL}/api/facility/${id}`;
+        return `${BACKEND_URL}/facility/${id}`;
     },
 };

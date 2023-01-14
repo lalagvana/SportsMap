@@ -1,4 +1,10 @@
 export type ClientConfig = {
-    clientConfig: { token: string };
+    token: string,
+    refreshToken: string,
+    expiresIn: number,
+}
+
+export type ClientConfigContextType = {
+    clientConfig: ClientConfig;
     setClientConfig: Function;
 };

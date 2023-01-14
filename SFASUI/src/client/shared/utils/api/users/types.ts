@@ -1,19 +1,13 @@
 export namespace UpdateUser {
-    export type Body = Paths.ApiAdminUsers$UserID.Put.RequestBody;
-    export type Response = Paths.ApiAdminUsers$UserID.Put.Responses.$200;
-    export type Parameters = Paths.ApiAdminUsers$UserID.Put.PathParameters;
+    export type Body = Paths.AdminUsers.Put.Parameters.Body;
+    export type Response = Paths.AdminUsers.Put.Responses.$200;
 }
 
 export namespace CreateUser {
-    export type Body = Paths.ApiAdminUsers.Post.RequestBody;
-    export type Response = Paths.ApiAdminUsers.Post.Responses.$200;
+    export type Body = Paths.AdminUsers.Post.Parameters.Body;
+    export type Response = Paths.AdminUsers.Post.Responses.$201;
 }
 
-export namespace DeleteUser {
-    export type Response = Paths.ApiAdminUsers$Id.Delete.Responses.$200;
-    export type Parameters = Paths.ApiAdminUsers$Id.Delete.PathParameters;
-}
-
-export namespace GetUsers {
-    export type Response = Paths.ApiAdmin.Get.Responses.$200;
+export namespace DeleteYourself {
+    export type Response = never;
 }

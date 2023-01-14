@@ -1,7 +1,7 @@
 import { LoginFields } from '.';
-import { Login } from '../../shared/utils/api/login';
+import { Login } from 'src/client/shared/utils/api/login';
 
 export const createLoginUser = (fields: LoginFields): Login.Body => ({
-    name: fields.email,
+    email: fields.email,
     password: fields.password,
 });

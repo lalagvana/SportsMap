@@ -1,7 +1,7 @@
 import { fetch } from 'src/client/shared/utils/api/fetch';
 import { apiRoutes } from 'src/client/shared/utils/api/apiRoutes';
 
-import { CreateUser, UpdateUser, DeleteUser } from '.';
+import { CreateUser, UpdateUser, DeleteYourself } from '.';
 
 export const createUser = (body: CreateUser.Body, token: string) => {
     return fetch<CreateUser.Response>(
@@ -29,9 +29,9 @@ export const updateUser = (
     );
 };
 
-export const deleteUser = (id: number, token: string) => {
-    return fetch<DeleteUser.Response>(
-        apiRoutes.users(id),
+export const deleteYourself = (token: string) => {
+    return fetch<DeleteYourself.Response>(
+        apiRoutes.user,
         {
             method: 'DELETE',
         },

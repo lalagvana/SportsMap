@@ -1,10 +1,10 @@
 import { createContext } from 'react'
 
-import { ClientConfig } from '.'
+import { ClientConfigContextType } from '.'
 
-export const ClientConfigContext = createContext<ClientConfig>(
+export const ClientConfigContext = createContext<ClientConfigContextType>(
     {
-        clientConfig: { token: '' },
+        clientConfig: { token: '', refreshToken: '', expiresIn: 0 },
         setClientConfig: () => {
         },
     },

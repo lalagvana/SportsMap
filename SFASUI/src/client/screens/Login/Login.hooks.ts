@@ -1,5 +1,6 @@
 import { useCallback, useContext } from 'react';
 import { useRouter } from 'next/router';
+
 import { pageRoutes } from 'src/client/shared/routes';
 import { ClientConfigContext } from 'src/client/shared/contexts/client-config';
 import { login } from 'src/client/shared/utils/api/login';
@@ -14,7 +15,19 @@ export const useLoginHandler = () => {
         async (fields: LoginFields) => {
             try {
                 const res = await login(createLoginUser(fields));
-                setClientConfig({ ...clientConfig, token: res.accessToken });
+
+                if (typeof res === 'string') {
+                    throw Error(res);
+                }
+
+                const { access_token, access_token_expires_in, refresh_token } = res
+
+                setClientConfig({
+                    ...clientConfig,
+                    token: access_token,
+                    refreshToken: refresh_token,
+                    expiresIn: access_token_expires_in,
+                });
 
                 await router.replace(pageRoutes.search);
             } catch (error) {

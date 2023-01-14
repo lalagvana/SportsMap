@@ -14,7 +14,7 @@ export async function fetch<T>(
 ): Promise<T> {
     const { method = 'GET', headers = {}, ...restOptions } = options;
 
-    if (method !== 'GET') {
+    if (token) {
         headers['Authorization'] = `Authorization: Bearer ${token}`;
     }
 
