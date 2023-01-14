@@ -1,9 +1,7 @@
-﻿using Kendo.DynamicLinqCore;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using SFAS.Common.Models;
-using SFAS.Common.Models.Admin;
-using SFAS.Common.Models.Facility;
+using SFAS.Common.Models.AuthDtos;
 using SFAS.Common.Models.User;
 using SFAS.Services.Interfaces;
 
@@ -13,101 +11,99 @@ namespace SFAS.API.Controllers
     [Route("/api/admin")]
     public class AdminController : ControllerBase
     {
-        private readonly IFacilityService _facilityService;
         private readonly IAuthService _authService;
-        private IUserService _userService;
+        private readonly IUsersService _userService;
 
-        public AdminController(IFacilityService facilityService, IAuthService authService, IUserService userService)
+        public AdminController(IAuthService authService, IUsersService userService)
         {
-            _facilityService = facilityService;
             _authService = authService;
             _userService = userService;
         }
 
-        [HttpPost]
-        [Route("login")]
+        /// <summary>
+        /// Refresh access token
+        /// </summary>
         [AllowAnonymous]
-        public async Task<ActionResult<LoginResponse>> AuthAdmin(LoginRequest request)
+        [HttpPost("token/refresh")]
+        public async Task<ActionResult<LoginResponse>> RefreshToken(RefreshTokenRequest request)
         {
-            return await _authService.Authenticate(request);
+            var response = await _authService.RefreshToken(request);
+            return Ok(response);
         }
 
-        #region Facility
-        [HttpPost]
-        [Route("facility")]
-        public async Task<ActionResult<FacilityDto>> CreateFacility(FacilityDto request)
+        /// <summary>
+        /// Confirm user account
+        /// </summary>
+        [HttpPost("confirm")]
+        [AllowAnonymous]
+        public async Task<ActionResult<bool>> ConfirmEmail(PasswordResetRequest request)
         {
-            return await _facilityService.CreateFacility(request);
+            var response = await _authService.ConfirmUser(request);
+            return Ok(response);
         }
 
-        [HttpPut]
-        [Route("facility")]
-        public async Task<ActionResult<FacilityDto>> UpdateFacility(Guid id, FacilityDto request)
+        /// <summary>
+        /// Send mail with password reset link
+        /// </summary>
+        [HttpPost("sendpasswordresetlink")]
+        [AllowAnonymous]
+        public async Task<ActionResult<bool>> SendPasswordResetLink(SendPasswordResetLinkRequest request)
         {
-            return await _facilityService.UpdateFacility(id, request);
+            var response = await _authService.SendPasswordResetLink(request);
+            return Ok(response);
         }
 
-        [HttpDelete]
-        [Route("facility/{id}")]
-        public async Task<ActionResult> DeleteFacility(Guid id)
+        /// <summary>
+        /// Reset user password
+        /// </summary>
+        [HttpPost("passwordreset")]
+        [AllowAnonymous]
+        public async Task<ActionResult<bool>> PasswordReset(PasswordResetRequest request)
         {
-            await _facilityService.DeleteFacility(id);
-            return Ok();
+            var response = await _authService.ResetPassword(request);
+            return Ok(response);
         }
-
-        [HttpPut]
-        [Route("facility/hide")]
-        public async Task HideFacility(Guid id)
+        
+        /// <summary>
+        /// Get own account information
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<ActionResult<UserDto>> GetAccountInfo()
         {
-            await _facilityService.HideFacility(id);
+            return await _authService.GetAccountInfo();
         }
-
-        [HttpPut]
-        [Route("facility/unhide")]
-        public async Task UnhideFacility(Guid id)
-        {
-            await _facilityService.UnhideFacility(id);
-        }
-
-        [HttpPost]
-        [Route("facility/uploadGroup")]
-        public async Task UploadGroupOfFacilities(IFormFile file)
-        {
-            await _facilityService.UploadGroupOfFacilities(file);
-        }
-
-        [HttpPost]
-        [Route("facility/downloadReport")]
-        public async Task<FileStreamResult> DownloadReport()
-        {
-            return await _facilityService.DownloadReport();
-        }
-        #endregion
 
         #region Users
 
         /// <summary>
-        /// Update user account (admin only)
+        /// Updates user account (admin only). Now not used in UI.
         /// </summary>
+        /// <param name="request">UserDto: userId, firstName, lastName, userName, password</param>
+        /// <returns>Updated userDto</returns>
         [HttpPut("users/{userID}")]
-        public async Task<ActionResult<AdminUserDto>> UpdateUser(Guid userID, UpdateUserAdminRequest request)
+        public async Task<ActionResult<UserDto>> UpdateUser(UserDto request)
         {
-            return await _userService.UpdateUser(userID, request);
+            return await _userService.UpdateUser(request.UserId, request);
         }
 
-        /// <summary>
-        /// Get a list of user accounts (admin only)
-        /// </summary>
-        [HttpPost]
-        [Route("users/get")]
-        public ActionResult<TypedDataSourceResult<AdminUserDto>> GetUsers(DataSourceRequest request)
-        {
-            return _userService.GetAllUsers(request);
-        }
+        ///// <summary>
+        ///// Get a list of user accounts (admin only)
+        ///// </summary>
+        ///// <param name="request">DataSourceRequest from Kendo.DynamicLinqCore with params to filter and sort.</param>
+        ///// <returns></returns>
+        //[HttpPost]
+        //[Route("users/get")]
+        //public ActionResult<TypedDataSourceResult<UserDto>> GetUsers(DataSourceRequest request)
+        //{
+        //    return _userService.GetAllUsers(request);
+        //}
 
         /// <summary>
-        /// Delete user account (admin only)
+        /// Deletes user account (admin only). Now not used in UI.
         /// </summary>
+        /// <param name="id">User's id to delete</param>
         [HttpDelete]
         [Route("users/{id}")]
         public async Task<ActionResult> DeleteUser(Guid id)
@@ -116,26 +112,29 @@ namespace SFAS.API.Controllers
             return Ok();
         }
 
-        /// <summary>
-        /// Get user details (admin only)
-        /// </summary>
-        [HttpGet]
-        [Route("users/{id}")]
-        public async Task<ActionResult<UserDto>> GetUserDetails(Guid id)
-        {
-            return await _userService.GetUser(id);
-        }
+        ///// <summary>
+        ///// Get user details (admin only)
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <returns></returns>
+        //[HttpGet]
+        //[Route("users/{id}")]
+        //public async Task<ActionResult<UserDto>> GetUserDetails(Guid id)
+        //{
+        //    return await _userService.GetUser(id);
+        //}
 
         /// <summary>
-        /// Create new user account (admin only)
+        /// Creates a new user account (admin only). Now not used in UI.
         /// </summary>
+        /// <param name="request">CreateUserRequest: firstName, lastName, userName, password</param>
+        /// <returns>Created user DTO</returns>
         [HttpPost("users")]
-        public async Task<ActionResult<AdminUserDto>> CreateUser(CreateUserRequest request)
+        public async Task<ActionResult<UserDto>> CreateUser(CreateUserRequest request)
         {
-            var response = await _userService.CreateUser(request);
-
-            return CreatedAtAction("GetUsers", response);
+            return await _userService.CreateUser(request);
         }
+
         #endregion
     }
 }

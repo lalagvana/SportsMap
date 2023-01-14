@@ -5,7 +5,8 @@
 
 
 SFASUI/build
-
+SFASUI/.next
+nginx/certs
 # User-specific files
 *.rsuser
 *.suo
@@ -404,3 +405,6 @@ FodyWeavers.xsd
 # secrets
 *.env
 /SFASServer/ssl/
+
+
+/nginx/certs/

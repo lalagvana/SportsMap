@@ -6,41 +6,49 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using SFAS.Common.Exceptions;
 using SFAS.Common.Extensions;
+using SFAS.Common.Helpers;
 using SFAS.Common.Models;
-using SFAS.Common.Models.Enums;
 using SFAS.Common.Models.User;
 using SFAS.Database;
 using SFAS.Database.Entities;
 using SFAS.Services.Interfaces;
-using SFAS.Services.Services.Common;
 
 namespace SFAS.Services.Services
 {
-    public class UserService : AuthenticatedService, IUserService
+    public class UserService : AuthenticatedService, IUsersService
     {
+        #region private fields
+
         private readonly ApplicationDbContext _db;
         private readonly IMapper _mapper;
         private readonly IEmailService _mailService;
         private readonly ILogger<UserService> _logger;
         private readonly RoleManager<IdentityRole<Guid>> _roleManager;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        #endregion
+
+        #region public methods
 
         public UserService(
             ApplicationDbContext dbContext,
             IMapper mapper,
             UserManager<User> userManager,
             IHttpContextAccessor accessor,
+            IUserResolverService userResolverService,
             IEmailService mailService,
             ILogger<UserService> logger,
-            RoleManager<IdentityRole<Guid>> roleManager) : base(userManager, accessor)
+            RoleManager<IdentityRole<Guid>> roleManager) : base(userManager, userResolverService)
         {
             _db = dbContext;
             _mapper = mapper;
             _mailService = mailService;
             _logger = logger;
             _roleManager = roleManager;
+            _httpContextAccessor = accessor;
         }
 
-        public async Task<AdminUserDto> UpdateUser(Guid id, UpdateUserAdminRequest request)
+        public async Task<UserDto> UpdateUser(Guid id, UserDto request)
         {
             var user = await _userManager.Users.FirstOrDefaultAsync(x => x.Id == id);
             if (user == null)
@@ -48,9 +56,8 @@ namespace SFAS.Services.Services
                 throw new NotFoundException("Physician not found");
             }
 
-            _logger.LogInformation($"Started user update: {user.UserName}");
-
-            user = _mapper.Map(request, user);
+            _logger.LogInformation($"Started physician update: {user.UserName}");
+            
             var result = await _userManager.UpdateAsync(user);
             if (!result.Succeeded)
             {
@@ -64,45 +71,25 @@ namespace SFAS.Services.Services
                 {
                     throw new BadRequestException(passwordValidationResult.Errors);
                 }
-
                 var removePasswordResult = await _userManager.RemovePasswordAsync(user);
                 if (!removePasswordResult.Succeeded)
                 {
-                    throw new InternalServerException(string.Join("; ",
-                        removePasswordResult.Errors.Select(x => x.Description)));
+                    throw new InternalServerException(string.Join("; ", removePasswordResult.Errors.Select(x => x.Description)));
                 }
-
                 var addPasswordResult = await _userManager.AddPasswordAsync(user, request.Password);
                 if (!addPasswordResult.Succeeded)
                 {
-                    throw new InternalServerException(string.Join("; ",
-                        addPasswordResult.Errors.Select(x => x.Description)));
+                    throw new InternalServerException(string.Join("; ", addPasswordResult.Errors.Select(x => x.Description)));
                 }
             }
 
-            var roles = await _userManager.GetRolesAsync(user);
-            var singleRole = roles.FirstOrDefault();
-            var existingRoles = await GetAllRolesAsync();
-            if (!string.IsNullOrEmpty(singleRole) && existingRoles.Contains(request.Role) && singleRole != request.Role)
-            {
-                //which means we need to change user role
-                await _userManager.RemoveFromRolesAsync(user, roles);
-                await _userManager.AddToRoleAsync(user, request.Role);
-            }
-
-            _logger.LogInformation($"Finished physician update: {user.UserName}");
-            return _mapper.Map<AdminUserDto>(user);
+            _logger.LogInformation($"Finished user update: {user.UserName}");
+            return _mapper.Map<UserDto>(user);
         }
 
-        public async Task<TypedDataSourceResult<UserDto>> GetUsers(DataSourceRequest request)
+        public TypedDataSourceResult<UserDto> GetAllUsers(DataSourceRequest request)
         {
-            return _mapper.ProjectTo<UserDto>((await _userManager.GetUsersInRoleAsync(Roles.Admin.ToString())).AsQueryable())
-                .ToTypedDataSourceResult(request);
-        }
-
-        public TypedDataSourceResult<AdminUserDto> GetAllUsers(DataSourceRequest request)
-        {
-            return _mapper.ProjectTo<AdminUserDto>(_userManager.Users.Where(x => !x.DeletedAt.HasValue))
+            return _mapper.ProjectTo<UserDto>(_userManager.Users)
                 .ToTypedDataSourceResult(request);
         }
 
@@ -117,17 +104,16 @@ namespace SFAS.Services.Services
 
             if (user == null)
             {
-                throw new NotFoundException("User not found");
+                throw new NotFoundException("Physician not found");
             }
-
             await DeleteUser(user);
         }
 
-        public async Task<AdminUserDto> CreateUser(CreateUserRequest request)
+        public async Task<UserDto> CreateUser(CreateUserRequest request)
         {
             var user = _mapper.Map<User>(request);
             user.EmailConfirmed = false;
-            User existingUser = await _userManager.FindByNameAsync(user.UserName);
+            User existingUser = await _db.Users.IgnoreQueryFilters().FirstOrDefaultAsync(x => x.UserName == user.UserName);
             if (existingUser != null)
             {
                 if (existingUser.DeletedAt.HasValue)
@@ -140,9 +126,8 @@ namespace SFAS.Services.Services
                     var updateResult = await _userManager.UpdateAsync(existingUser);
                     if (!updateResult.Succeeded)
                     {
-                        throw new CreateUserException(string.Join(' ', updateResult.Errors.Select(x => x.Description)));
+                        throw new CreateUserException(string.Join(' ', updateResult.Errors.Select(x => x.Description)).ConvertNullOrEmptyTo("Failed to create new user"));
                     }
-
                     existingUser.DeletedAt = null;
                     await _userManager.RemovePasswordAsync(existingUser);
 
@@ -166,27 +151,7 @@ namespace SFAS.Services.Services
                 }
             }
 
-            var addRoleResult = await _userManager.AddToRoleAsync(user, request.Role);
-            if (!addRoleResult.Succeeded)
-            {
-                await DeleteUser(user);
-                throw new CreateUserException(addRoleResult.Errors, "Failed to add user role");
-            }
-
-            _logger.LogInformation($"Password, threshold and roles are configured for new user {user.Id}");
-
-            return _mapper.Map<AdminUserDto>(user);
-        }
-
-        private async Task DeleteUser(User user)
-        {
-            await _userManager.RemoveFromRoleAsync(user, Roles.Admin.ToString());
-            await _userManager.RemovePasswordAsync(user);
-            user.EmailConfirmed = false;
-            _db.Users.Update(user);
-            await _db.SaveChangesAsync();
-            await _userManager.DeleteAsync(user);
-            _logger.LogInformation($"User {user.Email} was deleted with roles and passwords");
+            return _mapper.Map<UserDto>(user);
         }
 
         public async Task<UserDto> GetUser(Guid id)
@@ -195,5 +160,22 @@ namespace SFAS.Services.Services
 
             throw new NotImplementedException();
         }
+        
+        #endregion
+
+        #region private methods
+
+        private async Task DeleteUser(User user)
+        {
+            await _userManager.RemovePasswordAsync(user);
+            // Then remove user
+            user.EmailConfirmed = false;
+            _db.Users.Update(user);
+            await _db.SaveChangesAsync();
+            await _userManager.DeleteAsync(user);
+            _logger.LogInformation($"User {user.Email} was deleted with roles and passwords");
+        }
+
+        #endregion
     }
 }

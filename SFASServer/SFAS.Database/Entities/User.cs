@@ -1,17 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using SFAS.Database.Interfaces;
-using System.ComponentModel.DataAnnotations;
 
 namespace SFAS.Database.Entities
 {
     public class User : IdentityUser<Guid>, ICreated, IDeleted, IModified
     {
-        [Required]
-        public string FirstName { get; set; }
+        public bool IsExternalUser { get; set; }
 
-        [Required]
-        public string LastName { get; set; }
-        
         public bool IsDeleted { get; set; }
 
         public Guid? CreatedByID { get; set; }
@@ -27,5 +22,22 @@ namespace SFAS.Database.Entities
         public virtual ICollection<User> CreatedUsers { get; set; } = new HashSet<User>();
         public virtual ICollection<User> ModifiedUsers { get; set; } = new HashSet<User>();
         public virtual ICollection<User> DeletedUsers { get; set; } = new HashSet<User>();
+        public virtual ICollection<RefreshToken> RefreshTokens { get; set; } = new HashSet<RefreshToken>();
+
+        public bool HasValidRefreshToken(string refreshToken)
+        {
+            return RefreshTokens.Any(rt => rt.Token == refreshToken && rt.Active);
+        }
+
+        public void AddRefreshToken(string token, string remoteIpAddress, double daysToExpire = 5)
+        {
+            RefreshTokens.Add(new RefreshToken(token, DateTime.UtcNow.AddDays(daysToExpire), Id, remoteIpAddress));
+        }
+
+        public void RemoveRefreshToken(string refreshToken)
+        {
+            RefreshTokens.Remove(RefreshTokens.First(t => t.Token == refreshToken));
+        }
+        
     }
 }
