@@ -3,21 +3,19 @@ import { apiRoutes } from 'src/client/shared/utils/api/apiRoutes';
 
 import { CreateUser, UpdateUser, DeleteYourself } from '.';
 
-export const createUser = (body: CreateUser.Body, token: string) => {
+export const createUser = (body: CreateUser.Body) => {
     return fetch<CreateUser.Response>(
         apiRoutes.user,
         {
             method: 'POST',
             data: body,
         },
-        token
     );
 };
 
 export const updateUser = (
     id: number,
     body: UpdateUser.Body,
-    token: string
 ) => {
     return fetch<UpdateUser.Response>(
         apiRoutes.users(id),
@@ -25,16 +23,14 @@ export const updateUser = (
             method: 'PUT',
             data: body,
         },
-        token
     );
 };
 
-export const deleteYourself = (token: string) => {
+export const deleteYourself = () => {
     return fetch<DeleteYourself.Response>(
         apiRoutes.user,
         {
             method: 'DELETE',
         },
-        token
     );
 };
