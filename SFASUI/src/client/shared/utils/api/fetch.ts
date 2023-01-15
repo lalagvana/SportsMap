@@ -18,6 +18,11 @@ export async function fetch<T>(
     // Если нужна авторизация для эндпоинта
     if (!UNPROTECTED_PATHS.includes(path)) {
         const token = getAuthToken();
+
+        // TODO: сделать редирект на логин?
+        if (!token) {
+            throw Error('not logged in');
+        }
         headers['Authorization'] = `Authorization: Bearer ${token}`;
     }
 
