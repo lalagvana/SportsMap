@@ -1,12 +1,15 @@
-﻿namespace SFAS.Common.Models.User
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SFAS.Common.Models.User
 {
     public class CreateUserRequest
     {
-        public CreateUserRequest(string role)
-        {
-            Role = role;
-        }
+        [Required]
+        public string FirstName { get; set; }
 
-        public string Role { get; set; }
+        [Required]
+        public string LastName { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 }

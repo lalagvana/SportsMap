@@ -49,7 +49,7 @@ namespace SFAS.API
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>().UseUrls("http://*:80", "https://*:443");
+                    webBuilder.UseStartup<Startup>().UseUrls("http://*:6001", "https://*:6002");
                 });
     }
 }

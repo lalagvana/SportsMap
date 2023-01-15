@@ -9,6 +9,7 @@ using System.Text.Json.Serialization;
 using Microsoft.OpenApi.Models;
 using SFAS.Common;
 using SFAS.Common.Helpers;
+using SFAS.Services;
 using SFAS.Services.Interfaces;
 using SFAS.Services.Services;
 using SFAS.Services.Services.Common;
@@ -27,7 +28,9 @@ namespace SFAS.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(x => x.AddProfile(typeof(MappingProfile)));
-            services.AddScoped<IAuthService, AuthenticatedService>();
+            services.AddScoped<IUserResolverService, UserResolverService>();
+            services.AddScoped<IClaimsService, ClaimsService>();
+            services.AddScoped<IAuthService, AuthService>();
 
             var appSettingSection = Configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingSection);
@@ -38,8 +41,7 @@ namespace SFAS.API
                     x.AddDefaultPolicy(builder =>
                         builder.AllowAnyMethod().
                                 AllowAnyHeader().
-                                WithOrigins("http://localhost:4200").
-                                AllowCredentials().
+                                AllowAnyOrigin().
                                 WithExposedHeaders("Token-Expired"));
                 });
 
@@ -111,7 +113,7 @@ namespace SFAS.API
 
             services.AddHttpContextAccessor();
 
-            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IUsersService, UserService>();
             services.AddTransient<IReportService, ReportService>();
             services.AddTransient<IFacilityService, FacilityService>();
             services.AddTransient<IMapService, MapService>();
@@ -119,7 +121,6 @@ namespace SFAS.API
 
             services.AddControllers().AddJsonOptions(x =>
             {
-                x.JsonSerializerOptions.Converters.Add(new ObjectToInferredTypesConverter());
                 x.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
             });
         }
@@ -138,7 +139,7 @@ namespace SFAS.API
             app.UseSwaggerUI(c =>
             {
                 c.RoutePrefix = "swagger";
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "SportsMap V1");
+                c.SwaggerEndpoint("v1/swagger.json", "SportsMap V1");
             });
 
             app.UseRouting();

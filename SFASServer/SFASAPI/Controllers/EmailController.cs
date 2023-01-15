@@ -16,6 +16,10 @@ namespace SFAS.API.Controllers
             _emailService = emailService;
         }
 
+        /// <summary>
+        /// Subscribes an email to email mailing. Used on a main page, block with subscription
+        /// </summary>
+        /// <param name="email">Email to subscribe</param>
         [HttpPost]
         [Route("subscribe/{email}")]
         [AllowAnonymous]
@@ -24,14 +28,19 @@ namespace SFAS.API.Controllers
             await _emailService.SubscribeEmailAsync(email);
         }
 
-        [HttpPost]
-        [Route("forgotPassword/{email}")]
-        [AllowAnonymous]
-        public async Task ForgotPassword(string email)
-        {
-            await _emailService.ForgotPasswordAsync(email);
-        }
 
+        //[HttpPost]
+        //[Route("forgotPassword/{email}")]
+        //[AllowAnonymous]
+        //public async Task ForgotPassword(string email)
+        //{
+        //    await _emailService.ForgotPasswordAsync(email);
+        //}
+
+        /// <summary>
+        /// Sends an email from any user/guest with suggestions. Used on a page Contacts
+        /// </summary>
+        /// <param name="request">EmailRequest: fullName, email, text</param>
         [HttpPost]
         [Route("send")]
         [AllowAnonymous]

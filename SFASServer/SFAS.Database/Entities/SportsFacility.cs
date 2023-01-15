@@ -64,6 +64,6 @@ namespace SFAS.Database.Entities
 
         public virtual Owner? Owner { get; set; }
         public virtual Document? Document { get; set; }
-        public virtual Address Address { get; set; }
+        public virtual Address? Address { get; set; }
     }
 }

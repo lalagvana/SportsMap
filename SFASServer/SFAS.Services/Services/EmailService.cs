@@ -77,8 +77,7 @@ namespace SFAS.Services.Services
             var queryParams = new Dictionary<string, string>
             {
                 { "userId", user.Id.ToString() },
-                { "firstName", user.FirstName },
-                { "lastName", user.LastName },
+                { "name", user.NormalizedUserName },
                 { "email", user.Email },
                 { "IsConfirm", true.ToString() }
             };
@@ -140,8 +139,6 @@ namespace SFAS.Services.Services
         {
             var replacements = new Dictionary<string, string?>(_globalReplacements)
             {
-                ["FIRSTNAME"] = user.FirstName,
-                ["LASTNAME"] = user.LastName,
                 ["USERNAME"] = user.UserName,
                 ["LINK"] = link
             };
