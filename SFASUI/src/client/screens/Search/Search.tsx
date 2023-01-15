@@ -10,10 +10,12 @@ const Container = tw(
     ContainerBase
 )`min-h-screen bg-primary-100 text-white font-medium flex justify-center -m-8 mt-2`;
 
-export const Search = () => (
+export const Search = () => {
+
+  return (
     <AnimationReveal>
         <Header />
         <Container />
         <Footer />
     </AnimationReveal>
-);
+)};
