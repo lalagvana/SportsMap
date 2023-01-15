@@ -1,6 +1,8 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
 import { BASE_PATH } from 'src/client/shared/utils/environment';
+import { UNPROTECTED_PATHS } from './constants';
+import { getAuthToken } from './renewToken';
 
 const DEFAULT_HEADERS = {
     'Content-Type': 'application/json',
@@ -9,12 +11,18 @@ const DEFAULT_HEADERS = {
 
 export async function fetch<T>(
     path: string,
-    options: AxiosRequestConfig = {},
-    token: string = ''
+    options: AxiosRequestConfig = {}
 ): Promise<T> {
     const { method = 'GET', headers = {}, ...restOptions } = options;
 
-    if (token) {
+    // Если нужна авторизация для эндпоинта
+    if (!UNPROTECTED_PATHS.includes(path)) {
+        const token = getAuthToken();
+
+        // TODO: сделать редирект на логин?
+        if (!token) {
+            throw Error('not logged in');
+        }
         headers['Authorization'] = `Authorization: Bearer ${token}`;
     }
 
