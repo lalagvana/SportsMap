@@ -12,7 +12,7 @@ jobs:
       - name: get-docker-version
         run: sh ./SFASUI/scripts/get-version.sh
         env:
-          OAUTH: ${{ secrets.OATH }}
+          OAUTH: ${{ secrets.OAUTH }}
           REGISTRY_ID: ${{ secrets.REGISTRY_ID }}
           IMAGE_NAME: sportsmap
 
