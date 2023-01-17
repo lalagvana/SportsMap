@@ -17,10 +17,6 @@ export const useLoginHandler = () => {
             try {
                 const res = await login(createLoginUser(fields));
 
-                if (typeof res === 'string') {
-                    throw Error(res);
-                }
-
                 const { access_token, access_token_expires_in, refresh_token } =
                     res;
                 setCookie('token', access_token, { httpOnly: true });

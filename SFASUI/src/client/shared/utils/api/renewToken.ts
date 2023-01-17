@@ -12,11 +12,16 @@ export const getAuthToken = () => {
             | undefined;
 
         if (oldTokenValue && refreshTokenValue) {
-            const newTokenValue = refreshToken({
-                access_token: oldTokenValue,
-                refresh_token: refreshTokenValue,
-            });
-            setCookie('token', newTokenValue, { httpOnly: true });
+            try {
+                const newTokenValue = refreshToken({
+                    access_token: oldTokenValue,
+                    refresh_token: refreshTokenValue,
+                });
+
+                setCookie('token', newTokenValue, { httpOnly: true });
+            } catch (e) {
+                throw Error(e);
+            }
         }
     }
 
