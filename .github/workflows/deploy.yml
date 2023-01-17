@@ -17,7 +17,7 @@ jobs:
           IMAGE_NAME: sportsmap
 
       - name: deploy-docker-frontend
-        run: sh ./SFASUI/scripts/deploy.sh
+        run: sh ./scripts/deploy.sh
         working-directory: ./SFASUI
         env:
           OATH: ${{ secrets.OATH }}
