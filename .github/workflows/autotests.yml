@@ -11,7 +11,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.10
-        working-directory: ./SFASUI
       - run: yarn install
+        working-directory: ./SFASUI
       - run: yarn build
+        working-directory: ./SFASUI
       - run: yarn test:jest
+        working-directory: ./SFASUI
