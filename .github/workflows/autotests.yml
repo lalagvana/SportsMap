@@ -1,0 +1,19 @@
+name: autotests
+
+on: push
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 16.10.0
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.10.0
+      - run: yarn install
+        working-directory: ./SFASUI
+      - run: yarn build
+        working-directory: ./SFASUI
+      - run: yarn test:jest
+        working-directory: ./SFASUI

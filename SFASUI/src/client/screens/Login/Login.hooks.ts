@@ -24,7 +24,7 @@ export const useLoginHandler = () => {
                     httpOnly: true,
                     maxAge: access_token_expires_in,
                 });
-                setCookie('refreshToken', refresh_token), { httpOnly: true };
+                setCookie('refreshToken', refresh_token, { httpOnly: true });
 
                 await router.replace(pageRoutes.search);
             } catch (error) {
