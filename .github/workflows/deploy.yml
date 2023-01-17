@@ -8,15 +8,17 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: docker-backend
-        run: sh SFASServer/scripts/deploy.sh
+      - uses: actions/checkout@v3
+      - name: get-docker-version
+        run: sh SFASUI/scripts/get-version.sh
         env:
-          TOKEN: ${{ secrets.TOKEN }}
+          OAUTH: ${{ secrets.OATH }}
           REGISTRY_ID: ${{ secrets.REGISTRY_ID }}
-          VERSION: ${{ secrets.VERSION }}
-      - name: docker-frontend
+          IMAGE_NAME: sportsmap
+
+      - name: deploy-docker-frontend
         run: sh SFASUI/scripts/deploy.sh
         env:
           TOKEN: ${{ secrets.TOKEN }}
           REGISTRY_ID: ${{ secrets.REGISTRY_ID }}
-          VERSION: ${{ secrets.VERSION }}
+          VERSION: ${{ env.NEW_VERSION }}
