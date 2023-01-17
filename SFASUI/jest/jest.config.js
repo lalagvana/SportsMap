@@ -15,7 +15,7 @@ module.exports = {
         '\\.svg': path.resolve(__dirname, './svg.js'),
     },
     testEnvironment: 'jest-environment-jsdom',
-    transformIgnorePatterns: ['<projectDir>/node_modules'],
+    transformIgnorePatterns: ['<projectDir>/node_modules', "jest-runner"],
     transform: {
         '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
     },
