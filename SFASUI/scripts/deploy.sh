@@ -2,6 +2,6 @@
 
 echo "${OAUTH}" | docker login --username oauth --password-stdin cr.yandex
 
-docker build ../ -t cr.yandex/${REGISTRY_ID}/sportsmap:v${VERSION} -f ../Dockerfile
+docker build ./SFASUI -t cr.yandex/${REGISTRY_ID}/sportsmap:v${VERSION}
 
 docker push cr.yandex/${REGISTRY_ID}/sportsmap:v${VERSION}
