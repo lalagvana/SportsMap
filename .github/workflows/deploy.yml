@@ -19,6 +19,6 @@ jobs:
       - name: deploy-docker-frontend
         run: sh ./SFASUI/scripts/deploy.sh
         env:
-          OATH: ${{ secrets.OATH }}
+          OAUTH: ${{ secrets.OAUTH }}
           REGISTRY_ID: ${{ secrets.REGISTRY_ID }}
           VERSION: ${{ env.NEW_VERSION }}
