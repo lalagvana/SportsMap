@@ -10,15 +10,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: get-docker-version
-        run: sh SFASUI/scripts/get-version.sh
+        run: sh ./SFASUI/scripts/get-version.sh
         env:
           OAUTH: ${{ secrets.OATH }}
           REGISTRY_ID: ${{ secrets.REGISTRY_ID }}
           IMAGE_NAME: sportsmap
 
       - name: deploy-docker-frontend
-        run: sh SFASUI/scripts/deploy.sh
+        run: sh ./SFASUI/scripts/deploy.sh
         env:
-          TOKEN: ${{ secrets.TOKEN }}
+          OATH: ${{ secrets.OATH }}
           REGISTRY_ID: ${{ secrets.REGISTRY_ID }}
           VERSION: ${{ env.NEW_VERSION }}
