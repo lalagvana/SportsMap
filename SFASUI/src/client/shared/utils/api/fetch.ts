@@ -1,8 +1,9 @@
-import axios, { AxiosRequestConfig } from 'axios';
+import axios, { RawAxiosRequestConfig } from 'axios';
 
 import { BASE_PATH } from 'src/client/shared/utils/environment';
 import { UNPROTECTED_PATHS } from './constants';
 import { getAuthToken } from './renewToken';
+import { nanoid } from "nanoid";
 
 const DEFAULT_HEADERS = {
     'Content-Type': 'application/json',
@@ -11,7 +12,7 @@ const DEFAULT_HEADERS = {
 
 export async function fetch<T>(
     path: string,
-    options: AxiosRequestConfig = {}
+    options: RawAxiosRequestConfig = {}
 ): Promise<T> {
     const { method = 'GET', headers = {}, ...restOptions } = options;
 
@@ -23,13 +24,15 @@ export async function fetch<T>(
         if (!token) {
             throw Error('not logged in');
         }
-        headers['Authorization'] = `Authorization: Bearer ${token}`;
+
+        headers['Authorization'] = `Bearer ${token}`;
     }
 
-    const config: AxiosRequestConfig = {
+    const config: RawAxiosRequestConfig = {
         baseURL: BASE_PATH,
         headers: {
             ...DEFAULT_HEADERS,
+            'X-Request-Id': nanoid(),
             ...headers,
         },
         method,

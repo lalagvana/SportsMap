@@ -3,11 +3,11 @@ import { getCookie, hasCookie, setCookie } from 'cookies-next';
 import { refreshToken } from './login';
 
 export const getAuthToken = () => {
-    const isExpired = !hasCookie('expiresIn');
+    const isExpired = !hasCookie('sportsmap_expiresIn');
 
     if (isExpired) {
-        const oldTokenValue = getCookie('token') as string | undefined;
-        const refreshTokenValue = getCookie('refreshToken') as
+        const oldTokenValue = getCookie('sportsmap_token') as string | undefined;
+        const refreshTokenValue = getCookie('sportsmap_refreshToken') as
             | string
             | undefined;
 
@@ -18,12 +18,12 @@ export const getAuthToken = () => {
                     refresh_token: refreshTokenValue,
                 });
 
-                setCookie('token', newTokenValue, { httpOnly: true });
+                setCookie('sportsmap_token', newTokenValue, { httpOnly: true });
             } catch (e) {
                 throw Error(e);
             }
         }
     }
 
-    return getCookie('token');
+    return getCookie('sportsmap_token');
 };
