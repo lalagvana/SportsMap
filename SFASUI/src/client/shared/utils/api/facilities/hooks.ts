@@ -3,17 +3,12 @@ import useSWR, { SWRConfiguration } from 'swr';
 import { apiRoutes } from 'src/client/shared/utils/api/apiRoutes';
 import { fetch } from 'src/client/shared/utils/api/fetch';
 
-import { GetFacility, SearchFacilities } from '.';
+import { GetFacilities, SearchFacilities } from '.';
 
-export function useFacility(
-    id: number,
-    config?: SWRConfiguration<GetFacility.Response>
+export function useFacilities(
+    config?: SWRConfiguration<GetFacilities.Response>
 ) {
-    return useSWR<GetFacility.Response>(
-        apiRoutes.facilityInfo(id),
-        fetch,
-        config
-    );
+    return useSWR<GetFacilities.Response>(apiRoutes.facility, fetch, config);
 }
 
 export function useFacilitySearch(

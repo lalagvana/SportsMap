@@ -1,4 +1,4 @@
-export namespace UpdateUser {
+export namespace UpdateYourself {
     export type Body = Paths.AdminUsers.Put.Parameters.Body;
     export type Response = Paths.AdminUsers.Put.Responses.$200;
 }
