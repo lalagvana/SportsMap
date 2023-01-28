@@ -408,3 +408,5 @@ FodyWeavers.xsd
 
 
 /nginx/certs/
+/SFASUI/localhost-key.pem
+/SFASUI/localhost.pem
