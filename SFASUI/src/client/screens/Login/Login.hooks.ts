@@ -19,12 +19,11 @@ export const useLoginHandler = () => {
 
                 const { access_token, access_token_expires_in, refresh_token } =
                     res;
-                setCookie('token', access_token, { httpOnly: true });
-                setCookie('expiresIn', access_token_expires_in, {
-                    httpOnly: true,
+                setCookie('sportsmap_token', access_token);
+                setCookie('sportsmap_expiresIn', access_token_expires_in, {
                     maxAge: access_token_expires_in,
                 });
-                setCookie('refreshToken', refresh_token, { httpOnly: true });
+                setCookie('sportsmap_refreshToken', refresh_token);
 
                 await router.replace(pageRoutes.search);
             } catch (error) {

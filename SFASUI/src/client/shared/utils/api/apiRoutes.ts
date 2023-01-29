@@ -21,15 +21,11 @@ export const apiRoutes = {
 
     emailSend: `${BACKEND_URL}/email/send`,
 
-    facility: `${BACKEND_URL}/facility/facility`,
+    facility: `${BACKEND_URL}/facility`,
 
     facilitySearch: `${BACKEND_URL}/facility/search`,
 
     facilities(id: number) {
-        return `${BACKEND_URL}/facility/facility/${id}`;
-    },
-
-    facilityInfo(id: number) {
         return `${BACKEND_URL}/facility/${id}`;
     },
 };
