@@ -1,4 +1,4 @@
-const BACKEND_URL = 'https://sportsmap.spb.ru/api';
+const BACKEND_URL = 'api';
 
 export const apiRoutes = {
     ping: `${BACKEND_URL}/ping`,
