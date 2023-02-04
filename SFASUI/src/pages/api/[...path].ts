@@ -29,7 +29,7 @@ proxy.on('error', function (err, req) {
             },
             entries: [
                 {
-                    message: req.url,
+                    message: `${req.method} ${req.url}`,
                     timestamp: new Date(),
                     level: LogLevel_Level.ERROR,
                     jsonPayload: { error: err },
@@ -40,11 +40,13 @@ proxy.on('error', function (err, req) {
 });
 
 proxy.on('proxyRes', function (proxyRes, req, res) {
-    let body: any = [];
+    const bodyChunks: Uint8Array[] = [];
     proxyRes.on('data', function (chunk) {
-        body.push(chunk);
+        bodyChunks.push(chunk);
     });
     proxyRes.on('end', function () {
+        const body = Buffer.concat(bodyChunks).toString();
+
         loggerServiceClient.write(
             WriteRequest.fromPartial({
                 destination: {
@@ -52,7 +54,7 @@ proxy.on('proxyRes', function (proxyRes, req, res) {
                 },
                 entries: [
                     {
-                        message: req.url,
+                        message: `${req.method} ${req.url}`,
                         timestamp: new Date(),
                         level: LogLevel_Level.INFO,
                         jsonPayload: {
@@ -65,8 +67,6 @@ proxy.on('proxyRes', function (proxyRes, req, res) {
                 ],
             })
         );
-
-        res.end(body);
     });
 });
 
