@@ -4,6 +4,8 @@ services:
     build: ./SFASUI
     expose:
       - 3000
+    env_file:
+      - .env
   backend-old:
     build: ./SFASServer
     expose:
