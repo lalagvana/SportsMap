@@ -2,10 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 
-import {
-    SectionHeading,
-    Subheading as SubheadingBase,
-} from 'src/client/shared/components/Misc/Headings';
+import { SectionHeading, Subheading as SubheadingBase } from 'src/client/shared/components/Misc/Headings';
 import { SectionDescription } from 'src/client/shared/components/Misc/Typography';
 import { FeaturePropWithCards } from 'src/client/shared/types/cards';
 
@@ -49,33 +46,27 @@ const Card = styled.div`
 const defaultCards = [
     {
         title: 'Secure',
-        description:
-            'We strictly only deal with vendors that provide top notch security.',
+        description: 'We strictly only deal with vendors that provide top notch security.',
     },
     {
         title: '24/7 Support',
-        description:
-            'Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud.',
+        description: 'Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud.',
     },
     {
         title: 'Reliable',
-        description:
-            'Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud.',
+        description: 'Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud.',
     },
     {
         title: 'Easy',
-        description:
-            'Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud.',
+        description: 'Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud.',
     },
     {
         title: 'Customizable',
-        description:
-            'Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud.',
+        description: 'Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud.',
     },
     {
         title: 'Fast',
-        description:
-            'Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud.',
+        description: 'Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud.',
     },
 ];
 
@@ -96,9 +87,7 @@ export const Details = ({
                     <Column key={i}>
                         <Card>
                             <span className="textContainer">
-                                <span className="title">
-                                    {card.title || 'Fully Secure'}
-                                </span>
+                                <span className="title">{card.title || 'Fully Secure'}</span>
                                 <p className="description">
                                     {card.description ||
                                         'Lorem ipsum donor amet siti ceali ut enim ad minim veniam, quis nostrud.'}

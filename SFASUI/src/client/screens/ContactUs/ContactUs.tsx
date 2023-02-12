@@ -26,12 +26,9 @@ export const ContactUs = () => {
                             <>
                                 <Address>
                                     <AddressLine>
-                                        Администрация Красногвардейского района
-                                        Сектор физической культуры и спорта
+                                        Администрация Красногвардейского района Сектор физической культуры и спорта
                                     </AddressLine>
-                                    <AddressLine>
-                                        Среднеохтинский пр., д. 50
-                                    </AddressLine>
+                                    <AddressLine>Среднеохтинский пр., д. 50</AddressLine>
                                 </Address>
                                 <Email />
                                 <Phone>+7 (812) 576-86-15</Phone>

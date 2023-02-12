@@ -25,16 +25,12 @@ const ColumnHeading = tw.h5`uppercase font-bold`;
 const Link = tw.a`border-b-2 border-transparent hocus:text-gray-300 hocus:border-gray-300 pb-1 transition duration-300 mt-2 mr-8`;
 const LinksContainer = tw.div`mt-8 font-medium flex flex-wrap justify-center items-center flex-col sm:flex-row`;
 
-const SubscribeNewsletterColumn = tw(
-    Column
-)`text-center lg:text-left w-full! lg:w-auto! mt-20 lg:mt-12`;
+const SubscribeNewsletterColumn = tw(Column)`text-center lg:text-left w-full! lg:w-auto! mt-20 lg:mt-12`;
 const SubscribeNewsletterContainer = tw.div`max-w-sm mx-auto lg:mx-0 `;
 const SubscribeText = tw.p`mt-2 lg:mt-6 text-sm font-medium text-gray-600`;
 const SubscribeForm = tw.form`mt-4 lg:mt-6 text-sm sm:flex max-w-xs sm:max-w-none mx-auto sm:mx-0`;
 const Input = tw.input`bg-gray-300 px-6 py-3 rounded sm:rounded-r-none border-2 sm:border-r-0 border-gray-400 hover:border-primary-500 focus:outline-none transition duration-300 w-full`;
-const SubscribeButton = tw(
-    PrimaryButtonBase
-)`mt-4 sm:mt-0 w-full sm:w-auto rounded sm:rounded-l-none px-8 py-3`;
+const SubscribeButton = tw(PrimaryButtonBase)`mt-4 sm:mt-0 w-full sm:w-auto rounded sm:rounded-l-none px-8 py-3`;
 
 const Divider = tw.div`my-16 border-b-2 border-gray-300 w-full`;
 
@@ -42,8 +38,6 @@ const ThreeColRow = tw.div`flex flex-col md:flex-row items-center justify-betwee
 
 const LogoContainer = tw.div`flex items-center justify-center md:justify-start`;
 const LogoImg = tw(Image)`w-8`;
-
-const CopywrightNotice = tw.p`text-center text-sm sm:text-base mt-8 md:mt-0 font-medium text-gray-500`;
 
 const SocialLinksContainer = tw.div`mt-8 md:mt-0 flex`;
 const SocialLink = styled.a`
@@ -76,12 +70,9 @@ export const Footer = () => {
                     </Column>
                     <SubscribeNewsletterColumn>
                         <SubscribeNewsletterContainer>
-                            <ColumnHeading>
-                                Подписывайтесь на наши обновления
-                            </ColumnHeading>
+                            <ColumnHeading>Подписывайтесь на наши обновления</ColumnHeading>
                             <SubscribeText>
-                                Так вы первыми узнаете о новых спортивных
-                                объектах и мероприятиях вашего района
+                                Так вы первыми узнаете о новых спортивных объектах и мероприятиях вашего района
                             </SubscribeText>
                             <FormikProvider value={formikStateAndHelpers}>
                                 <SubscribeForm>
@@ -91,9 +82,7 @@ export const Footer = () => {
                                         placeholder="Ваша электронная почта"
                                         inputComponent={Input}
                                     />
-                                    <SubscribeButton type="submit">
-                                        Подписаться
-                                    </SubscribeButton>
+                                    <SubscribeButton type="submit">Подписаться</SubscribeButton>
                                 </SubscribeForm>
                             </FormikProvider>
                         </SubscribeNewsletterContainer>
@@ -104,7 +93,6 @@ export const Footer = () => {
                     <LogoContainer>
                         <LogoImg src={LogoImage} />
                     </LogoContainer>
-                    <CopywrightNotice>&copy; 2022 Lalagvana</CopywrightNotice>
                     <SocialLinksContainer>
                         <SocialLink href="https://vk.com">
                             <Image src={VkIcon} />

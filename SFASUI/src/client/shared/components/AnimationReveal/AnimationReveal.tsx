@@ -11,10 +11,7 @@ type AnimationRevealProps = {
     children: JSX.Element[] | JSX.Element;
 };
 
-function AnimationRevealBase({
-    disabled = false,
-    children,
-}: AnimationRevealProps) {
+function AnimationRevealBase({ disabled = false, children }: AnimationRevealProps) {
     if (disabled) {
         return <>{children}</>;
     }
@@ -24,10 +21,7 @@ function AnimationRevealBase({
     const directions: Direction[] = ['left', 'right'];
     const childrenWithAnimation = children.map((child, i) => {
         return (
-            <AnimatedSlideInComponent
-                key={i}
-                direction={directions[i % directions.length]}
-            >
+            <AnimatedSlideInComponent key={i} direction={directions[i % directions.length]}>
                 {child}
             </AnimatedSlideInComponent>
         );
@@ -44,10 +38,7 @@ type Coordinates = {
     target: string;
 };
 
-function AnimatedSlideInComponent({
-    direction = 'left',
-    children,
-}: AnimatedSlideInComponentProps) {
+function AnimatedSlideInComponent({ direction = 'left', children }: AnimatedSlideInComponentProps) {
     const x: Coordinates = {
         target: '0%',
         initial: direction === 'left' ? '-150%' : '150%',

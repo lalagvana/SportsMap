@@ -61,8 +61,7 @@ export const Features = ({
         {
             // imageSrc: ShieldIconImage,
             title: 'Secure',
-            description:
-                'We strictly only deal with vendors that provide top notch security.',
+            description: 'We strictly only deal with vendors that provide top notch security.',
             url: 'https://timerse.com',
         },
     ],
@@ -83,27 +82,15 @@ export const Features = ({
                     {cards.map((card, i) => (
                         <Column key={i}>
                             <Card href={card.url}>
-                                <span
-                                    className="imageContainer"
-                                    css={imageContainerCss}
-                                >
-                                    <Image
-                                        src={card.imageSrc || ''}
-                                        alt=""
-                                        css={imageCss}
-                                    />
+                                <span className="imageContainer" css={imageContainerCss}>
+                                    <Image src={card.imageSrc || ''} alt="" css={imageCss} />
                                 </span>
                                 <span className="title">{card.title}</span>
-                                <p className="description">
-                                    {card.description}
-                                </p>
+                                <p className="description">{card.description}</p>
                                 {linkText && (
                                     <span className="link">
                                         <span>{linkText}</span>
-                                        <Image
-                                            src={ArrowRightIcon}
-                                            className="icon"
-                                        />
+                                        <Image src={ArrowRightIcon} className="icon" />
                                     </span>
                                 )}
                             </Card>

@@ -12,14 +12,10 @@ const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24 items-center`;
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
 const ImageColumn = tw(Column)`md:w-6/12 flex-shrink-0 relative`;
-const TextColumn = styled(Column)(
-    ({ textOnLeft }: { textOnLeft?: boolean }) => [
-        tw`md:w-6/12 mt-16 md:mt-0`,
-        textOnLeft
-            ? tw`md:mr-12 lg:mr-16 md:order-first`
-            : tw`md:ml-12 lg:ml-16 md:order-last`,
-    ]
-);
+const TextColumn = styled(Column)(({ textOnLeft }: { textOnLeft?: boolean }) => [
+    tw`md:w-6/12 mt-16 md:mt-0`,
+    textOnLeft ? tw`md:mr-12 lg:mr-16 md:order-first` : tw`md:ml-12 lg:ml-16 md:order-last`,
+]);
 
 const TextContent = tw.div`lg:py-8 text-center md:text-right`;
 const Heading = tw(
@@ -32,9 +28,7 @@ type FeatureProps = {
     description?: string;
 };
 
-export const MainFeature = ({
-    description = 'Спортивных сооружений расположено в Санкт-Петербурге',
-}: FeatureProps) => {
+export const MainFeature = ({ description = 'Спортивных сооружений расположено в Санкт-Петербурге' }: FeatureProps) => {
     return (
         <Container>
             <TwoColumn>
@@ -57,10 +51,7 @@ export const MainFeature = ({
                         <Heading>
                             <span tw="text-primary-500">44%</span>
                         </Heading>
-                        <Description>
-                            Жителей Санкт-Петербурга регулярно занимаются
-                            спортом
-                        </Description>
+                        <Description>Жителей Санкт-Петербурга регулярно занимаются спортом</Description>
                     </TextContent>
                 </TextColumn>
             </TwoColumn>

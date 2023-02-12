@@ -3,7 +3,7 @@ import httpProxy from 'http-proxy';
 import { cloudApi, serviceClients, Session } from '@yandex-cloud/nodejs-sdk';
 import { LogLevel_Level } from '@yandex-cloud/nodejs-sdk/dist/generated/yandex/cloud/logging/v1/log_entry';
 
-import { getLogStatus } from "src/client/shared/utils/logger";
+import { getLogStatus } from 'src/client/shared/utils/logger';
 
 const {
     logging: {
@@ -19,9 +19,7 @@ export const config = {
     },
 };
 const session = new Session({ oauthToken: process.env.OAUTH as string });
-const loggerServiceClient = session.client(
-    serviceClients.LogIngestionServiceClient
-);
+const loggerServiceClient = session.client(serviceClients.LogIngestionServiceClient);
 
 proxy.on('error', function (err, req) {
     loggerServiceClient.write(
@@ -72,23 +70,15 @@ proxy.on('proxyRes', function (proxyRes, req, res) {
     });
 });
 
-export default async (
-    req: IncomingMessage,
-    res: ServerResponse<IncomingMessage>
-) => {
+export default async (req: IncomingMessage, res: ServerResponse<IncomingMessage>) => {
     return await new Promise<void>((resolve, reject) => {
-        req.url = req.url?.replace('/api', '')
+        req.url = req.url?.replace('/api', '');
 
-        proxy.web(
-            req,
-            res,
-            { target: API_URL, changeOrigin: true },
-            (err) => {
-                if (err) {
-                    return reject(err);
-                }
-                resolve();
+        proxy.web(req, res, { target: API_URL, changeOrigin: true }, (err) => {
+            if (err) {
+                return reject(err);
             }
-        );
+            resolve();
+        });
     });
 };

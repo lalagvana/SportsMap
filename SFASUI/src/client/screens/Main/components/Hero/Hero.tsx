@@ -55,9 +55,7 @@ export const Hero = ({
                             <PrimaryButton>{primaryButtonText}</PrimaryButton>
                         </a>
                         <WatchVideoButton>
-                            <span className="playText">
-                                {watchVideoButtonText}
-                            </span>
+                            <span className="playText">{watchVideoButtonText}</span>
                         </WatchVideoButton>
                     </Actions>
                 </LeftColumn>

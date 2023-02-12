@@ -10,9 +10,7 @@ type MapPageProps = {
     error?: any;
 };
 
-export const getServerSideProps: GetServerSideProps<
-    MapPageProps
-> = async () => {
+export const getServerSideProps: GetServerSideProps<MapPageProps> = async () => {
     return {
         props: {},
     };

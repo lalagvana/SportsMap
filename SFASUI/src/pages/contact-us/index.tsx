@@ -16,10 +16,7 @@ export const getStaticProps: GetStaticProps<ContactUsPageProps> = async () => {
     };
 };
 
-const ContactUsPage: NextPage<ContactUsPageProps> = ({
-    data,
-    error,
-}: ContactUsPageProps) => {
+const ContactUsPage: NextPage<ContactUsPageProps> = ({ data, error }: ContactUsPageProps) => {
     if (error) {
         return <NextError statusCode={500} />;
     }

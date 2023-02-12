@@ -1,1 +1,1 @@
-export * from './Exit'
+export * from './Exit';

@@ -3,10 +3,7 @@ import tw from 'twin.macro';
 import styled from 'styled-components';
 import { FormikProvider, useFormik } from 'formik';
 
-import {
-    SectionHeading,
-    Subheading as SubheadingBase,
-} from 'src/client/shared/components/Misc/Headings';
+import { SectionHeading, Subheading as SubheadingBase } from 'src/client/shared/components/Misc/Headings';
 import { PrimaryButton as PrimaryButtonBase } from 'src/client/shared/components/Misc/Buttons';
 import EmailIllustrationSrc from 'src/client/images/sapiens-contact.svg';
 import { TextArea } from 'src/client/shared/components/TextArea';
@@ -25,9 +22,7 @@ const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
 const ImageColumn = tw(Column)`md:w-5/12 flex-shrink-0 h-full md:h-auto`;
 const TextColumn = styled(Column)(({ textOnLeft }: { textOnLeft: boolean }) => [
     tw`md:w-7/12 mt-16 md:mt-0`,
-    textOnLeft
-        ? tw`md:mr-12 lg:mr-16 md:order-first`
-        : tw`md:ml-12 lg:ml-16 md:order-last`,
+    textOnLeft ? tw`md:mr-12 lg:mr-16 md:order-first` : tw`md:ml-12 lg:ml-16 md:order-last`,
 ]);
 
 const Image = styled.div(({ imageSrc }: { imageSrc: { src: string } }) => [
@@ -70,9 +65,8 @@ export const Form = ({ textOnLeft = true }: FormProps) => {
                             <wbr />
                         </Heading>
                         <Description>
-                            Просто отправьте нам письмо с вашими пожеланиями и
-                            обратным почтовым адресом, и мы обязательно вам
-                            ответим!
+                            Просто отправьте нам письмо с вашими пожеланиями и обратным почтовым адресом, и мы
+                            обязательно вам ответим!
                         </Description>
                         <FormikProvider value={formikStateAndHelpers}>
                             <FormBase>
@@ -82,19 +76,9 @@ export const Form = ({ textOnLeft = true }: FormProps) => {
                                     placeholder="Ваш адрес электронной почты"
                                     inputComponent={Input}
                                 />
-                                <TextInput
-                                    type="text"
-                                    name="name"
-                                    placeholder="Ваше имя"
-                                    inputComponent={Input}
-                                />
-                                <TextArea
-                                    name="message"
-                                    placeholder="Ваше пожелание/предложение"
-                                />
-                                <SubmitButton type="submit">
-                                    Отправить
-                                </SubmitButton>
+                                <TextInput type="text" name="name" placeholder="Ваше имя" inputComponent={Input} />
+                                <TextArea name="message" placeholder="Ваше пожелание/предложение" />
+                                <SubmitButton type="submit">Отправить</SubmitButton>
                             </FormBase>
                         </FormikProvider>
                     </TextContent>

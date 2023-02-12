@@ -17,10 +17,7 @@ export const updateFacility = (id: number, body: UpdateFacility.Body) => {
     });
 };
 
-export const partialUpdateFacility = (
-    id: number,
-    body: UpdateFacility.Body
-) => {
+export const partialUpdateFacility = (id: number, body: UpdateFacility.Body) => {
     return fetch<PartialUpdateFacility.Response>(apiRoutes.facilities(id), {
         method: 'PATCH',
         data: body,
