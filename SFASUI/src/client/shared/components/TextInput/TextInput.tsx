@@ -15,8 +15,6 @@ type TextInputProps = {
 
 export const TextInput = ({
     name,
-    label,
-    className,
     required = false,
     inputComponent: Root = BaseInput,
     ...rest
@@ -29,6 +27,7 @@ export const TextInput = ({
             name={formikField.name}
             onChange={formikField.onChange}
             onBlur={formikField.onBlur}
+            required={required}
             {...rest}
         />
     );

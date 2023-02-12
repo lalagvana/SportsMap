@@ -17,8 +17,6 @@ type TextInputProps = {
 
 export const TextArea = ({
     name,
-    label,
-    className,
     required = false,
     textareaComponent: Root = BaseTextarea,
     ...rest
@@ -31,6 +29,7 @@ export const TextArea = ({
             name={formikField.name}
             onChange={formikField.onChange}
             onBlur={formikField.onBlur}
+            required={required}
             {...rest}
         />
     );
