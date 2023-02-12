@@ -13,12 +13,7 @@ type TextInputProps = {
     inputComponent?: any;
 };
 
-export const TextInput = ({
-    name,
-    required = false,
-    inputComponent: Root = BaseInput,
-    ...rest
-}: TextInputProps) => {
+export const TextInput = ({ name, required = false, inputComponent: Root = BaseInput, ...rest }: TextInputProps) => {
     const [formikField] = useField(name);
 
     return (

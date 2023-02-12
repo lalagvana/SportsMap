@@ -10,18 +10,13 @@ type SearchPageProps = {
     error?: any;
 };
 
-export const getServerSideProps: GetServerSideProps<
-    SearchPageProps
-> = async () => {
+export const getServerSideProps: GetServerSideProps<SearchPageProps> = async () => {
     return {
         props: {},
     };
 };
 
-const SearchPage: NextPage<SearchPageProps> = ({
-    data,
-    error,
-}: SearchPageProps) => {
+const SearchPage: NextPage<SearchPageProps> = ({ data, error }: SearchPageProps) => {
     if (error) {
         return <NextError statusCode={500} />;
     }

@@ -13,9 +13,7 @@ import LoginIcon from 'feather-icons/dist/icons/log-in.svg';
 
 import { LoginFields, useLoginHandler, LOGIN_INITIAL_VALUES } from '.';
 
-const Container = tw(
-    ContainerBase
-)`min-h-screen bg-primary-300 text-white font-medium flex justify-center -m-8`;
+const Container = tw(ContainerBase)`min-h-screen bg-primary-300 text-white font-medium flex justify-center -m-8`;
 const Content = tw.div`max-w-screen-xl m-0 sm:mx-20 sm:my-16 bg-white text-gray-900 shadow sm:rounded-lg flex justify-center flex-1`;
 const MainContainer = tw.div`lg:w-1/2 xl:w-5/12 p-6 sm:p-12`;
 const LogoLink = tw.a``;
@@ -44,8 +42,6 @@ export const Login = ({ forgotPasswordUrl = '#' }: LoginPageProps) => {
         onSubmit: handleSubmit,
     });
 
-
-
     return (
         <AnimationReveal>
             <Container>
@@ -59,31 +55,16 @@ export const Login = ({ forgotPasswordUrl = '#' }: LoginPageProps) => {
                             <FormContainer>
                                 <FormikProvider value={formikStateAndHelpers}>
                                     <Form>
-                                        <TextInput
-                                            type="email"
-                                            placeholder="Логин"
-                                            name="email"
-                                        />
-                                        <TextInput
-                                            type="password"
-                                            placeholder="Пароль"
-                                            name="password"
-                                        />
-                                        <SubmitButton
-                                        type="submit">
-                                            <Image
-                                                src={LoginIcon}
-                                                className="icon"
-                                            />
+                                        <TextInput type="email" placeholder="Логин" name="email" />
+                                        <TextInput type="password" placeholder="Пароль" name="password" />
+                                        <SubmitButton type="submit">
+                                            <Image src={LoginIcon} className="icon" />
                                             <span className="text">Войти</span>
                                         </SubmitButton>
                                     </Form>
                                 </FormikProvider>
                                 <p tw="mt-6 text-xs text-gray-600 text-center">
-                                    <a
-                                        href={forgotPasswordUrl}
-                                        tw="border-b border-gray-500 border-dotted"
-                                    >
+                                    <a href={forgotPasswordUrl} tw="border-b border-gray-500 border-dotted">
                                         Забыли пароль?
                                     </a>
                                 </p>

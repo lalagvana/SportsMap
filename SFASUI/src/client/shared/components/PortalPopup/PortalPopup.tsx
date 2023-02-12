@@ -58,10 +58,7 @@ export const PortalPopup = ({
 
     const onOverlayClick = useCallback(
         (e) => {
-            if (
-                onOutsideClick &&
-                e.target.classList.contains(styles.portalPopupOverlay)
-            ) {
+            if (onOutsideClick && e.target.classList.contains(styles.portalPopupOverlay)) {
                 onOutsideClick();
             }
             e.stopPropagation();
@@ -71,11 +68,7 @@ export const PortalPopup = ({
 
     return (
         <Portal>
-            <div
-                className={styles.portalPopupOverlay}
-                style={popupStyle}
-                onClick={onOverlayClick}
-            >
+            <div className={styles.portalPopupOverlay} style={popupStyle} onClick={onOverlayClick}>
                 {children}
             </div>
         </Portal>

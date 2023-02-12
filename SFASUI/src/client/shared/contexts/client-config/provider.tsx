@@ -3,9 +3,7 @@ import { ClientConfigContext } from '.';
 
 type ClientConfigProviderProps = PropsWithChildren<object>;
 
-export const ClientConfigProvider = ({
-    children,
-}: ClientConfigProviderProps) => {
+export const ClientConfigProvider = ({ children }: ClientConfigProviderProps) => {
     const [clientConfig, setClientConfig] = useState({});
 
     return (

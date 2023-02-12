@@ -8,17 +8,10 @@ export const Hide = ({ onClose }: ModalProps) => {
     return (
         <div className={styles.hideDiv}>
             <div className={styles.questionDiv}>
-                <Image
-                    className={styles.claritycloseLineIcon}
-                    alt=""
-                    src="../claritycloseline.svg"
-                    onClick={onClose}
-                />
+                <Image className={styles.claritycloseLineIcon} alt="" src="../claritycloseline.svg" onClick={onClose} />
                 <div className={styles.textButtonDiv}>
                     <div className={styles.textDiv}>
-                        <div className={styles.windowTitleDiv}>
-                            Скрыть объект?
-                        </div>
+                        <div className={styles.windowTitleDiv}>Скрыть объект?</div>
                         <div className={styles.expositoryTextDiv}>
                             Вы в любой момент сможете сделать его снова видимым
                         </div>

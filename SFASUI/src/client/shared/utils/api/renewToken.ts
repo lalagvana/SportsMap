@@ -7,9 +7,7 @@ export const getAuthToken = () => {
 
     if (isExpired) {
         const oldTokenValue = getCookie('sportsmap_token') as string | undefined;
-        const refreshTokenValue = getCookie('sportsmap_refreshToken') as
-            | string
-            | undefined;
+        const refreshTokenValue = getCookie('sportsmap_refreshToken') as string | undefined;
 
         if (oldTokenValue && refreshTokenValue) {
             try {

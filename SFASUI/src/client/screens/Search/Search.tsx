@@ -6,16 +6,14 @@ import { Footer } from 'src/client/shared/components/Footer';
 import { AnimationReveal } from 'src/client/shared/components/AnimationReveal';
 import { Container as ContainerBase } from 'src/client/shared/components/Misc/Layouts';
 
-const Container = tw(
-    ContainerBase
-)`min-h-screen bg-primary-100 text-white font-medium flex justify-center -m-8 mt-2`;
+const Container = tw(ContainerBase)`min-h-screen bg-primary-100 text-white font-medium flex justify-center -m-8 mt-2`;
 
 export const Search = () => {
-
-  return (
-    <AnimationReveal>
-        <Header />
-        <Container />
-        <Footer />
-    </AnimationReveal>
-)};
+    return (
+        <AnimationReveal>
+            <Header />
+            <Container />
+            <Footer />
+        </AnimationReveal>
+    );
+};

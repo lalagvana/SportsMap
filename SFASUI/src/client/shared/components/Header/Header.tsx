@@ -75,10 +75,7 @@ export const Header = ({
             <NavLink href="/map">Карта</NavLink>
             <NavLink href="/search">Поиск</NavLink>
             <NavLink href="/contact-us">Контакты</NavLink>
-            <PrimaryLink
-                css={roundedHeaderButton ? tw`rounded-full` : undefined}
-                href="/#"
-            >
+            <PrimaryLink css={roundedHeaderButton ? tw`rounded-full` : undefined} href="/#">
                 Версия для слабовидящих
             </PrimaryLink>
         </NavLinks>,
@@ -92,8 +89,7 @@ export const Header = ({
     );
 
     const { showNavLinks, animation, toggleNavbar } = useAnimatedNavToggler();
-    const collapseBreakpointCss =
-        collapseBreakPointCssMap[collapseBreakpointClass];
+    const collapseBreakpointCss = collapseBreakPointCssMap[collapseBreakpointClass];
 
     logoLink = logoLink || defaultLogoLink;
     links = links || defaultLinks;
@@ -105,9 +101,7 @@ export const Header = ({
                 {links}
             </DesktopNavLinks>
 
-            <MobileNavLinksContainer
-                css={collapseBreakpointCss.mobileNavLinksContainer}
-            >
+            <MobileNavLinksContainer css={collapseBreakpointCss.mobileNavLinksContainer}>
                 {logoLink}
                 <MobileNavLinks
                     initial={{ x: '150%', display: 'none' }}
@@ -116,15 +110,8 @@ export const Header = ({
                 >
                     {links}
                 </MobileNavLinks>
-                <NavToggle
-                    onClick={toggleNavbar}
-                    className={showNavLinks ? 'open' : 'closed'}
-                >
-                    {showNavLinks ? (
-                        <Image src={CloseIcon} tw="w-6 h-6" />
-                    ) : (
-                        <Image src={MenuIcon} tw="w-6 h-6" />
-                    )}
+                <NavToggle onClick={toggleNavbar} className={showNavLinks ? 'open' : 'closed'}>
+                    {showNavLinks ? <Image src={CloseIcon} tw="w-6 h-6" /> : <Image src={MenuIcon} tw="w-6 h-6" />}
                 </NavToggle>
             </MobileNavLinksContainer>
         </HeaderBase>
