@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { useAnimation, useCycle } from 'framer-motion';
+import { useState } from 'react';
 
 //Below logic is for toggling the navbar when toggleNavbar is called. It is used on mobile toggling of navbar.
 export function useAnimatedNavToggler() {

@@ -1,6 +1,6 @@
-export type ClientConfig = {};
+export type ClientConfig = object;
 
 export type ClientConfigContextType = {
     clientConfig: ClientConfig;
-    setClientConfig: Function;
+    setClientConfig: (cfg: ClientConfig) => void;
 };
