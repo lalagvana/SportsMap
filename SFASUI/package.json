@@ -30,6 +30,7 @@
         "react-modal": "^3.13.1",
         "react-rnd": "^10.2.4",
         "react-slick": "^0.28.1",
+        "react-toastify": "^9.1.1",
         "reactstrap": "^9.0.2",
         "sharp": "^0.31.2",
         "styled-components": "^5.3.6",
@@ -63,8 +64,6 @@
         ]
     },
     "devDependencies": {
-        "stylelint-config-clean-order": "2.3.1",
-        "stylelint-config-standard": "^30.0.1",
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^12.1.2",
         "@testing-library/user-event": "^13.1.5",
@@ -88,7 +87,9 @@
         "postcss": "^8.4.13",
         "prettier": "2.8.1",
         "stylelint": "14.16.1",
+        "stylelint-config-clean-order": "2.3.1",
         "stylelint-config-css-modules": "^4.2.0",
+        "stylelint-config-standard": "^30.0.1",
         "stylelint-order": "5.0.0",
         "ts-jest": "^29.0.3"
     },
