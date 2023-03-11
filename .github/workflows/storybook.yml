@@ -1,0 +1,14 @@
+name: storybook
+
+on: push
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: yarn
+        working-directory: ./SFASUI
+      - uses: chromaui/action@v1
+      - with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
