@@ -1,0 +1,17 @@
+.TextInput {
+    max-width: 100%;
+    padding: 0 var(--padding-s);
+
+    font-size: var(--font-size-m);
+    line-height: 40px;
+
+    background-color: var(--field-color);
+    border: none;
+    border-radius: var(--border-radius-m);
+    outline: solid 1px var(--decorative-color);
+}
+
+.TextInput::placeholder {
+    font-size: var(--font-size-m);
+    color: var(--placeholder-color);
+}

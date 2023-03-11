@@ -7,8 +7,7 @@ import { ClientConfigProvider } from 'src/client/shared/contexts/client-config';
 
 import 'react-toastify/dist/ReactToastify.css';
 import 'tailwindcss/dist/base.css';
-import 'src/client/styles/globalStyles.css';
-import 'src/client/styles/fonts.css';
+import 'src/client/styles/index.css';
 
 export default function App({ Component, pageProps }: AppProps) {
     return (

@@ -1,0 +1,30 @@
+.Button {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+    padding: var(--padding-2xs) var(--padding-l);
+
+    font-size: var(--font-size-m);
+    color: var(--white-color);
+
+    border: none;
+    border-radius: var(--border-radius-m);
+
+    transition: .1s linear all;
+}
+
+.Button_default {
+    background-color: var(--base-default-color);
+}
+
+.Button_active {
+    background-color: var(--base-secondary-color);
+}
+
+.Button_clear {
+    background-color: var(--white-color);
+}

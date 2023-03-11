@@ -1,0 +1,53 @@
+.SidebarItem {
+    cursor: pointer;
+
+    display: grid;
+    grid-template-areas:
+        'name photo'
+        'address photo'
+        'age photo';
+    grid-template-columns: 1fr 128px;
+    column-gap: var(--space-l);
+
+    box-sizing: border-box;
+    width: var(--width-map-sidebar);
+    padding: var(--space-xl);
+
+    border-radius: var(--border-radius-l);
+    box-shadow: 2px 4px 20px rgb(0 0 0 / 20%);
+
+}
+
+.SidebarItem:hover {
+    outline: var(--base-additional-color) solid 1px;
+}
+
+.SidebarItem-Photo {
+    grid-area: photo;
+    width: 128px;
+    height: 128px;
+}
+
+.SidebarItem-Name {
+    grid-area: name;
+    margin-bottom: var(--space-m);
+}
+
+.SidebarItem-Address {
+    grid-area: address;
+    margin-bottom: var(--space-s);
+}
+
+.SidebarItem-AddressText {
+    overflow: hidden;
+    display: -webkit-box;
+
+    font-size: var(--font-size-m);
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.SidebarItem-AgeTags {
+    grid-area: age;
+}

@@ -1,0 +1,19 @@
+.Tag {
+    width: fit-content;
+    padding: 0 9px;
+    color: var(--white-color);
+    border-radius: var(--border-radius-s);
+
+}
+
+.Tag_default {
+    background-color: var(--base-additional-color);
+}
+
+.Tag_active {
+    background-color: var(--base-secondary-color);
+}
+
+.Tag-Text {
+    font: 500 16px / 24px Ubuntu, sans-serif;
+}

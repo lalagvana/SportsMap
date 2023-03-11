@@ -261,7 +261,7 @@
     box-sizing: border-box;
     padding: var(--padding-lg) var(--padding-4xl);
 
-    background-color: var(--white);
+    background-color: var(--white-color);
     border: 1px solid var(--color-turquoise-200);
     border-radius: var(--br-xs);
 }
@@ -282,7 +282,7 @@
     box-sizing: border-box;
     padding: var(--padding-lg) var(--padding-4xl);
 
-    color: var(--white);
+    color: var(--white-color);
 
     background-color: var(--color-turquoise-200);
     border-radius: var(--br-xs);
@@ -316,7 +316,7 @@
 
     overflow: hidden;
 
-    background-color: var(--white);
+    background-color: var(--white-color);
     box-shadow: var(--large-shadow-for-pop-up-windows1);
 }
 

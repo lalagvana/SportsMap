@@ -1,0 +1,37 @@
+.SidebarDetails {
+    max-width: 440px;
+    padding: var(--padding-xl);
+
+    font-size: var(--font-size-m);
+
+    border-radius: var(--border-radius-l);
+    box-shadow: 2px 4px 20px rgb(0 0 0 / 20%);
+}
+
+.SidebarDetails-Name {
+    margin-bottom: var(--space-xs);
+}
+
+.SidebarDetails-LinkText {
+    font-weight: var(--font-weight-medium);
+    color: var(--base-secondary-color);
+    text-decoration: none;
+}
+
+.SidebarDetails-Availability {
+    display: flex;
+    gap: var(--space-m);
+    align-items: center;
+}
+
+.SidebarDetails-Info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+    margin: var(--space-l) 0 var(--space-l);
+}
+
+.SidebarDetails-Back {
+    cursor: pointer;
+    width: fit-content;
+}

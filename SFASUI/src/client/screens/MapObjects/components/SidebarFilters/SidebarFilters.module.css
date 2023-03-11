@@ -1,0 +1,20 @@
+.SidebarFilters {
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--space-m);
+
+    margin-bottom: var(--space-l);
+    padding: 0;
+
+    border: none;
+}
+
+.SidebarFilters-Search {
+    width: 440px;
+}
+
+button.SidebarFilters-Toggle {
+    width: 40px;
+    height: 40px;
+    padding: var(--padding-s);
+}

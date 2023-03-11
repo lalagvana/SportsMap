@@ -1,0 +1,12 @@
+.TextWithIcon {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-m);
+    align-items: start;
+    justify-content: start;
+}
+
+.TextWithIcon-IconContainer {
+    width: 20px;
+    height: 20px;
+}
