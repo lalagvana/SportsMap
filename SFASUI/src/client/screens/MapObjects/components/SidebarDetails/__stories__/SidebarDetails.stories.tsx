@@ -25,7 +25,7 @@ export const playground = (props: argsType) => (
 
 playground.args = {
     address: 'Выборгская набережная, д. 1, корпус 1000-7',
-    age: ['Молодежь'],
+    age: ['Дети', 'Молодежь', 'Взрослые', 'Пенсионеры'],
     availability: true,
     name: 'Спортивный зал',
     payingType: ['Бесплатные'],

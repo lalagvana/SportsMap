@@ -5,7 +5,7 @@
 .Search {
     box-sizing: border-box;
     width: 100%;
-    padding-right: calc(40px + var(--padding-s));
+    padding-right: calc(36px + var(--padding-s));
 }
 
 .Search-Icon {
@@ -19,7 +19,7 @@
     align-items: center;
     justify-content: center;
 
-    width: 40px;
+    width: 36px;
     height: 100%;
 
     background-color: var(--base-default-color);

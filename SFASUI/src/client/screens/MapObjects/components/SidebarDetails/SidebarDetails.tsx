@@ -2,17 +2,17 @@ import Image from 'next/image';
 
 import { CardHeader } from 'src/client/shared/components/CardHeader';
 import { TextWithIcon } from 'src/client/shared/components/TextWithIcon';
-import { Tag, TagTypes } from 'src/client/shared/components/Tag';
+import { TagTypes } from 'src/client/shared/components/Tag';
 import { Button } from 'src/client/shared/components/Button';
 import { WorkingHours } from 'src/client/shared/components/WorkingHours';
+import { TagGroup } from 'src/client/shared/components/TagGroup';
 
-import { SidebarItemDetails } from 'src/client/screens/MapObjects';
+import { SidebarItemDetailsType } from 'src/client/screens/MapObjects';
 
 import styles from './SidebarDetails.module.css';
-import { TagGroup } from '../../../../shared/components/TagGroup';
 
 type SidebarDetailsProps = {
-    item: SidebarItemDetails;
+    item: SidebarItemDetailsType;
     onBackClick: () => void;
 };
 

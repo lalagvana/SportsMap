@@ -1,12 +1,10 @@
-.SidebarItem {
-    cursor: pointer;
-
+.SidebarItemSkeleton {
     display: grid;
     grid-template-areas:
         'name photo'
         'address photo'
         'age photo';
-    grid-template-columns: 1fr 128px;
+    grid-template-columns: 1fr 140px;
     column-gap: var(--space-l);
 
     box-sizing: border-box;
@@ -15,39 +13,31 @@
 
     border-radius: var(--border-radius-l);
     box-shadow: 2px 4px 20px rgb(0 0 0 / 20%);
-
 }
 
-.SidebarItem:hover {
-    outline: var(--base-additional-color) solid 1px;
-}
-
-.SidebarItem-Photo {
+.SidebarItemSkeleton-Photo {
     grid-area: photo;
-    width: 128px;
-    height: 128px;
+    width: 140px;
+    height: 140px;
+    border-radius: var(--border-radius-l);
 }
 
-.SidebarItem-Name {
+.SidebarItemSkeleton-Name {
     grid-area: name;
-    margin-bottom: var(--space-m);
+    height: 42px;
+    margin-bottom: 40px;
+    border-radius: var(--border-radius-m);
 }
 
-.SidebarItem-Address {
+.SidebarItemSkeleton-Address {
     grid-area: address;
-    margin-bottom: var(--space-s);
+    height: 24px;
+    margin-bottom: var(--space-xs);
+    border-radius: var(--border-radius-m);
 }
 
-.SidebarItem-AddressText {
-    overflow: hidden;
-    display: -webkit-box;
-
-    font-size: var(--font-size-m);
-
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-}
-
-.SidebarItem-AgeTags {
+.SidebarItemSkeleton-AgeTags {
     grid-area: age;
+    height: 24px;
+    border-radius: var(--border-radius-m);
 }

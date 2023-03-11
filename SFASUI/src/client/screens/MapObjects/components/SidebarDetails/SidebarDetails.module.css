@@ -1,5 +1,5 @@
 .SidebarDetails {
-    max-width: 440px;
+    width: var(--width-map-sidebar);
     padding: var(--padding-xl);
 
     font-size: var(--font-size-m);
