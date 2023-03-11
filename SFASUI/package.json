@@ -113,7 +113,5 @@
         "**/*": "prettier --write --ignore-unknown",
         "*.{js,ts,jsx,tsx}": "yarn lint",
         "*.css": "yarn lint:css"
-    },
-    "readme": "ERROR: No README data found!",
-    "_id": "sportsmap@0.1.0"
+    }
 }
