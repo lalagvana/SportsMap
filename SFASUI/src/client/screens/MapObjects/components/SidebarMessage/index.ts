@@ -1,1 +1,1 @@
-export * from './SidebarItemsListSkeleton'
+export * from './SidebarMessage'

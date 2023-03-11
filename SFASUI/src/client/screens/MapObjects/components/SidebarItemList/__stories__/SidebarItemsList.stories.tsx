@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SidebarItemDetails } from 'src/client/screens/MapObjects';
+import { SidebarItemDetailsType } from 'src/client/screens/MapObjects';
 
 import { SidebarItemsList } from '../SidebarItemsList';
 
@@ -10,7 +10,7 @@ export default {
 };
 
 type argsType = {
-    items: SidebarItemDetails[];
+    items: SidebarItemDetailsType[];
 };
 
 export const playground = ({ items }: argsType) => <SidebarItemsList items={items} setActiveItem={() => {}} />;

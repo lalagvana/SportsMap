@@ -1,26 +1,20 @@
 import React from 'react';
 
-import { Tag, TagTypes } from '..';
+import { Select } from '..';
 
 export default {
-    title: 'Shared/Tag',
-    component: Tag,
-    argTypes: {
-        type: {
-            options: TagTypes,
-            control: { type: 'select' },
-        },
-    },
+    title: 'Shared/Select',
+    component: Select,
 };
 
-type argsType = {
-    value: string;
-    type: TagTypes;
-};
-
-export const playground = ({ value, type }: argsType) => <Tag value={value} type={type} />;
-
-playground.args = {
-    value: 'спорт',
-    type: TagTypes.Default,
-};
+export const playground = () => (
+    <Select
+        placeholder="Тип покрытия"
+        options={[
+            { value: 'grass', label: 'Трава' },
+            { value: 'concrete', label: 'Бетон' },
+            { value: 'artificial grass', label: 'Искусственная трава' },
+            { value: 'disabled', label: 'Недоступный тип покрытия', disabled: true },
+        ]}
+    />
+);

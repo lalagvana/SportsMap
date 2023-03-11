@@ -1,19 +1,18 @@
-import { memo, PropsWithChildren } from 'react';
+import { Select as SelectBase, SelectProps as SelectBaseProps } from 'antd';
 
-import styles from './NoWrapText.module.css';
+import styles from './Select.module.css';
 
-type NowrapTextProps = PropsWithChildren<{
-    text: string;
-    tagName?: keyof JSX.IntrinsicElements;
+type NowrapTextProps = SelectBaseProps & {
     className?: string;
-}>;
+};
 
-export const NowrapText = memo(({ text, tagName = 'span', className }: NowrapTextProps) => {
-    const TextTag = tagName;
-
+export const Select = ({ className, popupClassName, ...rest }: NowrapTextProps) => {
     return (
-        <TextTag title={text} className={[styles['NowrapText'], className].join(' ')}>
-            {text}
-        </TextTag>
+        <SelectBase
+            allowClear
+            rootClassName={[styles['Select'], className].join(' ')}
+            popupClassName={[styles['Select-Popup'], popupClassName].join(' ')}
+            {...rest}
+        />
     );
-});
+};

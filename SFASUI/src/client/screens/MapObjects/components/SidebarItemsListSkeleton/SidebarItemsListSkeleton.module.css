@@ -1,45 +1,10 @@
-.SidebarItemSkeleton {
-    display: grid;
-    grid-template-areas:
-        'name photo'
-        'address photo'
-        'age photo';
-    grid-template-columns: 1fr 140px;
-    column-gap: var(--space-l);
+.SidebarItemsListSkeleton {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
 
-    box-sizing: border-box;
-    width: var(--width-map-sidebar);
-    padding: var(--space-xl);
+    margin: 0;
+    padding: 0;
 
-    border-radius: var(--border-radius-l);
-    box-shadow: 2px 4px 20px rgb(0 0 0 / 20%);
-}
-
-.SidebarItemSkeleton-Photo {
-    grid-area: photo;
-    width: 140px;
-    height: 140px;
-
-    border-radius: var(--border-radius-l);
-}
-
-.SidebarItemSkeleton-Name {
-    grid-area: name;
-    margin-bottom: 40px;
-    height: 42px;
-
-    border-radius: var(--border-radius-m);
-}
-
-.SidebarItemSkeleton-Address {
-    grid-area: address;
-    height: 24px;
-    margin-bottom: var(--space-xs);
-    border-radius: var(--border-radius-m);
-}
-
-.SidebarItemSkeleton-AgeTags {
-    grid-area: age;
-    height: 24px;
-    border-radius: var(--border-radius-m);
+    list-style: none;
 }

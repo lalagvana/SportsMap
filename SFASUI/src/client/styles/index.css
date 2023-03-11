@@ -3,3 +3,4 @@
 @import url('./variables.css');
 @import url('./colors.css');
 @import url('./reset.css');
+@import url('../shared/components/Select/Select.css');

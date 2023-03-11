@@ -1,10 +1,31 @@
-.SidebarItemsListSkeleton {
+.SidebarMessage {
+    display: flex;
+    gap: var(--space-xl);
+
+    width: var(--width-map-sidebar);
+    padding: var(--padding-l);
+
+    background-color: rgb(255 255 255 / 60%);
+    border-radius: var(--border-radius-l);
+}
+
+.SidebarMessage-TextSection {
     display: flex;
     flex-direction: column;
-    gap: var(--space-m);
+    gap: var(--space-s);
+}
 
-    margin: 0;
-    padding: 0;
+.SidebarMessage-Title {
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-medium);
+}
 
-    list-style: none;
+.SidebarMessage-Message {
+    font-size: var(--font-size-m);
+    color: var(--typography-secondary-color);
+}
+
+.SidebarMessage-Image {
+    width: 83px;
+    height: 83px;
 }

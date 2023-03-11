@@ -6,11 +6,11 @@
         'name photo'
         'address photo'
         'age photo';
-    grid-template-columns: 1fr 128px;
+    grid-template-columns: 1fr 140px;
     column-gap: var(--space-l);
 
     box-sizing: border-box;
-    width: 440px;
+    width: var(--width-map-sidebar);
     padding: var(--space-xl);
 
     border-radius: var(--border-radius-l);
@@ -24,8 +24,8 @@
 
 .SidebarItem-Photo {
     grid-area: photo;
-    width: 128px;
-    height: 128px;
+    width: 140px;
+    height: 140px;
 }
 
 .SidebarItem-Name {

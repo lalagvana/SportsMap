@@ -1,6 +1,6 @@
 import { WorkingHoursType } from "src/client/shared/components/WorkingHours";
 
-export type SidebarItemDetails = {
+export type SidebarItemDetailsType = {
     id: number;
     name: string;
     type: string;

@@ -1,20 +1,20 @@
 import { Dispatch, SetStateAction } from 'react';
 
 import { SidebarItem } from 'src/client/screens/MapObjects/components/SidebarItem';
-import { SidebarItemDetails } from "src/client/screens/MapObjects";
+import { SidebarItemDetailsType } from 'src/client/screens/MapObjects';
 
-import styles from './SidebarItemsList.module.css'
+import styles from './SidebarItemsList.module.css';
 
 type SidebarItemsListProps = {
-    items?: SidebarItemDetails[];
-    setActiveItem: Dispatch<SetStateAction<SidebarItemDetails | null>>;
+    items?: SidebarItemDetailsType[];
+    setActiveItem: Dispatch<SetStateAction<SidebarItemDetailsType | null>>;
 };
 
 export const SidebarItemsList = ({ items = [], setActiveItem }: SidebarItemsListProps) => {
     return (
         <ul className={styles['SidebarItemsList']}>
             {items.map((item) => (
-                <li className={styles['SidebarItemsList-Item']}>
+                <li className={styles['SidebarItemsList-Item']} key={item.id}>
                     <SidebarItem onClick={() => setActiveItem(item)} item={item} />
                 </li>
             ))}

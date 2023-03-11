@@ -1,19 +1,13 @@
-import { memo, PropsWithChildren } from 'react';
+import { memo } from 'react';
 
-import styles from './NoWrapText.module.css';
+import styles from './Skeleton.module.css';
 
-type NowrapTextProps = PropsWithChildren<{
-    text: string;
-    tagName?: keyof JSX.IntrinsicElements;
+type SkeletonProps = {
     className?: string;
-}>;
+};
 
-export const NowrapText = memo(({ text, tagName = 'span', className }: NowrapTextProps) => {
-    const TextTag = tagName;
-
+export const Skeleton = memo(({ className }: SkeletonProps) => {
     return (
-        <TextTag title={text} className={[styles['NowrapText'], className].join(' ')}>
-            {text}
-        </TextTag>
+        <div className={[styles['Skeleton'], className].join(' ')} />
     );
 });

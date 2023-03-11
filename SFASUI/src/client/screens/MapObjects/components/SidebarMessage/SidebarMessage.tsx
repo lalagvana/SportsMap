@@ -1,17 +1,27 @@
-import { SidebarItemSkeleton } from 'src/client/screens/MapObjects/components/SidebarItemSkeleton';
+import Image from 'next/image';
+import { ReactNode } from 'react';
 
-import styles from './SidebarItemsListSkeleton.module.css';
+import styles from './SidebarMessage.module.css';
 
-export const SidebarItemsListSkeleton = () => {
-    const skeletonArray = Array(4).fill(null);
+type SidebarMessageProps = {
+    title: string;
+    message: string;
+    imageUrl: string;
+    titleClassName?: string;
+    button?: ReactNode;
+};
 
+export const SidebarMessage = ({ title, message, imageUrl, titleClassName, button }: SidebarMessageProps) => {
     return (
-        <ul className={styles['SidebarItemsListSkeleton']}>
-            {skeletonArray.map((_, index) => (
-                <li className={styles['SidebarItemsListSkeleton-Item']} key={index}>
-                    <SidebarItemSkeleton />
-                </li>
-            ))}
-        </ul>
+        <section className={styles['SidebarMessage']}>
+            <div className={styles['SidebarMessage-Image']}>
+                <Image src={imageUrl} width={83} height={83} layout="fixed"/>
+            </div>
+            <div className={styles['SidebarMessage-TextSection']}>
+                <span className={[styles['SidebarMessage-Title'], titleClassName].join(' ')}>{title}</span>
+                <span className={styles['SidebarMessage-Message']}>{message}</span>
+                {button}
+            </div>
+        </section>
     );
 };

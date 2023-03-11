@@ -1,8 +1,8 @@
-.NowrapText {
-    overflow: hidden;
+.Select {
+   font-size: var(--font-size-m);
+}
 
-    max-width: 100%;
-
-    white-space: nowrap;
-    text-overflow: ellipsis;
+.Select-Popup {
+   width: fit-content !important; /* чтобы перебить стили antdesign */
+   font-size: var(--font-size-m);
 }

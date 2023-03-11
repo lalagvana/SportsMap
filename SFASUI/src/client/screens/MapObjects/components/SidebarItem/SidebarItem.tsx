@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { SidebarItemDetails } from 'src/client/screens/MapObjects';
+import { SidebarItemDetailsType } from 'src/client/screens/MapObjects';
 import { TextWithIcon } from 'src/client/shared/components/TextWithIcon';
 import { TagTypes } from 'src/client/shared/components/Tag';
 import { CardHeader } from 'src/client/shared/components/CardHeader';
@@ -10,7 +10,7 @@ import styles from './SidebarItem.module.css';
 
 type SidebarItemProps = {
     onClick: () => void;
-    item: SidebarItemDetails;
+    item: SidebarItemDetailsType;
 };
 
 export const SidebarItem = ({ onClick, item }: SidebarItemProps) => {
@@ -25,10 +25,10 @@ export const SidebarItem = ({ onClick, item }: SidebarItemProps) => {
                 </span>
             </TextWithIcon>
             <TextWithIcon className={styles['SidebarItem-AgeTags']} iconUrl="/icons/address.svg">
-                <TagGroup tagValues={age} tagProps={{ type: TagTypes.Default }} />
+                <TagGroup tagValues={age} tagProps={{ type: TagTypes.Default }} maxDisplayed={2}/>
             </TextWithIcon>
             <div className={styles['SidebarItem-Photo']}>
-                <Image src="/images/imagePlaceholder.png" width={128} height={128} />
+                <Image src="/images/imagePlaceholder.png" width={140} height={140} />
             </div>
         </article>
     );
