@@ -5,6 +5,7 @@
 
 
 SFASUI/build
+SFASUI/storybook-static
 SFASUI/.next
 nginx/certs
 # User-specific files
