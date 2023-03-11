@@ -1,0 +1,49 @@
+.WorkingHours {
+    width: fit-content;
+}
+
+.WorkingHours-Toggle {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+
+    margin-left: var(--space-xs);
+
+    transition: 0.1s all linear;
+}
+
+.WorkingHours-Toggle_closed {
+    transform: rotate(180deg);
+}
+
+.WorkingHours-ToggleWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.WorkingHours-Details {
+    margin: var(--space-m) 0;
+    padding: 0;
+    list-style: none;
+}
+
+.WorkingHours-Day {
+    display: inline-block;
+    width: 100px;
+    margin-right: auto;
+}
+
+.WorkingHours-Value {
+    margin-left: var(--space-l);
+    font-weight: var(--font-weight-medium);
+}
+
+.WorkingHours-DetailsItem {
+    width: 100%;
+    line-height: 24px;
+}
+
+.WorkingHours-DetailsItem:not(:last-child) {
+    margin-bottom: var(--space-s);
+}

@@ -1,0 +1,16 @@
+.CardHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    max-width: 212px;
+}
+
+.CardHeader-Name {
+    font-size: var(--font-size-m);
+}
+
+.CardHeader-Type {
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-medium);
+    color: var(--base-default-color)
+}

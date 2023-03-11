@@ -1,0 +1,28 @@
+.Search-Wrapper {
+    position: relative;
+}
+
+.Search {
+    box-sizing: border-box;
+    width: 100%;
+    padding-right: calc(40px + var(--padding-s));
+}
+
+.Search-Icon {
+    cursor: pointer;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 100%;
+
+    background-color: var(--base-default-color);
+    border-left: 1px solid var(--decorative-color);
+    border-radius: 0 var(--border-radius-m) var(--border-radius-m) 0;
+}

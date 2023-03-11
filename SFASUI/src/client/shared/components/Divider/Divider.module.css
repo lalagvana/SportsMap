@@ -1,0 +1,4 @@
+.Divider {
+    margin: var(--space-xs) 0;
+    border-block-start: 1px solid var(--decorative-color);
+}

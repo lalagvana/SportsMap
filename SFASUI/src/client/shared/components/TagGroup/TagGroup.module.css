@@ -1,0 +1,10 @@
+.TagGroup {
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--space-xs);
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}

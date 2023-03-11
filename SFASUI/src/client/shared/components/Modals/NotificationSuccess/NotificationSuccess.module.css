@@ -64,7 +64,7 @@
     font-size: var(--font-size-2xl);
     color: var(--color-turquoise-200);
 
-    background-color: var(--white);
+    background-color: var(--white-color);
     border: 1px solid var(--color-turquoise-200);
     border-radius: var(--br-xs);
 }
@@ -99,7 +99,7 @@
     width: 460px;
     height: 362px;
 
-    background-color: var(--white);
+    background-color: var(--white-color);
     border-radius: var(--br-md);
     box-shadow: var(--large-shadow-for-pop-up-windows1);
 }

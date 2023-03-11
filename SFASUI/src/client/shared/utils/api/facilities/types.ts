@@ -2,6 +2,10 @@ export namespace GetFacilities {
     export type Response = Paths.Facility.Get.Responses.$200;
 }
 
+export namespace GetFacility {
+    export type Response = Paths.Facility$Id.Get.Responses.$200;
+}
+
 export namespace SearchFacilities {
     export type Response = Paths.FacilitySearch.Post.Responses.$200;
     export type Body = Paths.FacilitySearch.Post.Parameters.Body;
