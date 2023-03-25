@@ -24,3 +24,9 @@
 .Tag-Text_outline {
     color: var(--base-additional-color);
 }
+
+.Tag_disabled {
+    pointer-events: none;
+    background-color: var(--typography-default-color);
+
+}

@@ -17,3 +17,7 @@
     font-weight: var(--font-weight-medium);
     color: var(--base-default-color)
 }
+
+.CardHeader-Type_disabled {
+    color: var(--typography-secondary-color);
+}

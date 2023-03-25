@@ -1,7 +1,7 @@
 import React from 'react';
 import { GetServerSideProps, NextPage } from 'next';
 
-import { Search } from 'src/client/screens/Search';
+import { Catalog } from 'src/client/screens/Catalog';
 
 import NextError from 'src/pages/_error';
 
@@ -21,7 +21,7 @@ const SearchPage: NextPage<SearchPageProps> = ({ data, error }: SearchPageProps)
         return <NextError statusCode={500} />;
     }
 
-    return <Search {...data} />;
+    return <Catalog {...data} />;
 };
 
 export default SearchPage;

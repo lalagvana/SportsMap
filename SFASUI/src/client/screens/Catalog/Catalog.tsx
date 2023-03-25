@@ -8,7 +8,7 @@ import { Container as ContainerBase } from 'src/client/shared/components/Misc/La
 
 const Container = tw(ContainerBase)`min-h-screen bg-primary-100 text-white font-medium flex justify-center -m-8 mt-2`;
 
-export const Search = () => {
+export const Catalog = () => {
     return (
         <AnimationReveal>
             <Header />

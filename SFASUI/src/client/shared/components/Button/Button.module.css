@@ -33,3 +33,7 @@
     font-family: var(--ubuntu);
     font-weight: var(--font-weight-medium);
 }
+
+.Button_disabled {
+    pointer-events: none;
+}
