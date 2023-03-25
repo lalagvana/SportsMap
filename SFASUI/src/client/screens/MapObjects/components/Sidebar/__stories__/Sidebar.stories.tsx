@@ -21,16 +21,18 @@ type argsType = {
     isLoading?: boolean;
     error?: boolean;
     isNotFound?: boolean;
+    count: number;
 };
 
 export const playground = ({items, isNotFound, ...rest}: argsType) => {
 
-    return <Sidebar items={isNotFound ? [] : items}{...rest} />;
+    return <Sidebar items={isNotFound ? [] : items} {...rest} />;
 };
 
 playground.args = {
     isLoading: false,
     error: false,
+    count: 10,
     isNotFound: false,
     items: [
         {

@@ -14,7 +14,7 @@ type ButtonProps = {
 
 export const Button = ({ text, type = ButtonType.Default, className, icon, onClick }: ButtonProps) => (
     <button onClick={onClick} className={[styles['Button'], styles[`Button_${type}`], className].join(' ')}>
-        {text && <span>{text}</span>}
+        {text && <span className={styles['Button-Text']}>{text}</span>}
         {icon}
     </button>
 );

@@ -22,8 +22,12 @@
     align-items: center;
 }
 
+.WorkingHours-ToggleText {
+    font-weight: var(--font-weight-medium);
+}
+
 .WorkingHours-Details {
-    margin: var(--space-m) 0;
+    margin: var(--space-m) 0 0 var(--space-2l);
     padding: 0;
     list-style: none;
 }

@@ -19,13 +19,17 @@ export const SidebarItem = ({ onClick, item }: SidebarItemProps) => {
     return (
         <article onClick={onClick} className={styles['SidebarItem']}>
             <CardHeader className={styles['SidebarItem-Name']} name={name} type={type} />
+            <TagGroup
+                className={styles['SidebarItem-AgeTags']}
+                tagValues={age}
+                tagProps={{ type: TagTypes.Default }}
+                maxDisplayed={2}
+            />
+
             <TextWithIcon className={styles['SidebarItem-Address']} iconUrl="/icons/address.svg">
                 <span className={styles['SidebarItem-AddressText']} title={address}>
                     {address}
                 </span>
-            </TextWithIcon>
-            <TextWithIcon className={styles['SidebarItem-AgeTags']} iconUrl="/icons/address.svg">
-                <TagGroup tagValues={age} tagProps={{ type: TagTypes.Default }} maxDisplayed={2}/>
             </TextWithIcon>
             <div className={styles['SidebarItem-Photo']}>
                 <Image src="/images/imagePlaceholder.png" width={140} height={140} />

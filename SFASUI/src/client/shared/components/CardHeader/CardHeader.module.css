@@ -2,14 +2,17 @@
     display: flex;
     flex-direction: column;
     justify-content: start;
-    max-width: 212px;
+    max-width: 500px;
 }
 
 .CardHeader-Name {
+    font-family: var(--ubuntu);
     font-size: var(--font-size-m);
+    color: var(--typography-secondary-color);
 }
 
 .CardHeader-Type {
+    font-family: var(--ubuntu);
     font-size: var(--font-size-l);
     font-weight: var(--font-weight-medium);
     color: var(--base-default-color)

@@ -14,9 +14,10 @@ type SidebarProps = {
     items: SidebarItemDetailsType[];
     isLoading?: boolean;
     error?: any;
+    count?: number;
 };
 
-export const Sidebar = ({ items, isLoading = false, error }: SidebarProps) => {
+export const Sidebar = ({ items, isLoading = false, error, count }: SidebarProps) => {
     const [activeItem, setActiveItem] = useState<SidebarItemDetailsType | null>(null);
 
     const showContent = !error && !isLoading && items && items.length > 0;
@@ -30,7 +31,6 @@ export const Sidebar = ({ items, isLoading = false, error }: SidebarProps) => {
                     titleClassName={styles['Sidebar-ErrorText']}
                     title="Произошла ошибка во время поиска объектов"
                     message="Попробуйте обновить страницу"
-                    imageUrl="./images/sidebarError.png"
                 />
             )}
             {!error && isLoading && <SidebarItemsListSkeleton />}
@@ -39,12 +39,11 @@ export const Sidebar = ({ items, isLoading = false, error }: SidebarProps) => {
                     titleClassName={styles['Sidebar-NotFoundText']}
                     title="Мы не нашли подходящих спортивных объектов"
                     message="Но вы можете их предложить"
-                    imageUrl="./images/sidebarError.png"
                     button={<Button text="Предложить объект" className={styles['Sidebar-NotFoundButton']} />}
                 />
             )}
             {showContent && activeItem && <SidebarDetails item={activeItem} onBackClick={() => setActiveItem(null)} />}
-            {showContent && !activeItem && <SidebarItemsList setActiveItem={setActiveItem} items={items} />}
+            {showContent && !activeItem && <SidebarItemsList setActiveItem={setActiveItem} items={items} count={count || 0}/>}
         </aside>
     );
 };

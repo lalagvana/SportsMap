@@ -2,10 +2,6 @@
     color: var(--error-color);
 }
 
-.Sidebar-NotFoundButton {
-    margin-top: var(--padding-l);
-}
-
 .Sidebar-NotFoundText {
     color: var(--base-default-color);
 }

@@ -4,8 +4,8 @@
     display: grid;
     grid-template-areas:
         'name photo'
-        'address photo'
-        'age photo';
+        'age photo'
+        'address photo';
     grid-template-columns: 1fr 140px;
     column-gap: var(--space-l);
 
@@ -14,8 +14,7 @@
     padding: var(--space-xl);
 
     border-radius: var(--border-radius-l);
-    box-shadow: 2px 4px 20px rgb(0 0 0 / 20%);
-
+    box-shadow: 2px 4px 20px rgb(0 0 0 / 10%);
 }
 
 .SidebarItem:hover {
@@ -30,12 +29,12 @@
 
 .SidebarItem-Name {
     grid-area: name;
-    margin-bottom: var(--space-m);
+    margin-bottom: var(--space-l);
 }
 
 .SidebarItem-Address {
     grid-area: address;
-    margin-bottom: var(--space-s);
+    margin-top: var(--space-m);
 }
 
 .SidebarItem-AddressText {

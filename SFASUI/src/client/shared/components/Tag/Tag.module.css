@@ -3,7 +3,10 @@
     padding: 0 9px;
     color: var(--white-color);
     border-radius: var(--border-radius-s);
+}
 
+.Tag_outline {
+    border: 2px solid var(--base-additional-color);
 }
 
 .Tag_default {
@@ -15,5 +18,9 @@
 }
 
 .Tag-Text {
-    font: 500 16px / 24px Ubuntu, sans-serif;
+    font: var(--font-weight-medium) var(--font-size-m) / 24px var(--ubuntu);
+}
+
+.Tag-Text_outline {
+    color: var(--base-additional-color);
 }

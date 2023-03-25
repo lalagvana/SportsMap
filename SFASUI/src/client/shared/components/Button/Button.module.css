@@ -28,3 +28,8 @@
 .Button_clear {
     background-color: var(--white-color);
 }
+
+.Button-Text {
+    font-family: var(--ubuntu);
+    font-weight: var(--font-weight-medium);
+}

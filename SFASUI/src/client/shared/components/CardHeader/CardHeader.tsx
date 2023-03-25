@@ -1,7 +1,7 @@
-import { Divider } from "../Divider/Divider";
+import { Divider } from "src/client/shared/components/Divider";
+import { NowrapText } from "src/client/shared/NoWrapText/NoWrapText";
 
 import styles from './CardHeader.module.css';
-import { NowrapText } from "../NoWrapText/NoWrapText";
 
 
 type CardHeaderProps = {
@@ -12,8 +12,8 @@ type CardHeaderProps = {
 
 export const CardHeader = ({ name, type, className }: CardHeaderProps) => (
     <header className={[className, styles['CardHeader']].join(' ')}>
-      <NowrapText className={styles['CardHeader-Type']} text={type} />
+      <NowrapText className={styles['CardHeader-Type']} text={type} tagName="h2"/>
         <Divider />
-      <NowrapText tagName="h2" className={styles['CardHeader-Name']} text={name} />
+      <NowrapText className={styles['CardHeader-Name']} text={name} />
     </header>
 );
