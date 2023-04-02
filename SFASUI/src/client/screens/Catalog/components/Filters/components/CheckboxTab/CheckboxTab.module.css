@@ -1,0 +1,12 @@
+.CheckboxTab {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: var(--space-2xl);
+    row-gap: var(--space-xl);
+
+    margin: 0;
+    padding: var(--padding-m) 0;
+
+    border: none;
+}

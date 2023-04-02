@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import Image from 'next/image';
 
 import { TextWithIcon } from 'src/client/shared/components/TextWithIcon';
+import { Toggle } from 'src/client/shared/components/Toggle';
 
 import { WorkingHoursType } from './WorkingHours.types';
 
@@ -22,25 +22,15 @@ const keyToDate = {
 };
 
 export const WorkingHours = ({ hours }: WorkingHoursProps) => {
-    const [isOpened, setOpened] = useState(false);
+    const [isOpened, setIsOpened] = useState(false);
 
     return (
         <div className={styles['WorkingHours']}>
             <TextWithIcon iconUrl="/icons/address.svg">
                 <div className={styles['WorkingHours-ToggleWrapper']}>
                     <span className={styles['WorkingHours-ToggleText']}>Часы работы</span>
-                    <div
-                      role="button"
-                      onClick={() => setOpened(!isOpened)}
-                      className={[
-                          styles['WorkingHours-Toggle'],
-                          isOpened ? styles['WorkingHours-Toggle_opened'] : styles['WorkingHours-Toggle_closed'],
-                      ].join(' ')}
-                    >
-                        <Image width={10} height={10} src="/icons/toggle.png" layout="fixed" />
-                    </div>
+                    <Toggle isOpened={isOpened} onClick={() => setIsOpened(!isOpened)} />
                 </div>
-
             </TextWithIcon>
             {isOpened && (
                 <ul className={styles['WorkingHours-Details']}>

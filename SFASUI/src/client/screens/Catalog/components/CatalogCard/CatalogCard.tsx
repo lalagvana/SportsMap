@@ -9,7 +9,7 @@ import { Button, ButtonType } from 'src/client/shared/components/Button';
 import { Popover } from 'src/client/shared/components/Popover';
 
 import styles from './CatalogCard.module.css';
-import { CatalogCardMenu } from '../CatalogCardMenu';
+import { CatalogCardMenu } from './components/CatalogCardMenu';
 
 type CatalogCardItem = {
     address: string;

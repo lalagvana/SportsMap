@@ -1,0 +1,32 @@
+.InputTab {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-2xl);
+
+    margin: 0;
+    padding: var(--padding-m) 0;
+
+    border: none;
+}
+
+.InputTab-Field {
+    display: flex;
+    gap: var(--space-s);
+    align-items: center;
+}
+
+input.InputTab-TextField {
+    max-width: 90px;
+}
+
+.InputTab-Units {
+    align-self: flex-end;
+    color: var(--typography-default-color);
+}
+
+.InputTab-Label {
+    margin-left: var(--space-xs);
+    font-family: var(--ubuntu);
+    font-size: var(--font-size-m);
+}

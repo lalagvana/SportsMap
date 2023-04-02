@@ -14,7 +14,7 @@ export const Search = ({ className }: SearchProps) => {
 
     return (
         <div className={[styles['Search-Wrapper'], className].join(' ')}>
-            <TextInput value={value} onChange={setValue} id="search" placeholder="Поиск" className={styles['Search']} />
+            <TextInput type="search" value={value} onChange={setValue} id="search" placeholder="Поиск" className={styles['Search']} />
             <div className={styles['Search-Icon']} role="button">
                 <Image width={25} height={25} src="/icons/search.png" layout="fixed" />
             </div>

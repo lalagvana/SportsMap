@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: var(--space-s);
 
     width: fit-content;
     padding: var(--padding-2xs) var(--padding-l);
@@ -26,7 +27,8 @@
 }
 
 .Button_clear {
-    background-color: var(--white-color);
+    background-color: transparent;
+    color: var(--black-color);
 }
 
 .Button-Text {

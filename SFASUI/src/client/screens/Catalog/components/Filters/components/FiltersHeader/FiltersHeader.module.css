@@ -1,0 +1,34 @@
+.FiltersHeader {
+    flex-wrap: wrap;
+    display: flex;
+
+    justify-content: space-between;
+}
+
+.FiltersHeader-Tab {
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+
+    display: flex;
+
+    gap: var(--space-xl);
+}
+
+.FiltersHeader-Item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-s);
+
+    cursor: pointer;
+}
+
+.FiltersHeader-Clear {
+    padding-left: 0;
+}
+
+.FiltersHeader-Clear span, .FiltersHeader-Item {
+    font-family: var(--ubuntu);
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-regular);
+}
