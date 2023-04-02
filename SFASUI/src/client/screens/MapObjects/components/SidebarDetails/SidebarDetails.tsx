@@ -17,7 +17,7 @@ type SidebarDetailsProps = {
 };
 
 export const SidebarDetails = ({ item, onBackClick }: SidebarDetailsProps) => {
-    const { link, address, age, availability, workingHours, name, payingType, type, id, phone, photos, owner } = item;
+    const { link, address, age, availability, workingHours, name, payingType, type, phone, photos, owner } = item;
 
     return (
         <article className={styles['SidebarDetails']}>
@@ -26,13 +26,31 @@ export const SidebarDetails = ({ item, onBackClick }: SidebarDetailsProps) => {
             </div>
             <section className={styles['SidebarDetails-Info']}>
                 <CardHeader className={styles['SidebarDetails-Name']} name={name} type={type} />
+                <TagGroup
+                    className={styles['SidebarDetails-PayingTypeTags']}
+                    tagValues={payingType}
+                    tagProps={{ type: TagTypes.Outline }}
+                />
+                <TagGroup
+                    className={styles['SidebarDetails-AgeTags']}
+                    tagValues={age}
+                    tagProps={{ type: TagTypes.Default }}
+                />
                 <TextWithIcon className={styles['SidebarDetails-Address']} iconUrl="/icons/address.svg">
                     <span className={styles['SidebarItem-AddressText']} title={address}>
                         {address}
                     </span>
                 </TextWithIcon>
+                {availability && (
+                    <TextWithIcon className={styles['SidebarDetails-Availability']} iconUrl="/icons/address.svg">
+                        <span>Доступная среда:</span>
+                        <Image width={20} height={20} src="/icons/check.png" layout="fixed" />
+                    </TextWithIcon>
+                )}
+                {workingHours && <WorkingHours hours={workingHours} />}
+
                 {phone && (
-                    <TextWithIcon className={styles['SidebarDetails-Phone']} iconUrl="/icons/address.svg">
+                    <TextWithIcon className={styles['SidebarDetails-Phone']}  iconUrl="/icons/address.svg">
                         <span title={phone}>{phone}</span>
                     </TextWithIcon>
                 )}
@@ -49,22 +67,10 @@ export const SidebarDetails = ({ item, onBackClick }: SidebarDetailsProps) => {
                         </a>
                     </TextWithIcon>
                 )}
-                {workingHours && <WorkingHours hours={workingHours} />}
-                <TextWithIcon className={styles['SidebarDetails-AgeTags']} iconUrl="/icons/address.svg">
-                    <TagGroup tagValues={age} tagProps={{ type: TagTypes.Default }} />
-                </TextWithIcon>
+
                 <TextWithIcon className={styles['SidebarDetails-Owner']} iconUrl="/icons/address.svg">
                     <span title={owner}>{owner}</span>
                 </TextWithIcon>
-                <TextWithIcon className={styles['SidebarDetails-PayingTypeTags']} iconUrl="/icons/address.svg">
-                    <TagGroup tagValues={payingType} tagProps={{ type: TagTypes.Default }} />
-                </TextWithIcon>
-                {availability && (
-                    <div className={styles['SidebarDetails-Availability']}>
-                        <span>Доступная среда:</span>
-                        <Image width={20} height={20} src="/icons/address.svg" layout="fixed" />
-                    </div>
-                )}
             </section>
             <Button text="Открыть в каталоге" className={styles['SidebarDetails-CatalogButton']} />
         </article>

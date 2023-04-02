@@ -5,6 +5,7 @@
         'address photo'
         'age photo';
     grid-template-columns: 1fr 140px;
+    grid-template-rows: auto max-content 1fr;
     column-gap: var(--space-l);
 
     box-sizing: border-box;
@@ -12,7 +13,7 @@
     padding: var(--space-xl);
 
     border-radius: var(--border-radius-l);
-    box-shadow: 2px 4px 20px rgb(0 0 0 / 20%);
+    box-shadow: 2px 4px 20px rgb(0 0 0 / 10%);
 }
 
 .SidebarItemSkeleton-Photo {
@@ -25,7 +26,7 @@
 .SidebarItemSkeleton-Name {
     grid-area: name;
     height: 42px;
-    margin-bottom: 40px;
+    margin-bottom: var(--space-l);
     border-radius: var(--border-radius-m);
 }
 

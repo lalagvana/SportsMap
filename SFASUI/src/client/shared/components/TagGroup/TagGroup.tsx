@@ -14,7 +14,7 @@ export const TagGroup = ({ tagValues, tagProps, className, maxDisplayed }: TagGr
     const hiddenTags = maxDisplayed ? tagValues.slice(maxDisplayed, tagValues.length) : [];
 
     return (
-        <ul className={[styles['TagGroup'], className].join(' ')}>
+        <ul className={[className, styles['TagGroup']].join(' ')}>
             {tagArray.map((value) => (
                 <li className={styles['TagGroup-Item']}>
                     <Tag value={value} {...tagProps} />

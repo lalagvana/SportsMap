@@ -1,14 +1,10 @@
-import { FocusEventHandler, useCallback } from 'react';
+import { InputHTMLAttributes, useCallback } from 'react';
 
 import styles from './TextInput.module.css';
 
-type TextInputProps = {
-    id: string;
+type TextInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'> & {
     className?: string;
-    placeholder?: string;
-    value?: string;
     onChange: (value: string) => void;
-    onBlur?: FocusEventHandler<HTMLInputElement>;
 };
 
 export const TextInput = ({ className, onChange, ...rest }: TextInputProps) => {

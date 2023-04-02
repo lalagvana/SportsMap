@@ -1,19 +1,20 @@
-import { Divider } from "../Divider/Divider";
+import { Divider } from "src/client/shared/components/Divider";
+import { NowrapText } from "src/client/shared/components/NoWrapText";
 
 import styles from './CardHeader.module.css';
-import { NowrapText } from "../NoWrapText/NoWrapText";
 
 
 type CardHeaderProps = {
     name: string;
     type: string;
     className?: string;
+    disabled?: boolean;
 };
 
-export const CardHeader = ({ name, type, className }: CardHeaderProps) => (
+export const CardHeader = ({ name, type, className, disabled = false }: CardHeaderProps) => (
     <header className={[className, styles['CardHeader']].join(' ')}>
-      <NowrapText className={styles['CardHeader-Type']} text={type} />
+      <NowrapText className={[styles['CardHeader-Type'], disabled ? styles['CardHeader-Type_disabled'] : undefined].join(' ')} text={type} tagName="h2"/>
         <Divider />
-      <NowrapText tagName="h2" className={styles['CardHeader-Name']} text={name} />
+      <NowrapText className={styles['CardHeader-Name']} text={name} />
     </header>
 );

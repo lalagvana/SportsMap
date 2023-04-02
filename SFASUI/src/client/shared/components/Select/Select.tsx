@@ -2,11 +2,11 @@ import { Select as SelectBase, SelectProps as SelectBaseProps } from 'antd';
 
 import styles from './Select.module.css';
 
-type NowrapTextProps = SelectBaseProps & {
+type SelectProps = SelectBaseProps & {
     className?: string;
 };
 
-export const Select = ({ className, popupClassName, ...rest }: NowrapTextProps) => {
+export const Select = ({ className, popupClassName, ...rest }: SelectProps) => {
     return (
         <SelectBase
             allowClear

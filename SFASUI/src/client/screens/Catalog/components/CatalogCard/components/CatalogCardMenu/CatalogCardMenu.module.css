@@ -1,0 +1,22 @@
+.CatalogCardMenu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+
+.CatalogCardMenu-Item {
+    cursor: pointer;
+    font-size: var(--font-size-m);
+    color: var(--typography-default-color);
+}
+
+.CatalogCardMenu-Item:not(:last-child) {
+    border-bottom: 2px solid var(--field-color);
+}
+

@@ -1,7 +1,7 @@
 .TagGroup {
     display: flex;
     flex-flow: row wrap;
-    gap: var(--space-xs);
+    gap: var(--space-s);
 
     margin: 0;
     padding: 0;

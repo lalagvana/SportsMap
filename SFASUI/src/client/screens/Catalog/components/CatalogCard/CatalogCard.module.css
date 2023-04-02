@@ -1,0 +1,47 @@
+.CatalogCard {
+    padding: var(--padding-xl);
+
+    display: flex;
+    flex-direction: column;
+
+    gap: var(--space-l);
+
+    box-sizing: border-box;
+
+    width: 356px;
+
+    border-radius: var(--border-radius-l);
+
+}
+
+.CatalogCard_disabled {
+    color: var(--typography-secondary-color);
+}
+
+.CatalogCard-Header {
+    margin-bottom: var(--space-xs);
+
+    display: flex;
+    justify-content: space-between;
+    gap: calc(var(--space-l) + var(--space-xs));
+}
+
+.CatalogCard-Name {
+    flex-grow: 1;
+
+    color: var(--typography-secondary-color);
+}
+
+.CatalogCard-Button {
+    padding: 0;
+    height: 18px;
+}
+
+
+.CatalogCard-PopoverOverlay {
+    opacity: .9;
+}
+
+.CatalogCard-Address, .CatalogCard-Owner {
+    font-size: var(--font-size-m);
+}

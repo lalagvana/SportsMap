@@ -1,0 +1,14 @@
+.Toggle {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+
+    margin-left: var(--space-xs);
+
+    transition: 0.1s all linear;
+}
+
+.Toggle_closed {
+    transform: rotate(180deg);
+}
