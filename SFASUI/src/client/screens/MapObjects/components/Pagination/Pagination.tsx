@@ -26,7 +26,7 @@ export const Pagination = ({ onNextClick, onPrevClick, count }: PaginationProps)
                     className={styles['Pagination-Button']}
                     onClick={onPrevClick}
                     icon={<Image width={17} height={26} src="/icons/prev.svg" layout="fixed" />}
-                    type={ButtonType.Clear}
+                    view={ButtonType.Clear}
                 />
             )}
             {showNext && (
@@ -34,7 +34,7 @@ export const Pagination = ({ onNextClick, onPrevClick, count }: PaginationProps)
                     className={styles['Pagination-Button']}
                     onClick={onNextClick}
                     icon={<Image width={17} height={26} src="/icons/next.svg" layout="fixed" />}
-                    type={ButtonType.Clear}
+                    view={ButtonType.Clear}
                 />
             )}
         </div>

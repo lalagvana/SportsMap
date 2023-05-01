@@ -1,0 +1,18 @@
+.ItemField {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+    align-items: flex-start;
+
+    margin: 0;
+}
+
+.ItemField-Label {
+    font-size: var(--font-size-m);
+    color: var(--base-secondary-color);
+}
+
+.ItemField-Value {
+    margin: 0;
+    font-size: var(--font-size-l);
+}

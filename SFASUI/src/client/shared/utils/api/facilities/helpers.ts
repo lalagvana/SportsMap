@@ -10,21 +10,21 @@ export const createFacility = (body: CreateFacility.Body) => {
     });
 };
 
-export const updateFacility = (id: number, body: UpdateFacility.Body) => {
+export const updateFacility = (id: string, body: UpdateFacility.Body) => {
     return fetch<UpdateFacility.Response>(apiRoutes.facilities(id), {
         method: 'PUT',
         data: body,
     });
 };
 
-export const partialUpdateFacility = (id: number, body: UpdateFacility.Body) => {
+export const partialUpdateFacility = (id: string, body: UpdateFacility.Body) => {
     return fetch<PartialUpdateFacility.Response>(apiRoutes.facilities(id), {
         method: 'PATCH',
         data: body,
     });
 };
 
-export const deleteFacility = (id: number) => {
+export const deleteFacility = (id: string) => {
     return fetch(apiRoutes.facilities(id), {
         method: 'DELETE',
     });

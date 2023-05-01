@@ -74,9 +74,8 @@ export const Form = ({ textOnLeft = true }: FormProps) => {
                                     type="email"
                                     name="email"
                                     placeholder="Ваш адрес электронной почты"
-                                    inputComponent={Input}
                                 />
-                                <TextInput type="text" name="name" placeholder="Ваше имя" inputComponent={Input} />
+                                <TextInput type="text" name="name" placeholder="Ваше имя" />
                                 <TextArea name="message" placeholder="Ваше пожелание/предложение" />
                                 <SubmitButton type="submit">Отправить</SubmitButton>
                             </FormBase>

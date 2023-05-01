@@ -1,0 +1,24 @@
+.BaseInfo {
+    display: flex;
+    gap: var(--space-2l);
+    justify-content: space-between;
+}
+
+.BaseInfo-Column {
+    display: flex;
+    flex-basis: 50%;
+    flex-direction: column;
+    gap: var(--space-2m);
+    justify-content: flex-start;
+
+}
+
+.BaseInfo-InputSection {
+    display: flex;
+    gap: var(--space-2l);
+}
+
+.BaseInfo-Input {
+    width: 100%;
+    max-width: 327px;
+}

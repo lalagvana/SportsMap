@@ -1,12 +1,12 @@
-import { ReactNode } from 'react';
+import { ButtonHTMLAttributes, InputHTMLAttributes, ReactNode } from "react";
 
 import { ButtonType } from './Button.types';
 
 import styles from './Button.module.css';
 
-type ButtonProps = {
+type ButtonProps =  ButtonHTMLAttributes<HTMLButtonElement> & {
     text?: string;
-    type?: ButtonType;
+    view?: ButtonType;
     disabled?: boolean;
     className?: string;
     icon?: ReactNode;
@@ -15,7 +15,7 @@ type ButtonProps = {
 
 export const Button = ({
     text,
-    type = ButtonType.Default,
+    view = ButtonType.Default,
     className,
     icon,
     onClick,
@@ -25,7 +25,7 @@ export const Button = ({
         onClick={onClick}
         className={[
             styles['Button'],
-            styles[`Button_${type}`],
+            styles[`Button_${view}`],
             disabled ? styles['Button_disabled'] : undefined,
             className,
         ].join(' ')}

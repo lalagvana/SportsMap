@@ -1,0 +1,30 @@
+.Field {
+    display: grid;
+    grid-auto-flow: row;
+}
+
+.Field-Caption {
+    margin-bottom: var(--space-s);
+    font-size: var(--font-size-l);
+    color: var(--hr-color-text-primary);
+}
+
+.Field-Subtext {
+    font: var(--hr-typography-font-caption-m-font-weight) var(--hr-typography-font-caption-m-font-size) / var(--hr-typography-font-caption-m-line-height) var(--font-yandex-sans);
+    color: var(--hr-color-text-secondary);
+}
+
+.Field-Subtext_error {
+    color: var(--error-color);
+}
+
+.Field-Star {
+    color: var(--error-color);
+}
+
+.Field-InputWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--hr-space-xs);
+    align-items: flex-start;
+}

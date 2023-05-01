@@ -1,4 +1,6 @@
 .SidebarItemsList{
+    pointer-events: auto;
+
     display: flex;
     flex-direction: column;
     gap: var(--space-m);

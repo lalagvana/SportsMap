@@ -11,7 +11,7 @@ const {
     },
 } = cloudApi;
 
-const API_URL = `https://sportsmap.spb.ru/new-api`;
+const API_URL = `https://sportsmap.spb.ru/new-api/v1`;
 const proxy = httpProxy.createProxyServer();
 export const config = {
     api: {

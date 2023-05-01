@@ -1,55 +1,36 @@
 import Image from 'next/image';
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 import { Search } from 'src/client/shared/components/Search';
 import { Button, ButtonType } from 'src/client/shared/components/Button';
+import { Select } from 'src/client/shared/components/Select';
+
+import { useFilters, useOnChangeHandlers } from './SidebarFilters.hooks';
 
 import styles from './SidebarFilters.module.css';
-import { Select } from '../../../../shared/components/Select';
 
 export const SidebarFilters = () => {
-    const [isOpen, setOpen] = useState(false);
+    const [isOpen, setOpen] = useState(true);
+    const filters = useFilters();
 
-    const filters = useMemo(
-        () => [
-            {
-                placeholder: 'Тип объекта',
-                options: [
-                    { value: 'grass', label: 'Трава' },
-                    { value: 'concrete', label: 'Бетон' },
-                    { value: 'artificial grass', label: 'Искусственная трава' },
-                    { value: 'disabled', label: 'Недоступный тип покрытия', disabled: true },
-                ],
-            },
-          {
-            placeholder: 'Платные услуги',
-            options: [
-              { value: 'grass', label: 'Трава' },
-              { value: 'concrete', label: 'Бетон' },
-              { value: 'artificial grass', label: 'Искусственная трава' },
-              { value: 'disabled', label: 'Недоступный тип покрытия', disabled: true },
-            ],
-          },
-          {
-            placeholder: 'Аудитория',
-            options: [
-              { value: 'grass', label: 'Трава' },
-              { value: 'concrete', label: 'Бетон' },
-              { value: 'artificial grass', label: 'Искусственная трава' },
-              { value: 'disabled', label: 'Недоступный тип покрытия', disabled: true },
-            ],
-          },
-        ],
-        []
-    );
+    const { query } = useRouter();
+    const { onSearchChange, onSelectChange } = useOnChangeHandlers();
 
     return (
         <fieldset className={styles['SidebarFilters']}>
-            <Search className={styles['SidebarFilters-Search']} />
+            <Search
+                className={styles['SidebarFilters-Search']}
+                initialValue={String(query.q || '')}
+                onSearch={onSearchChange}
+            />
             <Button
                 onClick={() => setOpen(!isOpen)}
-                type={isOpen ? ButtonType.Active : ButtonType.Clear}
-                className={styles['SidebarFilters-Toggle']}
+                view={isOpen ? ButtonType.Active : ButtonType.Clear}
+                className={[
+                    styles['SidebarFilters-Toggle'],
+                    isOpen ? styles['SidebarFilters-Toggle_open'] : styles['SidebarFilters-Toggle_closed'],
+                ].join(' ')}
                 icon={
                     <Image
                         width={21}
@@ -59,7 +40,14 @@ export const SidebarFilters = () => {
                     />
                 }
             />
-          {isOpen && filters.map((selectProps) => <Select {...selectProps}/>)}
+            {isOpen &&
+                filters.map((selectProps) => (
+                    <Select
+                        value={query[selectProps.name]}
+                        onChange={(value) => onSelectChange(value, selectProps.name)}
+                        {...selectProps}
+                    />
+                ))}
         </fieldset>
     );
 };

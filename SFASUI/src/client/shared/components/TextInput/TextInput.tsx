@@ -1,14 +1,11 @@
-import { InputHTMLAttributes, useCallback } from 'react';
+import { InputHTMLAttributes } from 'react';
 
 import styles from './TextInput.module.css';
 
-type TextInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'> & {
+export type TextInputProps = InputHTMLAttributes<HTMLInputElement> & {
     className?: string;
-    onChange: (value: string) => void;
 };
 
-export const TextInput = ({ className, onChange, ...rest }: TextInputProps) => {
-    const onChangeHandler = useCallback((event) => onChange(event.target.value), [onChange]);
-
-    return <input className={[styles['TextInput'], className].join(' ')} onChange={onChangeHandler} {...rest} />;
+export const TextInput = ({ className, ...rest }: TextInputProps) => {
+    return <input className={[styles['TextInput'], className].join(' ')} {...rest} />;
 };

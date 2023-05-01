@@ -8,8 +8,9 @@ import { TagTypes } from 'src/client/shared/components/Tag';
 import { Button, ButtonType } from 'src/client/shared/components/Button';
 import { Popover } from 'src/client/shared/components/Popover';
 
-import styles from './CatalogCard.module.css';
 import { CatalogCardMenu } from './components/CatalogCardMenu';
+
+import styles from './CatalogCard.module.css';
 
 type CatalogCardItem = {
     address: string;
@@ -48,7 +49,7 @@ export const CatalogCard = ({ item, disabled }: CatalogCardProps) => {
                     <Button
                         className={styles['CatalogCard-Button']}
                         icon={<Image width={34} height={34} src="/icons/dots.png" layout="fixed" />}
-                        type={ButtonType.Clear}
+                        view={ButtonType.Clear}
                         disabled={disabled}
                     />
                 </Popover>

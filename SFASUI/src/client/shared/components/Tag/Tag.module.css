@@ -28,5 +28,8 @@
 .Tag_disabled {
     pointer-events: none;
     background-color: var(--typography-default-color);
+}
 
+.Tag_clickable {
+    cursor: pointer;
 }

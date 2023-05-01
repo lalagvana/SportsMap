@@ -6,9 +6,12 @@
     line-height: 36px;
 
     background-color: var(--field-color);
-    border: none;
+    border: solid 1px var(--decorative-color);;
     border-radius: var(--border-radius-m);
-    outline: solid 1px var(--decorative-color);
+}
+
+.TextInput:focus-visible, .TextInput:active {
+    outline: none;
 }
 
 .TextInput::placeholder {

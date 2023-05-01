@@ -5,21 +5,12 @@ import { Toggle } from 'src/client/shared/components/Toggle';
 import { NowrapText } from 'src/client/shared/components/NoWrapText';
 import { Button, ButtonType } from 'src/client/shared/components/Button';
 
+import { FiltersState, FieldType } from 'src/client/screens/Catalog/components/Filters/Filters.types';
 import { FiltersTab } from 'src/client/screens/Catalog/components/Filters/Filters.constants';
-import { FieldType, FiltersState } from 'src/client/screens/Catalog/components/Filters/Filters.types';
 import { isEmpty } from 'src/client/screens/Catalog/components/Filters/Filters.helpers';
+import { FILTERS_ITEMS } from './FiltersHeader.constans';
 
 import styles from './FiltersHeader.module.css';
-
-const FILTERS_ITEMS = [
-    { text: 'Тип объекта', name: FiltersTab.FacilityType },
-    { text: 'Аудитория объекта', name: FiltersTab.Age },
-    { text: 'Тип услуг', name: FiltersTab.PayingType },
-    { text: 'Тип покрытия', name: FiltersTab.CoveringType },
-    { text: 'Форма собственности', name: FiltersTab.Owner },
-    { text: 'Размеры', name: FiltersTab.Size },
-    { text: 'Другое', name: FiltersTab.Other },
-];
 
 type FiltersHeaderProps = {
     activeTab: FiltersTab | null;
@@ -62,7 +53,7 @@ export const FiltersHeader = ({ onTabClick, filtersState, activeTab, onClearClic
             </ul>
             {hasClear && (
                 <Button
-                    type={ButtonType.Clear}
+                    view={ButtonType.Clear}
                     className={styles['FiltersHeader-Clear']}
                     text="Сбросить"
                     onClick={onClearClick}

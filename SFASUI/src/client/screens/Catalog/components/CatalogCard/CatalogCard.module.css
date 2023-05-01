@@ -1,14 +1,11 @@
 .CatalogCard {
-    padding: var(--padding-xl);
-
     display: flex;
     flex-direction: column;
-
     gap: var(--space-l);
 
     box-sizing: border-box;
-
     width: 356px;
+    padding: var(--padding-xl);
 
     border-radius: var(--border-radius-l);
 
@@ -19,22 +16,20 @@
 }
 
 .CatalogCard-Header {
-    margin-bottom: var(--space-xs);
-
     display: flex;
-    justify-content: space-between;
     gap: calc(var(--space-l) + var(--space-xs));
+    justify-content: space-between;
+    margin-bottom: var(--space-xs);
 }
 
 .CatalogCard-Name {
     flex-grow: 1;
-
     color: var(--typography-secondary-color);
 }
 
 .CatalogCard-Button {
-    padding: 0;
     height: 18px;
+    padding: 0;
 }
 
 

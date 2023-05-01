@@ -1,27 +1,53 @@
+import React from 'react';
 import { useField } from 'formik';
 
-import { TextInput } from "../TextInput";
+import { Field } from 'src/client/shared/components/Field';
 
-type TextInputProps = {
-    name: string;
-    label?: string;
+import { TextInput, TextInputProps } from '..';
+
+type TextFieldProps = Omit<TextInputProps, 'id' | 'value' | 'name' | 'onChange' | 'onBlur'> & {
+    fieldName: string;
     className?: string;
+    label: string;
+    description?: string;
     required?: boolean;
+    hiddenLabel?: boolean;
+    inputClassName?: string;
 };
 
 export const TextInputField = ({
-    name,
+    fieldName,
+    className,
+    label,
+    inputClassName,
+    description,
+    hiddenLabel,
     required = false,
-    ...rest
-}: TextInputProps) => {
-    const [field, meta] = useField(name);
+    ...restProps
+}: TextFieldProps) => {
+    const [formikField, meta] = useField(fieldName);
+
+    const showError = Boolean(meta.touched) && Boolean(meta.error);
 
     return (
-        <TextInput
-            id={name}
-            onChange={field.onChange}
-            onBlur={field.onBlur}
-            {...rest}
-        />
+        <Field
+            hiddenLabel={hiddenLabel}
+            className={className}
+            label={label}
+            description={description}
+            required={required}
+            error={showError ? meta.error : undefined}
+            htmlFor={formikField.name}
+        >
+            <TextInput
+                {...restProps}
+                className={inputClassName}
+                id={formikField.name}
+                value={formikField.value}
+                name={formikField.name}
+                onChange={formikField.onChange}
+                onBlur={formikField.onBlur}
+            />
+        </Field>
     );
 };

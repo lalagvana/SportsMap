@@ -1,8 +1,8 @@
-import { InputHTMLAttributes, useCallback, useEffect, useState } from "react";
+import { InputHTMLAttributes, useCallback, useEffect, useState } from 'react';
 
 import styles from './Checkbox.module.css';
 
-type CheckboxProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'> & {
+export type CheckboxProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'> & {
     className?: string;
     label: string;
     onChange?: (checked: boolean) => void;
@@ -17,7 +17,7 @@ export const Checkbox = ({ className, onChange, checked, label, ...rest }: Check
         setIsChecked(!isChecked);
     }, [onChange, isChecked, setIsChecked]);
 
-    useEffect(() => setIsChecked(checked), [checked])
+    useEffect(() => setIsChecked(checked), [checked]);
 
     return (
         <label className={styles['Checkbox-Label']}>

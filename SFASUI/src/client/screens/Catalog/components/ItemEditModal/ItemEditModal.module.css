@@ -1,0 +1,12 @@
+.ItemEditModal-Title {
+    margin: 0;
+    font-family: var(--roboto);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-medium);
+}
+
+.ItemEditModal-TabTitle {
+    margin: 0;
+    font-family: var(--ubuntu);
+    font-size: var(--font-size-l);
+}

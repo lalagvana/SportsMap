@@ -1,5 +1,3 @@
-import { FiltersState } from './Filters.types';
-
 export enum FiltersTab {
     FacilityType = 'facility-type',
     Owner = 'owner',
@@ -10,7 +8,7 @@ export enum FiltersTab {
     Other = 'other',
 }
 
-export const EMPTY_STATE: FiltersState = {
+export const EMPTY_STATE = {
     [FiltersTab.FacilityType]: {},
     [FiltersTab.Owner]: {},
     [FiltersTab.PayingType]: {},

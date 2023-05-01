@@ -2,9 +2,9 @@
     cursor: pointer;
 
     display: flex;
+    gap: var(--space-s);
     align-items: center;
     justify-content: center;
-    gap: var(--space-s);
 
     width: fit-content;
     padding: var(--padding-2xs) var(--padding-l);
@@ -27,8 +27,8 @@
 }
 
 .Button_clear {
-    background-color: transparent;
     color: var(--black-color);
+    background-color: transparent;
 }
 
 .Button-Text {

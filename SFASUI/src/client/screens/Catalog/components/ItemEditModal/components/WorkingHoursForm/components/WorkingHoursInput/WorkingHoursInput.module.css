@@ -1,0 +1,38 @@
+.WorkingHoursInput {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 38px;
+}
+
+.WorkingHoursInput-Input {
+    display: flex;
+    gap: var(--space-s);
+    align-items: center;
+    margin-left: 50px;
+}
+
+.WorkingHoursInput-Input::placeholder {
+    font-size: var(--font-size-l);
+}
+
+.WorkingHoursInput-Day {
+    width: 180px;
+    font-size: var(--font-size-l);
+}
+
+.WorkingHoursInput-HoursInput {
+    box-sizing: border-box;
+    width: 70px;
+    text-align: center;
+}
+
+.WorkingHoursInput-Divider {
+    width: 15px;
+}
+
+.WorkingHoursInput-SwitchText {
+    margin-left: var(--space-l);
+    font-size: var(--font-size-l);
+    color: var(--typography-default-color);
+}
