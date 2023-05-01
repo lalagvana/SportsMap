@@ -1,4 +1,4 @@
-import { FiltersTab } from "../..";
+import { FiltersTab } from "../../Filters.constants";
 
 export const FILTERS_ITEMS = [
   { text: 'Тип объекта', name: FiltersTab.FacilityType },

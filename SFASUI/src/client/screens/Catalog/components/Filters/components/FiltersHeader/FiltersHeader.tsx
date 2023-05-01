@@ -5,11 +5,12 @@ import { Toggle } from 'src/client/shared/components/Toggle';
 import { NowrapText } from 'src/client/shared/components/NoWrapText';
 import { Button, ButtonType } from 'src/client/shared/components/Button';
 
-import { FieldType, FiltersState, isEmpty, FiltersTab } from 'src/client/screens/Catalog/components/Filters';
-import { FILTERS_ITEMS } from "./FiltersHeader.constans";
+import { FiltersState, FieldType } from 'src/client/screens/Catalog/components/Filters/Filters.types';
+import { FiltersTab } from 'src/client/screens/Catalog/components/Filters/Filters.constants';
+import { isEmpty } from 'src/client/screens/Catalog/components/Filters/Filters.helpers';
+import { FILTERS_ITEMS } from './FiltersHeader.constans';
 
 import styles from './FiltersHeader.module.css';
-
 
 type FiltersHeaderProps = {
     activeTab: FiltersTab | null;

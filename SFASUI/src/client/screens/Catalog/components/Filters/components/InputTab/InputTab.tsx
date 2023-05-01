@@ -1,6 +1,7 @@
 import { TextInput } from 'src/client/shared/components/TextInput';
 
-import { FiltersState, FiltersTab } from 'src/client/screens/Catalog/components/Filters';
+import { FiltersTab } from 'src/client/screens/Catalog/components/Filters/Filters.constants';
+import { FiltersState } from 'src/client/screens/Catalog/components/Filters/Filters.types';
 
 import styles from './InputTab.module.css';
 

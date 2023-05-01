@@ -1,7 +1,7 @@
-import { FiltersTab } from 'src/client/screens/Catalog/components/Filters/Filters.constants';
-
-import { FiltersState } from '../../Filters.types';
 import { Checkbox } from 'src/client/shared/components/Checkbox';
+
+import { FiltersTab } from 'src/client/screens/Catalog/components/Filters/Filters.constants';
+import { FiltersState } from 'src/client/screens/Catalog/components/Filters/Filters.types';
 
 import styles from './CheckboxTab.module.css';
 

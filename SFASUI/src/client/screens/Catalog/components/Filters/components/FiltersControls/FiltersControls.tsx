@@ -1,10 +1,13 @@
-import styles from './FiltersControls.module.css';
-import { Search } from '../../../../../../shared/components/Search';
-import { Select } from '../../../../../../shared/components/Select';
 import { useRouter } from 'next/router';
+
+import { Search } from 'src/client/shared/components/Search';
+import { Select } from 'src/client/shared/components/Select';
 import { Button, ButtonType } from 'src/client/shared/components/Button';
-import { useVisible } from '../../../../../../shared/hooks/use-visible';
-import { FileLoadModal } from "../FileLoadModal";
+import { useVisible } from 'src/client/shared/hooks/use-visible';
+
+import { FileLoadModal } from '../FileLoadModal';
+
+import styles from './FiltersControls.module.css';
 
 export const FiltersControls = () => {
     const { query } = useRouter();
@@ -14,7 +17,7 @@ export const FiltersControls = () => {
     return (
         <div className={styles['FiltersControls']}>
             <fieldset className={styles['FiltersControls-Fieldset']}>
-                <Search className={styles['FiltersControls-Search']} initialValue="" />
+                <Search className={styles['FiltersControls-Search']} initialValue="" onSearch={() => {}} />
                 <Select
                     value={query['order_by']}
                     placeholder="Сортировка"
@@ -26,7 +29,7 @@ export const FiltersControls = () => {
                 <Button view={ButtonType.Active} text="Создать объект" />
                 <Button view={ButtonType.Active} text="Загрузить файл" onClick={open} />
             </div>
-          {isVisible && <FileLoadModal hide={hide}/>}
+            {isVisible && <FileLoadModal hide={hide} />}
         </div>
     );
 };
