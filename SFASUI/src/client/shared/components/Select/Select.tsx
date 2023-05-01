@@ -2,7 +2,7 @@ import { Select as SelectBase, SelectProps as SelectBaseProps } from 'antd';
 
 import styles from './Select.module.css';
 
-type SelectProps = SelectBaseProps & {
+export type SelectProps = SelectBaseProps & {
     className?: string;
 };
 

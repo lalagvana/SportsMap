@@ -43,7 +43,10 @@
 
 .Checkbox-Label {
    display: flex;
-   gap: var(--space-xs);
+   gap: var(--space-m);
+   align-items: center;
+
    font-family: var(--ubuntu);
+   font-size: var(--font-size-l);
    color: var(--black-color);
 }

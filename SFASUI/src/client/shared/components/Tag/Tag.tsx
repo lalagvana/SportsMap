@@ -1,4 +1,6 @@
-import { TagTypes } from "./Tag.types";
+import { useCallback } from 'react';
+
+import { TagTypes } from './Tag.types';
 
 import styles from './Tag.module.css';
 
@@ -7,11 +9,31 @@ export type TagProps = {
     closable?: boolean;
     disabled?: boolean;
     onClose?: () => void;
-    type: TagTypes;
+    onTagClick?: (value: string) => void;
+    type?: TagTypes;
+    className?: string;
 };
 
-export const Tag = ({ value, closable = false, disabled = false, onClose, type = TagTypes.Default }: Tag) => (
-    <div className={[styles['Tag'], styles[`Tag_${type}`], disabled ? styles['Tag_disabled'] : ''].join(' ')}>
-        <span className={[styles['Tag-Text'], styles[`Tag-Text_${type}`]].join(' ')}>{value}</span>
-    </div>
-);
+export const Tag = ({ className, value, onTagClick, disabled = false, type = TagTypes.Default }: TagProps) => {
+    const handleClick = useCallback(() => {
+        if (onTagClick) {
+            onTagClick(value);
+        }
+    }, [onTagClick, value]);
+
+    return (
+        <div
+            className={[
+                className,
+                styles['Tag'],
+                styles[`Tag_${type}`],
+                disabled ? styles['Tag_disabled'] : '',
+                onTagClick ? styles['Tag_clickable'] : '',
+            ].join(' ')}
+            role="button"
+            onClick={handleClick}
+        >
+            <span className={[styles['Tag-Text'], styles[`Tag-Text_${type}`]].join(' ')}>{value}</span>
+        </div>
+    );
+};

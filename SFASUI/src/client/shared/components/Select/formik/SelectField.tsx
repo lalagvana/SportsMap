@@ -1,37 +1,39 @@
-import React from 'react';
-import { useField } from 'formik';
+import React, { ChangeEvent, useCallback } from 'react';
+import { useField, useFormikContext } from 'formik';
 
 import { Field } from 'src/client/shared/components/Field';
+import { Select, SelectProps } from 'src/client/shared/components/Select';
 
-import { TextInput, TextInputProps } from '..';
-
-type TextFieldProps = Omit<TextInputProps, 'id' | 'value' | 'name' | 'onChange' | 'onBlur'> & {
+type SelectFieldProps = Omit<SelectProps, 'id' | 'value' | 'name' | 'onChange' | 'onBlur'> & {
     fieldName: string;
     className?: string;
     label: string;
     description?: string;
     required?: boolean;
-    hiddenLabel?: boolean;
-    inputClassName?: string;
 };
 
-export const TextInputField = ({
+export const SelectField = ({
     fieldName,
     className,
     label,
-    inputClassName,
     description,
-    hiddenLabel,
     required = false,
     ...restProps
-}: TextFieldProps) => {
+}: SelectFieldProps) => {
     const [formikField, meta] = useField(fieldName);
+    const { setFieldValue } = useFormikContext();
 
     const showError = Boolean(meta.touched) && Boolean(meta.error);
 
+    const handleChange = useCallback(
+        (event: ChangeEvent<HTMLSelectElement>) => {
+            setFieldValue(fieldName, event);
+        },
+        [fieldName, setFieldValue],
+    );
+
     return (
         <Field
-            hiddenLabel={hiddenLabel}
             className={className}
             label={label}
             description={description}
@@ -39,13 +41,11 @@ export const TextInputField = ({
             error={showError ? meta.error : undefined}
             htmlFor={formikField.name}
         >
-            <TextInput
+            <Select
                 {...restProps}
-                className={inputClassName}
                 id={formikField.name}
                 value={formikField.value}
-                name={formikField.name}
-                onChange={formikField.onChange}
+                onChange={handleChange}
                 onBlur={formikField.onBlur}
             />
         </Field>

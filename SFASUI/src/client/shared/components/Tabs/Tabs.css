@@ -1,0 +1,33 @@
+.ant-tabs-nav-list {
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 var(--space-2l);
+}
+
+:where(.css-dev-only-do-not-override-1me4733).ant-tabs-card > .ant-tabs-nav .ant-tabs-tab.ant-tabs-tab-active {
+    background-color: var(--base-default-color);
+}
+
+:where(.css-dev-only-do-not-override-1me4733).ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    font-weight: var(--font-weight-medium);
+    color: var(--white-color);
+}
+
+:where(.css-dev-only-do-not-override-1me4733).ant-tabs-card > .ant-tabs-nav .ant-tabs-tab {
+    flex-grow: 1;
+    justify-content: center;
+
+    color: var(--typography-default-color);
+
+    background-color: transparent;
+    border: none;
+}
+
+:where(.css-dev-only-do-not-override-1me4733).ant-tabs .ant-tabs-tab:hover,
+:where(.css-dev-only-do-not-override-1me4733).ant-tabs .ant-tabs-tab-btn:active {
+    color: var(--black-color);
+}
+
+:where(.css-dev-only-do-not-override-1me4733).ant-tabs-card >.ant-tabs-nav .ant-tabs-tab {
+
+}
