@@ -1,0 +1,36 @@
+:where(.css-dev-only-do-not-override-1me4733).ant-collapse>.ant-collapse-item-active.ant-collapse-item >.ant-collapse-header .ant-collapse-expand-icon {
+    transform: rotate(180deg);
+    padding-inline-start: 12px;
+    padding-inline-end: 0;
+}
+
+:where(.css-dev-only-do-not-override-1me4733).ant-collapse .ant-collapse-content>.ant-collapse-content-box {
+    padding: 16px 0;
+}
+
+:where(.css-dev-only-do-not-override-1me4733).ant-collapse>.ant-collapse-item >.ant-collapse-header {
+    padding: 12px 0;
+}
+
+.Accordeon-PanelHeader {
+    font-family: var(--roboto);
+    font-size: var(--font-size-m);
+    color: var(--typography-secondary-color);
+}
+
+.Accordeon-MaxField {
+    flex-grow: 1;
+    width: 100%;
+}
+
+.Accordeon-HalfField {
+    flex-basis: 40%;
+}
+
+.Accordeon-Panel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: var(--space-m);
+    column-gap: var(--space-2l);
+}

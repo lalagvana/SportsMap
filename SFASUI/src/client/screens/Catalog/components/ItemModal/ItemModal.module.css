@@ -1,0 +1,17 @@
+.ItemModal {
+    display: flex;
+}
+
+.ItemModal-Info, .ItemModal-Aside {
+    flex-basis: 50%;
+}
+
+.ItemModal-Aside {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+}
+
+.ItemModal-Name {
+    max-width: 50%;
+}

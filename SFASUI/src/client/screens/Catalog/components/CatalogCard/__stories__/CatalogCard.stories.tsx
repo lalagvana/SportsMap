@@ -16,9 +16,7 @@ type argsType = {
     disabled?: boolean;
 };
 
-export const playground = ({disabled, ...props}: argsType) => (
-    <CatalogCard item={props} disabled={disabled} />
-);
+export const playground = ({ disabled, ...props }: argsType) => <CatalogCard item={props} disabled={disabled} />;
 
 playground.args = {
     address: 'Выборгская набережная, д. 1, корпус 1000-7',

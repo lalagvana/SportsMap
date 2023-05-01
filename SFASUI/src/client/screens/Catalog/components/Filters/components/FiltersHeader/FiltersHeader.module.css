@@ -1,26 +1,24 @@
 .FiltersHeader {
-    flex-wrap: wrap;
     display: flex;
-
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
 .FiltersHeader-Tab {
+    display: flex;
     flex-wrap: wrap;
-    list-style: none;
+    gap: var(--space-xl);
+
     padding: 0;
 
-    display: flex;
-
-    gap: var(--space-xl);
+    list-style: none;
 }
 
 .FiltersHeader-Item {
-    display: flex;
-    align-items: center;
-    gap: var(--space-s);
-
     cursor: pointer;
+    display: flex;
+    gap: var(--space-s);
+    align-items: center;
 }
 
 .FiltersHeader-Clear {

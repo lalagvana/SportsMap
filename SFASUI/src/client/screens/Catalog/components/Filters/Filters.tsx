@@ -1,24 +1,30 @@
 import { useCallback, useState } from 'react';
 
 import { Divider } from 'src/client/shared/components/Divider';
+import {
+    useFacilityAges,
+    useFacilityPayingTypes,
+    useFacilityTypes,
+    useFacilityCoveringTypes,
+    useFacilityOwningTypes,
+} from 'src/client/shared/utils/api/facilities';
 
 import { FiltersState, InputFieldType } from './Filters.types';
 import { EMPTY_STATE, FiltersTab, SIZE_INPUTS } from './Filters.constants';
 import { CheckboxTab } from './components/CheckboxTab';
 import { InputTab } from './components/InputTab';
 import { FiltersHeader } from './components/FiltersHeader';
+import { FiltersControls } from "./components/FiltersControls";
 
-type FilterProps = {
-    facilityTypes: string[];
-    ageTypes: string[];
-    payingTypes: string[];
-    coverageTypes: string[];
-    owningTypes: string[];
-};
-
-export const Filters = ({ facilityTypes, coverageTypes, payingTypes, owningTypes, ageTypes }: FilterProps) => {
+export const Filters = () => {
     const [activeTab, setActiveTab] = useState<FiltersTab | null>(null);
     const [filtersState, setFiltersState] = useState<FiltersState>(EMPTY_STATE);
+
+    const { data: facilityTypes } = useFacilityTypes();
+    const { data: ageTypes } = useFacilityAges();
+    const { data: payingTypes } = useFacilityPayingTypes();
+    const { data: coveringTypes } = useFacilityCoveringTypes();
+    const { data: owningTypes } = useFacilityOwningTypes();
 
     const onTabClick = useCallback(
         (tab: FiltersTab) => (tab === activeTab ? setActiveTab(null) : setActiveTab(tab)),
@@ -56,6 +62,7 @@ export const Filters = ({ facilityTypes, coverageTypes, payingTypes, owningTypes
 
     return (
         <div>
+            <FiltersControls />
             <FiltersHeader
                 onTabClick={onTabClick}
                 filtersState={filtersState}
@@ -66,7 +73,7 @@ export const Filters = ({ facilityTypes, coverageTypes, payingTypes, owningTypes
             {activeTab === FiltersTab.FacilityType && (
                 <CheckboxTab
                     activeTab={FiltersTab.FacilityType}
-                    items={facilityTypes}
+                    items={facilityTypes?.data || []}
                     onCheckboxClick={onCheckboxClick}
                     filtersState={filtersState}
                 />
@@ -74,7 +81,7 @@ export const Filters = ({ facilityTypes, coverageTypes, payingTypes, owningTypes
             {activeTab === FiltersTab.Age && (
                 <CheckboxTab
                     activeTab={FiltersTab.Age}
-                    items={ageTypes}
+                    items={ageTypes?.data || []}
                     onCheckboxClick={onCheckboxClick}
                     filtersState={filtersState}
                 />
@@ -82,7 +89,7 @@ export const Filters = ({ facilityTypes, coverageTypes, payingTypes, owningTypes
             {activeTab === FiltersTab.CoveringType && (
                 <CheckboxTab
                     activeTab={FiltersTab.CoveringType}
-                    items={coverageTypes}
+                    items={coveringTypes?.data || []}
                     onCheckboxClick={onCheckboxClick}
                     filtersState={filtersState}
                 />
@@ -90,7 +97,7 @@ export const Filters = ({ facilityTypes, coverageTypes, payingTypes, owningTypes
             {activeTab === FiltersTab.PayingType && (
                 <CheckboxTab
                     activeTab={FiltersTab.PayingType}
-                    items={payingTypes}
+                    items={payingTypes?.data || []}
                     onCheckboxClick={onCheckboxClick}
                     filtersState={filtersState}
                 />
@@ -99,7 +106,7 @@ export const Filters = ({ facilityTypes, coverageTypes, payingTypes, owningTypes
             {activeTab === FiltersTab.Owner && (
                 <CheckboxTab
                     activeTab={FiltersTab.Owner}
-                    items={owningTypes}
+                    items={owningTypes?.data || []}
                     onCheckboxClick={onCheckboxClick}
                     filtersState={filtersState}
                 />

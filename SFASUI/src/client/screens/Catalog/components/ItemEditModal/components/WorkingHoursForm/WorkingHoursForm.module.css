@@ -1,0 +1,22 @@
+.WorkingHoursForm {
+    display: flex;
+    justify-content: space-between;
+}
+
+.WorkingHoursForm-Data {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+
+    margin: 0;
+    padding: 0;
+
+    border: none;
+}
+
+.WorkingHoursForm-Header {
+    font-family: var(--ubuntu);
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-medium);
+    color: var(--base-default-color);
+}

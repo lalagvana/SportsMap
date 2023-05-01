@@ -1,0 +1,16 @@
+.PhotoUploader-Label {
+    display: flex;
+    gap: var(--space-s);
+    align-items: center;
+    margin-bottom: var(--space-s);
+}
+
+.PhotoUploader-Label_main {
+    font-size: var(--font-size-l);
+    color: var(--black-color);
+}
+
+.PhotoUploader-Label_subtext {
+    font-size: var(--font-size-m);
+    color: var(--typography-default-color);
+}

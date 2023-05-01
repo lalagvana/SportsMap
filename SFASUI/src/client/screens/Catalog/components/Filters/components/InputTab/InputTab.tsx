@@ -1,7 +1,6 @@
 import { TextInput } from 'src/client/shared/components/TextInput';
 
-import { FiltersTab } from 'src/client/screens/Catalog/components/Filters/Filters.constants';
-import { FiltersState } from 'src/client/screens/Catalog/components/Filters/Filters.types';
+import { FiltersState, FiltersTab } from 'src/client/screens/Catalog/components/Filters';
 
 import styles from './InputTab.module.css';
 
@@ -20,14 +19,14 @@ export const InputTab = ({ items, onInputChange, filtersState, activeTab }: Filt
                     <label className={styles['InputTab-Label']}>{label}</label>
                     <TextInput
                         className={styles['InputTab-TextField']}
-                        onChange={(value) => onInputChange(label, value, 'from')}
+                        onChange={(event) => onInputChange(label, event.target.value, 'from')}
                         placeholder="От"
                         type="number"
                         value={filtersState[activeTab]?.[label]?.['from']}
                     />
                     <TextInput
                         className={styles['InputTab-TextField']}
-                        onChange={(value) => onInputChange(label, value, 'to')}
+                        onChange={(event) => onInputChange(label, event.target.value, 'to')}
                         placeholder="До"
                         type="number"
                         value={filtersState[activeTab]?.[label]?.['to']}
