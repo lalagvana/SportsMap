@@ -1,31 +1,32 @@
 const BACKEND_URL = 'api';
 
 export const apiRoutes = {
-    ping: `${BACKEND_URL}/ping`,
-
-    authping: `${BACKEND_URL}/authping`,
-
-    login: `${BACKEND_URL}/admin/login`,
-
-    resfreshToken: `${BACKEND_URL}/admin/token/refresh`,
-
-    user: `${BACKEND_URL}/admin/users`,
-
+    login: `${BACKEND_URL}/user/login`,
+    resfreshToken: `${BACKEND_URL}/user/token/refresh`,
+    user: `${BACKEND_URL}/user`,
     users(id: number) {
-        return `${BACKEND_URL}/admin/login/users/${id}`;
+        return `${BACKEND_URL}/user/${id}`;
     },
-
-    emailSubscribe(email: string) {
-        return `${BACKEND_URL}/email/subscribe/${email}`;
-    },
-
-    emailSend: `${BACKEND_URL}/email/send`,
 
     facility: `${BACKEND_URL}/facility`,
-
     facilitySearch: `${BACKEND_URL}/facility/search`,
-
-    facilities(id: number) {
+    facilities(id: string) {
         return `${BACKEND_URL}/facility/${id}`;
+    },
+
+    facilityType: `${BACKEND_URL}/facility-type`,
+    facilityCoveringType: `${BACKEND_URL}/facility-covering-type`,
+    facilityPayingType: `${BACKEND_URL}/facility-paying-type`,
+    facilityOwningType: `${BACKEND_URL}/facility-owning-type`,
+    facilityAge: `${BACKEND_URL}/facility-age`,
+
+    excelImport: `${BACKEND_URL}/excel/import`,
+    excelValidate: `${BACKEND_URL}/excel/validate`,
+
+    facilityPhoto(id: number) {
+        return `${BACKEND_URL}/facility/${id}/photo`;
+    },
+    facilityPhotoDelete(id: number, photoId: number) {
+        return `${BACKEND_URL}/facility/${id}/photo/${photoId}`;
     },
 };

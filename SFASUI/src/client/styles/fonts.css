@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Ubuntu:wght@300;400;500&display=swap');
 
 :root {
-    --roboto: Roboto, sans-serif;
-    --ubuntu: Ubuntu, sans-serif;
+    --roboto: roboto, sans-serif;
+    --ubuntu: ubuntu, sans-serif;
 }
 
 * {
