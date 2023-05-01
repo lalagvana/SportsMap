@@ -1,0 +1,14 @@
+.Sidebar {
+    pointer-events: none;
+
+    position: absolute;
+    z-index: 100;
+    top:  var(--space-m);
+    left: var(--space-2m);
+}
+
+.MapObjects {
+    position: relative;
+    display: flex;
+    width: 100%;
+}

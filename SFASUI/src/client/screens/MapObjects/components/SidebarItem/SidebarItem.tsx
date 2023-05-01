@@ -1,6 +1,5 @@
 import Image from 'next/image';
 
-import { SidebarItemDetailsType } from 'src/client/screens/MapObjects';
 import { TextWithIcon } from 'src/client/shared/components/TextWithIcon';
 import { TagTypes } from 'src/client/shared/components/Tag';
 import { CardHeader } from 'src/client/shared/components/CardHeader';
@@ -10,7 +9,7 @@ import styles from './SidebarItem.module.css';
 
 type SidebarItemProps = {
     onClick: () => void;
-    item: SidebarItemDetailsType;
+    item: Definitions.FacilityResponse;
 };
 
 export const SidebarItem = ({ onClick, item }: SidebarItemProps) => {

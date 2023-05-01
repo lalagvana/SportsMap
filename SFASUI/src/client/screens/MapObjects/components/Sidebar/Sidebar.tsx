@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
-import { SidebarItemDetailsType } from 'src/client/screens/MapObjects';
+import { Button } from 'src/client/shared/components/Button';
+
 import { SidebarDetails } from '../SidebarDetails';
 import { SidebarItemsList } from '../SidebarItemList';
 import { SidebarFilters } from '../SidebarFilters';
@@ -8,23 +9,23 @@ import { SidebarItemsListSkeleton } from '../SidebarItemsListSkeleton';
 import { SidebarMessage } from '../SidebarMessage';
 
 import styles from './Sidebar.module.css';
-import { Button } from '../../../../shared/components/Button';
 
 type SidebarProps = {
-    items: SidebarItemDetailsType[];
+    items?: Definitions.FacilityResponse[];
     isLoading?: boolean;
     error?: any;
     count?: number;
+    className: string;
 };
 
-export const Sidebar = ({ items, isLoading = false, error, count }: SidebarProps) => {
-    const [activeItem, setActiveItem] = useState<SidebarItemDetailsType | null>(null);
+export const Sidebar = ({ items, isLoading = false, error, count, className }: SidebarProps) => {
+    const [activeItem, setActiveItem] = useState<Definitions.FacilityResponse | null>(null);
 
     const showContent = !error && !isLoading && items && items.length > 0;
     const showNotFound = !error && !isLoading && items && items.length === 0;
 
     return (
-        <aside>
+        <aside className={className}>
             <SidebarFilters />
             {error && (
                 <SidebarMessage
@@ -43,7 +44,13 @@ export const Sidebar = ({ items, isLoading = false, error, count }: SidebarProps
                 />
             )}
             {showContent && activeItem && <SidebarDetails item={activeItem} onBackClick={() => setActiveItem(null)} />}
-            {showContent && !activeItem && <SidebarItemsList setActiveItem={setActiveItem} items={items} count={count || 0}/>}
+            {showContent && !activeItem && (
+                <SidebarItemsList
+                    setActiveItem={setActiveItem}
+                    items={items}
+                    count={count || 0}
+                />
+            )}
         </aside>
     );
 };

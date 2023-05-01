@@ -1,4 +1,6 @@
 .SidebarFilters {
+    pointer-events: auto;
+
     display: flex;
     flex-flow: row wrap;
     gap: var(--space-m);
@@ -18,3 +20,8 @@ button.SidebarFilters-Toggle {
     height: 36px;
     padding: var(--padding-s);
 }
+
+button.SidebarFilters-Toggle_closed {
+    background-color: var(--white-color);
+}
+
