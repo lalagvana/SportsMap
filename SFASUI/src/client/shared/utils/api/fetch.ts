@@ -5,6 +5,7 @@ import { BASE_PATH } from 'src/client/shared/utils/environment';
 import { UNPROTECTED_PATHS } from './constants';
 import { getAuthToken } from './renewToken';
 import { prepareMessage } from '../notifications';
+import { apiRoutes } from "./apiRoutes";
 
 const DEFAULT_HEADERS = {
     'Content-Type': 'application/json',
@@ -15,7 +16,7 @@ export async function fetch<T>(path: string, options: RawAxiosRequestConfig = {}
     const { method = 'GET', headers = {}, ...restOptions } = options;
 
     // Если нужна авторизация для эндпоинта
-    if (!UNPROTECTED_PATHS.includes(path)) {
+    if (path !== apiRoutes.facilitySearch && (!UNPROTECTED_PATHS.includes(path) || method.toUpperCase() !== 'GET')) {
         const token = getAuthToken();
 
         // TODO: сделать редирект на логин?

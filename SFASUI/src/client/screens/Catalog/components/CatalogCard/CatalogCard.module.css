@@ -5,10 +5,19 @@
 
     box-sizing: border-box;
     width: 356px;
+    min-height: 233px;
     padding: var(--padding-xl);
 
+    background-color: var(--white-color);
     border-radius: var(--border-radius-l);
+    box-shadow: 2px 4px 20px rgb(0 0 0 / 10%);
+}
 
+.CatalogCard-Text {
+    overflow: hidden;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .CatalogCard_disabled {
@@ -24,7 +33,9 @@
 
 .CatalogCard-Name {
     flex-grow: 1;
+    max-width: calc(100% - 18px - var(--space-2m) - var(--padding-xl));
     color: var(--typography-secondary-color);
+
 }
 
 .CatalogCard-Button {

@@ -2,7 +2,7 @@ import React from 'react';
 import tw from 'twin.macro';
 import { motion } from 'framer-motion';
 
-const StyledDiv = tw.div`font-display min-h-screen text-secondary-500 p-8 overflow-hidden`;
+const StyledDiv = tw.div`font-display min-h-screen p-8 overflow-hidden`;
 
 type Direction = 'left' | 'right';
 

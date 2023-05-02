@@ -5,6 +5,7 @@
     flex-direction: column;
     gap: var(--space-m);
 
+    width: fit-content;
     margin: 0;
     padding: 0;
 

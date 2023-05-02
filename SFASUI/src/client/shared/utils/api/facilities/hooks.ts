@@ -21,7 +21,7 @@ import {
     DEFAULT_TYPES,
 } from './constants';
 
-export function useFacility(id?: number, config?: SWRConfiguration<GetFacility.Response>) {
+export function useFacility(id?: string, config?: SWRConfiguration<GetFacility.Response>) {
     return useSWR<GetFacility.Response>(id ? apiRoutes.facilities(id) : null, fetch, config);
 }
 

@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { mutate } from 'swr';
 
-import { Search } from 'src/client/shared/components/Search';
 import { Button, ButtonType } from 'src/client/shared/components/Button';
-import { Select } from 'src/client/shared/components/Select';
+import { QuerySelect } from 'src/client/shared/components/QuerySelect';
+import { QuerySearch } from 'src/client/shared/components/QuerySearch';
+import { apiRoutes } from 'src/client/shared/utils/api/apiRoutes';
 
-import { useFilters, useOnChangeHandlers } from './SidebarFilters.hooks';
+import { useFilters } from './SidebarFilters.hooks';
 
 import styles from './SidebarFilters.module.css';
 
@@ -14,15 +15,11 @@ export const SidebarFilters = () => {
     const [isOpen, setOpen] = useState(true);
     const filters = useFilters();
 
-    const { query } = useRouter();
-    const { onSearchChange, onSelectChange } = useOnChangeHandlers();
-
     return (
         <fieldset className={styles['SidebarFilters']}>
-            <Search
+            <QuerySearch
                 className={styles['SidebarFilters-Search']}
-                initialValue={String(query.q || '')}
-                onSearch={onSearchChange}
+                onSuccess={() => mutate(apiRoutes.facilitySearch)}
             />
             <Button
                 onClick={() => setOpen(!isOpen)}
@@ -42,11 +39,7 @@ export const SidebarFilters = () => {
             />
             {isOpen &&
                 filters.map((selectProps) => (
-                    <Select
-                        value={query[selectProps.name]}
-                        onChange={(value) => onSelectChange(value, selectProps.name)}
-                        {...selectProps}
-                    />
+                    <QuerySelect {...selectProps} onSuccess={() => mutate(apiRoutes.facilitySearch)} />
                 ))}
         </fieldset>
     );

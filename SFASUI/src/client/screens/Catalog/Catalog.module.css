@@ -1,0 +1,26 @@
+.Catalog-Found {
+    display: flex;
+    gap: var(--space-xs);
+    margin: var(--space-2m) 0;
+    font-size: var(--font-size-m);
+}
+
+.Catalog-Found_count {
+    font-weight: var(--font-weight-medium);
+    color: var(--base-secondary-color);
+}
+
+.Catalog {
+    background-color: rgb(89 194 231 / 10%);
+}
+
+.Catalog-Main {
+    max-width: 1520px;
+    margin: var(--space-xl) auto 60px;
+}
+
+.Catalog-Pagination {
+    display: flex;
+    justify-content: center;
+    margin: var(--space-2xl) auto;
+}
