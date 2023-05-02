@@ -23,8 +23,8 @@ export const LoginForm = ({ handleSubmit }: LoginFormProps) => {
             <form>
                 <TextInputField type="email" placeholder="Логин" fieldName="email" label="Логин" />
                 <TextInputField type="password" placeholder="Пароль" fieldName="password" label="Пароль" />
-                <Button type="submit" text="Войти" />
             </form>
+          <Button onClick={formikStateAndHelpers.submitForm} text="Войти" />
         </FormikProvider>
     );
 };

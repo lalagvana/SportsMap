@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import { CardHeader } from 'src/client/shared/components/CardHeader';
 import { TextWithIcon } from 'src/client/shared/components/TextWithIcon';
@@ -7,21 +7,14 @@ import { TagGroup } from 'src/client/shared/components/TagGroup';
 import { TagTypes } from 'src/client/shared/components/Tag';
 import { Button, ButtonType } from 'src/client/shared/components/Button';
 import { Popover } from 'src/client/shared/components/Popover';
+import { FacilityType } from 'src/client/shared/types/facilities';
 
 import { CatalogCardMenu } from './components/CatalogCardMenu';
 
 import styles from './CatalogCard.module.css';
 
-type CatalogCardItem = {
-    address: string;
-    age: string[];
-    name: string;
-    type: string;
-    owner: string;
-};
-
 type CatalogCardProps = {
-    item: CatalogCardItem;
+    item: FacilityType;
     disabled?: boolean;
 };
 
@@ -29,10 +22,14 @@ export const CatalogCard = ({ item, disabled }: CatalogCardProps) => {
     const { name, type, address, age, owner } = item;
 
     const [open, setOpen] = useState(false);
+    const handleOpenChange = useCallback(
+        (newOpen: boolean) => {
+            setOpen(newOpen);
+        },
+        [setOpen]
+    );
 
-    const handleOpenChange = (newOpen: boolean) => {
-        setOpen(newOpen);
-    };
+    const hidePopup = useCallback(() => setOpen(false), [setOpen]);
 
     return (
         <article className={[styles['CatalogCard'], disabled ? styles['CatalogCard_disabled'] : undefined].join(' ')}>
@@ -43,14 +40,13 @@ export const CatalogCard = ({ item, disabled }: CatalogCardProps) => {
                     open={open}
                     onOpenChange={handleOpenChange}
                     trigger="click"
-                    content={<CatalogCardMenu />}
+                    content={<CatalogCardMenu item={item} hidePopup={hidePopup} />}
                     placement="bottomLeft"
                 >
                     <Button
                         className={styles['CatalogCard-Button']}
                         icon={<Image width={34} height={34} src="/icons/dots.png" layout="fixed" />}
                         view={ButtonType.Clear}
-                        disabled={disabled}
                     />
                 </Popover>
             </div>

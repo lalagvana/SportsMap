@@ -1,26 +1,25 @@
-import { Checkbox } from 'src/client/shared/components/Checkbox';
+import { mutate } from 'swr';
 
-import { FiltersTab } from 'src/client/screens/Catalog/components/Filters/Filters.constants';
-import { FiltersState } from 'src/client/screens/Catalog/components/Filters/Filters.types';
+import { QueryCheckbox } from 'src/client/shared/components/QueryCheckbox';
+import { apiRoutes } from 'src/client/shared/utils/api/apiRoutes';
 
 import styles from './CheckboxTab.module.css';
 
 type CheckboxTabProps = {
-    onCheckboxClick: (property: string, checked: boolean) => void;
-    filtersState: FiltersState;
-    activeTab: FiltersTab;
     items: string[];
+    name: string;
 };
 
-export const CheckboxTab = ({ onCheckboxClick, filtersState, activeTab, items }: CheckboxTabProps) => (
+export const CheckboxTab = ({ name: tabName, items }: CheckboxTabProps) => (
     <fieldset className={styles['CheckboxTab']}>
         {items.map((name) => (
-            <Checkbox
+            <QueryCheckbox
+                name={tabName}
+                checkboxName={name}
                 className={styles['CheckboxTab-Checkbox']}
                 key={name}
                 label={name}
-                onChange={(checked) => onCheckboxClick(name, checked)}
-                checked={Boolean(filtersState[activeTab]?.[name])}
+                onSuccess={() => mutate(apiRoutes.facilitySearch)}
             />
         ))}
     </fieldset>

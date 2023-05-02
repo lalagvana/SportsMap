@@ -1,36 +1,33 @@
-import { TextInput } from 'src/client/shared/components/TextInput';
+import { mutate } from "swr";
 
-import { FiltersTab } from 'src/client/screens/Catalog/components/Filters/Filters.constants';
-import { FiltersState } from 'src/client/screens/Catalog/components/Filters/Filters.types';
+import { QueryTextInput } from 'src/client/shared/components/QueryTextInput';
+import { apiRoutes } from "src/client/shared/utils/api/apiRoutes";
 
 import styles from './InputTab.module.css';
 
 type FiltersHeaderProps = {
-    items: { label: string; units: string }[];
-    activeTab: FiltersTab;
-    filtersState: FiltersState;
-    onInputChange: (label: string, value: string, type: 'from' | 'to') => void;
+    items: { label: string; units: string; name: string }[];
 };
 
-export const InputTab = ({ items, onInputChange, filtersState, activeTab }: FiltersHeaderProps) => {
+export const InputTab = ({ items }: FiltersHeaderProps) => {
     return (
         <fieldset className={styles['InputTab']}>
-            {items.map(({ label, units }) => (
+            {items.map(({ label, units, name }) => (
                 <div className={styles['InputTab-Field']} key={label}>
                     <label className={styles['InputTab-Label']}>{label}</label>
-                    <TextInput
+                    <QueryTextInput
                         className={styles['InputTab-TextField']}
-                        onChange={(event) => onInputChange(label, event.target.value, 'from')}
                         placeholder="От"
                         type="number"
-                        value={filtersState[activeTab]?.[label]?.['from']}
+                        name={`${name}-from`}
+                        onSuccess={() => mutate(apiRoutes.facilitySearch)}
                     />
-                    <TextInput
+                    <QueryTextInput
                         className={styles['InputTab-TextField']}
-                        onChange={(event) => onInputChange(label, event.target.value, 'to')}
                         placeholder="До"
                         type="number"
-                        value={filtersState[activeTab]?.[label]?.['to']}
+                        name={`${name}-to`}
+                        onSuccess={() => mutate(apiRoutes.facilitySearch)}
                     />
                     <span className={styles['InputTab-Units']}>{units}</span>
                 </div>

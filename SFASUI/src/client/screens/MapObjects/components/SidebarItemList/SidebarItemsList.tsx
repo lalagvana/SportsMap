@@ -3,8 +3,6 @@ import { Dispatch, SetStateAction } from 'react';
 import { Pagination } from 'src/client/screens/MapObjects/components/Pagination';
 import { SidebarItem } from 'src/client/screens/MapObjects/components/SidebarItem';
 
-import { usePaginationHooks } from './SidebarItemsList.hooks';
-
 import styles from './SidebarItemsList.module.css';
 
 type SidebarItemsListProps = {
@@ -14,8 +12,6 @@ type SidebarItemsListProps = {
 };
 
 export const SidebarItemsList = ({ items = [], setActiveItem, count }: SidebarItemsListProps) => {
-    const { onNextClick, onPrevClick } = usePaginationHooks();
-
     return (
         <>
             <ul className={styles['SidebarItemsList']}>
@@ -25,7 +21,7 @@ export const SidebarItemsList = ({ items = [], setActiveItem, count }: SidebarIt
                     </li>
                 ))}
             </ul>
-            <Pagination onPrevClick={onPrevClick} onNextClick={onNextClick} count={count} />
+            <Pagination count={count} />
         </>
     );
 };

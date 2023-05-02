@@ -9,17 +9,18 @@ import {
     useFacilityOwningTypes,
 } from 'src/client/shared/utils/api/facilities';
 
-import { FiltersState, InputFieldType } from './Filters.types';
-import { EMPTY_STATE, FiltersTab, SIZE_INPUTS } from './Filters.constants';
+import { FiltersTab, OTHER_INPUTS, SIZE_INPUTS } from './Filters.constants';
 import { CheckboxTab } from './components/CheckboxTab';
 import { InputTab } from './components/InputTab';
 import { FiltersHeader } from './components/FiltersHeader';
-import { FiltersControls } from "./components/FiltersControls";
+import { FiltersControls } from './components/FiltersControls';
 
-export const Filters = () => {
+type FiltersProps = {
+    className?: string;
+};
+
+export const Filters = ({ className }: FiltersProps) => {
     const [activeTab, setActiveTab] = useState<FiltersTab | null>(null);
-    const [filtersState, setFiltersState] = useState<FiltersState>(EMPTY_STATE);
-
     const { data: facilityTypes } = useFacilityTypes();
     const { data: ageTypes } = useFacilityAges();
     const { data: payingTypes } = useFacilityPayingTypes();
@@ -31,102 +32,21 @@ export const Filters = () => {
         [activeTab, setActiveTab]
     );
 
-    const onCheckboxClick = useCallback(
-        (property: string, checked: boolean) => {
-            if (activeTab) {
-                setFiltersState({ ...filtersState, [activeTab]: { ...filtersState[activeTab], [property]: checked } });
-            }
-        },
-        [filtersState, activeTab, setFiltersState]
-    );
-
-    const onInputChange = useCallback(
-        (label: string, value: string, type: 'from' | 'to') => {
-            if (activeTab) {
-                setFiltersState({
-                    ...filtersState,
-                    [activeTab]: {
-                        ...filtersState[activeTab],
-                        [label]: { ...(filtersState[activeTab][label] as InputFieldType), [type]: value },
-                    },
-                });
-            }
-        },
-        [filtersState, activeTab, setFiltersState]
-    );
-
-    const onClearClick = useCallback(() => {
-        setFiltersState(EMPTY_STATE);
-        setActiveTab(null);
-    }, [setFiltersState, setActiveTab]);
-
     return (
-        <div>
+        <div className={className}>
             <FiltersControls />
-            <FiltersHeader
-                onTabClick={onTabClick}
-                filtersState={filtersState}
-                activeTab={activeTab}
-                onClearClick={onClearClick}
-            />
+            <FiltersHeader onTabClick={onTabClick} activeTab={activeTab} />
             <Divider />
-            {activeTab === FiltersTab.FacilityType && (
-                <CheckboxTab
-                    activeTab={FiltersTab.FacilityType}
-                    items={facilityTypes?.data || []}
-                    onCheckboxClick={onCheckboxClick}
-                    filtersState={filtersState}
-                />
-            )}
-            {activeTab === FiltersTab.Age && (
-                <CheckboxTab
-                    activeTab={FiltersTab.Age}
-                    items={ageTypes?.data || []}
-                    onCheckboxClick={onCheckboxClick}
-                    filtersState={filtersState}
-                />
-            )}
+            {activeTab === FiltersTab.FacilityType && <CheckboxTab name="type" items={facilityTypes?.data || []} />}
+            {activeTab === FiltersTab.Age && <CheckboxTab name="age" items={ageTypes?.data || []} />}
             {activeTab === FiltersTab.CoveringType && (
-                <CheckboxTab
-                    activeTab={FiltersTab.CoveringType}
-                    items={coveringTypes?.data || []}
-                    onCheckboxClick={onCheckboxClick}
-                    filtersState={filtersState}
-                />
+                <CheckboxTab name="covering_type" items={coveringTypes?.data || []} />
             )}
-            {activeTab === FiltersTab.PayingType && (
-                <CheckboxTab
-                    activeTab={FiltersTab.PayingType}
-                    items={payingTypes?.data || []}
-                    onCheckboxClick={onCheckboxClick}
-                    filtersState={filtersState}
-                />
-            )}
+            {activeTab === FiltersTab.PayingType && <CheckboxTab name="paying_type" items={payingTypes?.data || []} />}
 
-            {activeTab === FiltersTab.Owner && (
-                <CheckboxTab
-                    activeTab={FiltersTab.Owner}
-                    items={owningTypes?.data || []}
-                    onCheckboxClick={onCheckboxClick}
-                    filtersState={filtersState}
-                />
-            )}
-            {activeTab === FiltersTab.Size && (
-                <InputTab
-                    activeTab={FiltersTab.Size}
-                    filtersState={filtersState}
-                    items={SIZE_INPUTS}
-                    onInputChange={onInputChange}
-                />
-            )}
-            {activeTab === FiltersTab.Other && (
-                <InputTab
-                    activeTab={FiltersTab.Other}
-                    filtersState={filtersState}
-                    items={SIZE_INPUTS}
-                    onInputChange={onInputChange}
-                />
-            )}
+            {activeTab === FiltersTab.Owner && <CheckboxTab name="owner" items={owningTypes?.data || []} />}
+            {activeTab === FiltersTab.Size && <InputTab items={SIZE_INPUTS} />}
+            {activeTab === FiltersTab.Other && <InputTab items={OTHER_INPUTS} />}
             {activeTab && <Divider />}
         </div>
     );

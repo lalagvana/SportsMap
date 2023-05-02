@@ -1,35 +1,45 @@
-import { useRouter } from 'next/router';
+import { mutate } from "swr";
 
-import { Search } from 'src/client/shared/components/Search';
-import { Select } from 'src/client/shared/components/Select';
 import { Button, ButtonType } from 'src/client/shared/components/Button';
 import { useVisible } from 'src/client/shared/hooks/use-visible';
+import { QuerySelect } from 'src/client/shared/components/QuerySelect';
+import { QuerySearch } from 'src/client/shared/components/QuerySearch';
+import { apiRoutes } from "src/client/shared/utils/api/apiRoutes";
 
 import { FileLoadModal } from '../FileLoadModal';
+import { ItemAddModal } from 'src/client/screens/Catalog/components/ItemEditModal/components/ItemAddModal';
+import { sortingSelectOptions } from './FiltersControls.constants';
+
 
 import styles from './FiltersControls.module.css';
 
 export const FiltersControls = () => {
-    const { query } = useRouter();
-
-    const { isVisible, open, hide } = useVisible({});
+    const { isVisible: isFileModalVisible, open: openFileModal, hide: hideFileModal } = useVisible({});
+    const { isVisible: isAddItemModalVisible, open: openAddItemModal, hide: hideAddItemModal } = useVisible({});
 
     return (
         <div className={styles['FiltersControls']}>
             <fieldset className={styles['FiltersControls-Fieldset']}>
-                <Search className={styles['FiltersControls-Search']} initialValue="" onSearch={() => {}} />
-                <Select
-                    value={query['order_by']}
+                <QuerySearch
+                    className={styles['FiltersControls-Search']}
+                    onSuccess={() => mutate(apiRoutes.facilitySearch)}
+                />
+                <QuerySelect
+                    name="order_by"
                     placeholder="Сортировка"
-                    options={[{ label: 'По площади', value: 'area' }]}
+                    options={sortingSelectOptions}
+                    onSuccess={() => mutate(apiRoutes.facilitySearch)}
                 />
             </fieldset>
             <div className={styles['FiltersControls-ButtonGroup']}>
                 <Button view={ButtonType.Active} text="Скачать отчет" />
-                <Button view={ButtonType.Active} text="Создать объект" />
-                <Button view={ButtonType.Active} text="Загрузить файл" onClick={open} />
+                <Button view={ButtonType.Active} text="Создать объект" onClick={openAddItemModal} />
+                <Button view={ButtonType.Active} text="Загрузить файл" onClick={openFileModal} />
             </div>
-            {isVisible && <FileLoadModal hide={hide} />}
+            {isFileModalVisible && <FileLoadModal hide={hideFileModal} />}
+            {isAddItemModalVisible && (
+                <ItemAddModal hide={hideAddItemModal} />
+            )}
         </div>
     );
 };

@@ -36,7 +36,7 @@ type UseOnNextTabProps = {
 
 export const useOnNextTab = ({ activeTab, setActiveTab, submitForm }: UseOnNextTabProps) => {
     const clickHandler = useCallback(
-        () => (activeTab === '3' ? submitForm : setActiveTab(String(Number(activeTab) + 1))),
+        () => (activeTab === '3' ? submitForm() : setActiveTab(String(Number(activeTab) + 1))),
         [activeTab, setActiveTab, submitForm]
     );
     const buttonText = useMemo(() => (activeTab === '3' ? 'Сохранить' : 'Далее'), [activeTab]);

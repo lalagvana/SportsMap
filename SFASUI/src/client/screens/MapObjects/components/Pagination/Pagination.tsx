@@ -4,20 +4,21 @@ import Image from 'next/image';
 import { Button, ButtonType } from "src/client/shared/components/Button";
 
 import { LIMIT } from './Pagination.constants';
+import { usePaginationHooks } from "./Pagination.hooks";
 
 import styles from './Pagination.module.css';
 
 type PaginationProps = {
-    onNextClick: () => void;
-    onPrevClick: () => void;
     count: number;
 };
 
-export const Pagination = ({ onNextClick, onPrevClick, count }: PaginationProps) => {
+export const Pagination = ({ count }: PaginationProps) => {
     const router = useRouter();
     const currentPage = Number(router.query['page']) || 1;
     const showNext = Math.ceil(count / LIMIT) > currentPage;
     const showPrev = currentPage > 1;
+
+    const { onNextClick, onPrevClick } = usePaginationHooks();
 
     return (
         <div className={styles['Pagination']}>

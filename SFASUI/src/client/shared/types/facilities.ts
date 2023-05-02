@@ -31,7 +31,7 @@ export type FacilityType = {
     type: string;
     phone_number?: string;
     site?: string;
-    working_hours: WorkingHoursType;
+    working_hours?: WorkingHoursType;
     age: string[];
     paying_type: string[];
     owner: string;

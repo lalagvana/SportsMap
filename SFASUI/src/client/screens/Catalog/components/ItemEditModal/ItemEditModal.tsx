@@ -14,9 +14,10 @@ import styles from './ItemEditModal.module.css';
 type ItemEditModalProps = {
     handleSubmit: (fields: FacilityType, formikHelpers: FormikHelpers<FacilityType>) => Promise<void>;
     initialValues: FacilityType;
+    hide: () => void;
 };
 
-export const ItemEditModal = ({ handleSubmit, initialValues }: ItemEditModalProps) => {
+export const ItemEditModal = ({ handleSubmit, initialValues, hide }: ItemEditModalProps) => {
     const items = useTabs();
 
     const formikStateAndHelpers = useFormik<FacilityType>({
@@ -36,11 +37,14 @@ export const ItemEditModal = ({ handleSubmit, initialValues }: ItemEditModalProp
     return (
         <FormikProvider value={formikStateAndHelpers}>
             <Modal
-                open
+                visible
                 title={<h2 className={styles['ItemEditModal-Title']}>Создание спортивного объекта</h2>}
                 closeIcon={<Image width={10} height={10} src="/icons/close.svg" layout="fixed" />}
                 footer={<Button onClick={clickHandler} text={buttonText} />}
                 width={1110}
+                destroyOnClose
+                afterClose={hide}
+                onCancel={hide}
             >
                 <Tabs items={items} activeKey={activeTab} onChange={onTabChange} />
             </Modal>
