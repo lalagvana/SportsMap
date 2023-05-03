@@ -16,6 +16,7 @@ export type MarkdownEditorProps = {
     placeholder?: string;
     required?: boolean;
     disabled?: boolean;
+    hiddenLabel?: boolean;
 };
 
 const MDEditor = dynamic<MDEditorProps>(() => import('@uiw/react-md-editor').then((mod) => mod.default), {
@@ -23,7 +24,7 @@ const MDEditor = dynamic<MDEditorProps>(() => import('@uiw/react-md-editor').the
 });
 
 export const MarkdownEditor: FC<MarkdownEditorProps> = (props) => {
-    const { fieldName, label, required = false, disabled = false, placeholder } = props;
+    const { fieldName, label, required = false, disabled = false, placeholder, hiddenLabel = false, className } = props;
     const [field, meta] = useField(fieldName);
 
     const showError = Boolean(meta.touched) && Boolean(meta.error);
@@ -45,15 +46,17 @@ export const MarkdownEditor: FC<MarkdownEditorProps> = (props) => {
 
     return (
         <Field
+            className={className}
             htmlFor={fieldName}
             label={label}
             required={required}
             error={showError ? meta.error : undefined}
+            hiddenLabel={hiddenLabel}
         >
             <MDEditor
-              preview="edit"
-              className={styles['MarkdownEditor']}
-              textareaProps={{
+                preview="edit"
+                className={styles['MarkdownEditor']}
+                textareaProps={{
                     name: fieldName,
                     disabled,
                     required,
@@ -62,7 +65,7 @@ export const MarkdownEditor: FC<MarkdownEditorProps> = (props) => {
                 }}
                 value={value}
                 onChange={handleChangeValue}
-                lang='ru'
+                lang="ru"
             />
         </Field>
     );

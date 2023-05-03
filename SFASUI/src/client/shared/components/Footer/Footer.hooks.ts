@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback } from "react";
 import { subscribeEmail } from 'src/client/shared/utils/api/emails';
 
 import { FooterFields } from '.';
@@ -15,3 +15,5 @@ export const useSubscribeHandler = () => {
         [subscribeEmail]
     );
 };
+
+

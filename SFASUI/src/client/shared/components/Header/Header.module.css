@@ -1,0 +1,42 @@
+.Header {
+    display: flex;
+    align-items: center;
+
+    height: 70px;
+
+    background-color: var(--white-color);
+    box-shadow: 2px 4px 20px rgb(0 0 0 / 10%);
+}
+
+.Header-Content {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+
+    max-width: 1520px;
+    margin: auto;
+}
+
+.Header-Links {
+    display: flex;
+    gap: var(--space-2xl);
+    align-items: center;
+
+    margin: 0 auto 0 -187px;
+
+    font-size: var(--font-size-l);
+}
+
+.Header-Logo {
+    margin-right: auto;
+}
+
+.Header-Link {
+    color: var(--base-default-color);
+}
+
+.Header-Link_active {
+    font-weight: var(--font-weight-medium);
+    color: var(--base-secondary-color);
+}
