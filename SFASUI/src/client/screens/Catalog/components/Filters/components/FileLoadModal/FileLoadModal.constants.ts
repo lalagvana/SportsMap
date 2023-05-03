@@ -1,1 +1,1 @@
-export const FILE_REQUIREMENTS = ['без вирусов']
+export const FILE_REQUIREMENTS = ['Сверьтесь с шаблоном таблицы']
