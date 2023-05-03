@@ -1,0 +1,15 @@
+.Register-LabelWrapper {
+    align-items: center;
+}
+
+.Register-LabelWrapper, .Register-Input {
+    margin-bottom: var(--space-m);
+}
+
+.Register-Button {
+    margin-top: var(--space-2xl);
+}
+
+.Register-Input {
+   padding-left: calc(20px + var(--space-m))
+}

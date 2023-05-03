@@ -3,9 +3,12 @@ import React from 'react';
 
 import { TextInputField } from 'src/client/shared/components/TextInput/formik/TextInputField';
 import { Button } from 'src/client/shared/components/Button';
+import { TextWithIcon } from 'src/client/shared/components/TextWithIcon';
 
 import { RegisterFormField } from './RegisterForm.types';
 import { INITIAL_REGISTER_FORM_FIELDS } from './RegisterForm.constants';
+
+import styles from './RegisterForm.module.css';
 
 type RegisterFormProps = {
     handleSubmit: (fields: RegisterFormField) => Promise<void>;
@@ -19,25 +22,64 @@ export const RegisterForm = ({ handleSubmit }: RegisterFormProps) => {
 
     return (
         <FormikProvider value={formikStateAndHelpers}>
-            <h1>Зарегистрироваться</h1>
             <form>
-                <TextInputField placeholder="Имя" fieldName="name" label="Имя" />
-                <TextInputField placeholder="Фамилия" fieldName="surname" label="Фамилия" />
+                <TextWithIcon
+                    iconUrl="/icons/auth/user.svg"
+                    width={24}
+                    height={24}
+                    className={styles['Register-LabelWrapper']}
+                >
+                    <TextInputField placeholder="Имя" fieldName="name" label="Имя" hiddenLabel />
+                </TextWithIcon>
                 <TextInputField
-                    type="email"
-                    placeholder="Электронная почта"
-                    fieldName="email"
-                    label="Электронная почта"
+                    placeholder="Фамилия"
+                    fieldName="surname"
+                    label="Фамилия"
+                    hiddenLabel
+                    className={styles['Register-Input']}
                 />
-                <TextInputField type="password" placeholder="Пароль" fieldName="password" label="Пароль" />
+                <TextWithIcon
+                    iconUrl="/icons/auth/mail.svg"
+                    width={24}
+                    height={24}
+                    className={styles['Register-LabelWrapper']}
+                >
+                    <TextInputField
+                        type="email"
+                        placeholder="Электронная почта"
+                        fieldName="email"
+                        label="Электронная почта"
+                        hiddenLabel
+                    />
+                </TextWithIcon>
+                <TextWithIcon
+                    iconUrl="/icons/auth/password.svg"
+                    width={24}
+                    height={24}
+                    className={styles['Register-LabelWrapper']}
+                >
+                    <TextInputField
+                        type="password"
+                        placeholder="Пароль"
+                        fieldName="password"
+                        label="Пароль"
+                        hiddenLabel
+                    />
+                </TextWithIcon>
                 <TextInputField
                     type="password"
                     placeholder="Повторите пароль"
                     fieldName="confirmPassword"
                     label="Повторите пароль"
+                    hiddenLabel
+                    className={styles['Register-Input']}
                 />
-                <Button text="Зарегистрироваться" onClick={formikStateAndHelpers.submitForm} />
             </form>
+            <Button
+                className={styles['Register-Button']}
+                text="Зарегистрироваться"
+                onClick={formikStateAndHelpers.submitForm}
+            />
         </FormikProvider>
     );
 };

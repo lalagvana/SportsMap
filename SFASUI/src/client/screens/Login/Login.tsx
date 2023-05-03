@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 
-import { AnimationReveal } from 'src/client/shared/components/AnimationReveal';
+import { Tabs } from 'src/client/shared/components/Tabs';
 
-import { useLoginHandler, useRegisterHandler } from '.';
-import { LoginForm } from './components/LoginForm';
-import { RegisterForm } from './components/RegisterForm';
+import { useTabs } from './Login.hooks';
+
+import styles from './Login.module.css';
 
 export const Login = () => {
-    const handleSubmitLogin = useLoginHandler();
-    const handleSubmitRegister = useRegisterHandler();
+    const items = useTabs();
+
+    const [activeTab, setActiveTab] = useState('1');
+    const onTabChange = useCallback((value) => setActiveTab(value), [setActiveTab]);
 
     return (
-        <AnimationReveal>
-            <div>
-                <LoginForm handleSubmit={handleSubmitLogin} />
-                <RegisterForm handleSubmit={handleSubmitRegister} />
+        <main className={styles['Login']}>
+            <div className={styles['Login-Form']}>
+                <Tabs items={items} activeKey={activeTab} onChange={onTabChange} />
             </div>
-        </AnimationReveal>
+        </main>
     );
 };
