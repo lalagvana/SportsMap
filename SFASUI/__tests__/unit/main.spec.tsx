@@ -6,7 +6,7 @@ import { Main } from 'src/client/screens/Main';
 describe('Главная страница', () => {
     it('Рендерится кнопка "на карту"', () => {
         const { getByText } = render(<Main />);
-        const button = getByText('На карту');
+        const button = getByText('Перейти на карту');
 
         expect(button).toBeInTheDocument();
     });

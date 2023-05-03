@@ -1,0 +1,12 @@
+.EmailForm {
+    width: 100%;
+    padding: var(--space-xl) var(--space-2l);
+    background-color: var(--white-color);
+    border-radius: var(--border-radius-l);
+}
+
+.EmailForm-TabTitle {
+    font-family: var(--ubuntu);
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-medium);
+}

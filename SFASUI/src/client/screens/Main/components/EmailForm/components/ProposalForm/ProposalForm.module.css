@@ -1,0 +1,58 @@
+.ProposalForm {
+    display: grid;
+    grid-template:
+        'name name email'
+        'notes notes notes'
+        'notes notes notes';
+    gap: var(--space-2l) var(--space-l);
+    margin-bottom: var(--space-2l);
+}
+
+.ProposalForm-Name {
+    display: grid;
+    grid-area: name;
+    grid-template:
+        'label label'
+        'surname firstname';
+    gap: var(--space-s) var(--space-m) ;
+}
+
+.ProposalForm-LabelWrapper {
+    grid-area: label;
+    align-items: center;
+}
+
+.ProposalForm-SurNameInput {
+    grid-area: surname;
+    width: 100%;
+}
+
+.ProposalForm-EmailInput {
+    margin-top: var(--space-s);
+}
+
+.ProposalForm-FirstNameInput {
+    grid-area: firstname;
+    width: 100%;
+}
+
+.ProposalForm-Email {
+    grid-area: email;
+}
+
+.ProposalForm-Notes {
+    grid-area: notes;
+}
+
+.ProposalForm-Label {
+    margin: 0;
+
+    font-family: var(--ubuntu);
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-medium);
+    color: var(--base-default-color);
+}
+
+.ProposalForm-NotesInput {
+    margin-top: var(--space-s);
+}

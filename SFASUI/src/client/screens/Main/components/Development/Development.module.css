@@ -1,0 +1,51 @@
+.Development {
+    min-height: 913px;
+    padding-top: 26px;
+    background-image: url('/images/main/EndBackground.png');
+    background-size: cover;
+}
+
+.Development-Content {
+    max-width: 1520px;
+    margin: auto;
+}
+
+.Development-BigHeading {
+    margin: 0 auto 76px;
+
+    font-family: var(--ubuntu);
+    font-size: 48px;
+    font-weight: var(--font-weight-bold);
+    color: var(--white-color);
+    text-align: center;
+}
+
+.Development-HintText {
+    max-width: 600px;
+
+    font-family: var(--ubuntu);
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-medium);
+    color: var(--white-color);
+}
+
+.Development-Hint {
+    display: flex;
+    gap: var(--space-xl);
+    align-items: center;
+}
+
+.Development-MainBlock {
+    display: flex;
+    gap: var(--space-2l);
+    margin-top: var(--space-2l);
+}
+
+.Development-ContactsBlock {
+    width: max-content;
+    height: fit-content;
+    padding: var(--padding-2l);
+
+    background-color: rgb(255 255 255 / 60%);
+    border-radius: var(--border-radius-l);
+}

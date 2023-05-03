@@ -6,12 +6,14 @@ import Image from 'next/image';
 type TextWithIcon = PropsWithChildren<{
     iconUrl: string;
     className?: string;
+    width?: number;
+    height?: number;
 }>;
 
-export const TextWithIcon = ({ iconUrl, children, className }: TextWithIcon) => (
+export const TextWithIcon = ({ iconUrl, children, className, width = 20, height = 20 }: TextWithIcon) => (
     <div className={[styles['TextWithIcon'], className].join(' ')}>
         <div className={styles['TextWithIcon-IconContainer']}>
-            <Image width={20} height={20} src={iconUrl} layout="fixed" />
+            <Image width={width} height={height} src={iconUrl} layout="fixed" />
         </div>
         {children}
     </div>

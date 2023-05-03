@@ -1,0 +1,64 @@
+.NewObjectForm {
+    display: flex;
+    gap: var(--space-2l);
+    margin-bottom: var(--space-2l);
+}
+
+.NewObjectForm-InputColumn,
+.NewObjectForm-RequirementsColumn {
+    display: flex;
+    flex-basis: 50%;
+    flex-direction: column;
+}
+
+.NewObjectForm-LabelWrapper {
+    align-items: center;
+    margin: var(--space-m) 0 var(--space-s);
+}
+
+.NewObjectForm-LabelWrapper:first-child {
+    margin: 0 0 var(--space-s);
+}
+
+.NewObjectForm-Label {
+    margin: 0;
+
+    font-family: var(--ubuntu);
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-medium);
+    color: var(--base-default-color);
+}
+
+.NewObjectForm-RequirementsColumn {
+    padding: var(--padding-xl);
+    background-color: var(--field-color);
+    border-radius: var(--border-radius-l);
+}
+
+.NewObjectForm-RequirementsWrapper {
+    width: fit-content;
+    margin-bottom: var(--space-s);
+    padding: 6px 14px;
+
+    background-color: var(--base-additional-color);
+    border-radius: 20px;
+}
+
+.NewObjectForm-Heading {
+    font-family: var(--ubuntu);
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-medium);
+    color: var(--white-color);
+}
+
+.NewObjectForm-RequirementsList {
+    display: list-item;
+
+    margin-left: 12px;
+
+    font-size: var(--font-size-m);
+    color: var(--black-color);
+    list-style: disc;
+}
+
+
