@@ -13,5 +13,5 @@ type ItemAddModalProps = {
 export const ItemModifyModal = ({ hide, initialValues }: ItemAddModalProps) => {
     const submitHandler = useSubmitHandler({ onSuccess: hide, id: initialValues.id });
 
-    return <ItemEditModal initialValues={initialValues} handleSubmit={submitHandler} hide={hide} />;
+    return <ItemEditModal initialValues={initialValues} handleSubmit={submitHandler} hide={hide} isNew={false}/>;
 };

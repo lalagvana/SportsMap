@@ -2,7 +2,7 @@
     align-items: center;
 }
 
-.Register-LabelWrapper, .Register-Input {
+.Register-LabelWrapper, .Register-Input_noIcon {
     margin-bottom: var(--space-m);
 }
 
@@ -10,6 +10,10 @@
     margin-top: var(--space-2xl);
 }
 
-.Register-Input {
-   padding-left: calc(20px + var(--space-m))
+.Register-Input_noIcon {
+   padding-left: calc(20px + var(--space-m));
+}
+
+.Register-Input, .Register-Input_noIcon {
+    flex-grow: 1;
 }

@@ -8,7 +8,7 @@ import { PhotoUploader } from './components/PhotoUploader';
 
 import styles from './AdditionalInfoForm.module.css';
 
-export const AdditionalInfoForm = () => {
+export const AdditionalInfoForm = ({ isNew }: { isNew: boolean }) => {
     const owningTypeSelectOptions = useOwningTypeSelectOptions();
     const coveringTypeSelectOptions = useCoveringTypeSelectOptions();
 
@@ -31,7 +31,7 @@ export const AdditionalInfoForm = () => {
                         fieldName="annual_capacity"
                         label="Годовая мощность"
                         placeholder="чел./год"
-                        type='number'
+                        type="number"
                     />
                 </div>
                 <div className={styles['AdditionalInfo-InputSection']}>
@@ -41,7 +41,7 @@ export const AdditionalInfoForm = () => {
                         fieldName="eps"
                         label="ЕПС"
                         placeholder="чел."
-                        type='number'
+                        type="number"
                     />
                     <TextInputField
                         inputClassName={styles['AdditionalInfo-CapacityInput']}
@@ -49,7 +49,7 @@ export const AdditionalInfoForm = () => {
                         fieldName="actual_workload"
                         label="Фактическая загруженность"
                         placeholder="чел./час"
-                        type='number'
+                        type="number"
                     />
                 </div>
                 <MarkdownEditor
@@ -68,7 +68,7 @@ export const AdditionalInfoForm = () => {
                     label="Площадь"
                     required
                     placeholder="м²"
-                    type='number'
+                    type="number"
                 />
                 <div className={styles['AdditionalInfo-InputSection']}>
                     {PHYSICAL_TRAITS.map(({ name, fieldName }) => (
@@ -78,7 +78,8 @@ export const AdditionalInfoForm = () => {
                             fieldName={fieldName}
                             label={name}
                             placeholder="м"
-                            type='number'
+                            type="number"
+                            key={fieldName}
                         />
                     ))}
                 </div>
@@ -90,7 +91,8 @@ export const AdditionalInfoForm = () => {
                     label="Тип покрытия"
                     options={coveringTypeSelectOptions}
                 />
-                <PhotoUploader />
+                {!isNew && <PhotoUploader />}
+                {isNew && <p  className={styles['AdditionalInfo-PhotoText']}>Чтобы добавить фотографии к объекту, сначала создайте его</p>}
             </div>
         </form>
     );

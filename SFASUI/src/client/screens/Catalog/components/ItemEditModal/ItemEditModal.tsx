@@ -15,10 +15,11 @@ type ItemEditModalProps = {
     handleSubmit: (fields: FacilityType, formikHelpers: FormikHelpers<FacilityType>) => Promise<void>;
     initialValues: FacilityType;
     hide: () => void;
+    isNew: boolean;
 };
 
-export const ItemEditModal = ({ handleSubmit, initialValues, hide }: ItemEditModalProps) => {
-    const items = useTabs();
+export const ItemEditModal = ({ handleSubmit, initialValues, hide, isNew }: ItemEditModalProps) => {
+    const items = useTabs(isNew);
 
     const formikStateAndHelpers = useFormik<FacilityType>({
         initialValues: initialValues,
@@ -37,7 +38,7 @@ export const ItemEditModal = ({ handleSubmit, initialValues, hide }: ItemEditMod
     return (
         <FormikProvider value={formikStateAndHelpers}>
             <Modal
-                visible
+                open
                 title={<h2 className={styles['ItemEditModal-Title']}>Создание спортивного объекта</h2>}
                 closeIcon={<Image width={10} height={10} src="/icons/close.svg" layout="fixed" />}
                 footer={<Button onClick={clickHandler} text={buttonText} />}

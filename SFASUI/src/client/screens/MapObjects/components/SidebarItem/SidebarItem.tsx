@@ -13,7 +13,9 @@ type SidebarItemProps = {
 };
 
 export const SidebarItem = ({ onClick, item }: SidebarItemProps) => {
-    const { name, address, age, type } = item;
+    const { name, address, age, type, photo } = item;
+
+    const hasPhoto = photo && photo.length > 0;
 
     return (
         <article onClick={onClick} className={styles['SidebarItem']}>
@@ -31,7 +33,13 @@ export const SidebarItem = ({ onClick, item }: SidebarItemProps) => {
                 </span>
             </TextWithIcon>
             <div className={styles['SidebarItem-Photo']}>
-                <Image src="/images/imagePlaceholder.png" width={140} height={140} />
+                <Image
+                    style={{ borderRadius: '10px' }}
+                    objectFit="cover"
+                    src={hasPhoto ? photo[0].url : '/images/imagePlaceholder.png'}
+                    width={140}
+                    height={140}
+                />
             </div>
         </article>
     );

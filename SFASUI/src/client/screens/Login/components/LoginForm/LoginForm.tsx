@@ -35,6 +35,7 @@ export const LoginForm = ({ handleSubmit }: LoginFormProps) => {
                         fieldName="email"
                         label="Электронная почта"
                         hiddenLabel
+                        className={styles['Login-Input']}
                     />
                 </TextWithIcon>
                 <TextWithIcon
@@ -49,6 +50,7 @@ export const LoginForm = ({ handleSubmit }: LoginFormProps) => {
                         fieldName="password"
                         label="Пароль"
                         hiddenLabel
+                        className={styles['Login-Input']}
                     />
                 </TextWithIcon>
             </form>

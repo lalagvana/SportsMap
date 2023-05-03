@@ -25,6 +25,7 @@ export const Button = ({
     children,
 }: ButtonProps) => (
     <button
+        type="button"
         onClick={onClick}
         className={[
             styles['Button'],

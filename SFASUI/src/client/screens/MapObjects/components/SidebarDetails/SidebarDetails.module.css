@@ -1,5 +1,6 @@
 .SidebarDetails {
     pointer-events: auto;
+    position: relative;
 
     box-sizing: border-box;
     width: var(--width-map-sidebar);
@@ -21,8 +22,20 @@
 .SidebarDetails-Back {
     cursor: pointer;
     width: fit-content;
+
+    position: absolute;
+    z-index: 10;
+
 }
 
 .SidebarDetails-CatalogButton {
     margin-top: var(--space-2m);
+}
+
+.SidebarDetails-Photo {
+    margin: calc((-1) * var(--padding-xl)) 0 0 calc((-1) * var(--padding-xl));
+}
+
+.SidebarDetails-Name_top {
+    margin: calc(var(--space-l) + var(--space-2m)) 0 var(--space-xl);
 }

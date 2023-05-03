@@ -23,10 +23,10 @@ export const apiRoutes = {
     excelImport: `${BACKEND_URL}/excel/import`,
     excelValidate: `${BACKEND_URL}/excel/validate`,
 
-    facilityPhoto(id: number) {
+    facilityPhoto(id: string) {
         return `${BACKEND_URL}/facility/${id}/photo`;
     },
-    facilityPhotoDelete(id: number, photoId: number) {
+    facilityPhotoDelete(id: string, photoId: string) {
         return `${BACKEND_URL}/facility/${id}/photo/${photoId}`;
     },
 };

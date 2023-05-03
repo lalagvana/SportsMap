@@ -39,3 +39,9 @@
 .AdditionalInfo-Markdown {
     width: 100%;
 }
+
+.AdditionalInfo-PhotoText {
+    color: var(--typography-default-color);
+    margin: 0;
+    font-size: var(--font-size-m);
+}

@@ -1,7 +1,6 @@
 .Field {
     display: grid;
     grid-auto-flow: row;
-    flex-grow: 1;
 }
 
 .Field-Caption {
