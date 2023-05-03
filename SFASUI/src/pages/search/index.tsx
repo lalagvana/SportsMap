@@ -1,7 +1,9 @@
 import React from 'react';
-import { GetServerSideProps, NextPage } from 'next';
+import { GetServerSideProps } from 'next';
 
-import { Catalog } from 'src/client/screens/Catalog';
+import { ExtendedNextPage } from 'src/client/shared/types/next';
+
+import { Catalog, catalogLayoutRenderer } from 'src/client/screens/Catalog';
 
 import NextError from 'src/pages/_error';
 
@@ -16,12 +18,14 @@ export const getServerSideProps: GetServerSideProps<SearchPageProps> = async () 
     };
 };
 
-const SearchPage: NextPage<SearchPageProps> = ({ data, error }: SearchPageProps) => {
+const SearchPage: ExtendedNextPage<SearchPageProps> = ({ data, error }: SearchPageProps) => {
     if (error) {
         return <NextError statusCode={500} />;
     }
 
     return <Catalog {...data} />;
 };
+
+SearchPage.layoutRenderer = catalogLayoutRenderer;
 
 export default SearchPage;
