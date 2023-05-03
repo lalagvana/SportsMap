@@ -1,0 +1,50 @@
+.Beginning {
+    position: relative;
+
+    height: 695px;
+
+    background-image: url('/images/main/BeginBackground.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.Beginning-Girl {
+    position: absolute;
+    right: 20%;
+    bottom: 48px;
+}
+
+.Beginning-Greeting {
+    position: absolute;
+    z-index: 5;
+    top: 30%;
+    left: 22%;
+
+    max-width: 530px;
+}
+
+.Beginning-Heading {
+    margin: 0 0 var(--space-2l);
+
+    font-family: var(--ubuntu);
+    font-size: 52px;
+    font-weight: var(--font-weight-bold);
+    color: var(--white-color);
+}
+
+.Beginning-Caption {
+    max-width: 291px;
+    margin: 0 0 var(--space-l);
+    font-size: var(--font-size-l);
+    line-height: 150%;
+}
+
+.Beginning-Button {
+    background-color: #ea6d0a;
+}
+
+.Beginning-LinkText {
+    font-family: var(--ubuntu);
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-medium);
+}

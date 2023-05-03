@@ -1,0 +1,78 @@
+.Achievements {
+    display: flex;
+    align-items: center;
+    min-height: 875px;
+}
+
+.Achievements-Content {
+    max-width: 1160px;
+    margin: auto;
+}
+
+.Achievements-ImageContainer {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    justify-items: center;
+}
+
+.Achievements-Heading {
+    font-family: var(--ubuntu);
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-medium);
+    color: var(--white-color);
+}
+
+.Achievements-Text {
+    max-width: 200px;
+    font-size: var(--font-size-l);
+    color: var(--black-color);
+    text-align: center;
+}
+
+.Achievements-Label {
+    width: fit-content;
+    margin-bottom: var(--space-s);
+    padding: 6px 14px;
+
+    background-color: var(--base-secondary-color);
+    border-radius: 20px;
+}
+
+.Achievements-Image {
+    display: flex;
+    gap: var(--space-m);
+    align-items: center;
+}
+
+.Achievements-Image_achievementSearch {
+    align-self: flex-end;
+    margin-top: 10%;
+}
+
+.Achievements-Image_achievementDifference {
+    align-self: flex-start;
+}
+
+.Achievements-Image_achievementAccess {
+    align-self: flex-end;
+}
+
+.Achievements-Image_achievementAdministration {
+    align-self: flex-start;
+}
+
+.Achievements-BigHeading {
+    margin: 0 auto 78px;
+
+    font-family: var(--ubuntu);
+    font-size: 48px;
+    font-weight: var(--font-weight-bold);
+    color: var(--base-default-color);
+    text-align: center;
+}
+
+.Achievements-Image {
+    display: flex;
+    flex-direction: column;
+}

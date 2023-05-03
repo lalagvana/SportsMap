@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { Header } from 'src/client/shared/components/Header';
-import { Footer } from 'src/client/shared/components/Footer';
 import { useFacilitySearch } from 'src/client/shared/utils/api/facilities';
+import { appLayoutRenderer } from 'src/client/shared/layouts/AppLayout/AppLayout';
 
 import { Filters } from './components/Filters';
 import { useSearchQuery } from './Catalog.hooks';
@@ -22,22 +21,21 @@ export const Catalog = () => {
     });
 
     return (
-        <div className={styles['Catalog']}>
-            <Header />
-            <main className={styles['Catalog-Main']}>
-                <Filters className={styles['Catalog-Filters']} />
-                <section className={styles['Catalog-Found']}>
-                    <span className={styles['Catalog-Found_text']}>Найдено объектов: </span>
-                    <output className={styles['Catalog-Found_count']}>{facilityObjects?.count || 0}</output>
-                </section>
-                {facilityObjects?.facilities && (
-                    <CatalogCardGrid items={facilityObjects?.facilities} />
-                )}
-                {facilityObjects?.count && facilityObjects?.count > LIMIT && (
-                    <CatalogPagination className={styles['Catalog-Pagination']} total={facilityObjects?.count}/>
-                )}
-            </main>
-            <Footer />
-        </div>
+        <main className={styles['Catalog-Main']}>
+            <Filters className={styles['Catalog-Filters']} />
+            <section className={styles['Catalog-Found']}>
+                <span className={styles['Catalog-Found_text']}>Найдено объектов: </span>
+                <output className={styles['Catalog-Found_count']}>{facilityObjects?.count || 0}</output>
+            </section>
+            {facilityObjects?.facilities && <CatalogCardGrid items={facilityObjects?.facilities} />}
+            {facilityObjects?.count && facilityObjects?.count > LIMIT && (
+                <CatalogPagination className={styles['Catalog-Pagination']} total={facilityObjects?.count} />
+            )}
+        </main>
     );
 };
+
+export const catalogLayoutRenderer = appLayoutRenderer(styles['Catalog']);
+
+
+
