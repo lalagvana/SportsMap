@@ -1,0 +1,8 @@
+.Login-LabelWrapper {
+    align-items: center;
+    margin-bottom: var(--space-m);
+}
+
+.Login-Button {
+    margin-top: var(--space-2xl);
+}
