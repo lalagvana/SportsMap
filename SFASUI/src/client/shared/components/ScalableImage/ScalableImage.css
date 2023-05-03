@@ -1,0 +1,8 @@
+.ant-image-img {
+    object-fit: cover;
+    border-radius: var(--border-radius-l);
+}
+
+.ant-image-mask {
+    border-radius: var(--border-radius-l);
+}

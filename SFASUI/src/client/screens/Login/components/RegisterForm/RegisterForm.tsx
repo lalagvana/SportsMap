@@ -29,14 +29,20 @@ export const RegisterForm = ({ handleSubmit }: RegisterFormProps) => {
                     height={24}
                     className={styles['Register-LabelWrapper']}
                 >
-                    <TextInputField placeholder="Имя" fieldName="name" label="Имя" hiddenLabel />
+                    <TextInputField
+                        placeholder="Имя"
+                        fieldName="name"
+                        label="Имя"
+                        hiddenLabel
+                        className={styles['Register-Input']}
+                    />
                 </TextWithIcon>
                 <TextInputField
                     placeholder="Фамилия"
                     fieldName="surname"
                     label="Фамилия"
                     hiddenLabel
-                    className={styles['Register-Input']}
+                    className={styles['Register-Input_noIcon']}
                 />
                 <TextWithIcon
                     iconUrl="/icons/auth/mail.svg"
@@ -50,6 +56,7 @@ export const RegisterForm = ({ handleSubmit }: RegisterFormProps) => {
                         fieldName="email"
                         label="Электронная почта"
                         hiddenLabel
+                        className={styles['Register-Input']}
                     />
                 </TextWithIcon>
                 <TextWithIcon
@@ -64,6 +71,7 @@ export const RegisterForm = ({ handleSubmit }: RegisterFormProps) => {
                         fieldName="password"
                         label="Пароль"
                         hiddenLabel
+                        className={styles['Register-Input']}
                     />
                 </TextWithIcon>
                 <TextInputField
@@ -72,7 +80,7 @@ export const RegisterForm = ({ handleSubmit }: RegisterFormProps) => {
                     fieldName="confirmPassword"
                     label="Повторите пароль"
                     hiddenLabel
-                    className={styles['Register-Input']}
+                    className={styles['Register-Input_noIcon']}
                 />
             </form>
             <Button

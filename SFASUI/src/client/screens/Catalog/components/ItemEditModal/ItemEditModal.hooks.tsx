@@ -6,7 +6,7 @@ import { AdditionalInfoForm } from './components/AdditionalInfoForm';
 
 import styles from './ItemEditModal.module.css';
 
-export const useTabs = () =>
+export const useTabs = (isNew: boolean) =>
     useMemo(
         () => [
             {
@@ -22,10 +22,10 @@ export const useTabs = () =>
             {
                 label: <h3 className={styles['ItemEditModal-TabTitle']}>Дополнительная информация</h3>,
                 key: '3',
-                children: <AdditionalInfoForm />,
+                children: <AdditionalInfoForm isNew={isNew}/>,
             },
         ],
-        []
+        [isNew]
     );
 
 type UseOnNextTabProps = {

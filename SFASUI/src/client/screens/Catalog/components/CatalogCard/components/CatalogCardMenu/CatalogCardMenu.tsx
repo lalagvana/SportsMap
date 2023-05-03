@@ -19,8 +19,8 @@ export const CatalogCardMenu = ({ item, hidePopup }: CatalogCardMenuProps) => {
     return (
         <>
             <ul className={styles['CatalogCardMenu']}>
-                {menuItems.map(({ text, onClick }, index) => (
-                    <li className={styles['CatalogCardMenu-Item']} key={index} onClick={onClick}>
+                {menuItems.map(({ text, onClick }) => (
+                    <li className={styles['CatalogCardMenu-Item']} key={text} onClick={onClick}>
                         {text}
                     </li>
                 ))}

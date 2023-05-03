@@ -6,3 +6,7 @@
 .Login-Button {
     margin-top: var(--space-2xl);
 }
+
+.Login-Input {
+    flex-grow: 1;
+}

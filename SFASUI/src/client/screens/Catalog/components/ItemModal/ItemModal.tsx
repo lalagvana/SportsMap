@@ -4,6 +4,7 @@ import { Modal } from 'src/client/shared/components/Modal';
 import { CardHeader } from 'src/client/shared/components/CardHeader';
 import { FacilityType } from 'src/client/shared/types/facilities';
 import { useFacility } from 'src/client/shared/utils/api/facilities';
+import { PhotoCarousel } from "src/client/shared/components/PhotoCarousel";
 
 import { Accordeon } from 'src/client/screens/Catalog/components/ItemModal/components/Accordeon';
 
@@ -40,7 +41,9 @@ export const ItemModal = ({ item: initialItem, hide }: ItemModalProps) => {
             <div className={styles['ItemModal']}>
                 {item && <Accordeon item={item} className={styles['ItemModal-Info']} />}
                 <div className={styles['ItemModal-Aside']}>
-                    {item?.photo && item?.photo.length > 0 && <section className={styles['ItemModal-Photo']}></section>}
+                    {item?.photo && item?.photo.length > 0 && <section className={styles['ItemModal-Photo']}>
+                        <PhotoCarousel photos={item.photo} width={432} height={276}/>
+                    </section>}
                     <section className={styles['ItemModal-Map']}></section>
                 </div>
             </div>

@@ -8,7 +8,7 @@ import { useOnFileChange } from './PhotoUploader.hooks';
 import styles from './PhotoUploader.module.css';
 
 export const PhotoUploader = () => {
-    const { uploadHandler, removeHandler } = useOnFileChange();
+    const { uploadHandler, fileList } = useOnFileChange();
 
     return (
         <div className={styles['PhotoUploader']}>
@@ -16,7 +16,7 @@ export const PhotoUploader = () => {
                 <span className={styles['PhotoUploader-Label_main']}>Фотографии</span>
                 <span className={styles['PhotoUploader-Label_subtext']}>(максимальное количество: 5)</span>
             </div>
-            <Upload onChange={uploadHandler} onRemove={removeHandler} showUploadList multiple maxCount={5}>
+            <Upload onChange={uploadHandler} maxCount={5} fileList={fileList} listType="picture">
                 <Button text="Загрузить" />
             </Upload>
         </div>

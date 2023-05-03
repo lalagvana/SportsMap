@@ -11,4 +11,7 @@ module.exports = withConfig({
     env: {
         BASE_PATH,
     },
+    images: {
+        domains: ['storage.yandexcloud.net'],
+    },
 });
