@@ -1,33 +1,96 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { toast } from 'react-toastify';
+import type { UploadFile } from 'antd/es/upload/interface';
+import { mutate } from 'swr';
+import { UploadChangeParam } from 'antd/es/upload/interface';
 
-import { validateExcel } from 'src/client/shared/utils/api/excel';
+import { excelImport, validateExcel } from 'src/client/shared/utils/api/excel';
+import { apiRoutes } from 'src/client/shared/utils/api/apiRoutes';
+import { prepareMessage } from 'src/client/shared/utils/notifications';
 
-export const useOnFileChange = () => {
+export const useOnFileChange = (onSuccess: () => void) => {
+    const [isLoading, setIsLoading] = useState(false);
     const [validationStatus, setValidationStatus] = useState<null | boolean>(null);
+    const [fileList, setFileList] = useState<UploadFile[]>([]);
 
     const uploadHandler = useCallback(
-        async ({ file }) => {
-            if (file) {
+        async ({ file }: UploadChangeParam) => {
+            if (file.status === 'removed') {
+                setValidationStatus(null);
+                setFileList([]);
+                return;
+            }
+
+            if (file.status === 'done') {
+                setFileList([file]);
+            }
+
+            if (file && fileList[0]?.uid !== file.uid) {
                 try {
+                    setIsLoading(true);
+                    setFileList([file]);
                     await validateExcel(file);
                     setValidationStatus(true);
+                    setIsLoading(false);
                 } catch (e) {
-                    toast.error(e.message);
+                    setIsLoading(false);
+                    toast.error(prepareMessage(e, 'Ошибка валидации файла'));
                     setValidationStatus(false);
                 }
-            } else {
-                setValidationStatus(null);
             }
         },
-        [validateExcel, setValidationStatus]
+        [validateExcel, setValidationStatus, setFileList, fileList]
     );
 
-    const removeHandler = useCallback(() => setValidationStatus(null), [setValidationStatus]);
+    const saveHandler = useCallback(async () => {
+        try {
+            if (fileList.length === 0) {
+                throw Error('Загрузите валидный файл');
+            }
+
+            if (fileList[0]) {
+                await excelImport(fileList[0]);
+                setValidationStatus(null);
+                setFileList([]);
+            }
+            toast.success('Вы успешно загрузили файл');
+            onSuccess();
+            await mutate(apiRoutes.facilitySearch);
+        } catch (e) {
+            toast.error(e.message);
+        }
+    }, [setFileList, setValidationStatus, fileList, validationStatus, onSuccess]);
 
     return {
         validationStatus,
         uploadHandler,
-        removeHandler,
+        saveHandler,
+        isLoading,
+        fileList,
     };
 };
+
+export const useValidation = (status: boolean | null, progress: boolean) =>
+    useMemo(() => {
+        if (progress) {
+            return {
+                text: 'файл проверяется',
+                icon: '/icons/excel/blue.png',
+                color: 'blue',
+            };
+        }
+
+        if (status) {
+            return {
+                text: 'файл прошёл проверку',
+                icon: '/icons/excel/green.png',
+                color: 'green',
+            };
+        }
+
+        return {
+            text: 'файл не прошёл проверку',
+            icon: '/icons/excel/red.png',
+            color: 'red',
+        };
+    }, [status, progress]);

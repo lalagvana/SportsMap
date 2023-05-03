@@ -1,20 +1,57 @@
-.FiltersControls-Fieldset {
-    display: flex;
-    gap: var(--space-m);
+.FileLoadModal-Title {
+    font-family: var(--ubuntu);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-medium);
+}
 
+.FileLoadModal-Requirements {
+    color: var(--typography-default-color);
+    font-size: var(--font-size-m);
+    margin: var(--space-xl) 0;
+}
+
+.FileLoadModal-RequirementsTitle {
     margin: 0;
-    padding: 0;
-
-    border: none;
 }
 
-.FiltersControls {
-    display: flex;
-    justify-content: space-between;
+.FileLoadModal-List {
+    list-style: disc;
+    display: list-item;
+    margin-left: 12px;
+}
+
+.FileLoadModal-UploadSection {
     width: 100%;
+    gap: var(--space-2l);
+    margin-bottom: var(--space-2l);
+    position: relative;
 }
 
-.FiltersControls-ButtonGroup {
-    display: flex;
-    gap: var(--space-l);
+.FileLoadModal-Validation {
+    position: absolute;
+    top: 4px;
+    left: 150px;
+    border-radius: var(--border-radius-m);
+    border: solid 1px black;
+    padding: 2px var(--space-s);
+    align-items: center;
+}
+
+.FileLoadModal-Validation_blue {
+    background-color: #EDF3F9;
+    border-color: #2C96B8;
+    color: #2C96B8;
+}
+
+.FileLoadModal-Validation_red {
+    background-color: #FCF0F0;
+    border-color: #EB5353;
+    color: #EB5353;
+}
+
+
+.FileLoadModal-Validation_green {
+    background-color: #EBFFFB;
+    border-color: #00B695;
+    color: #00B695;
 }

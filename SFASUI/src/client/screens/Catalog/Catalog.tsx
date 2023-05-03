@@ -17,7 +17,7 @@ export const Catalog = () => {
     const { data: facilityObjects } = useFacilitySearch(searchQuery, {
         revalidateOnFocus: false,
         revalidateOnReconnect: false,
-        revalidateOnMount: true,
+        revalidateOnMount: false,
     });
 
     return (
