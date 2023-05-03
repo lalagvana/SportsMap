@@ -1,2 +1,2 @@
 export * from './Achievements';
-export * from './Achievements.cosntants'
+export * from './Achievements.constants';
