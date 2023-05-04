@@ -1,14 +1,14 @@
-:where(.css-dev-only-do-not-override-1me4733).ant-collapse>.ant-collapse-item-active.ant-collapse-item >.ant-collapse-header .ant-collapse-expand-icon {
+.ant-collapse>.ant-collapse-item-active.ant-collapse-item >.ant-collapse-header .ant-collapse-expand-icon {
     transform: rotate(180deg);
     padding-inline-start: 12px;
     padding-inline-end: 0;
 }
 
-:where(.css-dev-only-do-not-override-1me4733).ant-collapse .ant-collapse-content>.ant-collapse-content-box {
+.ant-collapse .ant-collapse-content>.ant-collapse-content-box {
     padding: 16px 0;
 }
 
-:where(.css-dev-only-do-not-override-1me4733).ant-collapse>.ant-collapse-item >.ant-collapse-header {
+.ant-collapse>.ant-collapse-item >.ant-collapse-header {
     padding: 12px 0;
 }
 

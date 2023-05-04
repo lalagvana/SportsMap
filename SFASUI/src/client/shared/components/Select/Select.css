@@ -1,15 +1,15 @@
 .ant-select-selector {
-    height: 36px !important;
+    height: 40px !important;
     background-color: var(--field-color) !important;
 }
 
-:where(.css-dev-only-do-not-override-1me4733).ant-select-single .ant-select-selector .ant-select-selection-item,
-:where(.css-dev-only-do-not-override-1me4733).ant-select-single .ant-select-selector .ant-select-selection-placeholder {
-    line-height: 34px;
+.ant-select-single .ant-select-selector .ant-select-selection-item,
+.ant-select-single .ant-select-selector .ant-select-selection-placeholder {
+    line-height: 38px;
 }
 
-:where(.css-dev-only-do-not-override-1me4733).ant-select-single .ant-select-selector,
-.ant-select-item-option-content {
+.ant-select-single .ant-select-selector,
+.ant-select-item-option-content, .ant-select-selection-item {
     font-size: var(--font-size-m);
 }
 

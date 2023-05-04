@@ -3,14 +3,16 @@ import Image from 'next/image';
 import { FormikProvider, useFormik } from 'formik';
 
 import { TextInputField } from 'src/client/shared/components/TextInput/formik/TextInputField';
-
 import { Button } from 'src/client/shared/components/Button';
 import { Contacts } from 'src/client/shared/components/Contacts';
 
+import VkIcon from 'src/client/images/vk-logo.svg';
+import TelegramIcon from 'src/client/images/telegram-logo.svg'
+
 import { useSubscribeHandler, FOOTER_INITIAL_FIELDS, FooterFields } from '.';
+import { useSchema } from './Footer.schema';
 
 import styles from './Footer.module.css';
-import { useSchema } from './Footer.schema';
 
 export const Footer = () => {
     const handleSubmit = useSubscribeHandler();
@@ -32,8 +34,8 @@ export const Footer = () => {
                 <section className={styles['Footer-Section']}>
                     <h2 className={styles['Footer-Header']}>Мы в социальных сетях</h2>
                     <div className={styles['Footer-ImageContainer']}>
-                        <Image width={44} height={26} src="/images/contacts/VKLogo.png" layout="fixed" />
-                        <Image width={32} height={26} src="/images/contacts/TGLogo.png" layout="fixed" />
+                        <Image width={44} height={26} src={VkIcon} layout="fixed" />
+                        <Image width={32} height={26} src={TelegramIcon} layout="fixed" />
                     </div>
                     <span className={styles['Footer-Header_mini']}>Создано при поддержке</span>
                     <Image width={160} height={47} src="/images/contacts/SPBu.png" layout="fixed" />

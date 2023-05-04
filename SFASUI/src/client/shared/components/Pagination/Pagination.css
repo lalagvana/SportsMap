@@ -1,4 +1,4 @@
-:where(.css-dev-only-do-not-override-1me4733).ant-switch.ant-switch-checked,
-:where(.css-dev-only-do-not-override-1me4733).ant-switch.ant-switch-checked:hover:not(.ant-switch-disabled) {
+.ant-switch.ant-switch-checked,
+.ant-switch.ant-switch-checked:hover:not(.ant-switch-disabled) {
     background-color: var(--base-additional-color);
 }
