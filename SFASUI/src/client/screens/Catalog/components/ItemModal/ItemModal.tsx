@@ -1,10 +1,12 @@
 import Image from 'next/image';
+import React from 'react';
+import { Map, Placemark, ZoomControl } from '@pbe/react-yandex-maps';
 
 import { Modal } from 'src/client/shared/components/Modal';
 import { CardHeader } from 'src/client/shared/components/CardHeader';
 import { FacilityType } from 'src/client/shared/types/facilities';
 import { useFacility } from 'src/client/shared/utils/api/facilities';
-import { PhotoCarousel } from "src/client/shared/components/PhotoCarousel";
+import { PhotoCarousel } from 'src/client/shared/components/PhotoCarousel';
 
 import { Accordeon } from 'src/client/screens/Catalog/components/ItemModal/components/Accordeon';
 
@@ -23,6 +25,8 @@ export const ItemModal = ({ item: initialItem, hide }: ItemModalProps) => {
         revalidateOnMount: true,
     });
 
+    const hasPhoto = item?.photo && item?.photo.length > 0;
+
     return (
         <Modal
             open
@@ -35,16 +39,40 @@ export const ItemModal = ({ item: initialItem, hide }: ItemModalProps) => {
             }
             closeIcon={<Image width={10} height={10} src="/icons/close.svg" layout="fixed" />}
             footer={null}
-            width={1110}
+            width={1015}
             onCancel={hide}
         >
             <div className={styles['ItemModal']}>
                 {item && <Accordeon item={item} className={styles['ItemModal-Info']} />}
                 <div className={styles['ItemModal-Aside']}>
-                    {item?.photo && item?.photo.length > 0 && <section className={styles['ItemModal-Photo']}>
-                        <PhotoCarousel photos={item.photo} width={432} height={276}/>
-                    </section>}
-                    <section className={styles['ItemModal-Map']}></section>
+                    {hasPhoto && (
+                        <section className={styles['ItemModal-Photo']}>
+                            <PhotoCarousel photos={item.photo} width={432} height={276} />
+                        </section>
+                    )}
+                    <section className={styles['ItemModal-Map']}>
+                        <Map
+                            width="432px"
+                            height={hasPhoto ? '300px' : '100%'}
+                            defaultState={{
+                                center: [item?.x || 59.9386, item?.y || 30.3141],
+                                zoom: 13,
+                            }}
+                        >
+                            <ZoomControl options={{ position: { right: 20, top: 150 } }} />
+
+                            {item && (
+                                <Placemark
+                                    modules={['geoObject.addon.hint']}
+                                    geometry={[item.x, item.y]}
+                                    properties={{
+                                        hintContent: item.name,
+                                    }}
+                                    options={{ iconColor: '#aeca3b' }}
+                                />
+                            )}
+                        </Map>
+                    </section>
                 </div>
             </div>
         </Modal>

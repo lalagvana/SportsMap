@@ -8,6 +8,7 @@ import {
     useFacilityTypeSelectOptions,
     usePayingTypeOptions,
 } from 'src/client/shared/utils/facilities/hooks';
+import { MapField } from 'src/client/shared/components/MapField';
 
 import styles from './BaseInfoForm.module.css';
 
@@ -65,14 +66,14 @@ export const BaseInfoForm = () => {
                     className={styles['BaseInfo-PayingType']}
                     fieldName="paying_type"
                     label="Тип услуг"
-                    tagValues={ageOptions || DEFAULT_PAYING_TYPES}
+                    tagValues={payingTypeOptions  || DEFAULT_PAYING_TYPES}
                 />
                 <TagGroupField
                     required
                     className={styles['BaseInfo-Age']}
                     fieldName="age"
                     label="Аудитория объекта"
-                    tagValues={payingTypeOptions || DEFAULT_AGES}
+                    tagValues={ageOptions || DEFAULT_AGES}
                 />
                 <CheckboxField
                     className={styles['BaseInfo-Availability']}
@@ -88,6 +89,7 @@ export const BaseInfoForm = () => {
                     label="Адрес"
                     placeholder="10 линия ВО, 49"
                 />
+                <MapField />
             </div>
         </form>
     );

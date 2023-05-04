@@ -39,7 +39,11 @@ export const ItemEditModal = ({ handleSubmit, initialValues, hide, isNew }: Item
         <FormikProvider value={formikStateAndHelpers}>
             <Modal
                 open
-                title={<h2 className={styles['ItemEditModal-Title']}>Создание спортивного объекта</h2>}
+                title={
+                    <h2 className={styles['ItemEditModal-Title']}>
+                        {isNew ? 'Создание спортивного объекта' : 'Редактирование спортивного объекта'}
+                    </h2>
+                }
                 closeIcon={<Image width={10} height={10} src="/icons/close.svg" layout="fixed" />}
                 footer={<Button onClick={clickHandler} text={buttonText} />}
                 width={1110}

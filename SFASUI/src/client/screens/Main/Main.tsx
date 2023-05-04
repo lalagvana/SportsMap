@@ -5,9 +5,9 @@ import { Achievements } from './components/Achievements';
 import { Beginning } from './components/Beginning/Beginning';
 import { Development } from './components/Development';
 import { Features } from './components/Features';
+import { MapView } from './components/MapView';
 
 import styles from './Main.module.css';
-
 
 export const Main = () => {
     return (
@@ -19,6 +19,7 @@ export const Main = () => {
                 <Image width={201} height={61} src="/images/contacts/Administration.png" layout="fixed" />
             </section>
             <Features />
+            <MapView />
             <Achievements />
             <Development />
         </main>

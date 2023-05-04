@@ -42,6 +42,7 @@ export const TagGroupField = ({
         [fieldName, setFieldValue, formikField.value]
     );
 
+
     return (
         <Field
             className={className}
