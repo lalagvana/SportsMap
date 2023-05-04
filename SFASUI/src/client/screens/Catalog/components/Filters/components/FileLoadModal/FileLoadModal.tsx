@@ -41,7 +41,7 @@ export const FileLoadModal = ({ hide }: FileLoadModalProps) => {
                 </div>
 
                 <div className={styles['FileLoadModal-UploadSection']}>
-                    <Upload onChange={uploadHandler} fileList={fileList}>
+                    <Upload onChange={uploadHandler} fileList={fileList} accept=".xlsx,.xls,.xlt">
                         <Button text="Загрузить" />
                     </Upload>
                     {(validationStatus !== null || isLoading) && (

@@ -1,3 +1,31 @@
 h1, h2, h3, h4, h5, h6, p, span {
     margin: 0;
 }
+
+a {
+    text-decoration: none;
+}
+
+a span {
+    font-weight: var(--font-weight-medium);
+}
+
+a:visited {
+    text-decoration: none;
+    color: inherit;
+
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+input {
+    width: fit-content;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}

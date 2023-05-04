@@ -1,0 +1,30 @@
+.ConfirmationModal-Title {
+    color: var(--base-default-color);
+    font-family: var(--ubuntu);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    margin: 0 0 var(--space-l);
+    text-align: center;
+}
+
+.ConfirmationModal-Description {
+    color: var(--typography-default-color);
+    font-size: var(--font-size-m);
+    margin: 0;
+    text-align: center;
+}
+
+.ConfirmationModal-ButtonSection {
+    display: flex;
+    gap: 44px;
+    font-family: var(--ubuntu);
+   justify-content: center;
+}
+
+.ConfirmationModal-Button_cancel {
+    background-color: var(--base-default-color);
+}
+
+.ConfirmationModal-Button_confirmation {
+    background-color: var(--error-color);
+}

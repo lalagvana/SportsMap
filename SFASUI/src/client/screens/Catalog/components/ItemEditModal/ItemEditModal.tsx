@@ -10,6 +10,7 @@ import { FacilityType } from 'src/client/shared/types/facilities';
 import { useOnNextTab, useTabs } from './ItemEditModal.hooks';
 
 import styles from './ItemEditModal.module.css';
+import { useSchema } from './ItemEditModal.schema';
 
 type ItemEditModalProps = {
     handleSubmit: (fields: FacilityType, formikHelpers: FormikHelpers<FacilityType>) => Promise<void>;
@@ -24,6 +25,7 @@ export const ItemEditModal = ({ handleSubmit, initialValues, hide, isNew }: Item
     const formikStateAndHelpers = useFormik<FacilityType>({
         initialValues: initialValues,
         onSubmit: handleSubmit,
+        validationSchema: useSchema(),
     });
 
     const [activeTab, setActiveTab] = useState('1');
@@ -33,6 +35,7 @@ export const ItemEditModal = ({ handleSubmit, initialValues, hide, isNew }: Item
         activeTab,
         setActiveTab,
         submitForm: formikStateAndHelpers.submitForm,
+        validateForm: formikStateAndHelpers.validateForm,
     });
 
     return (

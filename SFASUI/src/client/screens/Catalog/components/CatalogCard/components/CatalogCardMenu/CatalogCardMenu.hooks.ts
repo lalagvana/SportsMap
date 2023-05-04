@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { prepareMessage } from '../../../../../../shared/utils/notifications';
 import { mutate } from 'swr';
 import { apiRoutes } from '../../../../../../shared/utils/api/apiRoutes';
+import { hasCookie } from 'cookies-next';
 
 type UseToggleVisibilityProps = {
     setLoading: (value: boolean) => void;
@@ -64,13 +65,22 @@ type UseMenuItemsProps = {
     item: FacilityType;
     openEditModal: () => void;
     openInfoModal: () => void;
+    openDeleteModal: () => void;
+    hideDeleteModal: () => void;
     hidePopup: () => void;
 };
 
-export const useMenuItems = ({ hidePopup, item, openEditModal, openInfoModal }: UseMenuItemsProps) => {
+export const useMenuItems = ({
+    hidePopup,
+    item,
+    openEditModal,
+    openInfoModal,
+    openDeleteModal,
+    hideDeleteModal,
+}: UseMenuItemsProps) => {
     const [isLoading, setLoading] = useState(false);
 
-    const deleteHandler = useDeleteHandler({ setLoading, id: item.id, onSuccess: hidePopup });
+    const deleteHandler = useDeleteHandler({ setLoading, id: item.id, onSuccess: hideDeleteModal });
     const toggleVisibilityHandler = useToggleVisibilityHandler({
         setLoading,
         id: item.id,
@@ -78,15 +88,21 @@ export const useMenuItems = ({ hidePopup, item, openEditModal, openInfoModal }: 
         onSuccess: hidePopup,
     });
 
-    const menuItems = useMemo(
-        () => [
-            { text: item.hidden ? 'Открыть' : 'Скрыть', onClick: toggleVisibilityHandler },
-            { text: 'Редактировать', onClick: openEditModal },
-            { text: 'Удалить', onClick: deleteHandler },
-            { text: 'Подробнее', onClick: openInfoModal },
-        ],
-        [item.hidden, deleteHandler, openInfoModal, openEditModal, toggleVisibilityHandler]
-    );
+    const isLogged = hasCookie('sportsmap_token');
 
-    return { menuItems, isLoading };
+    const menuItems = useMemo(() => {
+        const items = [{ text: 'Подробнее', onClick: openInfoModal }];
+
+        if (isLogged) {
+            items.push(
+                { text: item.hidden ? 'Открыть' : 'Скрыть', onClick: toggleVisibilityHandler },
+                { text: 'Редактировать', onClick: openEditModal },
+                { text: 'Удалить', onClick: openDeleteModal }
+            );
+        }
+
+        return items;
+    }, [isLogged, item.hidden, openDeleteModal, openInfoModal, openEditModal, toggleVisibilityHandler]);
+
+    return { menuItems, isLoading, deleteHandler };
 };

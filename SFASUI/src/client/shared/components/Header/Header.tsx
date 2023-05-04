@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { deleteCookie, hasCookie } from 'cookies-next';
 
-import { HEADER_LINKS } from "./Header.constants";
+import { Button, ButtonType } from 'src/client/shared/components/Button';
+
+import { HEADER_LINKS } from './Header.constants';
 
 import styles from './Header.module.css';
 
@@ -16,7 +19,17 @@ type HeaderProps = {
 };
 
 export const Header = ({ className }: HeaderProps) => {
-    const { pathname } = useRouter();
+    const { pathname, push } = useRouter();
+
+    const isLogged = hasCookie('sportsmap_token');
+
+    const logoutHandler = useCallback(async () => {
+        deleteCookie('sportsmap_token');
+        deleteCookie('sportsmap_expiresIn');
+        deleteCookie('sportsmap_refreshToken');
+
+        await push('/login');
+    }, [push]);
 
     return (
         <header className={[styles['Header'], className].join(' ')}>
@@ -39,11 +52,20 @@ export const Header = ({ className }: HeaderProps) => {
                     ))}
                 </nav>
                 <div className={styles['Header-User']}>
-                    <Link passHref href="/login">
-                        <a className={styles['Header-UserLink']}>
-                            <Image src="/icons/user.svg" width={40} height={40} layout="fixed" />
-                        </a>
-                    </Link>
+                    {isLogged ? (
+                        <Button
+                            icon={<Image src="/icons/auth/exit.svg" width={40} height={40} layout="fixed" />}
+                            view={ButtonType.Clear}
+                            onClick={logoutHandler}
+                            className={styles['Header-UserLogout']}
+                        />
+                    ) : (
+                        <Link passHref href="/login">
+                            <a className={styles['Header-UserLink']}>
+                                <Image src="/icons/user.svg" width={40} height={40} layout="fixed" />
+                            </a>
+                        </Link>
+                    )}
                 </div>
             </div>
         </header>

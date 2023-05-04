@@ -26,17 +26,21 @@
     margin: 0 auto 0 -187px;
 
     font-size: var(--font-size-l);
+    color: var(--base-default-color);
+
 }
 
 .Header-Logo {
     margin-right: auto;
 }
 
-.Header-Link {
-    color: var(--base-default-color);
-}
 
 .Header-Link_active {
     font-weight: var(--font-weight-medium);
     color: var(--base-secondary-color);
+}
+
+.Header-UserLogout {
+    width: fit-content;
+    padding: 0;
 }

@@ -7,6 +7,7 @@ import { TextWithIcon } from 'src/client/shared/components/TextWithIcon';
 
 import { RegisterFormField } from './RegisterForm.types';
 import { INITIAL_REGISTER_FORM_FIELDS } from './RegisterForm.constants';
+import { useSchema } from "./RegisterForm.schema";
 
 import styles from './RegisterForm.module.css';
 
@@ -18,6 +19,7 @@ export const RegisterForm = ({ handleSubmit }: RegisterFormProps) => {
     const formikStateAndHelpers = useFormik<RegisterFormField>({
         initialValues: INITIAL_REGISTER_FORM_FIELDS,
         onSubmit: handleSubmit,
+        validationSchema: useSchema(),
     });
 
     return (
@@ -26,7 +28,7 @@ export const RegisterForm = ({ handleSubmit }: RegisterFormProps) => {
                 <TextWithIcon
                     iconUrl="/icons/auth/user.svg"
                     width={24}
-                    height={24}
+                    height={36}
                     className={styles['Register-LabelWrapper']}
                 >
                     <TextInputField
@@ -47,7 +49,7 @@ export const RegisterForm = ({ handleSubmit }: RegisterFormProps) => {
                 <TextWithIcon
                     iconUrl="/icons/auth/mail.svg"
                     width={24}
-                    height={24}
+                    height={36}
                     className={styles['Register-LabelWrapper']}
                 >
                     <TextInputField
@@ -62,7 +64,7 @@ export const RegisterForm = ({ handleSubmit }: RegisterFormProps) => {
                 <TextWithIcon
                     iconUrl="/icons/auth/password.svg"
                     width={24}
-                    height={24}
+                    height={36}
                     className={styles['Register-LabelWrapper']}
                 >
                     <TextInputField

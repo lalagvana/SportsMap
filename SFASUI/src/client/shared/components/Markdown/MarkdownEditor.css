@@ -1,3 +1,5 @@
-.wmde-markdown-var.w-md-editor.w-md-editor-show-edit {
+.wmde-markdown-var.w-md-editor.w-md-editor-show-edit,
+.wmde-markdown-var.w-md-editor.w-md-editor-show-live,
+.wmde-markdown-var.w-md-editor.w-md-editor-show-preview {
     width: 100%;
 }

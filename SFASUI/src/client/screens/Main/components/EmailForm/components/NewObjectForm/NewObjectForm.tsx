@@ -8,6 +8,7 @@ import { Button } from 'src/client/shared/components/Button';
 import { newObjectFormFieldsInitialValues, REQUIREMENTS } from './NewObjectForm.constants';
 import { NewObjectFormFields } from './NewObjectForm.types';
 import { useHandleSubmit } from './NewObjectForm.hooks';
+import { useSchema } from './NewObjectForm.schema';
 
 import styles from './NewObjectForm.module.css';
 
@@ -17,6 +18,7 @@ export const NewObjectForm = () => {
     const formikStateAndHelpers = useFormik<NewObjectFormFields>({
         initialValues: newObjectFormFieldsInitialValues,
         onSubmit: handleSubmit,
+        validationSchema: useSchema(),
     });
 
     return (
@@ -26,11 +28,12 @@ export const NewObjectForm = () => {
                     <div className={styles['NewObjectForm-Address']}>
                         <TextWithIcon
                             className={styles['NewObjectForm-LabelWrapper']}
-                            iconUrl="/icons/contacts/mail.svg"
+                            iconUrl="/icons/address.svg"
                         >
                             <span className={styles['NewObjectForm-Label']}>Адрес спортивного объекта</span>
                         </TextWithIcon>
                         <TextInputField
+                            required
                             className={styles['NewObjectForm-AddressInput']}
                             fieldName="address"
                             label="Адрес спортивного объекта"
@@ -39,11 +42,12 @@ export const NewObjectForm = () => {
                         />
                         <TextWithIcon
                             className={styles['NewObjectForm-LabelWrapper']}
-                            iconUrl="/icons/contacts/mail.svg"
+                            iconUrl="/icons/facility/owner.svg"
                         >
                             <span className={styles['NewObjectForm-Label']}>Владелец объекта</span>
                         </TextWithIcon>
                         <TextInputField
+                            required
                             className={styles['NewObjectForm-OwnerInput']}
                             fieldName="owner"
                             label="Владелец объекта"
@@ -52,7 +56,7 @@ export const NewObjectForm = () => {
                         />
                         <TextWithIcon
                             className={styles['NewObjectForm-LabelWrapper']}
-                            iconUrl="/icons/contacts/mail.svg"
+                            iconUrl="/icons/note.svg"
                         >
                             <span className={styles['NewObjectForm-Label']}>Примечания</span>
                         </TextWithIcon>

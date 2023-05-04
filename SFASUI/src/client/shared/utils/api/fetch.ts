@@ -16,11 +16,12 @@ export async function fetch<T>(path: string, options: RawAxiosRequestConfig = {}
     const { method = 'GET', headers = {}, ...restOptions } = options;
 
     // Если нужна авторизация для эндпоинта
-    if (path !== apiRoutes.facilitySearch && (!UNPROTECTED_PATHS.includes(path) || method.toUpperCase() !== 'GET')) {
+    if (!UNPROTECTED_PATHS.includes(path) && method.toUpperCase() !== 'GET') {
         const token = getAuthToken();
 
         // TODO: сделать редирект на логин?
         if (!token) {
+            console.log(path)
             toast.error(`Вы не авторизованы, пожалуйста, войдите в аккаунт`);
 
             throw Error('not logged in');

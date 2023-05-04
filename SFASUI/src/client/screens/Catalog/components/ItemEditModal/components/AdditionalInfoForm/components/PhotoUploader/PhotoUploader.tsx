@@ -16,7 +16,7 @@ export const PhotoUploader = () => {
                 <span className={styles['PhotoUploader-Label_main']}>Фотографии</span>
                 <span className={styles['PhotoUploader-Label_subtext']}>(максимальное количество: 5)</span>
             </div>
-            <Upload onChange={uploadHandler} maxCount={5} fileList={fileList} listType="picture">
+            <Upload onChange={uploadHandler} maxCount={5} fileList={fileList} listType="picture" accept="image/*">
                 <Button text="Загрузить" />
             </Upload>
         </div>

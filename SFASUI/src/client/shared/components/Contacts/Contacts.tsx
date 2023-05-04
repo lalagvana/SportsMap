@@ -14,7 +14,7 @@ export const Contacts = ({ className }: ContactsProps) => {
         <ul className={[styles['Contacts'], className].join(' ')}>
             {links.map(({ iconUrl, text }) => (
                 <li key={text} className={styles['Contacts-Item']}>
-                    <TextWithIcon iconUrl={iconUrl}>{text}</TextWithIcon>
+                    <TextWithIcon className={styles['Contacts-Item']} iconUrl={iconUrl}>{text}</TextWithIcon>
                 </li>
             ))}
         </ul>

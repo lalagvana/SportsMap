@@ -1,4 +1,7 @@
 import { useCallback, useMemo } from 'react';
+import { FormikHelpers } from 'formik';
+
+import { FacilityType } from 'src/client/shared/types/facilities';
 
 import { BaseInfoForm } from './components/BaseInfoForm';
 import { WorkingHoursForm } from './components/WorkingHoursForm';
@@ -22,7 +25,7 @@ export const useTabs = (isNew: boolean) =>
             {
                 label: <h3 className={styles['ItemEditModal-TabTitle']}>Дополнительная информация</h3>,
                 key: '3',
-                children: <AdditionalInfoForm isNew={isNew}/>,
+                children: <AdditionalInfoForm isNew={isNew} />,
             },
         ],
         [isNew]
@@ -32,13 +35,18 @@ type UseOnNextTabProps = {
     activeTab: string;
     setActiveTab: (tab: string) => void;
     submitForm: () => Promise<any>;
+    validateForm: FormikHelpers<FacilityType>['validateForm'];
 };
 
-export const useOnNextTab = ({ activeTab, setActiveTab, submitForm }: UseOnNextTabProps) => {
-    const clickHandler = useCallback(
-        () => (activeTab === '3' ? submitForm() : setActiveTab(String(Number(activeTab) + 1))),
-        [activeTab, setActiveTab, submitForm]
-    );
+export const useOnNextTab = ({ activeTab, setActiveTab, submitForm, validateForm }: UseOnNextTabProps) => {
+    const clickHandler = useCallback(async () => {
+        if (activeTab === '3') {
+            await submitForm();
+        } else {
+            await validateForm();
+            setActiveTab(String(Number(activeTab) + 1));
+        }
+    }, [activeTab, setActiveTab, submitForm, validateForm]);
     const buttonText = useMemo(() => (activeTab === '3' ? 'Сохранить' : 'Далее'), [activeTab]);
 
     return { clickHandler, buttonText };
