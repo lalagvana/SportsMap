@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { isEmpty } from 'lodash';
 
 import { TagGroup } from 'src/client/shared/components/TagGroup';
 import { TagTypes } from 'src/client/shared/components/Tag';
@@ -30,20 +31,20 @@ export const ItemInfo = ({
             </span>
         </TextWithIcon>
         {accessibility && (
-            <TextWithIcon className={styles['ItemInfo-Availability']} iconUrl="/icons/address.svg">
+            <TextWithIcon className={styles['ItemInfo-Availability']} iconUrl="/icons/facility/accessibility.svg">
                 <span>Доступная среда:</span>
-                <Image width={20} height={20} src="/icons/check.png" layout="fixed" />
+                <Image width={20} height={20} src="/icons/facility/accessibility.svg" layout="fixed" />
             </TextWithIcon>
         )}
-        {working_hours && <WorkingHours hours={working_hours} />}
+        {!isEmpty(working_hours) && <WorkingHours hours={working_hours} />}
 
         {phone_number && (
-            <TextWithIcon className={styles['ItemInfo-Phone']} iconUrl="/icons/address.svg">
+            <TextWithIcon className={styles['ItemInfo-Phone']} iconUrl="/icons/facility/phone.svg">
                 <span title={phone_number}>{phone_number}</span>
             </TextWithIcon>
         )}
         {site && (
-            <TextWithIcon className={styles['ItemInfo-Link']} iconUrl="/icons/address.svg">
+            <TextWithIcon className={styles['ItemInfo-Link']} iconUrl="/icons/facility/link.svg">
                 <a
                     className={styles['ItemInfo-LinkText']}
                     href={site}
@@ -56,7 +57,7 @@ export const ItemInfo = ({
             </TextWithIcon>
         )}
 
-        <TextWithIcon className={styles['ItemInfo-Owner']} iconUrl="/icons/address.svg">
+        <TextWithIcon className={styles['ItemInfo-Owner']} iconUrl="/icons/facility/owner.svg">
             <span title={owner}>{owner}</span>
         </TextWithIcon>
     </section>

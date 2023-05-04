@@ -7,6 +7,7 @@ import { TextWithIcon } from 'src/client/shared/components/TextWithIcon';
 
 import { LOGIN_INITIAL_VALUES } from './LoginForm.constants';
 import { LoginFields } from './LoginForm.types';
+import { useSchema } from "./LoginForm.schema";
 
 import styles from './LoginForm.module.css';
 
@@ -18,6 +19,7 @@ export const LoginForm = ({ handleSubmit }: LoginFormProps) => {
     const formikStateAndHelpers = useFormik<LoginFields>({
         initialValues: LOGIN_INITIAL_VALUES,
         onSubmit: handleSubmit,
+        validationSchema: useSchema(),
     });
 
     return (
@@ -26,7 +28,7 @@ export const LoginForm = ({ handleSubmit }: LoginFormProps) => {
                 <TextWithIcon
                     iconUrl="/icons/auth/mail.svg"
                     width={24}
-                    height={24}
+                    height={36}
                     className={styles['Login-LabelWrapper']}
                 >
                     <TextInputField
@@ -41,7 +43,7 @@ export const LoginForm = ({ handleSubmit }: LoginFormProps) => {
                 <TextWithIcon
                     iconUrl="/icons/auth/password.svg"
                     width={24}
-                    height={24}
+                    height={36}
                     className={styles['Login-LabelWrapper']}
                 >
                     <TextInputField

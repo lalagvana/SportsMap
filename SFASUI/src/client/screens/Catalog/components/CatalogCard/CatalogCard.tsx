@@ -66,7 +66,7 @@ export const CatalogCard = ({ item, disabled }: CatalogCardProps) => {
             </TextWithIcon>
             <TextWithIcon
                 className={styles['CatalogCard-Owner']}
-                iconUrl={disabled ? '/icons/disabled_address.svg' : '/icons/address.svg'}
+                iconUrl={disabled ? '/icons/facility/disabled_owner.svg' : '/icons/facility/owner.svg'}
             >
                 <span className={styles['CatalogCard-Text']} title={owner}>
                     {owner}

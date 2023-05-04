@@ -1,10 +1,9 @@
-import React, { useCallback, useContext, useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { setCookie } from 'cookies-next';
 import { toast } from 'react-toastify';
 
 import { pageRoutes } from 'src/client/shared/routes';
-import { ClientConfigContext } from 'src/client/shared/contexts/client-config';
 import { login, register } from 'src/client/shared/utils/api/login';
 import { prepareMessage } from 'src/client/shared/utils/notifications';
 
@@ -15,7 +14,6 @@ import styles from './Login.module.css';
 
 export const useLoginHandler = () => {
     const router = useRouter();
-    const { clientConfig, setClientConfig } = useContext(ClientConfigContext);
 
     return useCallback(
         async (fields: LoginFields) => {
@@ -36,13 +34,12 @@ export const useLoginHandler = () => {
                 throw error;
             }
         },
-        [router, clientConfig, setClientConfig]
+        [router]
     );
 };
 
 export const useRegisterHandler = () => {
     const router = useRouter();
-    const { clientConfig, setClientConfig } = useContext(ClientConfigContext);
 
     return useCallback(
         async (fields: RegisterFormField) => {
@@ -63,7 +60,7 @@ export const useRegisterHandler = () => {
                 throw error;
             }
         },
-        [router, clientConfig, setClientConfig]
+        [router]
     );
 };
 

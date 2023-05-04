@@ -1,4 +1,4 @@
-import { Map, Placemark, ZoomControl } from '@pbe/react-yandex-maps';
+import { Clusterer, Map, Placemark, ZoomControl } from "@pbe/react-yandex-maps";
 import React from 'react';
 import Link from 'next/link';
 
@@ -30,7 +30,14 @@ export const MapView = () => {
                     zoom: 13,
                 }}
             >
-                <ZoomControl options={{ position: { right: 20, top: '30vh' } }} />
+              <ZoomControl options={{ position: { right: 20, top: '30vh' } }} />
+
+              <Clusterer
+                options={{
+                  preset: "islands#invertedVioletClusterIcons",
+                  groupByCoordinates: false,
+                }}
+              >
                 {sportObjectsListAll?.facilities?.map(({ x, y, name, id }) => (
                     <Placemark
                         key={id}
@@ -39,9 +46,10 @@ export const MapView = () => {
                         properties={{
                             hintContent: name,
                         }}
-                        options={{ iconColor: '#aeca3b' }}
+                        options={{ iconColor: '#7b3bca' }}
                     />
                 ))}
+              </Clusterer>
             </Map>
 
             <div className={styles['MapView-Content']}>

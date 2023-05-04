@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { FormikProvider, useFormik } from 'formik';
 
-import { TextInput } from 'src/client/shared/components/TextInput';
+import { TextInputField } from 'src/client/shared/components/TextInput/formik/TextInputField';
 
 import { Button } from 'src/client/shared/components/Button';
 import { Contacts } from 'src/client/shared/components/Contacts';
@@ -10,6 +10,7 @@ import { Contacts } from 'src/client/shared/components/Contacts';
 import { useSubscribeHandler, FOOTER_INITIAL_FIELDS, FooterFields } from '.';
 
 import styles from './Footer.module.css';
+import { useSchema } from './Footer.schema';
 
 export const Footer = () => {
     const handleSubmit = useSubscribeHandler();
@@ -17,6 +18,7 @@ export const Footer = () => {
     const formikStateAndHelpers = useFormik<FooterFields>({
         initialValues: FOOTER_INITIAL_FIELDS,
         onSubmit: handleSubmit,
+        validationSchema: useSchema(),
     });
 
     return (
@@ -42,7 +44,13 @@ export const Footer = () => {
                     <div className={styles['Footer-EmailForm']}>
                         <p className={styles['Footer-Caption']}>Так Вы первыми узнаете о новых спортивных объектах</p>
                         <FormikProvider value={formikStateAndHelpers}>
-                            <TextInput name="email" type="email" placeholder="Ваша электронная почта" />
+                            <TextInputField
+                                label="Электронная почта"
+                                hiddenLabel
+                                fieldName="email"
+                                type="email"
+                                placeholder="Ваша электронная почта"
+                            />
                             <Button
                                 className={styles['Footer-Button']}
                                 text="Подписаться"

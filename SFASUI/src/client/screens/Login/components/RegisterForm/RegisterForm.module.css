@@ -1,7 +1,3 @@
-.Register-LabelWrapper {
-    align-items: center;
-}
-
 .Register-LabelWrapper, .Register-Input_noIcon {
     margin-bottom: var(--space-m);
 }

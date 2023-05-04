@@ -40,7 +40,7 @@ export const MapObjects = () => {
 
             >
                 <ZoomControl options={{ position: { right: 20, top: '30vh' } }} />
-                {sportObjectsListAll?.facilities?.map(({ x, y, name, id }) => (
+                {sportObjectsList?.facilities?.map(({ x, y, name, id }) => (
                     <Placemark
                         key={id}
                         modules={['geoObject.addon.hint']}
