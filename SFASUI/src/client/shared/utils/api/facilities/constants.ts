@@ -1,5 +1,5 @@
-export const DEFAULT_AGES = ['Дети', 'Молодёжь', 'Взрослые', 'Пенсионеры'];
-export const DEFAULT_PAYING_TYPES = ['Платные', 'Бюджетные'];
+export const DEFAULT_AGES = ['дети', 'молодёжь', 'взрослые', 'пенсионеры'];
+export const DEFAULT_PAYING_TYPES = ['платные', 'бюджетные'];
 export const DEFAULT_COVERING_TYPES = [
     'спротивный линолеум',
     'ковролин',

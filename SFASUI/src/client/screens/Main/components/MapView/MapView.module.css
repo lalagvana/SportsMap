@@ -1,0 +1,51 @@
+.MapView {
+    position: relative;
+}
+
+.MapView-Content {
+    position: absolute;
+    z-index: 10;
+    inset: 0;
+
+    max-width: 1520px;
+    margin: auto;
+    pointer-events: none;
+}
+
+.MapView-Details {
+    position: absolute;
+    bottom: var(--space-xl);
+    left: 0;
+    background-color: rgb(255 255 255 / 60%);
+    border-radius: var(--border-radius-l);
+    padding: var(--space-l);
+    max-width: 300px;
+    pointer-events: auto;
+    box-sizing: border-box;
+}
+
+.MapView-DetailsButton {
+    margin-top: var(--space-s);
+}
+
+.MapView-DetailsText {
+    margin: 0;
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-l);
+}
+
+.MapView-Hint {
+    pointer-events: auto;
+    position: absolute;
+    align-items: center;
+    padding: var(--space-l);
+    background-color: rgb(255 255 255 / 60%);
+    border-radius: var(--border-radius-l);
+    right: 0;
+    bottom: var(--space-xl);
+}
+
+.MapView-HintText {
+    color: var(--black-color);
+    font-size: var(--font-size-m);
+}
