@@ -8,7 +8,6 @@ import { appLayoutRenderer } from 'src/client/shared/layouts/AppLayout';
 import { ExtendedNextPage } from 'src/client/shared/types/next';
 
 import 'react-toastify/dist/ReactToastify.css';
-import 'tailwindcss/dist/base.css';
 import 'src/client/styles/index.css';
 
 export default function App({ Component, pageProps }: Omit<AppProps, 'Component'> & { Component: ExtendedNextPage }) {
