@@ -13,7 +13,7 @@ export const AdditionalInfoForm = ({ isNew }: { isNew: boolean }) => {
     const coveringTypeSelectOptions = useCoveringTypeSelectOptions();
 
     return (
-        <form className={styles['AdditionalInfo']} data-color-mode="light">
+        <form className={styles['AdditionalInfo']}>
             <div className={styles['AdditionalInfo-Column']}>
                 <h4 className={styles['AdditionalInfo-Header']}>Другое</h4>
                 <div className={styles['AdditionalInfo-InputSection']}>

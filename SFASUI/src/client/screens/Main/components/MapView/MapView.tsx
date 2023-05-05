@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Button } from 'src/client/shared/components/Button';
 import { TextWithIcon } from 'src/client/shared/components/TextWithIcon';
 import { useFacilitySearch } from 'src/client/shared/utils/api/facilities';
+import { useTheme } from "src/client/shared/hooks/use-theme";
 
 import styles from './MapView.module.css';
 
@@ -21,7 +22,9 @@ export const MapView = () => {
         }
     );
 
-    return (
+  const { isLight } = useTheme();
+
+  return (
         <section className={styles['MapView']}>
             <Map
                 width="100%"
@@ -35,7 +38,7 @@ export const MapView = () => {
 
                 <Clusterer
                     options={{
-                        clusterIconColor: '#59C2E7',
+                        clusterIconColor: isLight ? '#59C2E7' : '#5F85DB',
                         groupByCoordinates: false,
                     }}
                 >
@@ -49,9 +52,9 @@ export const MapView = () => {
                             }}
                             options={{
                                 iconLayout: 'default#image',
-                                iconImageHref: '/icons/default_point.svg',
-                                iconImageSize: [40, 40],
-                                hintCloseTimeout: 0,
+                              iconImageHref: isLight ? '/icons/default_point.svg' : '/icons/default_point_black.svg',
+                                iconImageSize:  [40, 40],
+                              hintCloseTimeout: 0,
                             }}
                         />
                     ))}

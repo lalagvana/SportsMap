@@ -9,4 +9,6 @@
     margin: 0;
     font-family: var(--ubuntu);
     font-size: var(--font-size-l);
+    color: inherit;
+    font-weight: inherit;
 }

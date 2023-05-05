@@ -9,13 +9,13 @@
     font-family: var(--ubuntu);
     font-size: var(--font-size-m);
     font-weight: var(--font-weight-medium);
-    color: var(--white-color);
+    color: var(--special-white-color);
 }
 
 .Features-Text,
 .Features-TextLink {
     font-family: var(--ubuntu);
-    font-size: var(--font-size-l);
+    font-size: var(--font-size-2xs);
     font-weight: var(--font-weight-medium);
     color: var(--black-color);
 }

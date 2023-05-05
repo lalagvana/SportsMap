@@ -1,0 +1,3 @@
+.ant-modal .ant-modal-content, .ant-modal .ant-modal-header {
+    background-color: var(--surface--color-modal);
+}

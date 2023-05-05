@@ -2,6 +2,7 @@ import React from 'react';
 import { Clusterer, Map, Placemark, ZoomControl } from '@pbe/react-yandex-maps';
 
 import { useFacilitySearch } from 'src/client/shared/utils/api/facilities';
+import { useTheme } from "src/client/shared/hooks/use-theme";
 
 import { Sidebar } from './components/Sidebar';
 import { useSearchQuery } from './MapObjects.hooks';
@@ -20,6 +21,8 @@ export const MapObjects = () => {
         revalidateOnReconnect: false,
         revalidateOnMount: true,
     });
+
+    const { isLight } = useTheme();
 
     return (
         <main className={styles['MapObjects']}>
@@ -41,7 +44,7 @@ export const MapObjects = () => {
                 <ZoomControl options={{ position: { right: 20, top: '30vh' } }} />
                 <Clusterer
                     options={{
-                        clusterIconColor: '#59C2E7',
+                        clusterIconColor: isLight ? '#59C2E7' : '#5F85DB',
                         groupByCoordinates: false,
                     }}
                 >
@@ -55,7 +58,7 @@ export const MapObjects = () => {
                             }}
                             options={{
                                 iconLayout: 'default#image',
-                                iconImageHref: '/icons/default_point.svg',
+                                iconImageHref: isLight ? '/icons/default_point.svg' : '/icons/default_point_black.svg',
                                 iconImageSize: [40, 40],
                                 hintCloseTimeout: 0,
                             }}

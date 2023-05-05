@@ -14,6 +14,7 @@ export const CheckboxTab = ({ name: tabName, items }: CheckboxTabProps) => (
     <fieldset className={styles['CheckboxTab']}>
         {items.map((name) => (
             <QueryCheckbox
+                key={name}
                 name={tabName}
                 checkboxName={name}
                 className={styles['CheckboxTab-Checkbox']}

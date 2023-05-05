@@ -20,19 +20,19 @@
     font-family: var(--ubuntu);
     font-size: var(--font-size-m);
     font-weight: var(--font-weight-medium);
-    color: var(--white-color);
+    color: var(--special-white-color);
 }
 
 .Achievements-Text {
     max-width: 200px;
-    font-size: var(--font-size-l);
+    font-size: var(--font-size-2xs);
     color: var(--black-color);
     text-align: center;
 }
 
 .Achievements-Label {
     width: fit-content;
-    margin-bottom: var(--space-s);
+    margin: var(--space-xl) 0 var(--space-m);
     padding: 6px 14px;
 
     background-color: var(--base-secondary-color);
@@ -41,7 +41,6 @@
 
 .Achievements-Image {
     display: flex;
-    gap: var(--space-m);
     align-items: center;
 }
 

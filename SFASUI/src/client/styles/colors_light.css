@@ -1,0 +1,23 @@
+.light_theme {
+    --decorative-color: #c2ccd6;
+    --black-color: #2e2e2e;
+    --typography-default-color: #97a8b9;
+    --typography-secondary-color: #798189;
+    --base-active-input-color: #aceefc;
+    --base-default-color: #59c2e7;
+    --base-secondary-color: #2c96b8;
+    --base-additional-color: #7ad6f3;
+    --white-color: #fff;
+    --placeholder-color: #a9a9a9;
+    --field-color: #fafafa;
+    --error-color: #ec4141;
+    --special-black-color: #2e2e2e;
+    --special-white-color: #fff;
+    --transparent-white: 255, 255, 255;
+
+    --surface-color-0: var(--white-color);
+    --surface-color-1: #eef9fd;
+    --surface--color-modal: var(--white-color);
+
+    --active-button-color: var(--base-secondary-color);
+}

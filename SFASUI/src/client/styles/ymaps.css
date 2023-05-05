@@ -13,14 +13,18 @@ ymaps span {
 
 ymaps.ymaps-2-1-79-hint__text {
     padding: var(--space-xs) var(--space-m);
-    background-color: rgb(255 255 255 / 80%);
+    background-color: rgba(var(--transparent-white), 80%);
     border-radius: var(--border-radius-l);
     border: none;
 }
 
 ymaps.ymaps-2-1-79-hint {
-    background-color: rgb(255 255 255 / 80%);
+    background-color: rgba(var(--transparent-white), 80%);
     border-radius: var(--border-radius-l);
     border: none;
     box-shadow: none;
+}
+
+ymaps.ymaps-2-1-79-svg-icon-content * {
+    color: var(--special-black-color);
 }

@@ -1,5 +1,6 @@
 .MapView {
     position: relative;
+
 }
 
 .MapView-Content {
@@ -16,7 +17,7 @@
     position: absolute;
     bottom: var(--space-xl);
     left: 0;
-    background-color: rgb(255 255 255 / 60%);
+    background-color: rgba(var(--transparent-white), 60%);
     border-radius: var(--border-radius-l);
     padding: var(--space-l);
     max-width: 300px;
@@ -34,12 +35,17 @@
     font-size: var(--font-size-l);
 }
 
+.MapView-DetailsLinkText {
+    font-family: var(--ubuntu);
+    color: var(--special-white-color);
+}
+
 .MapView-Hint {
     pointer-events: auto;
     position: absolute;
     align-items: center;
     padding: var(--space-l);
-    background-color: rgb(255 255 255 / 60%);
+    background-color: rgba(var(--transparent-white), 60%);
     border-radius: var(--border-radius-l);
     right: 0;
     bottom: var(--space-xl);

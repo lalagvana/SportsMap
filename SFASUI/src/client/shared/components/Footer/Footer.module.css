@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     padding: 44px;
-    background-color: var(--white-color);
+    background-color: var(--surface-color-0);
 }
 
 .Footer-Content {
@@ -24,7 +24,7 @@
     margin-bottom: var(--space-2m);
 
     font-family: var(--ubuntu);
-    font-size: var(--font-size-l);
+    font-size: var(--font-size-2xs);
     font-weight: var(--font-weight-medium);
     color: var(--base-default-color);
 }

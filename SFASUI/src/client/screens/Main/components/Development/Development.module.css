@@ -16,17 +16,18 @@
     font-family: var(--ubuntu);
     font-size: 48px;
     font-weight: var(--font-weight-bold);
-    color: var(--white-color);
+    color: var(--special-white-color);
     text-align: center;
+
+    letter-spacing: 1px;
 }
 
 .Development-HintText {
-    max-width: 600px;
-
     font-family: var(--ubuntu);
-    font-size: var(--font-size-l);
+    font-size: var(--font-size-2xs);
     font-weight: var(--font-weight-medium);
-    color: var(--white-color);
+    color: var(--special-white-color);
+    white-space: pre-wrap;
 }
 
 .Development-Hint {
@@ -46,6 +47,6 @@
     height: fit-content;
     padding: var(--padding-2l);
 
-    background-color: rgb(255 255 255 / 60%);
+    background-color: rgba(var(--transparent-white), 60%);
     border-radius: var(--border-radius-l);
 }
