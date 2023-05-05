@@ -1,7 +1,7 @@
 import { MDEditorProps } from '@uiw/react-md-editor';
 import { useField } from 'formik';
 import dynamic from 'next/dynamic';
-import React, { useCallback, useLayoutEffect, useState, FC } from 'react';
+import React, { useCallback, useEffect, useState, FC } from 'react';
 
 import { Field } from 'src/client/shared/components/Field';
 
@@ -31,7 +31,7 @@ export const MarkdownEditor: FC<MarkdownEditorProps> = (props) => {
 
     const [value, setValue] = useState(field.value);
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         setValue(field.value);
     }, [field.value]);
 

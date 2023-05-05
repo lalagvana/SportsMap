@@ -1,5 +1,5 @@
 import React from 'react';
-import { Map, Placemark, ZoomControl } from '@pbe/react-yandex-maps';
+import { Clusterer, Map, Placemark, ZoomControl } from '@pbe/react-yandex-maps';
 
 import { useFacilitySearch } from 'src/client/shared/utils/api/facilities';
 
@@ -37,20 +37,31 @@ export const MapObjects = () => {
                     center: [59.9386, 30.3141],
                     zoom: 13,
                 }}
-
             >
                 <ZoomControl options={{ position: { right: 20, top: '30vh' } }} />
-                {sportObjectsList?.facilities?.map(({ x, y, name, id }) => (
-                    <Placemark
-                        key={id}
-                        modules={['geoObject.addon.hint']}
-                        geometry={[x, y]}
-                        properties={{
-                            hintContent: name,
-                        }}
-                        options={{ iconColor: '#aeca3b' }}
-                    />
-                ))}
+                <Clusterer
+                    options={{
+                        clusterIconColor: '#59C2E7',
+                        groupByCoordinates: false,
+                    }}
+                >
+                    {sportObjectsList?.facilities?.map(({ x, y, name, id }) => (
+                        <Placemark
+                            key={id}
+                            modules={['geoObject.addon.hint']}
+                            geometry={[x, y]}
+                            properties={{
+                                hintContent: `<span className="map-hint">${name}</span>`,
+                            }}
+                            options={{
+                                iconLayout: 'default#image',
+                                iconImageHref: '/icons/default_point.svg',
+                                iconImageSize: [40, 40],
+                                hintCloseTimeout: 0,
+                            }}
+                        />
+                    ))}
+                </Clusterer>
             </Map>
         </main>
     );

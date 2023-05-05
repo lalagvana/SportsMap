@@ -11,7 +11,7 @@ export const Features = memo(() => {
     return (
         <section className={styles['Features']}>
             {items.map(({ name, heading, text }) => (
-                <section className={[styles['Features-Image'], styles[`Features-Image_${name}`]].join(' ')}>
+                <section key={name} className={[styles['Features-Image'], styles[`Features-Image_${name}`]].join(' ')}>
                     <Image width={200} height={200} src={`/images/main/${name}.png`} layout="fixed" />
                     <div className={styles['Features-Description']}>
                         <div className={styles['Features-Label']}>

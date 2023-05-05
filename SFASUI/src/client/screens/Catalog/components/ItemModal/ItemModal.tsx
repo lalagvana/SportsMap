@@ -66,9 +66,13 @@ export const ItemModal = ({ item: initialItem, hide }: ItemModalProps) => {
                                     modules={['geoObject.addon.hint']}
                                     geometry={[item.x, item.y]}
                                     properties={{
-                                        hintContent: item.name,
+                                        hasHint: false,
                                     }}
-                                    options={{ iconColor: '#aeca3b' }}
+                                    options={{
+                                        iconLayout: 'default#image',
+                                        iconImageHref: '/icons/default_point.svg',
+                                        iconImageSize: [40, 40],
+                                    }}
                                 />
                             )}
                         </Map>

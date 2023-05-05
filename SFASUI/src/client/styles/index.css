@@ -4,5 +4,4 @@
 @import url('./colors.css');
 @import url('./reset.css');
 @import url('./a11y.css');
-@import url('../shared/components/Select/Select.css');
-@import url('../shared/components/Tabs/Tabs.css');
+@import url('./ymaps.css');
