@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { AppProps } from 'next/app';
 import { YMaps } from '@pbe/react-yandex-maps';
 
-import { ClientConfigProvider } from 'src/client/shared/contexts/client-config';
+import { ThemeConfigProvider } from 'src/client/shared/contexts/theme-config';
 import { appLayoutRenderer } from 'src/client/shared/layouts/AppLayout';
 import { ExtendedNextPage } from 'src/client/shared/types/next';
 
@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }: Omit<AppProps, 'Component'
                 <title>SportsMap - твоя спортивная карта Санкт-Петербурга</title>
             </Head>
             <YMaps query={{ apikey: 'f90d801e-5706-4c4d-96df-2742aec12e8f' }}>
-                <ClientConfigProvider>{layoutRenderer(<Component {...pageProps} />)}</ClientConfigProvider>
+                <ThemeConfigProvider>{layoutRenderer(<Component {...pageProps} />)}</ThemeConfigProvider>
             </YMaps>
         </>
     );

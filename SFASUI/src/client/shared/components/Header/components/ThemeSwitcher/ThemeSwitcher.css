@@ -1,0 +1,89 @@
+/* https://codepen.io/kamkry/pen/mdeoXgm */
+
+#switch {
+    position: relative;
+
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+    padding: 0;
+
+    background: transparent;
+    border: 0;
+
+    cursor: pointer;
+
+}
+
+#checkbox {
+    display: none;
+}
+
+#switch .mode {
+    position: relative;
+
+    width: 20px;
+    height: 20px;
+
+    background: var(--base-default-color);
+    border-radius: 50%;
+
+    transition: transform 0.45s ease;
+
+}
+
+#switch .mode::before {
+    content: '';
+
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    width: 6px;
+    height: 6px;
+
+    opacity: 0;
+    background: inherit;
+    border-radius: 50%;
+
+    transition: box-shadow 0.4s 0s ease;
+}
+
+#switch .mode::after {
+    content: '';
+
+    position: absolute;
+    top: -30%;
+    left: 30%;
+
+    width: 100%;
+    height: 100%;
+
+    background: white;
+    border-radius: 50%;
+
+    transition: transform 0.45s ease;
+}
+
+#checkbox:checked + .container #switch .mode {
+    transform: scale(0.5);
+}
+
+#checkbox:checked + .container #switch .mode::before {
+    opacity: 1;
+    box-shadow: 0 -20px 0 0 var(--base-default-color), 0 20px 0 0 var(--base-default-color),
+        -20px 0 0 0 var(--base-default-color), 20px 0 0 0 var(--base-default-color),
+        15px 15px 0 0 var(--base-default-color), 15px -15px 0 0 var(--base-default-color),
+        -15px 15px 0 0 var(--base-default-color), -15px -15px 0 0 var(--base-default-color);
+}
+
+#checkbox:checked + .container #switch .mode::after {
+    transform: translateX(50%) translateY(-50%);
+    opacity: 0;
+}

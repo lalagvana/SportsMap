@@ -1,11 +1,13 @@
 .Beginning {
     position: relative;
 
-    height: 695px;
+    height: 910px;
 
     background-image: url('/images/main/BeginBackground.png');
     background-position: center;
     background-size: cover;
+
+    z-index: 10;
 }
 
 .Beginning-Girl {
@@ -17,24 +19,31 @@
 .Beginning-Greeting {
     position: absolute;
     z-index: 5;
-    top: 30%;
+    top: 20%;
     left: 22%;
 
     max-width: 530px;
+
+    white-space: pre-wrap;
+
+    display: flex;
+    gap: var(--space-xl);
+    flex-direction: column;
 }
 
 .Beginning-Heading {
-    margin: 0 0 var(--space-2l);
+    margin: 0;
 
     font-family: var(--ubuntu);
     font-size: 52px;
     font-weight: var(--font-weight-bold);
     color: var(--white-color);
+    letter-spacing: 1px;
 }
 
 .Beginning-Caption {
     max-width: 291px;
-    margin: 0 0 var(--space-l);
+    margin: 0;
     font-size: var(--font-size-l);
     line-height: 150%;
 }
@@ -47,4 +56,5 @@
     font-family: var(--ubuntu);
     font-size: var(--font-size-m);
     font-weight: var(--font-weight-medium);
+    color: var(--special-white-color);
 }

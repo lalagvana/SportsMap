@@ -4,8 +4,22 @@
 
     height: 70px;
 
-    background-color: var(--white-color);
+    background-color: var(--surface-color-0);
     box-shadow: 2px 4px 20px rgb(0 0 0 / 10%);
+
+    position: sticky;
+
+    z-index: 150;
+
+    width: 100%;
+
+    top: 0;
+}
+
+.Header-User {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
 }
 
 .Header-Content {
@@ -25,7 +39,7 @@
 
     margin: 0 auto 0 -187px;
 
-    font-size: var(--font-size-l);
+    font-size: var(--font-size-2xs);
     color: var(--base-default-color);
 
 }
@@ -36,7 +50,7 @@
 
 
 .Header-Link_active {
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-bold);
     color: var(--base-secondary-color);
 }
 

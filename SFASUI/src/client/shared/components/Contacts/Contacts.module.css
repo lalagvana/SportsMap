@@ -1,7 +1,7 @@
 .Contacts {
     display: flex;
     flex-direction: column;
-    gap: var(--space-2m);
+    gap: var(--space-l);
 
     width: max-content;
     margin: 0;

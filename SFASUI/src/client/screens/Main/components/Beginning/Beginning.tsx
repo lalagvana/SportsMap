@@ -14,7 +14,7 @@ export const Beginning = ({ className }: BeginningProps) => {
     return (
         <section className={[styles['Beginning'], className].join(' ')}>
             <article className={styles['Beginning-Greeting']}>
-                <h1 className={styles['Beginning-Heading']}>Здоровое тело - в здоровом поиске!</h1>
+                <h1 className={styles['Beginning-Heading']}>{`Здоровое тело -\nв здоровом поиске!`}</h1>
                 <p className={styles['Beginning-Caption']}>
                     Интерактивная карта поможет найти для себя и своих близких место для занятий спортом
                 </p>
@@ -28,7 +28,7 @@ export const Beginning = ({ className }: BeginningProps) => {
             </article>
 
             <div className={styles['Beginning-Girl']}>
-                <Image width={481} height={476} src="/images/main/girl.png" layout="fixed" />
+                <Image width={555} height={549} src="/images/main/girl.png" layout="fixed" />
             </div>
         </section>
     );

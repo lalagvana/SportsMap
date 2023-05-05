@@ -1,6 +1,8 @@
 .Login-LabelWrapper {
     margin-bottom: var(--space-m);
+    gap: var(--space-m)
 }
+
 
 .Login-Button {
     margin-top: var(--space-2xl);

@@ -10,7 +10,6 @@
     padding: var(--padding-2xs) var(--padding-l);
 
     font-size: var(--font-size-m);
-    color: var(--white-color);
 
     border: none;
     border-radius: var(--border-radius-m);
@@ -23,7 +22,7 @@
 }
 
 .Button_active {
-    background-color: var(--base-secondary-color);
+    background-color: var(--active-button-color);
 }
 
 .Button_clear {
@@ -34,6 +33,7 @@
 .Button-Text {
     font-family: var(--ubuntu);
     font-weight: var(--font-weight-medium);
+    color: var(--special-white-color);
 }
 
 .Button_disabled {

@@ -5,4 +5,19 @@
     justify-content: center;
 
     margin-top: var(--space-2l);
+
+    position: relative;
+}
+
+.Main-Surface {
+    background-color: var(--base-secondary-color);
+    border-radius: 0 0 87px 87px;
+    width: 900px;
+    position: absolute;
+    bottom: calc(-1 * var(--space-xl));
+    height: 231px;
+}
+
+.Main {
+    background-color: var(--white-color);
 }

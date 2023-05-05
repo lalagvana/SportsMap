@@ -3,6 +3,7 @@ import React, { useCallback } from 'react';
 import { useField, useFormikContext } from 'formik';
 
 import styles from './MapField.module.css';
+import { useTheme } from "../../hooks/use-theme";
 
 export const MapField = () => {
     const { setFieldValue } = useFormikContext();
@@ -18,7 +19,10 @@ export const MapField = () => {
         [setFieldValue]
     );
 
-    return (
+  const { isLight } = useTheme();
+
+
+  return (
         <div className={styles['MapField']}>
             <p className={styles['MapField-Hint']}>Отметьте местоположение спортивного объекта</p>
             <Map
@@ -39,7 +43,7 @@ export const MapField = () => {
                         options={{
                           hasHint: false,
                           iconLayout: 'default#image',
-                          iconImageHref: '/icons/default_point.svg',
+                          iconImageHref: isLight ? '/icons/default_point.svg' : '/icons/default_point_black.svg',
                           iconImageSize: [40, 40],
                         }}
                     />

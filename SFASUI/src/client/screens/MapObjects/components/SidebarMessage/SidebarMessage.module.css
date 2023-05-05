@@ -8,7 +8,7 @@
     width: var(--width-map-sidebar);
     padding: var(--padding-l) var(--padding-2l);
 
-    background-color: rgb(255 255 255 / 60%);
+    background-color: rgba(var(--transparent-white), 60%);
     border-radius: var(--border-radius-l);
 }
 

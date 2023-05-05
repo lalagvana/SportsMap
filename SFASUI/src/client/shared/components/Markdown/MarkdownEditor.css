@@ -3,3 +3,12 @@
 .wmde-markdown-var.w-md-editor.w-md-editor-show-preview {
     width: 100%;
 }
+
+.w-md-editor-bar {
+    display: none;
+}
+
+.w-md-editor {
+    --color-canvas-default: var(--field-color) !important;
+    --color-border-default: var(--decorative-color) !important;
+}

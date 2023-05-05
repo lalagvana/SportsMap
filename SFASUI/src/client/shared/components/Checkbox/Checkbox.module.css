@@ -23,6 +23,7 @@
 .Checkbox:checked {
    background-color: var(--base-secondary-color);
    border-color:  var(--base-secondary-color);
+   color: var(--special-white-color);
 }
 
 .Checkbox::before {
@@ -35,7 +36,7 @@
    height: 0.65em;
 
    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-   box-shadow: inset 1em 1em var(--white-color);
+   box-shadow: inset 1em 1em var(--special-white-color);
 
    transition: 120ms transform ease-in-out;
 
@@ -43,7 +44,7 @@
 
 .Checkbox-Label {
    display: flex;
-   gap: var(--space-m);
+   gap: var(--space-s);
    align-items: center;
 
    font-family: var(--ubuntu);

@@ -1,7 +1,7 @@
 .Tag {
     width: fit-content;
     padding: 0 9px;
-    color: var(--white-color);
+    color: var(--special-white-color);
     border-radius: var(--border-radius-s);
     cursor: default;
 }
@@ -20,6 +20,7 @@
 
 .Tag-Text {
     font: var(--font-weight-medium) var(--font-size-m) / 24px var(--ubuntu);
+    color: inherit;
 }
 
 .Tag-Text_outline {

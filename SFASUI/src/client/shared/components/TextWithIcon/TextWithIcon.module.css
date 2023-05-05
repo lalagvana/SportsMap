@@ -1,7 +1,7 @@
 .TextWithIcon {
     display: flex;
     flex-direction: row;
-    gap: var(--space-m);
+    gap: var(--space-xs);
     align-items: flex-start;
     justify-content: flex-start;
 }

@@ -23,7 +23,7 @@ export const ProposalForm = () => {
 
     return (
         <FormikProvider value={formikStateAndHelpers}>
-            <form className={styles['ProposalForm']} data-color-mode="light">
+            <form className={styles['ProposalForm']} >
                 <div className={styles['ProposalForm-Name']}>
                     <TextWithIcon className={styles['ProposalForm-LabelWrapper']} iconUrl="/icons/auth/user.svg">
                         <span className={styles['ProposalForm-Label']}>Как нам к Вам обращаться?</span>

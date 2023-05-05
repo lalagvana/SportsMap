@@ -7,6 +7,7 @@ import { CardHeader } from 'src/client/shared/components/CardHeader';
 import { FacilityType } from 'src/client/shared/types/facilities';
 import { useFacility } from 'src/client/shared/utils/api/facilities';
 import { PhotoCarousel } from 'src/client/shared/components/PhotoCarousel';
+import { useTheme } from 'src/client/shared/hooks/use-theme';
 
 import { Accordeon } from 'src/client/screens/Catalog/components/ItemModal/components/Accordeon';
 
@@ -26,6 +27,8 @@ export const ItemModal = ({ item: initialItem, hide }: ItemModalProps) => {
     });
 
     const hasPhoto = item?.photo && item?.photo.length > 0;
+
+    const { isLight } = useTheme();
 
     return (
         <Modal
@@ -70,7 +73,9 @@ export const ItemModal = ({ item: initialItem, hide }: ItemModalProps) => {
                                     }}
                                     options={{
                                         iconLayout: 'default#image',
-                                        iconImageHref: '/icons/default_point.svg',
+                                        iconImageHref: isLight
+                                            ? '/icons/default_point.svg'
+                                            : '/icons/default_point_black.svg',
                                         iconImageSize: [40, 40],
                                     }}
                                 />

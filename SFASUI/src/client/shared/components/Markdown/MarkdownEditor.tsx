@@ -17,6 +17,7 @@ export type MarkdownEditorProps = {
     required?: boolean;
     disabled?: boolean;
     hiddenLabel?: boolean;
+    height?: number;
 };
 
 const MDEditor = dynamic<MDEditorProps>(() => import('@uiw/react-md-editor').then((mod) => mod.default), {
@@ -24,7 +25,16 @@ const MDEditor = dynamic<MDEditorProps>(() => import('@uiw/react-md-editor').the
 });
 
 export const MarkdownEditor: FC<MarkdownEditorProps> = (props) => {
-    const { fieldName, label, required = false, disabled = false, placeholder, hiddenLabel = false, className } = props;
+    const {
+        height,
+        fieldName,
+        label,
+        required = false,
+        disabled = false,
+        placeholder,
+        hiddenLabel = false,
+        className,
+    } = props;
     const [field, meta] = useField(fieldName);
 
     const showError = Boolean(meta.touched) && Boolean(meta.error);
@@ -54,6 +64,7 @@ export const MarkdownEditor: FC<MarkdownEditorProps> = (props) => {
             hiddenLabel={hiddenLabel}
         >
             <MDEditor
+                height={height}
                 preview="edit"
                 className={styles['MarkdownEditor']}
                 textareaProps={{

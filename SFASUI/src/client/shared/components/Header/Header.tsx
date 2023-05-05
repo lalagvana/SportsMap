@@ -7,6 +7,7 @@ import { deleteCookie, hasCookie } from 'cookies-next';
 import { Button, ButtonType } from 'src/client/shared/components/Button';
 
 import { HEADER_LINKS } from './Header.constants';
+import { ThemeSwitcher } from "./components/ThemeSwitcher";
 
 import styles from './Header.module.css';
 
@@ -52,6 +53,7 @@ export const Header = ({ className }: HeaderProps) => {
                     ))}
                 </nav>
                 <div className={styles['Header-User']}>
+                    <ThemeSwitcher />
                     {isLogged ? (
                         <Button
                             icon={<Image src="/icons/auth/exit.svg" width={40} height={40} layout="fixed" />}

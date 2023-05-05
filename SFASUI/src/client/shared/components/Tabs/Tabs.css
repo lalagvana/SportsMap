@@ -10,7 +10,7 @@
 
 .ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
     font-weight: var(--font-weight-medium);
-    color: var(--white-color);
+    color: var(--special-white-color);
 }
 
 .ant-tabs-card > .ant-tabs-nav .ant-tabs-tab {
@@ -18,16 +18,14 @@
     justify-content: center;
 
     color: var(--typography-default-color);
+    font-weight: var(--font-weight-regular);
 
     background-color: transparent;
     border: none;
 }
 
+.ant-tabs .ant-tabs-tab-btn,
 .ant-tabs .ant-tabs-tab:hover,
 .ant-tabs .ant-tabs-tab-btn:active {
-    color: var(--black-color);
-}
-
-.ant-tabs-card >.ant-tabs-nav .ant-tabs-tab {
-
+    color: var(--typography-default-color);
 }

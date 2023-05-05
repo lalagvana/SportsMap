@@ -23,7 +23,7 @@ export const NewObjectForm = () => {
 
     return (
         <FormikProvider value={formikStateAndHelpers}>
-            <form className={styles['NewObjectForm']} data-color-mode="light">
+            <form className={styles['NewObjectForm']} >
                 <div className={styles['NewObjectForm-InputColumn']}>
                     <div className={styles['NewObjectForm-Address']}>
                         <TextWithIcon

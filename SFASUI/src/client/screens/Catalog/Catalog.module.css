@@ -11,7 +11,7 @@
 }
 
 .Catalog {
-    background-color: rgb(89 194 231 / 10%);
+    background-color: var(--surface-color-1);
 }
 
 .Catalog-Main {
