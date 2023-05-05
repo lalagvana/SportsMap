@@ -36,19 +36,24 @@ body {
     margin: 0;
 }
 
-::-webkit-progress-bar {
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 0;
+*::-webkit-scrollbar {
+    width: 6px;
+    height: 8px;
 }
 
-::-webkit-progress-value {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 0;
+*::-webkit-scrollbar-track {
+    background-color: var(--field-color);
+
 }
 
-::-moz-progress-bar {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 0;
+*::-webkit-scrollbar-thumb {
+    background: var(--base-default-color);
+
+    border-radius: var(--border-radius-m);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: var(--base-secondary-color);
 }
 
 textarea {

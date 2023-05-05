@@ -1,7 +1,9 @@
 import React from 'react';
-import { GetServerSideProps, NextPage } from 'next';
+import { GetServerSideProps } from 'next';
 
-import { MapObjects } from 'src/client/screens/MapObjects';
+import { ExtendedNextPage } from "src/client/shared/types/next";
+
+import { mapLayoutRenderer, MapObjects } from "src/client/screens/MapObjects";
 
 import NextError from 'src/pages/_error';
 
@@ -16,12 +18,14 @@ export const getServerSideProps: GetServerSideProps<MapPageProps> = async () => 
     };
 };
 
-const MapPage: NextPage<MapPageProps> = ({ data, error }: MapPageProps) => {
+const MapPage: ExtendedNextPage<MapPageProps> = ({ data, error }: MapPageProps) => {
     if (error) {
         return <NextError statusCode={500} />;
     }
 
     return <MapObjects {...data} />;
 };
+
+MapPage.layoutRenderer = mapLayoutRenderer;
 
 export default MapPage;

@@ -48,7 +48,7 @@
     font-family: var(--ubuntu);
     font-size: var(--font-size-l);
     font-weight: var(--font-weight-medium);
-    color: var(--white-color);
+    color: var(--special-white-color);
 }
 
 .NewObjectForm-RequirementsList {

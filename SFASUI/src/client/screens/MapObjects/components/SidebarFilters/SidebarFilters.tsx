@@ -30,9 +30,9 @@ export const SidebarFilters = () => {
                 ].join(' ')}
                 icon={
                     <Image
-                        width={21}
-                        height={21}
-                        src={isOpen ? '/icons/filters_active.png' : '/icons/filters_default.png'}
+                        width={37}
+                        height={37}
+                        src={isOpen ? '/icons/filters_active.svg' : '/icons/filters_default.svg'}
                         layout="fixed"
                     />
                 }

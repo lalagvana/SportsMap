@@ -53,7 +53,7 @@ export const Accordeon = ({ item, className }: AccordeonProps) => {
             <Divider />
             <Panel header={<span className="Accordeon-PanelHeader">Физические характерстики</span>} key="2">
                 <section className="Accordeon-Panel">
-                    <ItemField label="Площадь" value={area} units={'м2'} className="Accordeon-MaxField" />
+                    <ItemField label="Площадь" value={area} units={'м²'} className="Accordeon-MaxField" />
                     {width && <ItemField label="Ширина" value={width} units={'м'} />}
                     {length && <ItemField label="Длина" value={length} units={'м'} />}
                     {height && <ItemField label="Высота" value={height} units={'м'} />}

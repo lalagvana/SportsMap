@@ -16,9 +16,10 @@
 }
 
 button.SidebarFilters-Toggle {
-    width: 36px;
-    height: 36px;
-    padding: var(--padding-s);
+    width: 37px;
+    height: 37px;
+    padding: var(--space-xs);
+    box-sizing: border-box;
 }
 
 button.SidebarFilters-Toggle_closed {

@@ -1,4 +1,5 @@
 import { mutate } from 'swr';
+import { capitalize } from "lodash";
 
 import { QueryCheckbox } from 'src/client/shared/components/QueryCheckbox';
 import { apiRoutes } from 'src/client/shared/utils/api/apiRoutes';
@@ -18,8 +19,7 @@ export const CheckboxTab = ({ name: tabName, items }: CheckboxTabProps) => (
                 name={tabName}
                 checkboxName={name}
                 className={styles['CheckboxTab-Checkbox']}
-                key={name}
-                label={name}
+                label={capitalize(name)}
                 onSuccess={() => mutate(apiRoutes.facilitySearch)}
             />
         ))}

@@ -1,8 +1,12 @@
 .Login-TabTitle {
     font-family: var(--ubuntu);
-    font-size: var(--font-size-l);
+    font-size: var(--font-size-2xs);
     color: inherit;
     font-weight: inherit;
+
+    width: 125px;
+
+    text-align: center;
 }
 
 .Login-Form {
