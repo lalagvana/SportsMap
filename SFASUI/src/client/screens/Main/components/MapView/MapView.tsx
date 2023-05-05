@@ -1,11 +1,11 @@
-import { Clusterer, Map, Placemark, ZoomControl } from '@pbe/react-yandex-maps';
-import React  from 'react';
+import { Clusterer, Map, Placemark, useYMaps, ZoomControl } from '@pbe/react-yandex-maps';
+import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 
 import { Button } from 'src/client/shared/components/Button';
 import { TextWithIcon } from 'src/client/shared/components/TextWithIcon';
 import { useFacilitySearch } from 'src/client/shared/utils/api/facilities';
-import { useTheme } from "src/client/shared/hooks/use-theme";
+import { useTheme } from 'src/client/shared/hooks/use-theme';
 
 import styles from './MapView.module.css';
 
@@ -22,9 +22,25 @@ export const MapView = () => {
         }
     );
 
-  const { isLight } = useTheme();
+    const { isLight } = useTheme();
 
-  return (
+    const mapRef = useRef(null);
+    const ymaps = useYMaps(['Map']);
+
+    useEffect(() => {
+        if (!ymaps || !mapRef.current) {
+            return;
+        }
+
+        const map = new ymaps.Map(mapRef.current, {
+            center: [59.9386, 30.3141],
+            zoom: 13,
+        });
+
+        map.behaviors.disable('scrollZoom');
+    }, [ymaps]);
+
+    return (
         <section className={styles['MapView']}>
             <Map
                 width="100%"
@@ -32,6 +48,7 @@ export const MapView = () => {
                 defaultState={{
                     center: [59.9386, 30.3141],
                     zoom: 13,
+                    behaviors: ['drag', 'dblClickZoom', 'multiTouch'],
                 }}
             >
                 <ZoomControl options={{ position: { right: 20, top: '30vh' } }} />
@@ -52,9 +69,9 @@ export const MapView = () => {
                             }}
                             options={{
                                 iconLayout: 'default#image',
-                              iconImageHref: isLight ? '/icons/default_point.svg' : '/icons/default_point_black.svg',
-                                iconImageSize:  [40, 40],
-                              hintCloseTimeout: 0,
+                                iconImageHref: isLight ? '/icons/default_point.svg' : '/icons/default_point_black.svg',
+                                iconImageSize: [40, 40],
+                                hintCloseTimeout: 0,
                             }}
                         />
                     ))}

@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import { capitalize } from "lodash";
 
 import { TagTypes } from './Tag.types';
 
@@ -33,7 +34,7 @@ export const Tag = ({ className, value, onTagClick, disabled = false, type = Tag
             role="button"
             onClick={handleClick}
         >
-            <span className={[styles['Tag-Text'], styles[`Tag-Text_${type}`]].join(' ')}>{value}</span>
+            <span className={[styles['Tag-Text'], styles[`Tag-Text_${type}`]].join(' ')}>{capitalize(value)}</span>
         </div>
     );
 };

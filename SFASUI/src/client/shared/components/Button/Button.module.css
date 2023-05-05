@@ -38,4 +38,5 @@
 
 .Button_disabled {
     pointer-events: none;
+    background-color: var(--typography-default-color);
 }

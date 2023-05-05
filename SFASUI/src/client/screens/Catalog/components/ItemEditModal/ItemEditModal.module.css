@@ -8,7 +8,7 @@
 .ItemEditModal-TabTitle {
     margin: 0;
     font-family: var(--ubuntu);
-    font-size: var(--font-size-l);
+    font-size: var(--font-size-2xs);
     color: inherit;
     font-weight: inherit;
 }

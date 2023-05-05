@@ -8,9 +8,10 @@ import { useTheme } from 'src/client/shared/hooks/use-theme';
 
 export type AppLayoutProps = PropsWithChildren<{
     className?: string;
+    hasFooter?: boolean;
 }>;
 
-export const AppLayout = ({ children, className }: AppLayoutProps) => {
+export const AppLayout = ({ children, className, hasFooter = true }: AppLayoutProps) => {
     const { isLight } = useTheme();
 
     return (
@@ -22,18 +23,23 @@ export const AppLayout = ({ children, className }: AppLayoutProps) => {
                     colorBgContainer: isLight ? '#fff' : '#3D4351',
                     colorSplit: isLight ? '#c2ccd6' : '#4E5C78',
                     colorBorder: isLight ? '#c2ccd6' : '#4E5C78',
+                    controlHeightSM: 34,
                 },
             }}
         >
             <div className={className} data-color-mode={isLight ? 'light' : 'dark'}>
                 <Header />
                 {children}
-                <Footer />
+                {hasFooter && <Footer />}
                 <ToastContainer />
             </div>
         </ConfigProvider>
     );
 };
 
-export const appLayoutRenderer = (className?: string) => (page: JSX.Element) =>
-    <AppLayout className={className}>{page}</AppLayout>;
+export const appLayoutRenderer = (className?: string, hasFooter?: boolean) => (page: JSX.Element) =>
+    (
+        <AppLayout className={className} hasFooter={hasFooter}>
+            {page}
+        </AppLayout>
+    );

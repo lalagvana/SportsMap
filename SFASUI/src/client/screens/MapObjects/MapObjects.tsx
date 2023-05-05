@@ -2,7 +2,8 @@ import React from 'react';
 import { Clusterer, Map, Placemark, ZoomControl } from '@pbe/react-yandex-maps';
 
 import { useFacilitySearch } from 'src/client/shared/utils/api/facilities';
-import { useTheme } from "src/client/shared/hooks/use-theme";
+import { useTheme } from 'src/client/shared/hooks/use-theme';
+import { appLayoutRenderer } from 'src/client/shared/layouts/AppLayout';
 
 import { Sidebar } from './components/Sidebar';
 import { useSearchQuery } from './MapObjects.hooks';
@@ -69,3 +70,5 @@ export const MapObjects = () => {
         </main>
     );
 };
+
+export const mapLayoutRenderer = appLayoutRenderer('', false);
