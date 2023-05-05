@@ -36,7 +36,12 @@ export const MapField = () => {
                     <Placemark
                         modules={['geoObject.addon.hint']}
                         geometry={[xField.value, yField.value]}
-                        options={{ iconColor: '#aeca3b' }}
+                        options={{
+                          hasHint: false,
+                          iconLayout: 'default#image',
+                          iconImageHref: '/icons/default_point.svg',
+                          iconImageSize: [40, 40],
+                        }}
                     />
                 )}
             </Map>

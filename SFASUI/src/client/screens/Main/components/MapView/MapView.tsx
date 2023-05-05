@@ -1,5 +1,5 @@
-import { Clusterer, Map, Placemark, ZoomControl } from "@pbe/react-yandex-maps";
-import React from 'react';
+import { Clusterer, Map, Placemark, ZoomControl } from '@pbe/react-yandex-maps';
+import React  from 'react';
 import Link from 'next/link';
 
 import { Button } from 'src/client/shared/components/Button';
@@ -20,6 +20,7 @@ export const MapView = () => {
             revalidateOnMount: true,
         }
     );
+
     return (
         <section className={styles['MapView']}>
             <Map
@@ -30,26 +31,31 @@ export const MapView = () => {
                     zoom: 13,
                 }}
             >
-              <ZoomControl options={{ position: { right: 20, top: '30vh' } }} />
+                <ZoomControl options={{ position: { right: 20, top: '30vh' } }} />
 
-              <Clusterer
-                options={{
-                  preset: "islands#invertedVioletClusterIcons",
-                  groupByCoordinates: false,
-                }}
-              >
-                {sportObjectsListAll?.facilities?.map(({ x, y, name, id }) => (
-                    <Placemark
-                        key={id}
-                        modules={['geoObject.addon.hint']}
-                        geometry={[x, y]}
-                        properties={{
-                            hintContent: name,
-                        }}
-                        options={{ iconColor: '#7b3bca' }}
-                    />
-                ))}
-              </Clusterer>
+                <Clusterer
+                    options={{
+                        clusterIconColor: '#59C2E7',
+                        groupByCoordinates: false,
+                    }}
+                >
+                    {sportObjectsListAll?.facilities?.map(({ x, y, name, id }) => (
+                        <Placemark
+                            key={id}
+                            modules={['geoObject.addon.hint']}
+                            geometry={[x, y]}
+                            properties={{
+                                hintContent: `<span className="map-hint">${name}</span>`,
+                            }}
+                            options={{
+                                iconLayout: 'default#image',
+                                iconImageHref: '/icons/default_point.svg',
+                                iconImageSize: [40, 40],
+                                hintCloseTimeout: 0,
+                            }}
+                        />
+                    ))}
+                </Clusterer>
             </Map>
 
             <div className={styles['MapView-Content']}>
@@ -65,7 +71,9 @@ export const MapView = () => {
                 </div>
 
                 <TextWithIcon className={styles['MapView-Hint']} iconUrl="/icons/exclamation.png">
-                    <p className={styles['MapView-HintText']}>Подробнее узнать об объекте Вы можете на карте</p>
+                    <p className={styles['MapView-HintText']}>
+                        на данный момент доступно только для Красногвардейского района
+                    </p>
                 </TextWithIcon>
             </div>
         </section>
