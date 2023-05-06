@@ -24,9 +24,10 @@ export const QuerySearch = ({
             const newQuery = omit(query, [name, ...excludeParams]);
 
             if (!value) {
-                await push({ query: newQuery });
+                await push({ query: newQuery }, { query: newQuery }, { shallow: true });
             } else {
-                await push({ query: { ...newQuery, [name]: value } });
+                const query = { ...newQuery, [name]: value };
+                await push({ query }, { query }, { shallow: true });
             }
 
             if (onSuccess) {

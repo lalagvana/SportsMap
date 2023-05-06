@@ -1,11 +1,12 @@
 import axios, { RawAxiosRequestConfig } from 'axios';
 import { toast } from 'react-toastify';
+
 import {Notification} from 'src/client/shared/components/Notification'
 import { BASE_PATH } from 'src/client/shared/utils/environment';
+import { prepareMessage } from 'src/client/shared/utils/notifications';
+
 import { UNPROTECTED_PATHS } from './constants';
 import { getAuthToken } from './renewToken';
-import { prepareMessage } from '../notifications';
-import { apiRoutes } from "./apiRoutes";
 
 const DEFAULT_HEADERS = {
     'Content-Type': 'application/json',
@@ -17,7 +18,7 @@ export async function fetch<T>(path: string, options: RawAxiosRequestConfig = {}
 
     // Если нужна авторизация для эндпоинта
     if (!UNPROTECTED_PATHS.includes(path) && method.toUpperCase() !== 'GET') {
-        const token = getAuthToken();
+        const token = await getAuthToken();
 
         // TODO: сделать редирект на логин?
         if (!token) {
@@ -25,6 +26,8 @@ export async function fetch<T>(path: string, options: RawAxiosRequestConfig = {}
 
             throw Error('not logged in');
         }
+
+        console.log(token)
 
         headers['Authorization'] = `Bearer ${token}`;
     }

@@ -1,17 +1,17 @@
 declare namespace Definitions {
     export interface ErrorResponse {
-        message?: string;
         detail?: {
             [key: string]: any;
         };
+        message?: string;
     }
     export interface ExcelImportValidationError {
+        n?: number; // int32
         detail?: {
             [key: string]: any;
         };
-        name?: string;
         type?: string;
-        n?: number; // int32
+        name?: string;
     }
     export interface ExcelImportValidationResponse {
         errors?: ExcelImportValidationError[];
@@ -26,33 +26,39 @@ declare namespace Definitions {
         data?: string[];
     }
     export interface FacilityPatchRequest {
-        area?: number; // float
-        owning_type?: string;
-        note?: string;
-        annual_capacity?: number; // int32
-        owner?: string;
-        accessibility?: boolean;
-        depth?: number; // float
-        x?: number; // float
-        eps?: number; // int32
-        working_hours?: {
-            [key: string]: any;
-        };
-        document?: string;
-        site?: string;
-        actual_workload?: number; // int32
-        covering_type?: string;
-        y?: number; // float
-        height?: number; // float
         phone_number?: string;
-        address?: string;
-        type?: string;
-        length?: number; // float
+        x?: number; // float
         name?: string;
-        width?: number; // float
-        age?: string[];
+        owning_type?: string;
+        covering_type?: string;
+        annual_capacity?: number; // int32
+        address?: string;
+        actual_workload?: number; // int32
+        working_hours?: {
+            friday: FacilityWorkingHoursItem;
+            tuesday: FacilityWorkingHoursItem;
+            wednesday: FacilityWorkingHoursItem;
+            thursday: FacilityWorkingHoursItem;
+            saturday: FacilityWorkingHoursItem;
+            monday: FacilityWorkingHoursItem;
+            sunday: FacilityWorkingHoursItem;
+        };
         hidden?: boolean;
+        height?: number; // float
+        accessibility?: boolean;
         paying_type?: string[];
+        type?: string;
+        age?: string[];
+        width?: number; // float
+        site?: string;
+        y?: number; // float
+        area?: number; // float
+        length?: number; // float
+        note?: string;
+        depth?: number; // float
+        document?: string;
+        owner?: string;
+        eps?: number; // int32
     }
     export interface FacilityPayingTypeResponse {
         data?: string[];
@@ -61,128 +67,190 @@ declare namespace Definitions {
         id?: string; // uuid
         url?: string;
     }
-    export interface FacilityRequest {
-        area: number; // float
-        owning_type?: string;
-        note?: string;
-        annual_capacity?: number; // int32
-        owner: string;
-        accessibility?: boolean;
-        depth?: number; // float
-        x?: number; // float
-        eps?: number; // int32
-        working_hours?: {
-            [key: string]: any;
-        };
-        document?: string;
-        site?: string;
-        actual_workload?: number; // int32
-        covering_type?: string;
-        y?: number; // float
-        height?: number; // float
+    export interface FacilityPutRequest {
         phone_number?: string;
-        address: string;
-        type: string;
-        length?: number; // float
+        x?: number; // float
         name: string;
-        width?: number; // float
-        age?: string[];
+        owning_type?: string;
+        covering_type?: string;
+        annual_capacity?: number; // int32
+        address: string;
+        actual_workload?: number; // int32
+        working_hours?: {
+            friday: FacilityWorkingHoursItem;
+            tuesday: FacilityWorkingHoursItem;
+            wednesday: FacilityWorkingHoursItem;
+            thursday: FacilityWorkingHoursItem;
+            saturday: FacilityWorkingHoursItem;
+            monday: FacilityWorkingHoursItem;
+            sunday: FacilityWorkingHoursItem;
+        };
         hidden?: boolean;
+        height?: number; // float
+        accessibility?: boolean;
         paying_type?: string[];
+        type?: string;
+        age?: string[];
+        width?: number; // float
+        site?: string;
+        y?: number; // float
+        area: number; // float
+        length?: number; // float
+        note?: string;
+        depth?: number; // float
+        document?: string;
+        owner: string;
+        eps?: number; // int32
+    }
+    export interface FacilityRequest {
+        phone_number?: string;
+        x?: number; // float
+        name: string;
+        owning_type?: string;
+        covering_type?: string;
+        annual_capacity?: number; // int32
+        address: string;
+        actual_workload?: number; // int32
+        working_hours?: {
+            friday: FacilityWorkingHoursItem;
+            tuesday: FacilityWorkingHoursItem;
+            wednesday: FacilityWorkingHoursItem;
+            thursday: FacilityWorkingHoursItem;
+            saturday: FacilityWorkingHoursItem;
+            monday: FacilityWorkingHoursItem;
+            sunday: FacilityWorkingHoursItem;
+        };
+        hidden?: boolean;
+        height?: number; // float
+        accessibility?: boolean;
+        paying_type?: string[];
+        type: string;
+        age?: string[];
+        width?: number; // float
+        site?: string;
+        y?: number; // float
+        area: number; // float
+        length?: number; // float
+        note?: string;
+        depth?: number; // float
+        document?: string;
+        owner: string;
+        eps?: number; // int32
     }
     export interface FacilityResponse {
-        area?: number; // float
-        photo?: FacilityPhotoResponse[];
-        owning_type?: string;
-        id: string; // uuid
-        note?: string;
-        annual_capacity?: number; // int32
-        owner: string;
-        accessibility?: boolean;
-        depth?: number; // float
-        x: number; // float
-        eps?: number; // int32
-        working_hours?: {
-            [key: string]: any;
-        };
-        document?: string;
-        site?: string;
-        actual_workload?: number; // int32
-        covering_type?: string;
-        y: number; // float
-        height?: number; // float
         phone_number?: string;
-        address: string;
-        type: string;
-        length?: number; // float
+        x: number; // float
         name: string;
-        width?: number; // float
-        age: string[];
+        owning_type?: string;
+        covering_type?: string;
+        annual_capacity?: number; // int32
+        address: string;
+        id: string; // uuid
+        actual_workload?: number; // int32
+        working_hours?: {
+            friday: FacilityWorkingHoursItem;
+            tuesday: FacilityWorkingHoursItem;
+            wednesday: FacilityWorkingHoursItem;
+            thursday: FacilityWorkingHoursItem;
+            saturday: FacilityWorkingHoursItem;
+            monday: FacilityWorkingHoursItem;
+            sunday: FacilityWorkingHoursItem;
+        };
         hidden?: boolean;
+        height?: number; // float
+        accessibility?: boolean;
         paying_type: string[];
+        type: string;
+        age: string[];
+        photo?: FacilityPhotoResponse[];
+        width?: number; // float
+        site?: string;
+        y: number; // float
+        area?: number; // float
+        length?: number; // float
+        note?: string;
+        depth?: number; // float
+        document?: string;
+        owner: string;
+        eps?: number; // int32
     }
     export interface FacilitySearchRequest {
         order_by?: string;
-        owning_type?: string[];
         offset?: number; // int32
-        covering_type?: string[];
-        age?: string[];
         q?: string;
         filters?: FieldFilter[];
-        order_desc?: boolean;
-        all?: boolean;
-        limit?: number; // int32
         paying_type?: string[];
+        order_desc?: boolean;
+        limit?: number; // int32
+        all?: boolean;
         type?: string[];
+        owning_type?: string[];
+        covering_type?: string[];
+        age?: string[];
     }
     export interface FacilitySearchResponse {
-        count?: number; // int32
         facilities?: FacilityResponse[];
+        count?: number; // int32
     }
     export interface FacilityTypeResponse {
         data?: string[];
     }
+    export interface FacilityWorkingHours {
+        friday: FacilityWorkingHoursItem;
+        tuesday: FacilityWorkingHoursItem;
+        wednesday: FacilityWorkingHoursItem;
+        thursday: FacilityWorkingHoursItem;
+        saturday: FacilityWorkingHoursItem;
+        monday: FacilityWorkingHoursItem;
+        sunday: FacilityWorkingHoursItem;
+    }
+    export interface FacilityWorkingHoursItem {
+        all_day?: boolean;
+        open: boolean;
+        since?: string;
+        to?: string;
+    }
     export interface FieldFilter {
-        eq?: string;
-        gt?: number;
-        field?: string;
         lt?: number;
+        eq?: string;
+        field?: string;
+        gt?: number;
     }
     export interface UserCreateRequest {
-        last_name?: string;
+        password: string;
         email: string; // email
         first_name?: string;
-        password: string;
+        last_name?: string;
     }
     export interface UserLoginRequest {
-        email: string; // email
         password: string;
+        email: string; // email
     }
     export interface UserLoginResponse {
         admin?: boolean;
+        email: string; // email
         last_name?: string;
         id: string; // uuid
-        email: string; // email
-        first_name?: string;
-        refresh_token?: string;
         access_token_expires_in?: number; // int32
+        first_name?: string;
         access_token?: string;
+        refresh_token?: string;
     }
     export interface UserPatchRequest {
-        last_name?: string;
-        first_name?: string;
         password?: string;
+        first_name?: string;
+        last_name?: string;
     }
     export interface UserRefreshTokenRequest {
-        refresh_token: string;
         access_token: string;
+        refresh_token: string;
     }
     export interface UserResponse {
-        admin?: boolean;
+        email: string; // email
         last_name?: string;
         id: string; // uuid
-        email: string; // email
         first_name?: string;
+        admin?: boolean;
     }
 }
 declare namespace Paths {
@@ -303,7 +371,7 @@ declare namespace Paths {
                 body?: Parameters.Body;
             }
             namespace Parameters {
-                export type Body = Definitions.FacilityRequest;
+                export type Body = Definitions.FacilityPutRequest;
                 export type Id = string;
             }
             export interface PathParameters {

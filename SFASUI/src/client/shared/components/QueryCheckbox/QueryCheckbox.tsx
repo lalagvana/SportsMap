@@ -31,13 +31,15 @@ export const QueryCheckbox = ({
                 const newQuery = currentQueryValue.filter((item) => item !== checkboxName);
 
                 if (newQuery.length > 0) {
-                    await push({ query: { ...cleanedQuery, [name]: newQuery } });
+                    const query = { ...cleanedQuery, [name]: newQuery };
+                    await push({ query }, { query }, { shallow: true });
                 } else {
-                    await push({ query: cleanedQuery });
+                    await push({ query: cleanedQuery }, { query: cleanedQuery }, { shallow: true });
                 }
             } else {
                 const newQuery = [...currentQueryValue, checkboxName];
-                await push({ query: { ...cleanedQuery, [name]: newQuery } });
+                const query = { ...cleanedQuery, [name]: newQuery };
+                await push({ query }, { query }, { shallow: true });
             }
 
             if (onSuccess) {
@@ -47,8 +49,12 @@ export const QueryCheckbox = ({
         [push, query, excludeParams, onSuccess, name, checkboxName]
     );
 
-
     return (
-        <Checkbox className={className} checked={query[name]?.includes(checkboxName)} onChange={onCheckboxChange} {...rest} />
+        <Checkbox
+            className={className}
+            checked={query[name]?.includes(checkboxName)}
+            onChange={onCheckboxChange}
+            {...rest}
+        />
     );
 };

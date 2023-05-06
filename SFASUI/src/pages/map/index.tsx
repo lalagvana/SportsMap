@@ -1,20 +1,25 @@
 import React from 'react';
 import { GetServerSideProps } from 'next';
 
-import { ExtendedNextPage } from "src/client/shared/types/next";
+import { ExtendedNextPage } from 'src/client/shared/types/next';
 
-import { mapLayoutRenderer, MapObjects } from "src/client/screens/MapObjects";
+import { getSearchQuery, mapLayoutRenderer, MapObjects, MapObjectsPageProps } from 'src/client/screens/MapObjects';
 
 import NextError from 'src/pages/_error';
+import { searchFacility } from '../../client/shared/utils/api/facilities';
 
 type MapPageProps = {
-    data?: any;
+    data?: MapObjectsPageProps;
     error?: any;
 };
 
-export const getServerSideProps: GetServerSideProps<MapPageProps> = async () => {
+export const getServerSideProps: GetServerSideProps<MapPageProps> = async ({ query }) => {
+    const searchQuery = getSearchQuery(query);
+
+    const facilityObjects = await searchFacility(searchQuery, 'https://sportsmap.spb.ru/');
+
     return {
-        props: {},
+        props: { data: { facilityObjects } },
     };
 };
 

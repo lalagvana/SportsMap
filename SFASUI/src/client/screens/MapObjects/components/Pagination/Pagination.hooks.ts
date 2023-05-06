@@ -15,10 +15,13 @@ export const usePaginationHooks = () => {
         }
 
         if (Number(page) === 2) {
-            await push({ query: omit(query, 'page') });
+            const newQuery = omit(query, 'page');
+            await push({ query: newQuery }, { query: newQuery }, { shallow: true });
         } else {
-            await push({ query: { ...query, page: Number(page) - 1 } });
+            const newQuery = { ...query, page: Number(page) - 1 };
+            await push({ query: newQuery }, { query: newQuery }, { shallow: true });
         }
+
         await mutate(apiRoutes.facilitySearch);
     }, [push, page]);
 
@@ -26,7 +29,10 @@ export const usePaginationHooks = () => {
         if (Number.isNaN(Number(page))) {
             return;
         }
-        await push({ query: { ...query, page: Number(page) + 1 } });
+
+        const newQuery = { ...query, page: Number(page) + 1 };
+        await push({ query: newQuery }, { query: newQuery }, { shallow: true });
+
         await mutate(apiRoutes.facilitySearch);
     }, [push, page]);
 

@@ -18,9 +18,10 @@ export const QuerySelect = ({ name, excludeParams = ['page'], onSuccess, ...rest
             const newQuery = omit(query, [parameterName, ...excludeParams]);
 
             if (!value) {
-                await push({ query: newQuery });
+                await push({ query: newQuery }, { query: newQuery }, { shallow: true });
             } else {
-                await push({ query: { ...newQuery, [parameterName]: value } });
+                const query = { ...newQuery, [parameterName]: value };
+                await push({ query }, { query }, { shallow: true });
             }
 
             if (onSuccess) {

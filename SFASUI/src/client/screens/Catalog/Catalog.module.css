@@ -17,6 +17,7 @@
 .Catalog-Main {
     max-width: 1520px;
     margin: var(--space-xl) auto 60px;
+    min-height: calc(100vh - 76px - 300px);
 }
 
 .Catalog-Pagination {

@@ -1,0 +1,14 @@
+@import url('node_modules/nprogress/nprogress.css');
+
+#nprogress .bar {
+    z-index: 10000;
+    background: var(--base-default-color);
+}
+
+#nprogress .peg {
+    box-shadow: 0 0 10px var(--base-default-color), 0 0 5px var(--base-default-color);
+}
+
+#nprogress .spinner {
+    display: none;
+}

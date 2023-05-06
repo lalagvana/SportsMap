@@ -1,10 +1,17 @@
 import { fetch } from 'src/client/shared/utils/api/fetch';
 import { apiRoutes } from 'src/client/shared/utils/api/apiRoutes';
 
-import { CreateFacility, PartialUpdateFacility, UpdateFacility } from '.';
+import { CreateFacility, PartialUpdateFacility, UpdateFacility, SearchFacilities } from '.';
 
 export const createFacility = (body: CreateFacility.Body) => {
     return fetch<CreateFacility.Response>(apiRoutes.facility, {
+        method: 'POST',
+        data: body,
+    });
+};
+
+export const searchFacility = (body: SearchFacilities.Body, prefix?: string) => {
+    return fetch<SearchFacilities.Response>(`${prefix}${apiRoutes.facilitySearch}`, {
         method: 'POST',
         data: body,
     });

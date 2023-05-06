@@ -1,20 +1,29 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 
-import { useFacilitySearch } from 'src/client/shared/utils/api/facilities';
+import { SearchFacilities, useFacilitySearch } from 'src/client/shared/utils/api/facilities';
 import { appLayoutRenderer } from 'src/client/shared/layouts/AppLayout/AppLayout';
+import { Loading } from "src/client/shared/components/Loading/Loading";
 
 import { Filters } from './components/Filters';
-import { useSearchQuery } from './Catalog.hooks';
+import { getSearchQuery } from './Catalog.helpers';
 import { CatalogCardGrid } from './components/CatalogCardGrid';
 import { LIMIT } from './Catalog.constants';
 import { CatalogPagination } from './components/CatalogPagination';
 
 import styles from './Catalog.module.css';
 
-export const Catalog = () => {
-    const searchQuery = useSearchQuery();
+export type CatalogPageProps = {
+    facilityObjects?: SearchFacilities.Response;
+};
 
-    const { data: facilityObjects } = useFacilitySearch(searchQuery, {
+export const Catalog = ({ facilityObjects: initialFacilityObjects }: CatalogPageProps) => {
+    const { query } = useRouter();
+
+    const searchQuery = getSearchQuery(query);
+
+    const { data: facilityObjects, isValidating } = useFacilitySearch(searchQuery, {
+        fallbackData: initialFacilityObjects,
         revalidateOnFocus: false,
         revalidateOnReconnect: false,
         revalidateOnMount: true,
@@ -27,8 +36,9 @@ export const Catalog = () => {
                 <span className={styles['Catalog-Found_text']}>Найдено объектов: </span>
                 <output className={styles['Catalog-Found_count']}>{facilityObjects?.count || 0}</output>
             </section>
-            {facilityObjects?.facilities && <CatalogCardGrid items={facilityObjects?.facilities} />}
-            {facilityObjects?.count && facilityObjects?.count > LIMIT && (
+            {isValidating && <Loading />}
+            {!isValidating && facilityObjects?.facilities && <CatalogCardGrid items={facilityObjects?.facilities} />}
+            {!isValidating && facilityObjects?.count && facilityObjects?.count > LIMIT && (
                 <CatalogPagination className={styles['Catalog-Pagination']} total={facilityObjects?.count} />
             )}
         </main>
@@ -36,6 +46,3 @@ export const Catalog = () => {
 };
 
 export const catalogLayoutRenderer = appLayoutRenderer(styles['Catalog']);
-
-
-

@@ -10,21 +10,26 @@ import { Features } from './components/Features';
 import { MapView } from './components/MapView';
 
 import styles from './Main.module.css';
+import { SearchFacilities } from '../../shared/utils/api/facilities';
 
-export const Main = () => {
+export type MainScreenPageProps = {
+    facilityObjects?: SearchFacilities.Response;
+};
+
+export const Main = ({ facilityObjects: initialFacilityObjects }: MainScreenPageProps) => {
     const { isLight } = useTheme();
 
     return (
         <main className={styles['Main']}>
             <Beginning />
             <section className={styles['Main-Sponsors']}>
-              {!isLight && <div className={styles['Main-Surface']}/>}
+                {!isLight && <div className={styles['Main-Surface']} />}
                 <Image width={222} height={61} src="/images/contacts/SPBu.png" layout="fixed" />
                 <Image width={226} height={72} src="/images/contacts/District.png" layout="fixed" />
                 <Image width={201} height={61} src="/images/contacts/Administration.png" layout="fixed" />
             </section>
             <Features />
-            <MapView />
+            <MapView initialFacilityObjects={initialFacilityObjects} />
             <Achievements />
             <Development />
         </main>

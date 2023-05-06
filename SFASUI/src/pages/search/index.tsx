@@ -3,18 +3,24 @@ import { GetServerSideProps } from 'next';
 
 import { ExtendedNextPage } from 'src/client/shared/types/next';
 
-import { Catalog, catalogLayoutRenderer } from 'src/client/screens/Catalog';
+import { Catalog, catalogLayoutRenderer, CatalogPageProps } from 'src/client/screens/Catalog';
 
 import NextError from 'src/pages/_error';
+import {  searchFacility } from "src/client/shared/utils/api/facilities";
+import { getSearchQuery } from 'src/client/screens/Catalog/Catalog.helpers';
 
 type SearchPageProps = {
-    data?: any;
+    data?: CatalogPageProps;
     error?: any;
 };
 
-export const getServerSideProps: GetServerSideProps<SearchPageProps> = async () => {
+export const getServerSideProps: GetServerSideProps<SearchPageProps> = async ({ query }) => {
+    const searchQuery = getSearchQuery(query);
+
+    const facilityObjects = await searchFacility(searchQuery, 'https://sportsmap.spb.ru/');
+
     return {
-        props: {},
+        props: { data: { facilityObjects } },
     };
 };
 
