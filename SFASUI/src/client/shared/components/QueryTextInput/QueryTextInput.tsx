@@ -18,9 +18,10 @@ export const QueryTextInput = ({ name, excludeParams = ['page'], onSuccess, clas
             const newQuery = omit(query, [name, ...excludeParams]);
 
             if (!event.target.value) {
-                await push({ query: newQuery });
+                await push({ query: newQuery }, { query: newQuery }, { shallow: true });
             } else {
-                await push({ query: { ...newQuery, [name]: event.target.value } });
+                const query = { ...newQuery, [name]: event.target.value };
+                await push({ query }, { query }, { shallow: true });
             }
 
             if (onSuccess) {

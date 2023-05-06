@@ -1,23 +1,30 @@
 import React from 'react';
 import { Clusterer, Map, Placemark, ZoomControl } from '@pbe/react-yandex-maps';
 
-import { useFacilitySearch } from 'src/client/shared/utils/api/facilities';
+import { SearchFacilities, useFacilitySearch } from 'src/client/shared/utils/api/facilities';
 import { useTheme } from 'src/client/shared/hooks/use-theme';
 import { appLayoutRenderer } from 'src/client/shared/layouts/AppLayout';
 
 import { Sidebar } from './components/Sidebar';
-import { useSearchQuery } from './MapObjects.hooks';
+import { getSearchQuery } from './MapObjects.helpers';
 
 import styles from './MapObject.module.css';
+import { useRouter } from 'next/router';
 
-export const MapObjects = () => {
-    const searchQuery = useSearchQuery();
+export type MapObjectsPageProps = {
+    facilityObjects?: SearchFacilities.Response;
+};
+
+export const MapObjects = ({ facilityObjects: initialFacilityObjects }: MapObjectsPageProps) => {
+    const { query } = useRouter();
+    const searchQuery = getSearchQuery(query);
 
     const {
         data: sportObjectsList,
         error,
         isValidating,
     } = useFacilitySearch(searchQuery, {
+        fallbackData: initialFacilityObjects,
         revalidateOnFocus: false,
         revalidateOnReconnect: false,
         revalidateOnMount: true,

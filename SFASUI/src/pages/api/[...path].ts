@@ -68,6 +68,7 @@ proxy.on('proxyRes', function (proxyRes, req, res) {
             })
         );
     });
+
 });
 
 export default async (req: IncomingMessage, res: ServerResponse<IncomingMessage>) => {

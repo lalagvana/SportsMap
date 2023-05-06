@@ -39,7 +39,11 @@ export const SidebarFilters = () => {
             />
             {isOpen &&
                 filters.map((selectProps) => (
-                    <QuerySelect {...selectProps} onSuccess={() => mutate(apiRoutes.facilitySearch)} />
+                    <QuerySelect
+                        {...selectProps}
+                        key={selectProps.name}
+                        onSuccess={() => mutate(apiRoutes.facilitySearch)}
+                    />
                 ))}
         </fieldset>
     );

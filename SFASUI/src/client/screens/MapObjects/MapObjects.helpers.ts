@@ -1,11 +1,9 @@
-import { useRouter } from 'next/router';
+import { NextRouter } from 'next/router';
 
 import { LIMIT, SEARCH_QUERY } from './MapObjects.constants';
 
-export const useSearchQuery = () => {
-    const {
-        query: { page = 1, q = '', type, age, paying_type },
-    } = useRouter();
+export const getSearchQuery = (query: NextRouter['query']) => {
+    const { page = 1, q = '', type, age, paying_type } = query;
 
     return {
         ...SEARCH_QUERY,

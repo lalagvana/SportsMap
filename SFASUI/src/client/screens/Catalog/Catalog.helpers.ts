@@ -1,33 +1,30 @@
-import { useRouter } from 'next/router';
-import { useMemo } from 'react';
+import { NextRouter } from 'next/router';
 
 import { getArrayQuery } from 'src/client/shared/utils/query';
 
 import { SEARCH_QUERY, LIMIT } from './Catalog.constants';
 import { SIZE_INPUTS_NAME, OTHER_INPUTS_NAME } from './components/Filters';
 
-export const useSearchQuery = () => {
-    const { query } = useRouter();
+export const getFiltersQuery = (query: NextRouter['query']) => {
+    const queryInput = Object.keys(query).filter((key) => [...SIZE_INPUTS_NAME, ...OTHER_INPUTS_NAME].includes(key));
 
+    if (queryInput.length === 0) {
+        return undefined;
+    }
+
+    const queryInputNames = queryInput.map((item) => item.split('-')[0]);
+
+    return queryInputNames.map((item) => ({
+        field: item,
+        lt: Number(query[`${item}-to`]) || undefined,
+        gt: Number(query[`${item}-from`]),
+    }));
+};
+
+export const getSearchQuery = (query: NextRouter['query']) => {
     const { page = 1, q = '', type, age, paying_type, order_by, covering_type, owning_type } = query;
 
-    const filters = useMemo(() => {
-        const queryInput = Object.keys(query).filter((key) =>
-            [...SIZE_INPUTS_NAME, ...OTHER_INPUTS_NAME].includes(key)
-        );
-
-        if (queryInput.length === 0) {
-            return undefined;
-        }
-
-        const queryInputNames = queryInput.map((item) => item.split('-')[0]);
-
-        return queryInputNames.map((item) => ({
-            field: item,
-            lt: query[`${item}-to`],
-            gt: query[`${item}-from`],
-        }));
-    }, [query]);
+    const filters = getFiltersQuery(query);
 
     return {
         ...SEARCH_QUERY,

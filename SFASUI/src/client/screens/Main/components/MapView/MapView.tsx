@@ -4,23 +4,23 @@ import Link from 'next/link';
 
 import { Button } from 'src/client/shared/components/Button';
 import { TextWithIcon } from 'src/client/shared/components/TextWithIcon';
-import { useFacilitySearch } from 'src/client/shared/utils/api/facilities';
+import { SearchFacilities, useFacilitySearch } from 'src/client/shared/utils/api/facilities';
 import { useTheme } from 'src/client/shared/hooks/use-theme';
 
 import styles from './MapView.module.css';
+import { SEARCH_QUERY } from '../../Main.constants';
 
-export const MapView = () => {
-    const { data: sportObjectsListAll } = useFacilitySearch(
-        {
-            limit: undefined,
-            offset: undefined,
-        },
-        {
-            revalidateOnFocus: false,
-            revalidateOnReconnect: false,
-            revalidateOnMount: true,
-        }
-    );
+export type MapViewProps = {
+    initialFacilityObjects?: SearchFacilities.Response;
+};
+
+export const MapView = ({ initialFacilityObjects }: MapViewProps) => {
+    const { data: sportObjectsListAll } = useFacilitySearch(SEARCH_QUERY, {
+        fallbackData: initialFacilityObjects,
+        revalidateOnFocus: false,
+        revalidateOnReconnect: false,
+        revalidateOnMount: false,
+    });
 
     const { isLight } = useTheme();
 
