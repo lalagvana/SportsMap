@@ -90,7 +90,7 @@ export const MapView = () => {
                     </Button>
                 </div>
 
-                <TextWithIcon className={styles['MapView-Hint']} iconUrl="/icons/exclamation.png">
+                <TextWithIcon className={styles['MapView-Hint']} iconType="exclamation">
                     <p className={styles['MapView-HintText']}>
                         на данный момент доступно только для Красногвардейского района
                     </p>

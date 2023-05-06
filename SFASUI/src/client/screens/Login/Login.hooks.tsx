@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { pageRoutes } from 'src/client/shared/routes';
 import { login, register } from 'src/client/shared/utils/api/login';
 import { prepareMessage } from 'src/client/shared/utils/notifications';
+import { Notification } from "src/client/shared/components/Notification";
 
 import { LoginFields, createLoginUser, LoginForm } from './components/LoginForm';
 import { RegisterForm, RegisterFormField, createRegisterUser } from './components/RegisterForm';
@@ -26,10 +27,10 @@ export const useLoginHandler = () => {
                 });
                 setCookie('sportsmap_refreshToken', refresh_token);
 
-                toast.success('Вы успешно вошли в аккаунт');
+                toast(<Notification type="success" heading='Вы вошли в аккаунт' description='Теперь вам доступен весь функционал' />);
                 await router.replace(pageRoutes.search);
             } catch (error) {
-                toast.error(prepareMessage(error, 'Произошла ошибка во время попытки входа'));
+                toast(<Notification type="error" imageType='cross' description={prepareMessage(error, 'Произошла ошибка во время попытки входа')} />);
 
                 throw error;
             }
@@ -52,10 +53,10 @@ export const useRegisterHandler = () => {
                 });
                 setCookie('sportsmap_refreshToken', refresh_token);
 
-                toast.success('Вы успешно зарегистрировались');
+                toast(<Notification type="success"  heading='Вы зарегистрировались' description='Теперь у вас есть аккаунт на нашем сайте' />);
                 await router.replace(pageRoutes.search);
             } catch (error) {
-                toast.error(prepareMessage(error, 'Произошла ошибка во время попытки регистрации'));
+                toast(<Notification type="error" imageType='cross' description={prepareMessage(error, 'Произошла ошибка во время попытки регистрации')} />);
 
                 throw error;
             }

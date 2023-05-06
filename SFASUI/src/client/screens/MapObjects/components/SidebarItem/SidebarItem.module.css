@@ -18,6 +18,10 @@
     box-shadow: 2px 4px 20px rgb(0 0 0 / 10%);
 }
 
+.SidebarItem path {
+    color: var(--base-default-color);
+}
+
 .SidebarItem:hover {
     outline: var(--base-additional-color) solid 1px;
 }

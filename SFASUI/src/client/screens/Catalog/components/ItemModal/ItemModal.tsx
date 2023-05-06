@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import React from 'react';
 import { Map, Placemark, ZoomControl } from '@pbe/react-yandex-maps';
 
@@ -10,6 +9,8 @@ import { PhotoCarousel } from 'src/client/shared/components/PhotoCarousel';
 import { useTheme } from 'src/client/shared/hooks/use-theme';
 
 import { Accordeon } from 'src/client/screens/Catalog/components/ItemModal/components/Accordeon';
+
+import Close from 'public/icons/close.svg';
 
 import styles from './ItemModal.module.css';
 
@@ -40,7 +41,7 @@ export const ItemModal = ({ item: initialItem, hide }: ItemModalProps) => {
                     type={item?.type as string}
                 />
             }
-            closeIcon={<Image width={10} height={10} src="/icons/close.svg" layout="fixed" />}
+            closeIcon={<Close width={10} height={10} />}
             footer={null}
             width={1015}
             onCancel={hide}

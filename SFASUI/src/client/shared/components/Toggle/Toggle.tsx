@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import ToggleIcon from 'public/icons/toggle.svg'
 
 import styles from './Toggle.module.css';
 
@@ -16,6 +16,6 @@ export const Toggle = ({ isOpened, onClick, className }: ToggleProps) => (
             ' '
         )}
     >
-        <Image width={10} height={10} src="/icons/toggle.png" layout="fixed" />
+        <ToggleIcon width={10} height={10} />
     </div>
 );

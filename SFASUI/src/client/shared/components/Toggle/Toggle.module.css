@@ -12,3 +12,7 @@
 .Toggle_closed {
     transform: rotate(180deg);
 }
+
+.Toggle path {
+    color: var(--black-color) !important;
+}

@@ -23,13 +23,10 @@ export const NewObjectForm = () => {
 
     return (
         <FormikProvider value={formikStateAndHelpers}>
-            <form className={styles['NewObjectForm']} >
+            <form className={styles['NewObjectForm']}>
                 <div className={styles['NewObjectForm-InputColumn']}>
                     <div className={styles['NewObjectForm-Address']}>
-                        <TextWithIcon
-                            className={styles['NewObjectForm-LabelWrapper']}
-                            iconUrl="/icons/address.svg"
-                        >
+                        <TextWithIcon className={styles['NewObjectForm-LabelWrapper']} iconType="address">
                             <span className={styles['NewObjectForm-Label']}>Адрес спортивного объекта</span>
                         </TextWithIcon>
                         <TextInputField
@@ -40,10 +37,7 @@ export const NewObjectForm = () => {
                             hiddenLabel
                             placeholder="10 линия ВО, 49"
                         />
-                        <TextWithIcon
-                            className={styles['NewObjectForm-LabelWrapper']}
-                            iconUrl="/icons/facility/owner.svg"
-                        >
+                        <TextWithIcon className={styles['NewObjectForm-LabelWrapper']} iconType="owner">
                             <span className={styles['NewObjectForm-Label']}>Владелец объекта</span>
                         </TextWithIcon>
                         <TextInputField
@@ -54,10 +48,7 @@ export const NewObjectForm = () => {
                             hiddenLabel
                             placeholder="МБОУ СОШ №15"
                         />
-                        <TextWithIcon
-                            className={styles['NewObjectForm-LabelWrapper']}
-                            iconUrl="/icons/note.svg"
-                        >
+                        <TextWithIcon className={styles['NewObjectForm-LabelWrapper']} iconType="note">
                             <span className={styles['NewObjectForm-Label']}>Примечания</span>
                         </TextWithIcon>
                         <MarkdownEditor

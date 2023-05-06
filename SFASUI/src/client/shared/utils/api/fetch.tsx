@@ -1,6 +1,6 @@
 import axios, { RawAxiosRequestConfig } from 'axios';
 import { toast } from 'react-toastify';
-
+import {Notification} from 'src/client/shared/components/Notification'
 import { BASE_PATH } from 'src/client/shared/utils/environment';
 import { UNPROTECTED_PATHS } from './constants';
 import { getAuthToken } from './renewToken';
@@ -21,8 +21,7 @@ export async function fetch<T>(path: string, options: RawAxiosRequestConfig = {}
 
         // TODO: сделать редирект на логин?
         if (!token) {
-            console.log(path)
-            toast.error(`Вы не авторизованы, пожалуйста, войдите в аккаунт`);
+            toast(<Notification type="error" imageType="cross" description="Вы не авторизованы" />);
 
             throw Error('not logged in');
         }
@@ -47,7 +46,7 @@ export async function fetch<T>(path: string, options: RawAxiosRequestConfig = {}
     } catch (error) {
         // Ошибки GET больше нигде не нотифицируются
         if (method.toUpperCase() === 'GET') {
-            toast.error(prepareMessage(error, 'Произошла ошибка во время получения данных'));
+            toast(<Notification type="error" imageType='cross' description={prepareMessage(error, 'Произошла ошибка во время получения данных')} />);
         }
 
         throw error;

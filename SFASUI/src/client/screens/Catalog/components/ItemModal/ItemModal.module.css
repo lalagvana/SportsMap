@@ -21,3 +21,7 @@
 .ItemModal-Map {
     height: 100%;
 }
+
+.ItemModal path {
+    color: var(--base-default-color);
+}

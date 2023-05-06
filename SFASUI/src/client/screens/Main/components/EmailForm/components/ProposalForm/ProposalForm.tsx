@@ -25,7 +25,7 @@ export const ProposalForm = () => {
         <FormikProvider value={formikStateAndHelpers}>
             <form className={styles['ProposalForm']} >
                 <div className={styles['ProposalForm-Name']}>
-                    <TextWithIcon className={styles['ProposalForm-LabelWrapper']} iconUrl="/icons/auth/user.svg">
+                    <TextWithIcon className={styles['ProposalForm-LabelWrapper']} iconType="user">
                         <span className={styles['ProposalForm-Label']}>Как нам к Вам обращаться?</span>
                     </TextWithIcon>
                     <TextInputField
@@ -46,7 +46,7 @@ export const ProposalForm = () => {
                     />
                 </div>
                 <div className={styles['ProposalForm-Email']}>
-                    <TextWithIcon className={styles['ProposalForm-LabelWrapper']} iconUrl="/icons/mail.svg">
+                    <TextWithIcon className={styles['ProposalForm-LabelWrapper']} iconType="mail">
                         <span className={styles['ProposalForm-Label']}>Как нам с Вами связаться?</span>
                     </TextWithIcon>
                     <TextInputField
@@ -59,7 +59,7 @@ export const ProposalForm = () => {
                     />
                 </div>
                 <div className={styles['ProposalForm-Notes']}>
-                    <TextWithIcon className={styles['ProposalForm-LabelWrapper']} iconUrl="/icons/note.svg">
+                    <TextWithIcon className={styles['ProposalForm-LabelWrapper']} iconType="note">
                         <span className={styles['ProposalForm-Label']}>
                             Что Вам не понравилось или что бы Вы хотели предложить?
                         </span>

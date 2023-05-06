@@ -1,0 +1,1 @@
+export type ImageTypeOption = 'mail' | 'cross' | 'check' | 'notification' | 'ok' | 'hide' | 'open' | 'add' | 'delete';

@@ -1,0 +1,63 @@
+.Notification {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius-l);
+    position: relative;
+    display: flex;
+    min-height: 100px;
+}
+
+.Notification-Close {
+    position: absolute;
+    top: var(--space-m);
+    right: var(--space-m);
+}
+
+.Notification-Close path {
+    color: var(--typography-default-color);
+}
+
+.Notification-Heading {
+    font-weight: var(--font-weight-bold);
+    font-family: var(--ubuntu);
+    font-size: var(--font-size-l);
+    margin-bottom: var(--space-s);
+    display: block;
+}
+
+.Notification-Description {
+    color: var(--typography-default-color);
+    font-size: var(--font-size-m);
+}
+
+.Notification-Heading_error,
+.Notification-ImageSection_error path {
+    color: var(--error-color);
+}
+
+.Notification-Heading_success,
+.Notification-ImageSection_success path {
+    color: var(--success-color);
+}
+
+.Notification-ImageSection_error {
+    background-color: var(--error-light-color);
+}
+
+.Notification-ImageSection_success {
+    background-color: var(--success-light-color);
+}
+
+.Notification-TextSection {
+    margin: var(--space-l) var(--space-2xl) var(--space-l) var(--space-s);
+    box-sizing: border-box;
+    max-width: 253px;
+}
+
+.Notification-ImageSection {
+    width: 62px;
+    padding: var(--space-l);
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}

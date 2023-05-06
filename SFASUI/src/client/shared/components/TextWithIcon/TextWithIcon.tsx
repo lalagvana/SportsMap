@@ -1,20 +1,22 @@
 import { PropsWithChildren } from 'react';
 
+import { useIcon } from './TextWithIcon.hooks';
+
 import styles from './TextWithIcon.module.css';
-import Image from 'next/image';
 
 type TextWithIcon = PropsWithChildren<{
-    iconUrl: string;
+    iconType: string;
     className?: string;
     width?: number;
     height?: number;
 }>;
 
-export const TextWithIcon = ({ iconUrl, children, className, width = 20, height = 20 }: TextWithIcon) => (
-    <div className={[styles['TextWithIcon'], className].join(' ')}>
-        <div className={styles['TextWithIcon-IconContainer']}>
-            <Image width={width} height={height} src={iconUrl} layout="fixed" />
+export const TextWithIcon = ({ iconType, children, className, width = 20, height = 20 }: TextWithIcon) => {
+    const icon = useIcon({ iconType, width, height });
+    return (
+        <div className={[styles['TextWithIcon'], className].join(' ')}>
+            <div className={styles['TextWithIcon-IconContainer']}>{icon}</div>
+            {children}
         </div>
-        {children}
-    </div>
-);
+    );
+};

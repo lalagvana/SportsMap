@@ -1,3 +1,3 @@
-export const prepareMessage = (error: any, messageText: string) => {
-    return error?.response?.data?.message ? `${messageText}: ${error.response.data.message}` : messageText;
+export const prepareMessage = (error: any, messageText?: string) => {
+    return error?.response?.data?.message ? error.response.data.message : messageText;
 };

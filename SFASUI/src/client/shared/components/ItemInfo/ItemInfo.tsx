@@ -25,13 +25,13 @@ export const ItemInfo = ({
             tagProps={{ type: TagTypes.Outline }}
         />
         <TagGroup className={styles['ItemInfo-AgeTags']} tagValues={age} tagProps={{ type: TagTypes.Default }} />
-        <TextWithIcon className={styles['ItemInfo-Address']} iconUrl="/icons/address.svg">
+        <TextWithIcon className={styles['ItemInfo-Address']} iconType='address'>
             <span className={styles['ItemInfo-AddressText']} title={address}>
                 {address}
             </span>
         </TextWithIcon>
         {accessibility && (
-            <TextWithIcon className={styles['ItemInfo-Availability']} iconUrl="/icons/facility/accessibility.svg">
+            <TextWithIcon className={styles['ItemInfo-Availability']} iconType='accessibility'>
                 <span>Доступная среда:</span>
                 <Image width={20} height={20} src="/icons/facility/accessibility.svg" layout="fixed" />
             </TextWithIcon>
@@ -39,12 +39,12 @@ export const ItemInfo = ({
         {!isEmpty(working_hours) && <WorkingHours hours={working_hours} />}
 
         {phone_number && (
-            <TextWithIcon className={styles['ItemInfo-Phone']} iconUrl="/icons/facility/phone.svg">
+            <TextWithIcon className={styles['ItemInfo-Phone']} iconType='phone'>
                 <span title={phone_number}>{phone_number}</span>
             </TextWithIcon>
         )}
         {site && (
-            <TextWithIcon className={styles['ItemInfo-Link']} iconUrl="/icons/facility/link.svg">
+            <TextWithIcon className={styles['ItemInfo-Link']} iconType='link'>
                 <a
                     className={styles['ItemInfo-LinkText']}
                     href={site}
@@ -57,7 +57,7 @@ export const ItemInfo = ({
             </TextWithIcon>
         )}
 
-        <TextWithIcon className={styles['ItemInfo-Owner']} iconUrl="/icons/facility/owner.svg">
+        <TextWithIcon className={styles['ItemInfo-Owner']} iconType='owner'>
             <span title={owner}>{owner}</span>
         </TextWithIcon>
     </section>

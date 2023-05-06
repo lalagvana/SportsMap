@@ -1,11 +1,13 @@
 import { useCallback, useMemo, useState } from 'react';
-import { FacilityType } from '../../../../../../shared/types/facilities';
-import { deleteFacility, partialUpdateFacility } from '../../../../../../shared/utils/api/facilities';
-import { toast } from 'react-toastify';
-import { prepareMessage } from '../../../../../../shared/utils/notifications';
 import { mutate } from 'swr';
-import { apiRoutes } from '../../../../../../shared/utils/api/apiRoutes';
 import { hasCookie } from 'cookies-next';
+import { toast } from 'react-toastify';
+
+import { FacilityType } from 'src/client/shared/types/facilities';
+import { deleteFacility, partialUpdateFacility } from 'src/client/shared/utils/api/facilities';
+import { prepareMessage } from 'src/client/shared/utils/notifications';
+import { apiRoutes } from 'src/client/shared/utils/api/apiRoutes';
+import { Notification, ImageTypeOption } from 'src/client/shared/components/Notification';
 
 type UseToggleVisibilityProps = {
     setLoading: (value: boolean) => void;
@@ -14,8 +16,24 @@ type UseToggleVisibilityProps = {
     onSuccess?: () => void;
 };
 
-export const useToggleVisibilityHandler = ({ setLoading, id, initialHidden, onSuccess }: UseToggleVisibilityProps) =>
-    useCallback(async () => {
+export const useToggleVisibilityHandler = ({ setLoading, id, initialHidden, onSuccess }: UseToggleVisibilityProps) => {
+    const notificationProps = useMemo(
+        () =>
+            initialHidden
+                ? {
+                      heading: 'Объект снова отображается!',
+                      description: 'Объект виден другим пользователям. Вы можете его сделать скрытым в любой момент',
+                      imageType: 'open' as ImageTypeOption,
+                  }
+                : {
+                      heading: 'Вы скрыли объект!',
+                      description: 'Объект не виден другим пользователям. Вы можете его сделать видимым в любой момент',
+                      imageType: 'hide' as ImageTypeOption,
+                  },
+        [initialHidden]
+    );
+
+    return useCallback(async () => {
         try {
             await partialUpdateFacility(id, { hidden: !initialHidden });
 
@@ -24,15 +42,16 @@ export const useToggleVisibilityHandler = ({ setLoading, id, initialHidden, onSu
             if (onSuccess) {
                 onSuccess();
             }
-            toast.success('Вы успешно изменили видимость объекта');
+            toast(<Notification type="success" {...notificationProps} />);
             setLoading(false);
         } catch (error) {
-            toast.error(prepareMessage(error, 'Произошла ошибка во время попытки изменения видимости объекта'));
+            toast(<Notification description={prepareMessage(error)} imageType="cross" type="error" />);
             setLoading(false);
 
             throw error;
         }
-    }, [id, setLoading, initialHidden]);
+    }, [id, setLoading, initialHidden, notificationProps]);
+};
 
 type UseDeleteHandlerProps = {
     setLoading: (value: boolean) => void;
@@ -51,10 +70,10 @@ export const useDeleteHandler = ({ setLoading, id, onSuccess }: UseDeleteHandler
                 onSuccess();
             }
 
-            toast.success('Вы успешно удалили объект');
+            toast(<Notification type="success" imageType='delete' heading='Вы удалили объект!' description='Это действие нельзя отменить' />);
             setLoading(false);
         } catch (error) {
-            toast.error(prepareMessage(error, 'Произошла ошибка во время попытки удаления объекта'));
+            toast(<Notification description={prepareMessage(error)} imageType="cross" type="error" />);
             setLoading(false);
 
             throw error;

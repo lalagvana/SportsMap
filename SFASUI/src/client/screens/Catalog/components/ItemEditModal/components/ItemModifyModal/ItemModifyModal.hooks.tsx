@@ -1,13 +1,14 @@
-import { useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { toast } from 'react-toastify';
 import { FormikHelpers } from 'formik';
+import { mutate } from 'swr';
+import { omit } from 'lodash';
 
 import { FacilityType } from 'src/client/shared/types/facilities';
 import { prepareMessage } from 'src/client/shared/utils/notifications';
-import { partialUpdateFacility } from "src/client/shared/utils/api/facilities";
-import { mutate } from "swr";
-import { omit } from "lodash";
-import { apiRoutes } from "../../../../../../shared/utils/api/apiRoutes";
+import { partialUpdateFacility } from 'src/client/shared/utils/api/facilities';
+import { apiRoutes } from 'src/client/shared/utils/api/apiRoutes';
+import { Notification } from 'src/client/shared/components/Notification';
 
 type UseSubmitHandlerProps = {
     onSuccess?: () => void;
@@ -23,14 +24,16 @@ export const useSubmitHandler = ({ onSuccess, id }: UseSubmitHandlerProps) => {
                 await partialUpdateFacility(id, omit(fields, ['photo', 'id']));
 
                 await mutate(apiRoutes.facilitySearch);
-                toast.success('Вы успешно обновили объект');
+                toast(
+                    <Notification type="success" heading="Вы обновили объект" description="Данные успешно изменены" />
+                );
                 formikHelpers.setSubmitting(false);
 
                 if (onSuccess) {
                     onSuccess();
                 }
             } catch (error) {
-                toast.error(prepareMessage(error, 'Произошла ошибка во время попытки обновления объекта'));
+                toast(<Notification type="error" imageType="cross" description={prepareMessage(error)} />);
                 formikHelpers.setSubmitting(false);
 
                 throw error;

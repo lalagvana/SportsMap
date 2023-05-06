@@ -1,5 +1,6 @@
+import { TextWithIcon } from 'src/client/shared/components/TextWithIcon';
+
 import { useContactsLinks } from './Contacts.hooks';
-import { TextWithIcon } from '../TextWithIcon';
 
 import styles from './Contacts.module.css';
 
@@ -12,9 +13,9 @@ export const Contacts = ({ className }: ContactsProps) => {
 
     return (
         <ul className={[styles['Contacts'], className].join(' ')}>
-            {links.map(({ iconUrl, text }) => (
+            {links.map(({ iconType, text }) => (
                 <li key={text} className={styles['Contacts-Item']}>
-                    <TextWithIcon className={styles['Contacts-Item']} iconUrl={iconUrl}>{text}</TextWithIcon>
+                    <TextWithIcon className={styles['Contacts-Item']} iconType={iconType}>{text}</TextWithIcon>
                 </li>
             ))}
         </ul>

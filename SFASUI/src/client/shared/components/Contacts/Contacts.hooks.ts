@@ -4,19 +4,19 @@ export const useContactsLinks = () =>
     useMemo(
         () => [
             {
-                iconUrl: '/icons/contacts/address.svg',
+                iconType: 'address',
                 text: 'Санкт-Петербург, Среднеохтинский пр., 50',
             },
             {
-                iconUrl: '/icons/contacts/phone.svg',
+                iconType: 'phone',
                 text: '+7 (812) 576-86-15',
             },
             {
-                iconUrl: '/icons/contacts/time.svg',
+                iconType: 'time',
                 text: 'Пн-Пт 09:00 - 18:00',
             },
             {
-                iconUrl: '/icons/contacts/mail.svg',
+                iconType: 'mail',
                 text: 'admin2023@mail.ru',
             },
         ],

@@ -6,6 +6,7 @@ import { UploadChangeParam, UploadFile } from 'antd/es/upload/interface';
 import { prepareMessage } from 'src/client/shared/utils/notifications';
 import { addPhoto, deletePhoto } from 'src/client/shared/utils/api/photos';
 import { FacilityType } from 'src/client/shared/types/facilities';
+import { Notification } from "src/client/shared/components/Notification";
 
 export const useOnFileChange = () => {
     const { values } = useFormikContext<FacilityType>();
@@ -29,7 +30,7 @@ export const useOnFileChange = () => {
                     await deletePhoto(values.id, file.uid);
                     setFileListState(fileList.filter((item) => item.uid !== file.uid));
                 } catch (e) {
-                    toast.error(prepareMessage(e, 'Ошибка удаления фотографии'));
+                  toast(<Notification type="error" imageType='cross' description={prepareMessage(e, 'Ошибка удаления фотографии')} />);
                 }
                 return;
             }
@@ -43,7 +44,7 @@ export const useOnFileChange = () => {
                     const filteredFileList = fileList.filter((item) => file.uid !== item.uid);
                     setFileListState([...filteredFileList, { ...file, uid: response.id, url: response.url, status: 'done' }]);
                 } catch (e) {
-                    toast.error(prepareMessage(e, 'Ошибка загрузки фотографии'));
+                  toast(<Notification type="error" imageType='cross' description={prepareMessage(e, 'Ошибка загрузки фотографии')} />);
                 }
             }
         },

@@ -22,6 +22,16 @@
 
 .CatalogCard_disabled {
     color: var(--typography-secondary-color);
+    background-color: var(--field-color);
+}
+
+.CatalogCard path {
+    color: var(--base-default-color);
+}
+
+
+.CatalogCard_disabled path {
+    color: var(--typography-secondary-color);
 }
 
 .CatalogCard-Header {

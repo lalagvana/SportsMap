@@ -1,19 +1,22 @@
 .dark_theme {
-    --decorative-color: #4E5C78;
-    --black-color: #FFF;
-    --typography-default-color: #A2B7CD;
-    --typography-secondary-color: #B5CFE7;
-    --base-active-input-color: #617FB9;
-    --base-default-color: #5F85DB;
-    --base-secondary-color: #90B8F8;
-    --base-additional-color: #365EB9;
-    --white-color: #2E2E2E;
-    --placeholder-color: #B0C9E0;
-    --field-color: #3D4351;
-    --error-color: #EC4141;
-    --special-black-color: #2E2E2E;
-    --special-white-color: #FFF;
-    --transparent-white: 46,46,46;
+    --decorative-color: #4e5c78;
+    --black-color: #fff;
+    --typography-default-color: #a2b7cd;
+    --typography-secondary-color: #b5cfe7;
+    --base-active-input-color: #617fb9;
+    --base-default-color: #5f85db;
+    --base-secondary-color: #90b8f8;
+    --base-additional-color: #365eb9;
+    --white-color: #2e2e2e;
+    --placeholder-color: #b0c9e0;
+    --field-color: #3d4351;
+    --error-color: #F39898;
+    --success-color: #66D3BF;
+    --error-light-color: #6E555B;
+    --success-light-color: #446767;
+    --special-black-color: #2e2e2e;
+    --special-white-color: #fff;
+    --transparent-white: 46, 46, 46;
 
     --surface-color-0: var(--field-color);
     --surface-color-1: #353941;

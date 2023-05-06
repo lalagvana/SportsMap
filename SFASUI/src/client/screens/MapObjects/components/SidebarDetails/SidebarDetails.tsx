@@ -1,9 +1,9 @@
-import Image from 'next/image';
-
 import { CardHeader } from 'src/client/shared/components/CardHeader';
 import { Button } from 'src/client/shared/components/Button';
 import { ItemInfo } from 'src/client/shared/components/ItemInfo';
 import { PhotoCarousel } from 'src/client/shared/components/PhotoCarousel';
+
+import Back from 'public/icons/back.svg'
 
 import styles from './SidebarDetails.module.css';
 
@@ -20,7 +20,7 @@ export const SidebarDetails = ({ item, onBackClick }: SidebarDetailsProps) => {
     return (
         <article className={styles['SidebarDetails']}>
             <div className={styles['SidebarDetails-Back']} onClick={onBackClick}>
-                <Image width={20} height={20} src="/icons/back.svg" layout="fixed" />
+                <Back width={20} height={20} />
             </div>
             {hasPhoto && (
                 <PhotoCarousel className={styles['SidebarDetails-Photo']} photos={photo} width={500} height={321} />

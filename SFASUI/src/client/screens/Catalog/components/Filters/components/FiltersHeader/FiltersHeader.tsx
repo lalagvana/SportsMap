@@ -1,5 +1,4 @@
 import { useCallback, useMemo } from 'react';
-import Image from 'next/image';
 import { NextRouter, useRouter } from 'next/router';
 import { omit } from 'lodash';
 import { mutate } from 'swr';
@@ -17,8 +16,9 @@ import {
 } from 'src/client/screens/Catalog/components/Filters/Filters.constants';
 import { FILTERS_ITEMS } from './FiltersHeader.constans';
 
-import styles from './FiltersHeader.module.css';
+import Close from 'public/icons/close.svg';
 
+import styles from './FiltersHeader.module.css';
 
 type FiltersHeaderProps = {
     activeTab: FiltersTab | null;
@@ -96,7 +96,7 @@ export const FiltersHeader = ({ onTabClick, activeTab }: FiltersHeaderProps) => 
                     className={styles['FiltersHeader-Clear']}
                     text="Сбросить"
                     onClick={onClearClick}
-                    icon={<Image width={10} height={10} src="/icons/close.svg" layout="fixed" />}
+                    icon={<Close width={10} height={10} />}
                 />
             )}
         </div>

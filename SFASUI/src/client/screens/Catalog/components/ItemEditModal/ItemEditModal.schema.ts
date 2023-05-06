@@ -16,7 +16,7 @@ export function useSchema() {
                 length: number().positive('Число должно быть положительным').notRequired(),
                 depth: number().positive('Число должно быть положительным').notRequired(),
                 hidden: boolean(),
-                covering_type: string().required('Это обязательное поле'),
+                covering_type: string().notRequired(),
                 owning_type: string().notRequired(),
                 note: string().notRequired(),
                 eps: number().positive('Число должно быть положительным').notRequired(),

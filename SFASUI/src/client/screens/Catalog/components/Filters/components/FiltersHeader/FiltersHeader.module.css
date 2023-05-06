@@ -26,6 +26,10 @@
     padding-left: 0;
 }
 
+.FiltersHeader-Clear path {
+    color: var(--black-color);
+}
+
 .FiltersHeader-Clear span, .FiltersHeader-Item {
     font-family: var(--ubuntu);
     font-size: var(--font-size-m);
