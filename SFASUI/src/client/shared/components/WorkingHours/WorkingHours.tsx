@@ -15,7 +15,7 @@ export const WorkingHours = ({ hours }: WorkingHoursProps) => {
 
     return (
         <div className={styles['WorkingHours']}>
-            <TextWithIcon iconUrl="/icons/facility/time.svg">
+            <TextWithIcon iconType='time'>
                 <div className={styles['WorkingHours-ToggleWrapper']}>
                     <span className={styles['WorkingHours-ToggleText']}>Часы работы</span>
                     <Toggle isOpened={isOpened} onClick={() => setIsOpened(!isOpened)} />
@@ -27,7 +27,7 @@ export const WorkingHours = ({ hours }: WorkingHoursProps) => {
                         <li className={styles['WorkingHours-DetailsItem']}>
                             <span className={styles['WorkingHours-Day']}>{engToRusDay[day]}</span>
                             <span className={styles['WorkingHours-Value']}>
-                                {hours[day].open ? `${hours[day].from} - ${hours[day].to}` : 'Закрыто'}
+                                {hours[day].open ? `${hours[day].since} - ${hours[day].to}` : 'Закрыто'}
                             </span>
                         </li>
                     ))}

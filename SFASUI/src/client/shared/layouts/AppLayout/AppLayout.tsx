@@ -31,7 +31,7 @@ export const AppLayout = ({ children, className, hasFooter = true }: AppLayoutPr
                 <Header />
                 {children}
                 {hasFooter && <Footer />}
-                <ToastContainer />
+                <ToastContainer autoClose={5000} closeButton={() => <></>} />
             </div>
         </ConfigProvider>
     );

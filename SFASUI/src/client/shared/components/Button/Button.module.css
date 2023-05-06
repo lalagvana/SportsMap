@@ -26,8 +26,11 @@
 }
 
 .Button_clear {
-    color: var(--black-color);
     background-color: transparent;
+}
+
+.Button_clear .Button-Text {
+    color: var(--black-color);
 }
 
 .Button-Text {

@@ -27,7 +27,7 @@ export const SidebarItem = ({ onClick, item }: SidebarItemProps) => {
                 maxDisplayed={2}
             />
 
-            <TextWithIcon className={styles['SidebarItem-Address']} iconUrl="/icons/address.svg">
+            <TextWithIcon className={styles['SidebarItem-Address']} iconType="address">
                 <span className={styles['SidebarItem-AddressText']} title={address}>
                     {address}
                 </span>

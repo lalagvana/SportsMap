@@ -1,10 +1,11 @@
 import { Collapse } from 'antd';
-import Image from 'next/image';
 import { useCallback } from 'react';
 
 import { Divider } from 'src/client/shared/components/Divider';
 import { ItemInfo } from 'src/client/shared/components/ItemInfo/ItemInfo';
 import { FacilityType } from 'src/client/shared/types/facilities';
+
+import AccordeonCloseIcon from 'public/icons/accordeon_collapse.svg';
 
 import { ItemField } from '../ItemField';
 
@@ -34,7 +35,7 @@ export const Accordeon = ({ item, className }: AccordeonProps) => {
     } = item;
 
     const renderExpandIcon = useCallback(
-        () => <Image width={30} height={30} src="/icons/accordeon_collapse.png" layout="fixed" />,
+        () => <AccordeonCloseIcon className="Accordeon-ExpandIcon" width={30} height={30} />,
         []
     );
 

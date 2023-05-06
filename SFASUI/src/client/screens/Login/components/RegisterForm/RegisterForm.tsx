@@ -26,7 +26,7 @@ export const RegisterForm = ({ handleSubmit }: RegisterFormProps) => {
         <FormikProvider value={formikStateAndHelpers}>
             <form>
                 <TextWithIcon
-                    iconUrl="/icons/auth/user.svg"
+                  iconType="user"
                     width={24}
                     height={36}
                     className={styles['Register-LabelWrapper']}
@@ -47,7 +47,7 @@ export const RegisterForm = ({ handleSubmit }: RegisterFormProps) => {
                     className={styles['Register-Input_noIcon']}
                 />
                 <TextWithIcon
-                    iconUrl="/icons/auth/mail.svg"
+                  iconType="mail"
                     width={24}
                     height={36}
                     className={styles['Register-LabelWrapper']}
@@ -62,7 +62,7 @@ export const RegisterForm = ({ handleSubmit }: RegisterFormProps) => {
                     />
                 </TextWithIcon>
                 <TextWithIcon
-                    iconUrl="/icons/auth/password.svg"
+                  iconType="password"
                     width={24}
                     height={36}
                     className={styles['Register-LabelWrapper']}

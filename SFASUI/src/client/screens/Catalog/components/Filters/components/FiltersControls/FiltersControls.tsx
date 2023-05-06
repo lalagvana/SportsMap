@@ -1,4 +1,5 @@
 import { mutate } from 'swr';
+import { hasCookie } from 'cookies-next';
 
 import { Button, ButtonType } from 'src/client/shared/components/Button';
 import { useVisible } from 'src/client/shared/hooks/use-visible';
@@ -10,8 +11,11 @@ import { FileLoadModal } from '../FileLoadModal';
 import { ItemAddModal } from 'src/client/screens/Catalog/components/ItemEditModal/components/ItemAddModal';
 import { sortingSelectOptions } from './FiltersControls.constants';
 
+import ExcelImportIcon from 'public/icons/importExcel.svg';
+import ExcelExportIcon from 'public/icons/exportExcel.svg';
+import AddObjectIcon from 'public/icons/addObject.svg';
+
 import styles from './FiltersControls.module.css';
-import { hasCookie } from 'cookies-next';
 
 export const FiltersControls = () => {
     const { isVisible: isFileModalVisible, open: openFileModal, hide: hideFileModal } = useVisible({});
@@ -35,9 +39,23 @@ export const FiltersControls = () => {
             </fieldset>
             {isLogged && (
                 <div className={styles['FiltersControls-ButtonGroup']}>
-                    <Button view={ButtonType.Active} text="Скачать отчет" />
-                    <Button view={ButtonType.Active} text="Создать объект" onClick={openAddItemModal} />
-                    <Button view={ButtonType.Active} text="Загрузить файл" onClick={openFileModal} />
+                    <Button
+                        view={ButtonType.Active}
+                        text="Скачать отчет"
+                        icon={<ExcelExportIcon width={18} height={18} />}
+                    />
+                    <Button
+                        view={ButtonType.Active}
+                        text="Добавить объект"
+                        onClick={openAddItemModal}
+                        icon={<AddObjectIcon width={18} height={18} />}
+                    />
+                    <Button
+                        view={ButtonType.Active}
+                        text="Загрузить файл"
+                        onClick={openFileModal}
+                        icon={<ExcelImportIcon width={18} height={18} />}
+                    />
                 </div>
             )}
             {isFileModalVisible && <FileLoadModal hide={hideFileModal} />}

@@ -22,6 +22,10 @@
     gap: var(--space-xl);
 }
 
+.Header-User path, .Header-Logo path{
+    color: var(--base-default-color);
+}
+
 .Header-Content {
     display: flex;
     flex-grow: 1;
@@ -48,6 +52,9 @@
     margin-right: auto;
 }
 
+.Header-Link {
+    font-family: var(--ubuntu);
+}
 
 .Header-Link_active {
     font-weight: var(--font-weight-bold);

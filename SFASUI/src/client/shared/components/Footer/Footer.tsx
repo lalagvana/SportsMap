@@ -34,8 +34,8 @@ export const Footer = () => {
                 <section className={styles['Footer-Section']}>
                     <h2 className={styles['Footer-Header']}>Мы в социальных сетях</h2>
                     <div className={styles['Footer-ImageContainer']}>
-                        <Image width={44} height={26} src={VkIcon} layout="fixed" />
-                        <Image width={32} height={26} src={TelegramIcon} layout="fixed" />
+                        <VkIcon />
+                        <TelegramIcon />
                     </div>
                     <span className={styles['Footer-Header_mini']}>Создано при поддержке</span>
                     <Image width={160} height={47} src="/images/contacts/SPBu.png" layout="fixed" />

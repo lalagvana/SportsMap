@@ -1,3 +1,5 @@
+import { capitalize } from "lodash";
+
 import { Divider } from "src/client/shared/components/Divider";
 import { NowrapText } from "src/client/shared/components/NoWrapText";
 
@@ -13,8 +15,8 @@ type CardHeaderProps = {
 
 export const CardHeader = ({ name, type, className, disabled = false }: CardHeaderProps) => (
     <header className={[className, styles['CardHeader']].join(' ')}>
-      <NowrapText className={[styles['CardHeader-Type'], disabled ? styles['CardHeader-Type_disabled'] : undefined].join(' ')} text={type} tagName="h2"/>
+      <NowrapText className={[styles['CardHeader-Type'], disabled ? styles['CardHeader-Type_disabled'] : undefined].join(' ')} text={name} tagName="h2"/>
         <Divider />
-      <NowrapText className={styles['CardHeader-Name']} text={name} />
+      <NowrapText className={styles['CardHeader-Name']} text={capitalize(type)} />
     </header>
 );

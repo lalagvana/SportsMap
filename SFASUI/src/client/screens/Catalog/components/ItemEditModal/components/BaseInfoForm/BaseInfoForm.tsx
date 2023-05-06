@@ -87,6 +87,7 @@ export const BaseInfoForm = () => {
                     className={styles['BaseInfo-Address']}
                     fieldName="address"
                     label="Адрес"
+                    required
                     placeholder="10 линия ВО, 49"
                 />
                 <MapField />

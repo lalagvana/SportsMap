@@ -1,10 +1,12 @@
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 
 import { Button, ButtonType } from "src/client/shared/components/Button";
 
 import { LIMIT } from './Pagination.constants';
 import { usePaginationHooks } from "./Pagination.hooks";
+
+import Next from 'public/icons/next.svg'
+import Prev from 'public/icons/prev.svg'
 
 import styles from './Pagination.module.css';
 
@@ -26,7 +28,7 @@ export const Pagination = ({ count }: PaginationProps) => {
                 <Button
                     className={styles['Pagination-Button']}
                     onClick={onPrevClick}
-                    icon={<Image width={17} height={26} src="/icons/prev.svg" layout="fixed" />}
+                    icon={<Prev width={17} height={26} />}
                     view={ButtonType.Clear}
                 />
             )}
@@ -34,7 +36,7 @@ export const Pagination = ({ count }: PaginationProps) => {
                 <Button
                     className={styles['Pagination-Button']}
                     onClick={onNextClick}
-                    icon={<Image width={17} height={26} src="/icons/next.svg" layout="fixed" />}
+                    icon={<Next width={17} height={26} />}
                     view={ButtonType.Clear}
                 />
             )}

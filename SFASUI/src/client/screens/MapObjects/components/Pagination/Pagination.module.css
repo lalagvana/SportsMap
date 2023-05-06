@@ -17,3 +17,8 @@
     background-color: var(--white-color);
     box-shadow: 2px 4px 20px rgb(0 0 0 / 10%);
 }
+
+
+.Pagination path {
+    color: var(--base-default-color);
+}

@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { useCallback, useState } from 'react';
 
 import { CardHeader } from 'src/client/shared/components/CardHeader';
@@ -9,7 +8,10 @@ import { Button, ButtonType } from 'src/client/shared/components/Button';
 import { Popover } from 'src/client/shared/components/Popover';
 import { FacilityType } from 'src/client/shared/types/facilities';
 
+
 import { CatalogCardMenu } from './components/CatalogCardMenu';
+
+import Dots from 'public/icons/dots.svg'
 
 import styles from './CatalogCard.module.css';
 
@@ -45,7 +47,7 @@ export const CatalogCard = ({ item, disabled }: CatalogCardProps) => {
                 >
                     <Button
                         className={styles['CatalogCard-Button']}
-                        icon={<Image width={34} height={34} src="/icons/dots.png" layout="fixed" />}
+                        icon={<Dots width={34} height={34} />}
                         view={ButtonType.Clear}
                     />
                 </Popover>
@@ -58,7 +60,7 @@ export const CatalogCard = ({ item, disabled }: CatalogCardProps) => {
             />
             <TextWithIcon
                 className={styles['CatalogCard-Address']}
-                iconUrl={disabled ? '/icons/disabled_address.svg' : '/icons/address.svg'}
+                iconType="address"
             >
                 <span className={styles['CatalogCard-Text']} title={address}>
                     {address}
@@ -66,7 +68,7 @@ export const CatalogCard = ({ item, disabled }: CatalogCardProps) => {
             </TextWithIcon>
             <TextWithIcon
                 className={styles['CatalogCard-Owner']}
-                iconUrl={disabled ? '/icons/facility/disabled_owner.svg' : '/icons/facility/owner.svg'}
+                iconType="owner"
             >
                 <span className={styles['CatalogCard-Text']} title={owner}>
                     {owner}

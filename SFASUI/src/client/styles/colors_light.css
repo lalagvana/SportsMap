@@ -11,6 +11,9 @@
     --placeholder-color: #a9a9a9;
     --field-color: #fafafa;
     --error-color: #ec4141;
+    --success-color: #00b695;
+    --error-light-color: #feebeb;
+    --success-light-color: #d3fff0;
     --special-black-color: #2e2e2e;
     --special-white-color: #fff;
     --transparent-white: 255, 255, 255;

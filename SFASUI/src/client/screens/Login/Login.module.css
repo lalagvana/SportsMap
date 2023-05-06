@@ -24,3 +24,7 @@
     background-image: url("/images/LoginBackground.png");
     background-size: cover;
 }
+
+.Login path {
+    color: var(--base-secondary-color);
+}

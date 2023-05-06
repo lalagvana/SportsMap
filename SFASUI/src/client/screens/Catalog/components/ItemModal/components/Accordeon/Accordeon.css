@@ -18,6 +18,10 @@
     color: var(--typography-secondary-color);
 }
 
+.Accordeon-ExpandIcon path {
+    color: var(--typography-secondary-color) !important;
+}
+
 .Accordeon-MaxField {
     flex-grow: 1;
     width: 100%;
