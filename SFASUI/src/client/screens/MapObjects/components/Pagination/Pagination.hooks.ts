@@ -15,14 +15,12 @@ export const usePaginationHooks = () => {
         }
 
         if (Number(page) === 2) {
-            const newQuery = omit(query, 'page');
-            await push({ query: newQuery }, { query: newQuery }, { shallow: true });
+            await push({ query: omit(query, 'page') }, undefined, { shallow: true });
         } else {
-            const newQuery = { ...query, page: Number(page) - 1 };
-            await push({ query: newQuery }, { query: newQuery }, { shallow: true });
+            await push({ query: { ...query, page: Number(page) - 1 } }, undefined, { shallow: true });
         }
 
-        await mutate(apiRoutes.facilitySearch);
+        await mutate(`map${apiRoutes.facilitySearch}`);
     }, [push, page]);
 
     const onNextClick = useCallback(async () => {
@@ -30,10 +28,9 @@ export const usePaginationHooks = () => {
             return;
         }
 
-        const newQuery = { ...query, page: Number(page) + 1 };
-        await push({ query: newQuery }, { query: newQuery }, { shallow: true });
+        await push({ query: { ...query, page: Number(page) + 1 } }, undefined, { shallow: true });
 
-        await mutate(apiRoutes.facilitySearch);
+        await mutate(`map${apiRoutes.facilitySearch}`);
     }, [push, page]);
 
     return { onPrevClick, onNextClick };
