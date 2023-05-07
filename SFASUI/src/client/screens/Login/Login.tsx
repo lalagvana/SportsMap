@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react';
+import Head from 'next/head';
 
 import { Tabs } from 'src/client/shared/components/Tabs';
 
@@ -13,10 +14,16 @@ export const Login = () => {
     const onTabChange = useCallback((value) => setActiveTab(value), [setActiveTab]);
 
     return (
-        <main className={styles['Login']}>
-            <div className={styles['Login-Form']}>
-                <Tabs items={items} activeKey={activeTab} onChange={onTabChange} />
-            </div>
-        </main>
+        <>
+            <Head>
+                <title>Вход</title>
+                <meta name="title" content="Вход" />
+            </Head>
+            <main className={styles['Login']}>
+                <div className={styles['Login-Form']}>
+                    <Tabs items={items} activeKey={activeTab} onChange={onTabChange} />
+                </div>
+            </main>
+        </>
     );
 };

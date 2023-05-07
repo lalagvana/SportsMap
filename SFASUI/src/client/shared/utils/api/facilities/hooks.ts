@@ -25,9 +25,13 @@ export function useFacility(id?: string, config?: SWRConfiguration<GetFacility.R
     return useSWR<GetFacility.Response>(id ? apiRoutes.facilities(id) : null, fetch, config);
 }
 
-export function useFacilitySearch(body: SearchFacilities.Body, config?: SWRConfiguration<SearchFacilities.Response>) {
+export function useFacilitySearch(
+    body: SearchFacilities.Body,
+    config?: SWRConfiguration<SearchFacilities.Response>,
+    keyPrefix?: string
+) {
     return useSWR<SearchFacilities.Response>(
-        apiRoutes.facilitySearch,
+        `${keyPrefix}${apiRoutes.facilitySearch}`,
         () => fetch(apiRoutes.facilitySearch, { method: 'POST', data: body }),
         config
     );

@@ -51,10 +51,10 @@ export const QueryCheckbox = ({
 
     return (
         <Checkbox
-            className={className}
-            checked={query[name]?.includes(checkboxName)}
-            onChange={onCheckboxChange}
             {...rest}
+            className={className}
+            checked={Boolean(query[name]?.includes(checkboxName))}
+            onChange={onCheckboxChange}
         />
     );
 };

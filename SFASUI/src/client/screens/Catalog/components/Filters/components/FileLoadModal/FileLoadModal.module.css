@@ -29,7 +29,7 @@
 
 .FileLoadModal-Validation {
     position: absolute;
-    top: 4px;
+    top: 2px;
     left: 150px;
     border-radius: var(--border-radius-m);
     border: solid 1px black;
@@ -37,21 +37,26 @@
     align-items: center;
 }
 
-.FileLoadModal-Validation_blue {
+.FileLoadModal-Validation_blue, .FileLoadModal-Validation_blue path {
     background-color: #EDF3F9;
     border-color: #2C96B8;
     color: #2C96B8;
 }
 
-.FileLoadModal-Validation_red {
+.FileLoadModal-Validation_red, .FileLoadModal-Validation_red path {
     background-color: #FCF0F0;
     border-color: #EB5353;
     color: #EB5353;
 }
 
 
-.FileLoadModal-Validation_green {
+.FileLoadModal-Validation_green, .FileLoadModal-Validation_green path {
     background-color: #EBFFFB;
     border-color: #00B695;
     color: #00B695;
+}
+
+.FileLoadModal-ValidationText {
+    color: inherit;
+    font-family: var(--ubuntu);
 }
