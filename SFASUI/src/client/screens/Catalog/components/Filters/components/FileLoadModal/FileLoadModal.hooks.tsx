@@ -76,7 +76,7 @@ export const useValidation = (status: boolean | null, progress: boolean) =>
         if (progress) {
             return {
                 text: 'файл проверяется',
-                icon: '/icons/excel/blue.png',
+                icon: 'excelBlue',
                 color: 'blue',
             };
         }
@@ -84,14 +84,14 @@ export const useValidation = (status: boolean | null, progress: boolean) =>
         if (status) {
             return {
                 text: 'файл прошёл проверку',
-                icon: '/icons/excel/green.png',
+                icon: 'excelGreen',
                 color: 'green',
             };
         }
 
         return {
             text: 'файл не прошёл проверку',
-            icon: '/icons/excel/red.png',
+            icon: 'excelRed',
             color: 'red',
         };
     }, [status, progress]);

@@ -46,7 +46,7 @@ export const FileLoadModal = ({ hide }: FileLoadModalProps) => {
                     </Upload>
                     {(validationStatus !== null || isLoading) && (
                         <TextWithIcon
-                            iconUrl={icon}
+                            iconType={icon}
                             className={[
                                 styles['FileLoadModal-Validation'],
                                 styles[`FileLoadModal-Validation_${color}`],

@@ -12,6 +12,10 @@ import Time from 'public/icons/facility/time.svg';
 import Note from 'public/icons/note.svg';
 import Exclamation from 'public/icons/exclamation.svg';
 
+import Blue from 'public/icons/excel/blue.svg';
+import Red from 'public/icons/excel/red.svg';
+import Green from 'public/icons/excel/green.svg';
+
 type UseIconProps = {
     iconType: string;
     width: number;
@@ -44,7 +48,12 @@ export const useIcon = ({ iconType, ...rest }: UseIconProps) =>
 
             case 'exclamation':
                 return <Exclamation {...rest} />;
-
+            case 'excelRed':
+                return <Red {...rest} />;
+            case 'excelGreen':
+                return <Green {...rest} />;
+            case 'excelBlue':
+                return <Blue {...rest} />;
 
         }
     }, [iconType]);
