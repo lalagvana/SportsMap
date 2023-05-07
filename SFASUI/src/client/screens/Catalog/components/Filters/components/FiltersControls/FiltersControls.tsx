@@ -28,13 +28,13 @@ export const FiltersControls = () => {
             <fieldset className={styles['FiltersControls-Fieldset']}>
                 <QuerySearch
                     className={styles['FiltersControls-Search']}
-                    onSuccess={() => mutate(apiRoutes.facilitySearch)}
+                    onSuccess={() => mutate(`catalog${apiRoutes.facilitySearch}`)}
                 />
                 <QuerySelect
                     name="order_by"
                     placeholder="Сортировка"
                     options={sortingSelectOptions}
-                    onSuccess={() => mutate(apiRoutes.facilitySearch)}
+                    onSuccess={() => mutate(`catalog${apiRoutes.facilitySearch}`)}
                 />
             </fieldset>
             {isLogged && (

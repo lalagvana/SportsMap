@@ -1,13 +1,12 @@
 .Development {
     min-height: 913px;
-    padding-top: 26px;
+    padding: 26px 0 var(--space-xl);
     background-image: url('/images/main/EndBackground.png');
     background-size: cover;
 }
 
 .Development-Content {
-    max-width: 1520px;
-    margin: auto;
+    margin: 0 var(--space-xl);
 }
 
 .Development-BigHeading {
@@ -49,4 +48,18 @@
 
     background-color: rgba(var(--transparent-white), 60%);
     border-radius: var(--border-radius-l);
+    display: none;
+}
+
+@media (--viewport-wide-desktop) {
+    .Development-Content {
+        max-width: var(--width-max-content);
+        margin: auto;
+    }
+}
+
+@media (--viewport-tablet) {
+    .Development-ContactsBlock {
+        display: initial;
+    }
 }

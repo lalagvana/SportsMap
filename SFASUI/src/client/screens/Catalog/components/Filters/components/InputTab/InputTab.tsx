@@ -20,14 +20,14 @@ export const InputTab = ({ items }: FiltersHeaderProps) => {
                         placeholder="От"
                         type="number"
                         name={`${name}-from`}
-                        onSuccess={() => mutate(apiRoutes.facilitySearch)}
+                        onSuccess={() => mutate(`catalog${apiRoutes.facilitySearch}`)}
                     />
                     <QueryTextInput
                         className={styles['InputTab-TextField']}
                         placeholder="До"
                         type="number"
                         name={`${name}-to`}
-                        onSuccess={() => mutate(apiRoutes.facilitySearch)}
+                        onSuccess={() => mutate(`catalog${apiRoutes.facilitySearch}`)}
                     />
                     <span className={styles['InputTab-Units']}>{units}</span>
                 </div>

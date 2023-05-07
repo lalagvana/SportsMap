@@ -38,7 +38,7 @@ export const useToggleVisibilityHandler = ({ setLoading, id, initialHidden, onSu
             await partialUpdateFacility(id, { hidden: !initialHidden });
 
             setLoading(true);
-            await mutate(apiRoutes.facilitySearch);
+            await mutate(`catalog${apiRoutes.facilitySearch}`);
             if (onSuccess) {
                 onSuccess();
             }
@@ -65,7 +65,7 @@ export const useDeleteHandler = ({ setLoading, id, onSuccess }: UseDeleteHandler
             await deleteFacility(id);
 
             setLoading(true);
-            await mutate(apiRoutes.facilitySearch);
+            await mutate(`catalog${apiRoutes.facilitySearch}`);
             if (onSuccess) {
                 onSuccess();
             }

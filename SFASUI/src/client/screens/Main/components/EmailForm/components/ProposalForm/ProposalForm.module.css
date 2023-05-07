@@ -1,10 +1,11 @@
 .ProposalForm {
     display: grid;
     grid-template:
-        'name name email'
+        'name name name'
+        'email email email'
         'notes notes notes'
         'notes notes notes';
-    gap: var(--space-2l) var(--space-l);
+    gap: var(--space-m) var(--space-l);
     margin-bottom: var(--space-2l);
 }
 
@@ -55,4 +56,15 @@
 
 .ProposalForm-NotesInput {
     margin-top: var(--space-s);
+}
+
+@media (--viewport-desktop) {
+    .ProposalForm  {
+        grid-template:
+        'name name email'
+        'notes notes notes'
+        'notes notes notes';
+
+        gap: var(--space-2l) var(--space-l);
+    }
 }

@@ -5,15 +5,14 @@
 }
 
 .Achievements-Content {
-    max-width: 1160px;
-    margin: auto;
+    margin: var(--space-xl) auto;
 }
 
 .Achievements-ImageContainer {
     display: flex;
-    gap: 80px;
-    align-items: center;
-    justify-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 22px;
 }
 
 .Achievements-Heading {
@@ -21,6 +20,7 @@
     font-size: var(--font-size-m);
     font-weight: var(--font-weight-medium);
     color: var(--special-white-color);
+    text-align: center;
 }
 
 .Achievements-Text {
@@ -42,24 +42,9 @@
 .Achievements-Image {
     display: flex;
     align-items: center;
+    width: calc(50% - 20px);
 }
 
-.Achievements-Image_achievementSearch {
-    align-self: flex-end;
-    margin-top: 10%;
-}
-
-.Achievements-Image_achievementDifference {
-    align-self: flex-start;
-}
-
-.Achievements-Image_achievementAccess {
-    align-self: flex-end;
-}
-
-.Achievements-Image_achievementAdministration {
-    align-self: flex-start;
-}
 
 .Achievements-BigHeading {
     margin: 0 auto 78px;
@@ -74,4 +59,40 @@
 .Achievements-Image {
     display: flex;
     flex-direction: column;
+}
+
+@media (min-width: 1160px) {
+    .Achievements-Content {
+        max-width: 1160px;
+        margin: auto;
+    }
+}
+
+@media (--viewport-tablet) {
+    .Achievements-ImageContainer {
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 80px;
+    }
+
+    .Achievements-Image {
+        width: auto;
+    }
+
+    .Achievements-Image_achievementSearch {
+        align-self: flex-end;
+        margin-top: 10%;
+    }
+
+    .Achievements-Image_achievementDifference {
+        align-self: flex-start;
+    }
+
+    .Achievements-Image_achievementAccess {
+        align-self: flex-end;
+    }
+
+    .Achievements-Image_achievementAdministration {
+        align-self: flex-start;
+    }
 }

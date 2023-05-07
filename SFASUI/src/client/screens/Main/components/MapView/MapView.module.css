@@ -8,8 +8,7 @@
     z-index: 10;
     inset: 0;
 
-    max-width: 1520px;
-    margin: auto;
+    margin: 0 var(--space-xl);
     pointer-events: none;
 }
 
@@ -47,11 +46,24 @@
     padding: var(--space-l);
     background-color: rgba(var(--transparent-white), 60%);
     border-radius: var(--border-radius-l);
-    right: 0;
-    bottom: var(--space-xl);
+    inset: var(--space-xl) auto auto 0
 }
 
 .MapView-HintText {
     color: var(--black-color);
     font-size: var(--font-size-m);
+}
+
+@media (--viewport-wide-desktop) {
+    .MapView-Content {
+        max-width: var(--width-max-content);
+        margin: auto;
+    }
+}
+
+
+@media (--viewport-desktop) {
+    .MapView-Hint {
+        inset: auto 0 var(--space-xl) auto;
+    }
 }

@@ -32,8 +32,7 @@
     align-items: center;
     justify-content: center;
 
-    max-width: 1520px;
-    margin: auto;
+    margin: var(--space-xl);
 }
 
 .Header-Links {
@@ -64,4 +63,11 @@
 .Header-UserLogout {
     width: fit-content;
     padding: 0;
+}
+
+@media (--viewport-wide-desktop) {
+    .Header-Content {
+        max-width: var(--width-max-content);
+        margin: auto;
+    }
 }

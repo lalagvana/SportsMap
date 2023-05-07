@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { pageRoutes } from 'src/client/shared/routes';
 import { login, register } from 'src/client/shared/utils/api/login';
 import { prepareMessage } from 'src/client/shared/utils/notifications';
-import { Notification } from "src/client/shared/components/Notification";
+import { Notification } from 'src/client/shared/components/Notification';
 
 import { LoginFields, createLoginUser, LoginForm } from './components/LoginForm';
 import { RegisterForm, RegisterFormField, createRegisterUser } from './components/RegisterForm';
@@ -27,10 +27,22 @@ export const useLoginHandler = () => {
                 });
                 setCookie('sportsmap_refreshToken', refresh_token);
 
-                toast(<Notification type="success" heading='Вы вошли в аккаунт' description='Теперь вам доступен весь функционал' />);
+                toast(
+                    <Notification
+                        type="success"
+                        heading="Вы вошли в аккаунт"
+                        description="Теперь вам доступен весь функционал"
+                    />
+                );
                 await router.replace(pageRoutes.search);
             } catch (error) {
-                toast(<Notification type="error" imageType='cross' description={prepareMessage(error, 'Произошла ошибка во время попытки входа')} />);
+                toast(
+                    <Notification
+                        type="error"
+                        imageType="cross"
+                        description={prepareMessage(error, 'Произошла ошибка во время попытки входа')}
+                    />
+                );
 
                 throw error;
             }
@@ -53,10 +65,22 @@ export const useRegisterHandler = () => {
                 });
                 setCookie('sportsmap_refreshToken', refresh_token);
 
-                toast(<Notification type="success"  heading='Вы зарегистрировались' description='Теперь у вас есть аккаунт на нашем сайте' />);
+                toast(
+                    <Notification
+                        type="success"
+                        heading="Вы зарегистрировались"
+                        description="Теперь у вас есть аккаунт на нашем сайте"
+                    />
+                );
                 await router.replace(pageRoutes.search);
             } catch (error) {
-                toast(<Notification type="error" imageType='cross' description={prepareMessage(error, 'Произошла ошибка во время попытки регистрации')} />);
+                toast(
+                    <Notification
+                        type="error"
+                        imageType="cross"
+                        description={prepareMessage(error, 'Произошла ошибка во время попытки регистрации')}
+                    />
+                );
 
                 throw error;
             }
@@ -65,7 +89,7 @@ export const useRegisterHandler = () => {
     );
 };
 
-export const useTabs = () => {
+export const useTabs = ({ showForgetPassword }: { showForgetPassword: () => void }) => {
     const handleSubmitLogin = useLoginHandler();
     const handleSubmitRegister = useRegisterHandler();
 
@@ -74,7 +98,7 @@ export const useTabs = () => {
             {
                 label: <h2 className={styles['Login-TabTitle']}>Вход</h2>,
                 key: '1',
-                children: <LoginForm handleSubmit={handleSubmitLogin} />,
+                children: <LoginForm handleSubmit={handleSubmitLogin} showForgetPassword={showForgetPassword} />,
             },
             {
                 label: <h2 className={styles['Login-TabTitle']}>Регистрация</h2>,

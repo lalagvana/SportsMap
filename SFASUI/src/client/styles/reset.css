@@ -36,6 +36,13 @@ body {
     margin: 0;
 }
 
+html,
+body,
+#__next {
+    box-sizing: border-box;
+    width: 100%;
+}
+
 *::-webkit-scrollbar {
     width: 6px;
     height: 8px;

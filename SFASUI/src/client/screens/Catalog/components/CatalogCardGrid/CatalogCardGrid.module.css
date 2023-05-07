@@ -9,9 +9,28 @@
     padding: 0;
 
     list-style: none;
+
 }
 
 .CatalogCardGrid-Item {
     box-sizing: border-box;
-    max-width: 356px;
+    width: 100%;
+}
+
+@media (--viewport-tablet) {
+    .CatalogCardGrid-Item {
+        width: calc(50% - 0.5 * var(--space-2l));
+    }
+}
+
+@media (--viewport-desktop) {
+    .CatalogCardGrid-Item {
+        width: calc(32% - 0.3 * var(--space-2l));
+    }
+}
+
+@media (--viewport-wide-desktop) {
+    .CatalogCardGrid-Item {
+        width: var(--width-catalog-item);
+    }
 }

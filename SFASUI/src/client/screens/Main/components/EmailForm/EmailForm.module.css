@@ -1,8 +1,9 @@
 .EmailForm {
-    width: 100%;
+    flex-grow: 1;
     padding: var(--space-xl) var(--space-2l);
     background-color: var(--white-color);
     border-radius: var(--border-radius-l);
+    max-width: 1000px;
 }
 
 .EmailForm-TabTitle {
