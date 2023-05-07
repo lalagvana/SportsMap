@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { SidebarItemDetailsType } from 'src/client/screens/MapObjects/';
+import { createFacilityObject } from 'src/client/factories';
+import { FacilityType } from 'src/client/shared/types/facilities';
 
 import { Sidebar } from '../Sidebar';
 
@@ -10,22 +11,21 @@ export default {
     argTypes: {
         error: {
             control: {
-                type: 'boolean'
-            }
-        }
-    }
+                type: 'boolean',
+            },
+        },
+    },
 };
 
 type argsType = {
-    items: SidebarItemDetailsType[];
+    items: FacilityType[];
     isLoading?: boolean;
     error?: boolean;
     isNotFound?: boolean;
     count: number;
 };
 
-export const playground = ({items, isNotFound, ...rest}: argsType) => {
-
+export const playground = ({ items, isNotFound, ...rest }: argsType) => {
     return <Sidebar items={isNotFound ? [] : items} {...rest} />;
 };
 
@@ -34,70 +34,5 @@ playground.args = {
     error: false,
     count: 10,
     isNotFound: false,
-    items: [
-        {
-            address: 'Выборгская набережная, д. 1, корпус 1000-7',
-            age: ['Молодежь'],
-            availability: true,
-            workingHours: {
-                monday: {
-                    open: false,
-                },
-                tuesday: {
-                    open: false,
-                },
-                wednesday: {
-                    open: false,
-                },
-                thursday: {
-                    open: false,
-                },
-                friday: {
-                    open: false,
-                },
-                saturday: {
-                    open: false,
-                },
-                sunday: {
-                    open: false,
-                },
-            },
-            name: 'Спортивный зал1',
-            payingType: ['Бесплатные'],
-            type: 'Зал гимнастики',
-            owner: 'Спбгу',
-        },
-        {
-            address: 'Выборгская набережная, д. 1, корпус 1000-7',
-            age: ['Молодежь', 'Дети', 'Пенсионеры', 'Взрослые'],
-            availability: true,
-            name: 'Спортивный зал2',
-            payingType: ['Бесплатные'],
-            type: 'Зал гимнастики',
-            owner: 'Спбгу',
-            workingHours: {
-                monday: {
-                    open: false,
-                },
-                tuesday: {
-                    open: false,
-                },
-                wednesday: {
-                    open: false,
-                },
-                thursday: {
-                    open: false,
-                },
-                friday: {
-                    open: false,
-                },
-                saturday: {
-                    open: false,
-                },
-                sunday: {
-                    open: false,
-                },
-            },
-        },
-    ],
+    items: [createFacilityObject({ id: '1' }), createFacilityObject({ id: '2' })],
 };

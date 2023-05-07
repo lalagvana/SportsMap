@@ -7,4 +7,16 @@ export default {
     component: ItemEditModal,
 };
 
-export const playground = () => <ItemEditModal initialValues={INITIAL_VALUES} handleSubmit={() => Promise.resolve()} />;
+export const playground = ({ isNew }: { isNew: boolean }) => (
+    <ItemEditModal
+        className="light_theme"
+        initialValues={INITIAL_VALUES}
+        handleSubmit={() => Promise.resolve()}
+        hide={() => {}}
+        isNew={isNew}
+    />
+);
+
+playground.args = {
+    isNew: true,
+};

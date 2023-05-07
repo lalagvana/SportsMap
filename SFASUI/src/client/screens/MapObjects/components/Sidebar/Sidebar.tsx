@@ -15,7 +15,7 @@ type SidebarProps = {
     isLoading?: boolean;
     error?: any;
     count?: number;
-    className: string;
+    className?: string;
 };
 
 export const Sidebar = ({ items, isLoading = false, error, count, className }: SidebarProps) => {

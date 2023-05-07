@@ -17,9 +17,10 @@ type ItemEditModalProps = {
     initialValues: FacilityType;
     hide: () => void;
     isNew: boolean;
+    className?: string;
 };
 
-export const ItemEditModal = ({ handleSubmit, initialValues, hide, isNew }: ItemEditModalProps) => {
+export const ItemEditModal = ({ handleSubmit, initialValues, hide, isNew, className }: ItemEditModalProps) => {
     const items = useTabs(isNew);
 
     const formikStateAndHelpers = useFormik<FacilityType>({
@@ -41,6 +42,7 @@ export const ItemEditModal = ({ handleSubmit, initialValues, hide, isNew }: Item
     return (
         <FormikProvider value={formikStateAndHelpers}>
             <Modal
+                className={className}
                 open
                 title={
                     <h2 className={styles['ItemEditModal-Title']}>
