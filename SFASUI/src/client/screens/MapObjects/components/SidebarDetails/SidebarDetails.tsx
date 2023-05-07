@@ -1,9 +1,10 @@
+import React from 'react';
+
 import { CardHeader } from 'src/client/shared/components/CardHeader';
-import { Button } from 'src/client/shared/components/Button';
 import { ItemInfo } from 'src/client/shared/components/ItemInfo';
 import { PhotoCarousel } from 'src/client/shared/components/PhotoCarousel';
 
-import Back from 'public/icons/back.svg'
+import Back from 'public/icons/back.svg';
 
 import styles from './SidebarDetails.module.css';
 
@@ -26,13 +27,15 @@ export const SidebarDetails = ({ item, onBackClick }: SidebarDetailsProps) => {
                 <PhotoCarousel className={styles['SidebarDetails-Photo']} photos={photo} width={500} height={321} />
             )}
             <CardHeader
-                className={[styles['SidebarDetails-Name'], hasPhoto ? undefined : styles['SidebarDetails-Name_top']].join(' ')}
+                className={[
+                    styles['SidebarDetails-Name'],
+                    hasPhoto ? undefined : styles['SidebarDetails-Name_top'],
+                ].join(' ')}
                 name={name}
                 type={type}
             />
 
             <ItemInfo {...item} />
-            <Button text="Открыть в каталоге" className={styles['SidebarDetails-CatalogButton']} />
         </article>
     );
 };

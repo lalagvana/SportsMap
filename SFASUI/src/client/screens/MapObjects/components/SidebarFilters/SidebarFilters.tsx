@@ -19,7 +19,7 @@ export const SidebarFilters = () => {
         <fieldset className={styles['SidebarFilters']}>
             <QuerySearch
                 className={styles['SidebarFilters-Search']}
-                onSuccess={() => mutate(apiRoutes.facilitySearch)}
+                onSuccess={() => mutate(`map${apiRoutes.facilitySearch}`)}
             />
             <Button
                 onClick={() => setOpen(!isOpen)}
@@ -42,7 +42,7 @@ export const SidebarFilters = () => {
                     <QuerySelect
                         {...selectProps}
                         key={selectProps.name}
-                        onSuccess={() => mutate(apiRoutes.facilitySearch)}
+                        onSuccess={() => mutate(`map${apiRoutes.facilitySearch}`)}
                     />
                 ))}
         </fieldset>

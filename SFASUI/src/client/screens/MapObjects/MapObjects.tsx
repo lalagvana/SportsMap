@@ -29,7 +29,7 @@ export const MapObjects = ({ facilityObjects: initialFacilityObjects }: MapObjec
         revalidateOnFocus: false,
         revalidateOnReconnect: false,
         revalidateOnMount: true,
-    });
+    }, 'map');
 
     const { isLight } = useTheme();
 

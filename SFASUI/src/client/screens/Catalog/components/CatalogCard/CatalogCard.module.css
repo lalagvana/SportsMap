@@ -4,7 +4,6 @@
     gap: var(--space-l);
 
     box-sizing: border-box;
-    width: 356px;
     min-height: 233px;
     padding: var(--padding-xl);
 
