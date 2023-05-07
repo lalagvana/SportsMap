@@ -17,9 +17,10 @@ import styles from './ItemModal.module.css';
 type ItemModalProps = {
     item: FacilityType;
     hide: () => void;
+    className?: string;
 };
 
-export const ItemModal = ({ item: initialItem, hide }: ItemModalProps) => {
+export const ItemModal = ({ item: initialItem, hide, className }: ItemModalProps) => {
     const { data: item } = useFacility(initialItem.id, {
         fallbackData: initialItem,
         revalidateOnReconnect: false,
@@ -33,6 +34,7 @@ export const ItemModal = ({ item: initialItem, hide }: ItemModalProps) => {
 
     return (
         <Modal
+            className={className}
             open
             title={
                 <CardHeader

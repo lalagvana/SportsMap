@@ -1,7 +1,9 @@
 import React from 'react';
 
+import { createFacilityObject } from 'src/client/factories';
+import { WorkingHoursType } from 'src/client/shared/types/facilities';
+
 import { SidebarDetails } from '../SidebarDetails';
-import { WorkingHoursType } from "../../../../../shared/components/WorkingHours";
 
 export default {
     title: 'Map/SidebarDetails',
@@ -20,7 +22,7 @@ type argsType = {
 };
 
 export const playground = (props: argsType) => (
-    <SidebarDetails item={{ id: 1, link: 'https://fitness-house.ru', ...props }} onBackClick={() => {}} />
+    <SidebarDetails item={createFacilityObject({ ...props })} onBackClick={() => {}} />
 );
 
 playground.args = {

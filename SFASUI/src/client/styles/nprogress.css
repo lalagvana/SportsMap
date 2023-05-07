@@ -1,4 +1,4 @@
-@import url('node_modules/nprogress/nprogress.css');
+@import url('../../../node_modules/nprogress/nprogress.css');
 
 #nprogress .bar {
     z-index: 10000;

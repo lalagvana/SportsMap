@@ -6,7 +6,12 @@ module.exports = {
         '@storybook/addon-links',
         '@storybook/addon-essentials',
         '@storybook/addon-interactions',
-        'storybook-addon-next',
+        {
+            name: 'storybook-addon-next',
+            options: {
+                nextConfigPath: path.resolve(__dirname, '../next.config.js')
+            }
+        }
     ],
     framework: '@storybook/react',
     core: {
@@ -14,6 +19,14 @@ module.exports = {
     },
     webpackFinal: async (config) => {
         config.resolve.modules = [...(config.resolve.modules || []), path.resolve(__dirname, '../src')];
+
+        const imageRule = config.module.rules.find(rule => rule.test.test('.svg'))
+        imageRule.exclude = /\.svg$/
+
+        config.module.rules.push({
+            test: /\.svg$/,
+            use: ['@svgr/webpack']
+        })
 
         return config;
     },

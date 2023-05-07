@@ -1,4 +1,5 @@
 import '../src/client/styles/index.css';
+import { addDecorator } from '@storybook/react';
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -9,3 +10,5 @@ export const parameters = {
         },
     },
 };
+
+addDecorator((story) => <div className="light_theme">{story()}</div>);
