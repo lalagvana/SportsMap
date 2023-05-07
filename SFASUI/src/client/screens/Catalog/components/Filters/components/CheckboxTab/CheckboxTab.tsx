@@ -20,7 +20,7 @@ export const CheckboxTab = ({ name: tabName, items }: CheckboxTabProps) => (
                 checkboxName={name}
                 className={styles['CheckboxTab-Checkbox']}
                 label={capitalize(name)}
-                onSuccess={() => mutate(apiRoutes.facilitySearch)}
+                onSuccess={() => mutate(`catalog${apiRoutes.facilitySearch}`)}
             />
         ))}
     </fieldset>

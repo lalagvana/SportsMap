@@ -23,7 +23,7 @@ export const useSubmitHandler = ({ onSuccess, id }: UseSubmitHandlerProps) => {
 
                 await partialUpdateFacility(id, omit(fields, ['photo', 'id']));
 
-                await mutate(apiRoutes.facilitySearch);
+                await mutate(`catalog${apiRoutes.facilitySearch}`);
                 toast(
                     <Notification type="success" heading="Вы обновили объект" description="Данные успешно изменены" />
                 );

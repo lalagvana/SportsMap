@@ -2,6 +2,7 @@
     display: flex;
     gap: var(--space-2l);
     margin-bottom: var(--space-2l);
+    flex-direction: column-reverse;
 }
 
 .NewObjectForm-InputColumn,
@@ -59,6 +60,13 @@
     font-size: var(--font-size-m);
     color: var(--black-color);
     list-style: disc;
+}
+
+
+@media (--viewport-desktop) {
+    .NewObjectForm  {
+        flex-direction: row;
+    }
 }
 
 

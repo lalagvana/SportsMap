@@ -1,8 +1,7 @@
 .Features {
     position: relative;
-    max-width: 1520px;
     min-height: 939px;
-    margin: auto;
+    margin: 0 var(--space-xl);
 }
 
 .Features-Heading {
@@ -75,4 +74,11 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+@media (--viewport-wide-desktop) {
+    .Features {
+        max-width: var(--width-max-content);
+        margin: auto;
+    }
 }

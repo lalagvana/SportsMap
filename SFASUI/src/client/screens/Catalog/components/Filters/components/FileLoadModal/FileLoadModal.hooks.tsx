@@ -56,7 +56,7 @@ export const useOnFileChange = (onSuccess: () => void) => {
             }
             toast(<Notification type="success" heading='Вы загрузили файл' description='Мы добавим все новые объекты' />);
             onSuccess();
-            await mutate(apiRoutes.facilitySearch);
+            await mutate(`catalog${apiRoutes.facilitySearch}`);
         } catch (e) {
             toast(<Notification type="error" imageType='cross' description={e.message} />);
         }

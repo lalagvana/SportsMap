@@ -9,6 +9,7 @@
     padding: 0;
 
     border: none;
+    width: var(--width-map-sidebar);
 }
 
 .SidebarFilters-Search {
@@ -24,5 +25,11 @@ button.SidebarFilters-Toggle {
 
 button.SidebarFilters-Toggle_closed {
     background-color: var(--white-color);
+}
+
+@media (--viewport-tablet) {
+    .SidebarFilters {
+        width: auto;
+    }
 }
 

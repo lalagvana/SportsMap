@@ -1,7 +1,7 @@
 .Footer {
     display: flex;
     align-items: center;
-    padding: 44px;
+    padding: 44px var(--space-xl);
     background-color: var(--surface-color-0);
 }
 
@@ -10,8 +10,11 @@
     flex-grow: 1;
     justify-content: space-between;
 
-    max-width: 1520px;
-    margin: auto;
+    margin: 0;
+
+    gap: var(--space-xl);
+
+    flex-direction: column;
 }
 
 .Footer-Section {
@@ -62,4 +65,27 @@
     font-family: var(--ubuntu);
     font-size: var(--font-size-m);
     color: var(--typography-default-color);
+}
+
+@media (--viewport-wide-desktop) {
+    .Footer-Content {
+        max-width: var(--width-max-content);
+        margin: auto;
+    }
+
+    .Footer {
+        padding: 44px 0;
+    }
+}
+
+@media (--viewport-wide-desktop) {
+    .Footer-Content {
+        gap: 0;
+    }
+}
+
+@media (--viewport-desktop) {
+    .Footer-Content {
+        flex-direction: row;
+    }
 }

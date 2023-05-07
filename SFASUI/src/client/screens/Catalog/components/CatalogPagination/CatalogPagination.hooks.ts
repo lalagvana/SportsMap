@@ -15,7 +15,7 @@ export const useOnPageChange = () => {
             } else {
                 await push({ query: { ...query, page } });
             }
-            await mutate(apiRoutes.facilitySearch);
+            await mutate(`catalog${apiRoutes.facilitySearch}`);
         },
         [query, push]
     );

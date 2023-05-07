@@ -11,3 +11,8 @@
 .Login-Input {
     flex-grow: 1;
 }
+
+.Login-ForgetPassword {
+    padding: 0;
+    margin-top: var(--space-l);
+}

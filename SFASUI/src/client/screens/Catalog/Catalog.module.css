@@ -15,8 +15,7 @@
 }
 
 .Catalog-Main {
-    max-width: 1520px;
-    margin: var(--space-xl) auto 60px;
+    margin: var(--space-xl) var(--space-xl) 60px;
     min-height: calc(100vh - 76px - 300px);
 }
 
@@ -24,4 +23,11 @@
     display: flex;
     justify-content: center;
     margin: var(--space-2xl) auto;
+}
+
+@media (--viewport-wide-desktop) {
+    .Catalog-Main {
+        max-width: var(--width-max-content);
+        margin: var(--space-xl) auto 60px;
+    }
 }

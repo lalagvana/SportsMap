@@ -31,7 +31,7 @@ export const useSubmitHandler = ({ onSuccess }: UseSubmitHandlerProps) => {
                     />
                 );
                 formikHelpers.setSubmitting(false);
-                await mutate(apiRoutes.facilitySearch);
+                await mutate(`catalog${apiRoutes.facilitySearch}`);
 
                 if (onSuccess) {
                     onSuccess();

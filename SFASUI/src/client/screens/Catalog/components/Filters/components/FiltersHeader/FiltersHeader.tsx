@@ -55,7 +55,7 @@ export const FiltersHeader = ({ onTabClick, activeTab }: FiltersHeaderProps) => 
 
         await push({ query: newQuery });
 
-        await mutate(apiRoutes.facilitySearch);
+        await mutate(`catalog${apiRoutes.facilitySearch}`);
     }, [query, push]);
 
     const hasClear = useMemo(() => {

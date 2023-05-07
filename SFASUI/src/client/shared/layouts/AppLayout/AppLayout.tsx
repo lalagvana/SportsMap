@@ -6,6 +6,8 @@ import { Footer } from 'src/client/shared/components/Footer';
 import { Header } from 'src/client/shared/components/Header';
 import { useTheme } from 'src/client/shared/hooks/use-theme';
 
+import styles from './AppLayout.module.css';
+
 export type AppLayoutProps = PropsWithChildren<{
     className?: string;
     hasFooter?: boolean;
@@ -27,7 +29,7 @@ export const AppLayout = ({ children, className, hasFooter = true }: AppLayoutPr
                 },
             }}
         >
-            <div className={className} data-color-mode={isLight ? 'light' : 'dark'}>
+            <div className={[styles['AppLayout'],className].join(' ')} data-color-mode={isLight ? 'light' : 'dark'}>
                 <Header />
                 {children}
                 {hasFooter && <Footer />}
