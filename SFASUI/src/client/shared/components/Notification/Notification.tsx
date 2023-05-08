@@ -7,7 +7,7 @@ import Close from 'public/icons/close.svg';
 
 import styles from './Notification.module.css';
 
-type NotificationProps = Partial<ToastProps> & {
+export type NotificationProps = Partial<ToastProps> & {
     imageType?: ImageTypeOption;
     heading?: string;
     description: string;

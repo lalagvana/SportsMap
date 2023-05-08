@@ -1,5 +1,6 @@
 import { FormikProvider, useFormik } from 'formik';
 import React from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 
 import { TextInputField } from 'src/client/shared/components/TextInput/formik/TextInputField';
 import { Button } from 'src/client/shared/components/Button';
@@ -25,9 +26,24 @@ export const ForgetPasswordForm = ({}: ForgetPasswordFormProps) => {
         validationSchema: useSchema(),
     });
 
+    const shouldReduceMotion = useReducedMotion();
+
     return (
-        <FormikProvider value={formikStateAndHelpers}>
-            <div className={styles['ForgetPassword']}>
+        <motion.div
+            key="form"
+            initial={{ y: '-100%' }}
+            animate={{ y: 0 }}
+            exit={{ y: '-100%' }}
+            transition={
+                shouldReduceMotion
+                    ? undefined
+                    : {
+                          x: { type: 'spring', stiffness: 300, damping: 30 },
+                      }
+            }
+            className={styles['ForgetPassword']}
+        >
+            <FormikProvider value={formikStateAndHelpers}>
                 <form className={styles['ForgetPassword-Form']}>
                     <TextWithIcon
                         iconType="mail"
@@ -50,7 +66,7 @@ export const ForgetPasswordForm = ({}: ForgetPasswordFormProps) => {
                     onClick={formikStateAndHelpers.submitForm}
                     text="Восстановить пароль"
                 />
-            </div>
-        </FormikProvider>
+            </FormikProvider>
+        </motion.div>
     );
 };

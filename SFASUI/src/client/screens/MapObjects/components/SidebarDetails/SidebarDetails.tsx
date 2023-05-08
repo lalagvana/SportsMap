@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 
 import { CardHeader } from 'src/client/shared/components/CardHeader';
 import { ItemInfo } from 'src/client/shared/components/ItemInfo';
@@ -18,8 +19,23 @@ export const SidebarDetails = ({ item, onBackClick }: SidebarDetailsProps) => {
 
     const hasPhoto = photo && photo.length > 0;
 
+    const shouldReduceMotion = useReducedMotion();
+
     return (
-        <article className={styles['SidebarDetails']}>
+        <motion.article
+            className={styles['SidebarDetails']}
+            key="sidebar"
+            initial={{ x: '-100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '-110%' }}
+            transition={
+                shouldReduceMotion
+                    ? undefined
+                    : {
+                          x: { type: 'spring', stiffness: 300, damping: 30 },
+                      }
+            }
+        >
             <div className={styles['SidebarDetails-Back']} onClick={onBackClick}>
                 <Back width={20} height={20} />
             </div>
@@ -36,6 +52,6 @@ export const SidebarDetails = ({ item, onBackClick }: SidebarDetailsProps) => {
             />
 
             <ItemInfo {...item} />
-        </article>
+        </motion.article>
     );
 };

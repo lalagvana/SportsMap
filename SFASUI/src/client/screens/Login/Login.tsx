@@ -1,11 +1,12 @@
 import React, { useCallback, useState } from 'react';
 import Head from 'next/head';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 
 import { Tabs } from 'src/client/shared/components/Tabs';
 import { useVisible } from 'src/client/shared/hooks/use-visible';
 
 import { useTabs } from './Login.hooks';
-import { ForgetPasswordForm } from "./components/ForgetPasswordForm";
+import { ForgetPasswordForm } from './components/ForgetPasswordForm';
 
 import styles from './Login.module.css';
 
@@ -16,6 +17,8 @@ export const Login = () => {
     const { isVisible, hide, open } = useVisible({});
     const items = useTabs({ showForgetPassword: open });
 
+    const shouldReduceMotion = useReducedMotion();
+
     return (
         <>
             <Head>
@@ -23,10 +26,13 @@ export const Login = () => {
                 <meta name="title" content="Вход" />
             </Head>
             <main className={styles['Login']}>
-                <div className={styles['Login-Form']}>
+                <motion.div layout={shouldReduceMotion ? false : 'position'} className={styles['Login-Form']}>
                     <Tabs items={items} activeKey={activeTab} onChange={onTabChange} />
-                </div>
-                {isVisible && activeTab === '1' && <ForgetPasswordForm hide={hide}/>}
+                </motion.div>
+
+                <AnimatePresence>
+                    {isVisible && activeTab === '1' && <ForgetPasswordForm hide={hide} />}
+                </AnimatePresence>
             </main>
         </>
     );

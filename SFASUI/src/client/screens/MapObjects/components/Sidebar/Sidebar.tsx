@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 
 import { Button } from 'src/client/shared/components/Button';
 
@@ -17,7 +18,7 @@ type SidebarProps = {
     count?: number;
     className?: string;
     activeItem: Definitions.FacilityResponse | null;
-    setActiveItem: (item: Definitions.FacilityResponse) => void;
+    setActiveItem: Dispatch<SetStateAction<Definitions.FacilityResponse | null>>;
 };
 
 export const Sidebar = ({
@@ -32,6 +33,9 @@ export const Sidebar = ({
     const showContent = !error && !isLoading && items && items.length > 0;
     const showNotFound = !error && !isLoading && items && items.length === 0;
 
+    const showList = (!error && isLoading) || (showContent && !activeItem);
+    const shouldReduceMotion = useReducedMotion();
+
     return (
         <aside className={[styles['Sidebar'], className].join(' ')}>
             <SidebarFilters />
@@ -42,7 +46,6 @@ export const Sidebar = ({
                     message="Попробуйте обновить страницу"
                 />
             )}
-            {!error && isLoading && <SidebarItemsListSkeleton />}
             {showNotFound && (
                 <SidebarMessage
                     titleClassName={styles['Sidebar-NotFoundText']}
@@ -51,10 +54,34 @@ export const Sidebar = ({
                     button={<Button text="Предложить объект" className={styles['Sidebar-NotFoundButton']} />}
                 />
             )}
-            {showContent && activeItem && <SidebarDetails item={activeItem} onBackClick={() => setActiveItem(null)} />}
-            {showContent && !activeItem && (
-                <SidebarItemsList setActiveItem={setActiveItem} items={items} count={count || 0} />
-            )}
+
+            <AnimatePresence initial={false} exitBeforeEnter>
+                {showList && (
+                    <motion.div
+                        key="list"
+                        initial={{ x: '-100%' }}
+                        animate={{ x: 0 }}
+                        exit={{ x: '-100%' }}
+                        transition={
+                            shouldReduceMotion
+                                ? undefined
+                                : {
+                                      x: { type: 'spring', stiffness: 300, damping: 30 },
+                                  }
+                        }
+                    >
+                        {!error && isLoading && <SidebarItemsListSkeleton />}
+
+                        {showContent && !activeItem && (
+                            <SidebarItemsList setActiveItem={setActiveItem} items={items} count={count || 0} />
+                        )}
+                    </motion.div>
+                )}
+
+                {!showList && activeItem && (
+                    <SidebarDetails item={activeItem} onBackClick={() => setActiveItem(null)} />
+                )}
+            </AnimatePresence>
         </aside>
     );
 };

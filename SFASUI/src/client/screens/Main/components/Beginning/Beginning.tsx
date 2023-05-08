@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import { Button } from 'src/client/shared/components/Button';
-import { pageRoutes } from "src/client/shared/routes";
+import { pageRoutes } from 'src/client/shared/routes';
 
 import styles from './Beginning.module.css';
 

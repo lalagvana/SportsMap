@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { Tabs } from '..';
+import { Select } from '..';
 
 export default {
     title: 'Shared/Select',
-    component: Tabs,
+    component: Select,
 };
 
 export const playground = () => (
-    <Tabs
+    <Select
         placeholder="Тип покрытия"
         options={[
             { value: 'grass', label: 'Трава' },
