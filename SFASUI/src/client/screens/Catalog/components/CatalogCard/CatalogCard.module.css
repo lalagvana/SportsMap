@@ -28,7 +28,6 @@
     color: var(--base-default-color);
 }
 
-
 .CatalogCard_disabled path {
     color: var(--typography-secondary-color);
 }
@@ -45,19 +44,38 @@
     max-width: calc(100% - 18px - var(--space-2m) - var(--padding-xl));
     color: var(--typography-secondary-color);
     cursor: pointer;
-
 }
 
 .CatalogCard-Button {
     height: 18px;
     padding: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.CatalogCard-Button::before {
+    width: 30px;
+    height: 30px;
+    transform: scale(0);
+    border-radius: 50%;
+    background-color: var(--decorative-color);
+    content: '';
+    position: absolute;
+    z-index: -1;
+    opacity: 0.3;
+    transition: transform ease-in-out 0.3s;
+}
+
+.CatalogCard-Button:hover::before {
+    transform: scale(1);
 }
 
 
 .CatalogCard-PopoverOverlay {
-    opacity: .9;
+    opacity: 0.9;
 }
 
-.CatalogCard-Address, .CatalogCard-Owner {
+.CatalogCard-Address,
+.CatalogCard-Owner {
     font-size: var(--font-size-m);
 }

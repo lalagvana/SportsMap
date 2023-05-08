@@ -42,9 +42,24 @@
 .Achievements-Image {
     display: flex;
     align-items: center;
+    flex-direction: column;
     width: calc(50% - 20px);
+    transition: transform 0.5s ease-in-out;
 }
 
+.Achievements-ImageMedal:hover {
+    animation: medal-hover 1s alternate infinite ease-in-out;
+}
+
+@keyframes medal-hover {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-20px);
+    }
+}
 
 .Achievements-BigHeading {
     margin: 0 auto 78px;
@@ -54,11 +69,6 @@
     font-weight: var(--font-weight-bold);
     color: var(--base-default-color);
     text-align: center;
-}
-
-.Achievements-Image {
-    display: flex;
-    flex-direction: column;
 }
 
 @media (min-width: 1160px) {

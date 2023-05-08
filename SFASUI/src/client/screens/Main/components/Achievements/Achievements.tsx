@@ -16,7 +16,10 @@ export const Achievements = () => {
                             key={name}
                             className={[styles['Achievements-Image'], styles[`Achievements-Image_${image}`]].join(' ')}
                         >
+                          <div className={styles['Achievements-ImageMedal']}>
                             <Image width={133} height={162} src={`/images/main/${image}.png`} layout="fixed" />
+
+                          </div>
                             <div className={styles['Achievements-Label']}>
                                 <h3 className={styles['Achievements-Heading']}>{name}</h3>
                             </div>

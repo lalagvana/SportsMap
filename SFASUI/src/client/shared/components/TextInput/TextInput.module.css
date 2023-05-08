@@ -18,4 +18,9 @@
 .TextInput::placeholder {
     font-size: var(--font-size-m);
     color: var(--placeholder-color);
+    transition: transform .2s ease-in-out;
+}
+
+.TextInput:focus::placeholder {
+    transform: translateX(2px);
 }

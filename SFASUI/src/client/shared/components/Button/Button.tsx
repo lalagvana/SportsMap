@@ -4,7 +4,7 @@ import { ButtonType } from './Button.types';
 
 import styles from './Button.module.css';
 
-type ButtonProps = PropsWithChildren<
+export type ButtonProps = PropsWithChildren<
     ButtonHTMLAttributes<HTMLButtonElement> & {
         text?: string;
         view?: ButtonType;

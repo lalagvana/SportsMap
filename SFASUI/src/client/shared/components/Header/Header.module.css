@@ -53,6 +53,7 @@
 
 .Header-Link {
     font-family: var(--ubuntu);
+    color: var(--base-default-color);
 }
 
 .Header-Link_active {

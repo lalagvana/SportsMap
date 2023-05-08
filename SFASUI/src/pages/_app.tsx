@@ -13,7 +13,6 @@ import 'src/client/styles/index.css';
 
 import Router from 'next/router';
 
-
 export default function App({ Component, pageProps }: Omit<AppProps, 'Component'> & { Component: ExtendedNextPage }) {
     const layoutRenderer = Component.layoutRenderer || appLayoutRenderer();
 
