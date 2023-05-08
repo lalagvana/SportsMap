@@ -19,7 +19,6 @@ import Dots from 'public/icons/dots.svg';
 
 import styles from './CatalogCard.module.css';
 
-
 type CatalogCardProps = {
     item: FacilityType;
     disabled?: boolean;
@@ -69,7 +68,13 @@ export const CatalogCard = ({ item, disabled }: CatalogCardProps) => {
                 className={[styles['CatalogCard'], disabled ? styles['CatalogCard_disabled'] : undefined].join(' ')}
             >
                 <div className={styles['CatalogCard-Header']}>
-                    <CardHeader className={styles['CatalogCard-Name']} name={name} type={type} disabled={disabled} />
+                    <CardHeader
+                        className={styles['CatalogCard-Name']}
+                        name={name}
+                        type={type}
+                        disabled={disabled}
+                        onClick={openInfoModal}
+                    />
                     <Popover
                         overlayClassName={styles['CatalogCard-PopoverOverlay']}
                         open={open}

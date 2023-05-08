@@ -3,6 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import { Button } from 'src/client/shared/components/Button';
+import { pageRoutes } from "src/client/shared/routes";
 
 import styles from './Beginning.module.css';
 
@@ -19,7 +20,7 @@ export const Beginning = ({ className }: BeginningProps) => {
                     Интерактивная карта поможет найти для себя и своих близких место для занятий спортом
                 </p>
                 <Button className={styles['Beginning-Button']}>
-                    <Link passHref href="/map">
+                    <Link passHref href={pageRoutes.map}>
                         <a>
                             <span className={styles['Beginning-LinkText']}>Перейти на карту</span>
                         </a>

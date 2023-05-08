@@ -17,7 +17,7 @@ export const useContactsLinks = () =>
             },
             {
                 iconType: 'mail',
-                text: 'admin2023@mail.ru',
+                text: 'mail@sportsmap.spb.ru',
             },
         ],
         []

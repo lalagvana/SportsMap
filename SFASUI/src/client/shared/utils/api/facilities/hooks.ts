@@ -37,6 +37,17 @@ export function useFacilitySearch(
     );
 }
 
+export function useFacilitySearchAll(
+  body: SearchFacilities.Body,
+  config?: SWRConfiguration<SearchFacilities.Response>,
+) {
+    return useSWR<SearchFacilities.Response>(
+      `all${apiRoutes.facilitySearch}`,
+      () => fetch(apiRoutes.facilitySearch, { method: 'POST', data: body }),
+      config
+    );
+}
+
 export function useFacilityTypes(config?: SWRConfiguration<GetFacilityType.Response>) {
     return useSWRImmutable<GetFacilityType.Response>(apiRoutes.facilityType, fetch, {
         fallbackData: { data: DEFAULT_TYPES },

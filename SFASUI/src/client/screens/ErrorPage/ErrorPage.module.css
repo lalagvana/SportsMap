@@ -1,0 +1,65 @@
+.ErrorPage {
+    display: flex;
+    height: calc(100vh - 76px);
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white-color);
+}
+
+.ErrorPage-Content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 var(--space-xl);
+}
+
+.ErrorPage-Details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    align-items: flex-start;
+    max-width: 456px;
+    margin-right: 100px;
+}
+
+
+.ErrorPage-Code {
+    font-family: var(--ubuntu);
+    color: var(--base-default-color);
+    font-weight: var(--font-weight-bold);
+    font-size: 96px;
+}
+
+.ErrorPage-Heading {
+    font-family: var(--ubuntu);
+    color: var(--black-color);
+    font-weight: var(--font-weight-medium);
+    font-size: 36px;
+}
+
+.ErrorPage-CatalogLinkText {
+    color: var(--special-white-color);
+}
+
+
+.ErrorPage-Paragraph {
+    color: var(--typography-secondary-color);
+    font-size: var(--font-size-xl);
+}
+
+.ErrorPage-Image {
+    display: none;
+}
+
+@media (--viewport-wide-desktop) {
+    .ErrorPage-Content {
+        max-width: var(--width-max-content);
+        margin: auto;
+    }
+}
+
+@media (--viewport-tablet) {
+    .ErrorPage-Image {
+       display: initial;
+    }
+}

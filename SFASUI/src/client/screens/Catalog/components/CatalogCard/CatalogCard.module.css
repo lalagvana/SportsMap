@@ -44,6 +44,7 @@
     flex-grow: 1;
     max-width: calc(100% - 18px - var(--space-2m) - var(--padding-xl));
     color: var(--typography-secondary-color);
+    cursor: pointer;
 
 }
 

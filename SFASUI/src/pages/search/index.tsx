@@ -26,7 +26,7 @@ export const getServerSideProps: GetServerSideProps<SearchPageProps> = async ({ 
 
 const SearchPage: ExtendedNextPage<SearchPageProps> = ({ data, error }: SearchPageProps) => {
     if (error) {
-        return <NextError statusCode={500} />;
+        return <NextError code={500} />;
     }
 
     return <Catalog {...data} />;

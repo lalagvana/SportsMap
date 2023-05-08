@@ -2,11 +2,11 @@ import React from 'react';
 import { GetServerSideProps } from 'next';
 
 import { ExtendedNextPage } from 'src/client/shared/types/next';
+import { searchFacility } from 'src/client/shared/utils/api/facilities';
 
 import { getSearchQuery, mapLayoutRenderer, MapObjects, MapObjectsPageProps } from 'src/client/screens/MapObjects';
 
 import NextError from 'src/pages/_error';
-import { searchFacility } from '../../client/shared/utils/api/facilities';
 
 type MapPageProps = {
     data?: MapObjectsPageProps;
@@ -14,18 +14,20 @@ type MapPageProps = {
 };
 
 export const getServerSideProps: GetServerSideProps<MapPageProps> = async ({ query }) => {
+    const facilityObjects = await searchFacility({}, 'https://sportsmap.spb.ru/');
+
     const searchQuery = getSearchQuery(query);
 
-    const facilityObjects = await searchFacility(searchQuery, 'https://sportsmap.spb.ru/');
+    const facilityObjectsQuery = await searchFacility(searchQuery, 'https://sportsmap.spb.ru/');
 
     return {
-        props: { data: { facilityObjects } },
+        props: { data: { facilityObjects, facilityObjectsQuery } },
     };
 };
 
 const MapPage: ExtendedNextPage<MapPageProps> = ({ data, error }: MapPageProps) => {
     if (error) {
-        return <NextError statusCode={500} />;
+        return <NextError code={500} />;
     }
 
     return <MapObjects {...data} />;

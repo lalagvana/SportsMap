@@ -6,9 +6,11 @@ import { Button } from 'src/client/shared/components/Button';
 import { TextWithIcon } from 'src/client/shared/components/TextWithIcon';
 import { SearchFacilities, useFacilitySearch } from 'src/client/shared/utils/api/facilities';
 import { useTheme } from 'src/client/shared/hooks/use-theme';
+import { pageRoutes } from "src/client/shared/routes";
+
+import { SEARCH_QUERY } from '../../Main.constants';
 
 import styles from './MapView.module.css';
-import { SEARCH_QUERY } from '../../Main.constants';
 
 export type MapViewProps = {
     initialFacilityObjects?: SearchFacilities.Response;
@@ -82,7 +84,7 @@ export const MapView = ({ initialFacilityObjects }: MapViewProps) => {
                 <div className={styles['MapView-Details']}>
                     <p className={styles['MapView-DetailsText']}>Подробнее узнать об объекте Вы можете на карте</p>
                     <Button className={styles['MapView-DetailsButton']}>
-                        <Link passHref href="/map">
+                        <Link passHref href={pageRoutes.map}>
                             <a>
                                 <span className={styles['MapView-DetailsLinkText']}>Перейти на карту</span>
                             </a>

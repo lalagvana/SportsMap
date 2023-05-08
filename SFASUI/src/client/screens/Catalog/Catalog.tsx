@@ -30,7 +30,6 @@ export const Catalog = ({ facilityObjects: initialFacilityObjects }: CatalogPage
             revalidateOnFocus: false,
             revalidateOnReconnect: false,
             revalidateOnMount: true,
-            revalidateIfStale: true,
         },
         'catalog'
     );

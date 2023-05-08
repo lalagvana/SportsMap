@@ -14,3 +14,11 @@ export const getSearchQuery = (query: NextRouter['query']) => {
         paying_type: paying_type ? [String(paying_type)] : undefined,
     };
 };
+
+export const getPlacemarkIcon = (isLight: boolean, isActive: boolean) => {
+    if (isLight) {
+        return isActive ? '/icons/active_point.svg' : '/icons/default_point.svg'
+    }
+
+    return isActive ? '/icons/active_point_black.svg' : '/icons/default_point_black.svg'
+}
