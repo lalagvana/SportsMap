@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps<MainPageProps> = async () => {
 
 const MainPage: NextPage<MainPageProps> = ({ data, error }: MainPageProps) => {
     if (error) {
-        return <NextError statusCode={500} />;
+        return <NextError code={500} />;
     }
 
     return <Main {...data} />;

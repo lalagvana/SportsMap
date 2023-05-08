@@ -18,7 +18,7 @@ export const getStaticProps: GetStaticProps<LoginPageProps> = async () => {
 
 const LoginPage: NextPage<LoginPageProps> = ({ data, error }: LoginPageProps) => {
     if (error) {
-        return <NextError statusCode={500} />;
+        return <NextError code={500} />;
     }
 
     return <Login {...data} />;

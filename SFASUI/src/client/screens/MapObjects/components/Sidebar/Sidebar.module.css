@@ -5,3 +5,7 @@
 .Sidebar-NotFoundText {
     color: var(--base-default-color);
 }
+
+.Sidebar {
+    max-height: calc(100% - var(--space-m));
+}

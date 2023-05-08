@@ -1,22 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Clusterer, Map, Placemark, ZoomControl } from '@pbe/react-yandex-maps';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-import { SearchFacilities, useFacilitySearch } from 'src/client/shared/utils/api/facilities';
+import { SearchFacilities, useFacilitySearch, useFacilitySearchAll } from 'src/client/shared/utils/api/facilities';
 import { useTheme } from 'src/client/shared/hooks/use-theme';
 import { appLayoutRenderer } from 'src/client/shared/layouts/AppLayout';
 
 import { Sidebar } from './components/Sidebar';
-import { getSearchQuery } from './MapObjects.helpers';
+import { getPlacemarkIcon, getSearchQuery } from './MapObjects.helpers';
 
 import styles from './MapObject.module.css';
 
 export type MapObjectsPageProps = {
     facilityObjects?: SearchFacilities.Response;
+    facilityObjectsQuery?: SearchFacilities.Response;
 };
 
-export const MapObjects = ({ facilityObjects: initialFacilityObjects }: MapObjectsPageProps) => {
+export const MapObjects = ({
+    facilityObjects: initialFacilityObjects,
+    facilityObjectsQuery: initialFacilityObjectsQuery,
+}: MapObjectsPageProps) => {
     const { query } = useRouter();
     const searchQuery = getSearchQuery(query);
 
@@ -24,14 +28,29 @@ export const MapObjects = ({ facilityObjects: initialFacilityObjects }: MapObjec
         data: sportObjectsList,
         error,
         isValidating,
-    } = useFacilitySearch(searchQuery, {
-        fallbackData: initialFacilityObjects,
-        revalidateOnFocus: false,
-        revalidateOnReconnect: false,
-        revalidateOnMount: true,
-    }, 'map');
+    } = useFacilitySearch(
+        searchQuery,
+        {
+            fallbackData: initialFacilityObjectsQuery,
+            revalidateOnFocus: false,
+            revalidateOnReconnect: false,
+            revalidateOnMount: true,
+        },
+        'map'
+    );
+
+    const { data: sportObjectsListAll } = useFacilitySearchAll(
+        {},
+        {
+            fallbackData: initialFacilityObjects,
+            revalidateOnFocus: false,
+            revalidateOnReconnect: false,
+            revalidateOnMount: false,
+        }
+    );
 
     const { isLight } = useTheme();
+    const [activeItem, setActiveItem] = useState<Definitions.FacilityResponse | null>(null);
 
     return (
         <>
@@ -46,10 +65,12 @@ export const MapObjects = ({ facilityObjects: initialFacilityObjects }: MapObjec
                     error={error}
                     items={sportObjectsList?.facilities}
                     isLoading={isValidating}
+                    activeItem={activeItem}
+                    setActiveItem={setActiveItem}
                 />
                 <Map
                     width="100%"
-                    height="100vh"
+                    height="100%"
                     defaultState={{
                         center: [59.9386, 30.3141],
                         zoom: 13,
@@ -62,19 +83,18 @@ export const MapObjects = ({ facilityObjects: initialFacilityObjects }: MapObjec
                             groupByCoordinates: false,
                         }}
                     >
-                        {sportObjectsList?.facilities?.map(({ x, y, name, id }) => (
+                        {sportObjectsListAll?.facilities?.map((item) => (
                             <Placemark
-                                key={id}
+                                onClick={() => setActiveItem(item)}
+                                key={item.id}
                                 modules={['geoObject.addon.hint']}
-                                geometry={[x, y]}
+                                geometry={[item.x, item.y]}
                                 properties={{
-                                    hintContent: `<span className="map-hint">${name}</span>`,
+                                    hintContent: `<span className="map-hint">${item.name}</span>`,
                                 }}
                                 options={{
                                     iconLayout: 'default#image',
-                                    iconImageHref: isLight
-                                        ? '/icons/default_point.svg'
-                                        : '/icons/default_point_black.svg',
+                                    iconImageHref: getPlacemarkIcon(isLight, item.id === activeItem?.id),
                                     iconImageSize: [40, 40],
                                     hintCloseTimeout: 0,
                                 }}

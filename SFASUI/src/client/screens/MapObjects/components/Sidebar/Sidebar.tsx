@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React from 'react'
 
 import { Button } from 'src/client/shared/components/Button';
 
@@ -16,16 +16,24 @@ type SidebarProps = {
     error?: any;
     count?: number;
     className?: string;
+    activeItem: Definitions.FacilityResponse | null;
+    setActiveItem: (item: Definitions.FacilityResponse) => void;
 };
 
-export const Sidebar = ({ items, isLoading = false, error, count, className }: SidebarProps) => {
-    const [activeItem, setActiveItem] = useState<Definitions.FacilityResponse | null>(null);
-
+export const Sidebar = ({
+    items,
+    isLoading = false,
+    error,
+    count,
+    className,
+    activeItem,
+    setActiveItem,
+}: SidebarProps) => {
     const showContent = !error && !isLoading && items && items.length > 0;
     const showNotFound = !error && !isLoading && items && items.length === 0;
 
     return (
-        <aside className={className}>
+        <aside className={[styles['Sidebar'], className].join(' ')}>
             <SidebarFilters />
             {error && (
                 <SidebarMessage
@@ -45,11 +53,7 @@ export const Sidebar = ({ items, isLoading = false, error, count, className }: S
             )}
             {showContent && activeItem && <SidebarDetails item={activeItem} onBackClick={() => setActiveItem(null)} />}
             {showContent && !activeItem && (
-                <SidebarItemsList
-                    setActiveItem={setActiveItem}
-                    items={items}
-                    count={count || 0}
-                />
+                <SidebarItemsList setActiveItem={setActiveItem} items={items} count={count || 0} />
             )}
         </aside>
     );

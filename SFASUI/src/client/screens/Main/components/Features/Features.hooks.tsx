@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 
 import { OBJECTS_TYPE } from './Features.constants';
+import { pageRoutes } from "src/client/shared/routes";
 
 import styles from './Features.module.css';
 
@@ -32,11 +33,11 @@ export const useItems = () =>
                 text: (
                     <p className={styles['Features-Text']}>
                         Найдите локацию для занятий спортом с помощью фильтров{' '}
-                        <a className={styles['Features-TextLink']} href="/map">
+                        <a className={styles['Features-TextLink']} href={pageRoutes.map}>
                             на карте
                         </a>{' '}
                         или{' '}
-                        <a className={styles['Features-TextLink']} href="/search">
+                        <a className={styles['Features-TextLink']} href={pageRoutes.search}>
                             в каталоге
                         </a>
                     </p>

@@ -14,6 +14,7 @@ import Exit from 'public/icons/auth/exit.svg';
 import User from 'public/icons/user.svg';
 
 import styles from './Header.module.css';
+import { pageRoutes } from "../../routes";
 
 type HeaderProps = {
     roundedHeaderButton?: boolean;
@@ -40,7 +41,11 @@ export const Header = ({ className }: HeaderProps) => {
         <header className={[styles['Header'], className].join(' ')}>
             <div className={styles['Header-Content']}>
                 <div className={styles['Header-Logo']}>
-                    <LogoImage width={187} height={45} />
+                    <Link passHref href={pageRoutes.root} >
+                        <a>
+                            <LogoImage width={187} height={45} />
+                        </a>
+                    </Link>
                 </div>
                 <nav className={styles['Header-Links']}>
                     {HEADER_LINKS.map(({ label, link }) => (

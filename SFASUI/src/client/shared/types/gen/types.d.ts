@@ -1,17 +1,17 @@
 declare namespace Definitions {
     export interface ErrorResponse {
+        message?: string;
         detail?: {
             [key: string]: any;
         };
-        message?: string;
     }
     export interface ExcelImportValidationError {
-        n?: number; // int32
+        name?: string;
+        type?: string;
         detail?: {
             [key: string]: any;
         };
-        type?: string;
-        name?: string;
+        n?: number; // int32
     }
     export interface ExcelImportValidationResponse {
         errors?: ExcelImportValidationError[];
@@ -26,167 +26,167 @@ declare namespace Definitions {
         data?: string[];
     }
     export interface FacilityPatchRequest {
-        phone_number?: string;
+        age?: string[];
+        hidden?: boolean;
         x?: number; // float
-        name?: string;
-        owning_type?: string;
-        covering_type?: string;
-        annual_capacity?: number; // int32
-        address?: string;
+        width?: number; // float
+        eps?: number; // int32
         actual_workload?: number; // int32
         working_hours?: {
-            friday: FacilityWorkingHoursItem;
-            tuesday: FacilityWorkingHoursItem;
-            wednesday: FacilityWorkingHoursItem;
             thursday: FacilityWorkingHoursItem;
-            saturday: FacilityWorkingHoursItem;
             monday: FacilityWorkingHoursItem;
+            saturday: FacilityWorkingHoursItem;
+            wednesday: FacilityWorkingHoursItem;
+            tuesday: FacilityWorkingHoursItem;
+            friday: FacilityWorkingHoursItem;
             sunday: FacilityWorkingHoursItem;
         };
-        hidden?: boolean;
-        height?: number; // float
-        accessibility?: boolean;
-        paying_type?: string[];
         type?: string;
-        age?: string[];
-        width?: number; // float
+        accessibility?: boolean;
         site?: string;
-        y?: number; // float
-        area?: number; // float
-        length?: number; // float
-        note?: string;
-        depth?: number; // float
+        phone_number?: string;
         document?: string;
+        name?: string;
         owner?: string;
-        eps?: number; // int32
+        annual_capacity?: number; // int32
+        y?: number; // float
+        covering_type?: string;
+        owning_type?: string;
+        note?: string;
+        length?: number; // float
+        depth?: number; // float
+        height?: number; // float
+        address?: string;
+        paying_type?: string[];
+        area?: number; // float
     }
     export interface FacilityPayingTypeResponse {
         data?: string[];
     }
     export interface FacilityPhotoResponse {
-        id?: string; // uuid
         url?: string;
+        id?: string; // uuid
     }
     export interface FacilityPutRequest {
-        phone_number?: string;
+        age?: string[];
+        hidden?: boolean;
         x?: number; // float
-        name: string;
-        owning_type?: string;
-        covering_type?: string;
-        annual_capacity?: number; // int32
-        address: string;
+        width?: number; // float
+        eps?: number; // int32
         actual_workload?: number; // int32
         working_hours?: {
-            friday: FacilityWorkingHoursItem;
-            tuesday: FacilityWorkingHoursItem;
-            wednesday: FacilityWorkingHoursItem;
             thursday: FacilityWorkingHoursItem;
-            saturday: FacilityWorkingHoursItem;
             monday: FacilityWorkingHoursItem;
+            saturday: FacilityWorkingHoursItem;
+            wednesday: FacilityWorkingHoursItem;
+            tuesday: FacilityWorkingHoursItem;
+            friday: FacilityWorkingHoursItem;
             sunday: FacilityWorkingHoursItem;
         };
-        hidden?: boolean;
-        height?: number; // float
-        accessibility?: boolean;
-        paying_type?: string[];
         type?: string;
-        age?: string[];
-        width?: number; // float
+        accessibility?: boolean;
         site?: string;
-        y?: number; // float
-        area: number; // float
-        length?: number; // float
-        note?: string;
-        depth?: number; // float
+        phone_number?: string;
         document?: string;
+        name: string;
         owner: string;
-        eps?: number; // int32
+        annual_capacity?: number; // int32
+        y?: number; // float
+        covering_type?: string;
+        owning_type?: string;
+        note?: string;
+        length?: number; // float
+        depth?: number; // float
+        height?: number; // float
+        address: string;
+        paying_type?: string[];
+        area: number; // float
     }
     export interface FacilityRequest {
-        phone_number?: string;
+        age?: string[];
+        hidden?: boolean;
         x?: number; // float
-        name: string;
-        owning_type?: string;
-        covering_type?: string;
-        annual_capacity?: number; // int32
-        address: string;
+        width?: number; // float
+        eps?: number; // int32
         actual_workload?: number; // int32
         working_hours?: {
-            friday: FacilityWorkingHoursItem;
-            tuesday: FacilityWorkingHoursItem;
-            wednesday: FacilityWorkingHoursItem;
             thursday: FacilityWorkingHoursItem;
-            saturday: FacilityWorkingHoursItem;
             monday: FacilityWorkingHoursItem;
+            saturday: FacilityWorkingHoursItem;
+            wednesday: FacilityWorkingHoursItem;
+            tuesday: FacilityWorkingHoursItem;
+            friday: FacilityWorkingHoursItem;
             sunday: FacilityWorkingHoursItem;
         };
-        hidden?: boolean;
-        height?: number; // float
-        accessibility?: boolean;
-        paying_type?: string[];
         type: string;
-        age?: string[];
-        width?: number; // float
+        accessibility?: boolean;
         site?: string;
-        y?: number; // float
-        area: number; // float
-        length?: number; // float
-        note?: string;
-        depth?: number; // float
+        phone_number?: string;
         document?: string;
+        name: string;
         owner: string;
-        eps?: number; // int32
+        annual_capacity?: number; // int32
+        y?: number; // float
+        covering_type?: string;
+        owning_type?: string;
+        note?: string;
+        length?: number; // float
+        depth?: number; // float
+        height?: number; // float
+        address: string;
+        paying_type?: string[];
+        area: number; // float
     }
     export interface FacilityResponse {
-        phone_number?: string;
+        age: string[];
+        hidden?: boolean;
         x: number; // float
-        name: string;
-        owning_type?: string;
-        covering_type?: string;
-        annual_capacity?: number; // int32
-        address: string;
-        id: string; // uuid
+        width?: number; // float
+        eps?: number; // int32
         actual_workload?: number; // int32
         working_hours?: {
-            friday: FacilityWorkingHoursItem;
-            tuesday: FacilityWorkingHoursItem;
-            wednesday: FacilityWorkingHoursItem;
             thursday: FacilityWorkingHoursItem;
-            saturday: FacilityWorkingHoursItem;
             monday: FacilityWorkingHoursItem;
+            saturday: FacilityWorkingHoursItem;
+            wednesday: FacilityWorkingHoursItem;
+            tuesday: FacilityWorkingHoursItem;
+            friday: FacilityWorkingHoursItem;
             sunday: FacilityWorkingHoursItem;
         };
-        hidden?: boolean;
-        height?: number; // float
-        accessibility?: boolean;
-        paying_type: string[];
         type: string;
-        age: string[];
-        photo?: FacilityPhotoResponse[];
-        width?: number; // float
+        accessibility?: boolean;
         site?: string;
-        y: number; // float
-        area?: number; // float
-        length?: number; // float
-        note?: string;
-        depth?: number; // float
+        phone_number?: string;
         document?: string;
+        name: string;
         owner: string;
-        eps?: number; // int32
+        annual_capacity?: number; // int32
+        y: number; // float
+        covering_type?: string;
+        owning_type?: string;
+        note?: string;
+        length?: number; // float
+        depth?: number; // float
+        height?: number; // float
+        address: string;
+        paying_type: string[];
+        photo?: FacilityPhotoResponse[];
+        area?: number; // float
+        id: string; // uuid
     }
     export interface FacilitySearchRequest {
+        age?: string[];
         order_by?: string;
-        offset?: number; // int32
-        q?: string;
         filters?: FieldFilter[];
-        paying_type?: string[];
-        order_desc?: boolean;
         limit?: number; // int32
-        all?: boolean;
+        covering_type?: string[];
         type?: string[];
         owning_type?: string[];
-        covering_type?: string[];
-        age?: string[];
+        all?: boolean;
+        order_desc?: boolean;
+        q?: string;
+        paying_type?: string[];
+        offset?: number; // int32
     }
     export interface FacilitySearchResponse {
         facilities?: FacilityResponse[];
@@ -196,12 +196,12 @@ declare namespace Definitions {
         data?: string[];
     }
     export interface FacilityWorkingHours {
-        friday: FacilityWorkingHoursItem;
-        tuesday: FacilityWorkingHoursItem;
-        wednesday: FacilityWorkingHoursItem;
         thursday: FacilityWorkingHoursItem;
-        saturday: FacilityWorkingHoursItem;
         monday: FacilityWorkingHoursItem;
+        saturday: FacilityWorkingHoursItem;
+        wednesday: FacilityWorkingHoursItem;
+        tuesday: FacilityWorkingHoursItem;
+        friday: FacilityWorkingHoursItem;
         sunday: FacilityWorkingHoursItem;
     }
     export interface FacilityWorkingHoursItem {
@@ -213,44 +213,44 @@ declare namespace Definitions {
     export interface FieldFilter {
         lt?: number;
         eq?: string;
-        field?: string;
         gt?: number;
+        field?: string;
     }
     export interface UserCreateRequest {
-        password: string;
-        email: string; // email
         first_name?: string;
+        email: string; // email
         last_name?: string;
+        password: string;
     }
     export interface UserLoginRequest {
-        password: string;
         email: string; // email
+        password: string;
     }
     export interface UserLoginResponse {
-        admin?: boolean;
-        email: string; // email
-        last_name?: string;
-        id: string; // uuid
-        access_token_expires_in?: number; // int32
-        first_name?: string;
         access_token?: string;
         refresh_token?: string;
-    }
-    export interface UserPatchRequest {
-        password?: string;
+        admin?: boolean;
+        email: string; // email
+        access_token_expires_in?: number; // int32
         first_name?: string;
         last_name?: string;
+        id: string; // uuid
+    }
+    export interface UserPatchRequest {
+        first_name?: string;
+        last_name?: string;
+        password?: string;
     }
     export interface UserRefreshTokenRequest {
         access_token: string;
         refresh_token: string;
     }
     export interface UserResponse {
+        admin?: boolean;
         email: string; // email
+        first_name?: string;
         last_name?: string;
         id: string; // uuid
-        first_name?: string;
-        admin?: boolean;
     }
 }
 declare namespace Paths {
@@ -414,6 +414,16 @@ declare namespace Paths {
             }
         }
     }
+    namespace NewApiV1FacilityAge$Id {
+        namespace Delete {
+            namespace Parameters {
+                export type Id = string;
+            }
+            export interface PathParameters {
+                id: Parameters.Id;
+            }
+        }
+    }
     namespace NewApiV1FacilityCoveringType {
         namespace Get {
             namespace Responses {
@@ -447,6 +457,16 @@ declare namespace Paths {
         namespace Head {
             namespace Responses {
                 export type $200 = Definitions.FacilityPayingTypeResponse;
+            }
+        }
+    }
+    namespace NewApiV1FacilityPayingType$Id {
+        namespace Delete {
+            namespace Parameters {
+                export type Id = string;
+            }
+            export interface PathParameters {
+                id: Parameters.Id;
             }
         }
     }
