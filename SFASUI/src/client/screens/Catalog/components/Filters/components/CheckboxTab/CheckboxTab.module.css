@@ -14,4 +14,6 @@
 
 .CheckboxTab-Checkbox {
     font-size: var(--font-size-m);
+
+    font-family: var(--ubuntu);
 }

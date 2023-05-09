@@ -3,18 +3,18 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { deleteCookie, hasCookie } from 'cookies-next';
 
-import LogoImage from 'public/images/Logo.svg';
-
 import { Button, ButtonType } from 'src/client/shared/components/Button';
+import { pageRoutes } from 'src/client/shared/routes';
 
-import { HEADER_LINKS } from './Header.constants';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
+import { Burger } from './components/Burger';
+import { HeaderLinks } from './components/HeaderLinks';
 
 import Exit from 'public/icons/auth/exit.svg';
 import User from 'public/icons/user.svg';
+import LogoImage from 'public/images/Logo.svg';
 
 import styles from './Header.module.css';
-import { pageRoutes } from "../../routes";
 
 type HeaderProps = {
     roundedHeaderButton?: boolean;
@@ -25,7 +25,7 @@ type HeaderProps = {
 };
 
 export const Header = ({ className }: HeaderProps) => {
-    const { pathname, push } = useRouter();
+    const { push } = useRouter();
 
     const isLogged = hasCookie('sportsmap_token');
 
@@ -40,27 +40,15 @@ export const Header = ({ className }: HeaderProps) => {
     return (
         <header className={[styles['Header'], className].join(' ')}>
             <div className={styles['Header-Content']}>
+                <Burger className={styles['Header-Burger']} />
                 <div className={styles['Header-Logo']}>
-                    <Link passHref href={pageRoutes.root} >
+                    <Link passHref href={pageRoutes.root}>
                         <a>
                             <LogoImage width={187} height={45} />
                         </a>
                     </Link>
                 </div>
-                <nav className={styles['Header-Links']}>
-                    {HEADER_LINKS.map(({ label, link }) => (
-                        <Link passHref href={link} key={label}>
-                            <a
-                                className={[
-                                    styles['Header-Link'],
-                                    pathname === link ? styles['Header-Link_active'] : '',
-                                ].join(' ')}
-                            >
-                                {label}
-                            </a>
-                        </Link>
-                    ))}
-                </nav>
+                <HeaderLinks className={styles['Header-Links']} />
                 <div className={styles['Header-User']}>
                     <ThemeSwitcher />
                     {isLogged ? (

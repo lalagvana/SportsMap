@@ -3,17 +3,24 @@
 
     height: 910px;
 
-    background-image: url('/images/main/BeginBackground.png');
     background-position: center;
     background-size: cover;
 
     z-index: 10;
 }
 
+.Beginning_light {
+    background-image: url('/images/main/BeginBackground.jpg');
+}
+
+.Beginning_dark {
+    background-image: url('/images/main/BeginBackground_dark.jpg');
+}
+
 .Beginning-Girl {
     position: absolute;
     right: 20%;
-    bottom: 48px;
+    bottom: 150px;
     animation: cycle 1.5s ease-in-out;
 }
 

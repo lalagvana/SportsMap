@@ -1,0 +1,20 @@
+.HeaderLinks {
+    display: flex;
+    gap: var(--space-2xl);
+    align-items: center;
+
+
+    font-size: var(--font-size-2xs);
+    color: var(--base-default-color);
+
+}
+
+.HeaderLinks-Link {
+    font-family: var(--ubuntu);
+    color: var(--base-default-color);
+}
+
+.HeaderLinks-Link_active {
+    font-weight: var(--font-weight-bold);
+    color: var(--base-secondary-color);
+}

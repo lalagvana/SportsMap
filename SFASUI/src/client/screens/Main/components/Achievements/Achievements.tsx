@@ -1,13 +1,17 @@
 import Image from 'next/image';
 import React from 'react';
 
+import { useTheme } from "src/client/shared/hooks/use-theme";
+
 import { ACHIEVEMENT_ITEMS } from './Achievements.constants';
 
 import styles from './Achievements.module.css';
 
 export const Achievements = () => {
+  const { isLight } = useTheme();
+
     return (
-        <section className={styles['Achievements']}>
+        <section className={[styles['Achievements'], isLight ? styles['Achievements_light'] : styles['Achievements_dark']].join(' ')}>
             <div className={styles['Achievements-Content']}>
                 <h2 className={styles['Achievements-BigHeading']}>Чем полезен SportsMap?</h2>
                 <div className={styles['Achievements-ImageContainer']}>

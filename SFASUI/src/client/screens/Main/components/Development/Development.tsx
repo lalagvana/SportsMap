@@ -2,14 +2,17 @@ import Image from 'next/image';
 import React from 'react';
 
 import { Contacts } from 'src/client/shared/components/Contacts';
+import { useTheme } from "src/client/shared/hooks/use-theme";
 
 import { EmailForm } from '../EmailForm';
 
 import styles from './Development.module.css';
 
 export const Development = () => {
+    const { isLight } = useTheme();
+
     return (
-        <section className={styles['Development']}>
+        <section className={[styles['Development'], isLight ? styles['Development_light'] : styles['Development_dark']].join(' ')}>
             <div className={styles['Development-Content']}>
                 <h2 className={styles['Development-BigHeading']}>Давайте развивать проект вместе!</h2>
 

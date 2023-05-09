@@ -22,6 +22,10 @@
     align-items: center;
 }
 
+.FiltersHeader-ItemText {
+    font-family: var(--ubuntu);
+}
+
 .FiltersHeader-Clear {
     padding-left: 0;
 }

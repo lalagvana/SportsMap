@@ -16,6 +16,7 @@
     position: absolute;
     bottom: calc(-1 * var(--space-xl));
     height: 231px;
+    max-width: 100%;
 }
 
 .Main {
