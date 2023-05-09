@@ -4,7 +4,7 @@
     gap: var(--space-l);
 
     box-sizing: border-box;
-    min-height: 233px;
+    min-height: 247px;
     padding: var(--padding-xl);
 
     background-color: var(--surface-color-0);
@@ -16,7 +16,11 @@
     overflow: hidden;
     max-width: 100%;
     text-overflow: ellipsis;
-    white-space: nowrap;
+
+    font-size: var(--font-size-m);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
 }
 
 .CatalogCard_disabled {
@@ -44,6 +48,8 @@
     max-width: calc(100% - 18px - var(--space-2m) - var(--padding-xl));
     color: var(--typography-secondary-color);
     cursor: pointer;
+
+
 }
 
 .CatalogCard-Button {
@@ -75,7 +81,3 @@
     opacity: 0.9;
 }
 
-.CatalogCard-Address,
-.CatalogCard-Owner {
-    font-size: var(--font-size-m);
-}

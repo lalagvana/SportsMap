@@ -2,6 +2,17 @@
     display: flex;
     align-items: center;
     min-height: 875px;
+
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.Achievements_dark {
+    background-image: url("/images/FeaturesLine_dark.svg");
+}
+
+.Achievements_light {
+    background-image: url("/images/FeaturesLine.svg");
 }
 
 .Achievements-Content {
@@ -78,7 +89,7 @@
     }
 }
 
-@media (--viewport-tablet) {
+@media (--viewport-desktop) {
     .Achievements-ImageContainer {
         flex-wrap: nowrap;
         align-items: center;

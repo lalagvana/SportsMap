@@ -1,8 +1,15 @@
 .Development {
     min-height: 913px;
     padding: 26px 0 var(--space-xl);
-    background-image: url('/images/main/EndBackground.png');
     background-size: cover;
+}
+
+.Development_light {
+    background-image: url('/images/main/EndBackground.jpg');
+}
+
+.Development_dark {
+    background-image: url('/images/main/EndBackground_dark.jpg');
 }
 
 .Development-Content {

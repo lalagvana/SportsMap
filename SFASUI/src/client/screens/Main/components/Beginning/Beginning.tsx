@@ -4,6 +4,7 @@ import Image from 'next/image';
 
 import { Button } from 'src/client/shared/components/Button';
 import { pageRoutes } from 'src/client/shared/routes';
+import { useTheme } from "src/client/shared/hooks/use-theme";
 
 import styles from './Beginning.module.css';
 
@@ -12,8 +13,16 @@ type BeginningProps = {
 };
 
 export const Beginning = ({ className }: BeginningProps) => {
+    const { isLight } = useTheme();
+
     return (
-        <section className={[styles['Beginning'], className].join(' ')}>
+        <section
+            className={[
+                styles['Beginning'],
+                className,
+                isLight ? styles['Beginning_light'] : styles['Beginning_dark'],
+            ].join(' ')}
+        >
             <article className={styles['Beginning-Greeting']}>
                 <h1 className={styles['Beginning-Heading']}>{`Здоровое тело -\nв здоровом поиске!`}</h1>
                 <p className={styles['Beginning-Caption']}>
@@ -29,7 +38,7 @@ export const Beginning = ({ className }: BeginningProps) => {
             </article>
 
             <div className={styles['Beginning-Girl']}>
-                <Image width={555} height={549} src="/images/main/girl.png" layout="fixed" />
+                <Image width={555} height={549} src={ isLight ? "/images/main/girl.png" : "/images/main/girl_dark.png"} layout="fixed" />
             </div>
         </section>
     );

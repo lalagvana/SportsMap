@@ -1,7 +1,31 @@
 .Features {
     position: relative;
-    min-height: 939px;
+    margin: 120px 0;
+
+
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.Features_light {
+    background-image: url("/images/FeaturesLine.svg");
+}
+
+.Features_dark {
+    background-image: url("/images/FeaturesLine_dark.svg");
+}
+
+.Features-Content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+
+    gap: var(--space-2l);
     margin: 0 var(--space-xl);
+    min-height: 548px;
+
 }
 
 .Features-Heading {
@@ -39,46 +63,48 @@
 }
 
 .Features-Image {
-    position: absolute;
     display: flex;
     gap: var(--space-m);
     align-items: center;
+    flex-basis: 100%;
 }
 
 .Features-Description {
     max-width: 332px;
+    flex-shrink: 10;
 }
 
 .Features-Image_basketball {
-    top: 10%;
-    left: 5%;
 }
 
 .Features-Image_golf {
-    bottom: 10%;
-    left: 10%;
 }
 
 .Features-Image_racket {
-    top: 10%;
-    right: 5%;
 }
 
 .Features-Image_football {
-    right: 5%;
-    bottom: 15%;
 }
 
-.Features-Question {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 
 @media (--viewport-wide-desktop) {
     .Features {
-        max-width: var(--width-max-content);
-        margin: auto;
+        margin: 120px auto;
+    }
+
+
+    .Features-Content {
+       margin: auto;
+    }
+}
+
+
+@media (--viewport-desktop) {
+    .Features-Content {
+        gap: initial;
+    }
+
+    .Features-Image {
+        flex-basis: 50%;
     }
 }
