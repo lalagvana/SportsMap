@@ -4,6 +4,7 @@ import { getArrayQuery } from 'src/client/shared/utils/query';
 
 import { SEARCH_QUERY, LIMIT } from './Catalog.constants';
 import { SIZE_INPUTS_NAME, OTHER_INPUTS_NAME } from './components/Filters';
+import { hasCookie } from "cookies-next";
 
 export const getFiltersQuery = (query: NextRouter['query']) => {
     const queryInput = Object.keys(query).filter((key) => [...SIZE_INPUTS_NAME, ...OTHER_INPUTS_NAME].includes(key));
@@ -26,6 +27,8 @@ export const getSearchQuery = (query: NextRouter['query']) => {
 
     const filters = getFiltersQuery(query);
 
+    const isLogged = hasCookie('sportsmap_token');
+
     return {
         ...SEARCH_QUERY,
         offset: LIMIT * (Number(page) - 1),
@@ -37,5 +40,6 @@ export const getSearchQuery = (query: NextRouter['query']) => {
         paying_type: paying_type ? getArrayQuery(paying_type) : undefined,
         owning_type: owning_type ? getArrayQuery(owning_type) : undefined,
         filters,
+        hidden: isLogged ? undefined : false,
     };
 };

@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 import { Button } from 'src/client/shared/components/Button';
 import { pageRoutes } from 'src/client/shared/routes';
+import { useTheme } from 'src/client/shared/hooks/use-theme';
 
 import styles from './ErrorPage.module.css';
 
@@ -16,6 +17,8 @@ export type ErrorPageProps = {
 };
 
 export const ErrorPage = ({ code, heading, text, hasCatalogButton }: ErrorPageProps) => {
+    const { isLight } = useTheme();
+
     return (
         <>
             <Head>
@@ -39,7 +42,12 @@ export const ErrorPage = ({ code, heading, text, hasCatalogButton }: ErrorPagePr
                         )}
                     </section>
                     <div className={styles['ErrorPage-Image']}>
-                        <Image width={688} height={691} layout="fixed" src="/images/Error.png" />
+                        <Image
+                            width={695}
+                            height={700}
+                            layout="fixed"
+                            src={isLight ? '/images/Error.png' : '/images/Error_dark.png'}
+                        />
                     </div>
                 </div>
             </main>
