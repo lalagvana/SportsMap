@@ -12,7 +12,7 @@
 .Main-Surface {
     background-color: var(--special-white-color);
     border-radius: 0 0 87px 87px;
-    width: 900px;
+    width: 1100px;
     position: absolute;
     bottom: calc(-1 * var(--space-xl));
     height: 231px;

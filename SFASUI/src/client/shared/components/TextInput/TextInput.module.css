@@ -22,5 +22,5 @@
 }
 
 .TextInput:focus::placeholder {
-    transform: translateX(2px);
+    transform: translateX(4px);
 }

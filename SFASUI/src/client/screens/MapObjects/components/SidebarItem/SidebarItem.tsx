@@ -6,6 +6,7 @@ import { CardHeader } from 'src/client/shared/components/CardHeader';
 import { TagGroup } from 'src/client/shared/components/TagGroup';
 
 import styles from './SidebarItem.module.css';
+import { useDefaultImage } from "./SidebarItem.hooks";
 
 type SidebarItemProps = {
     onClick: () => void;
@@ -16,6 +17,8 @@ export const SidebarItem = ({ onClick, item }: SidebarItemProps) => {
     const { name, address, age, type, photo } = item;
 
     const hasPhoto = photo && photo.length > 0;
+
+    const defaultPhoto = useDefaultImage(type, 80, 80);
 
     return (
         <article onClick={onClick} className={styles['SidebarItem']}>
@@ -33,13 +36,14 @@ export const SidebarItem = ({ onClick, item }: SidebarItemProps) => {
                 </span>
             </TextWithIcon>
             <div className={styles['SidebarItem-Photo']}>
-                <Image
-                    style={{ borderRadius: '10px' }}
-                    objectFit="cover"
-                    src={hasPhoto ? photo[0].url : '/images/imagePlaceholder.png'}
-                    width={140}
-                    height={140}
-                />
+              {hasPhoto ? <Image
+                style={{ borderRadius: '10px' }}
+                objectFit="cover"
+                src={photo[0].url}
+                width={135}
+                height={135}
+              /> : defaultPhoto}
+
             </div>
         </article>
     );

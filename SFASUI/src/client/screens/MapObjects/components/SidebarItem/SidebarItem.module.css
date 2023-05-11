@@ -30,8 +30,17 @@
     grid-area: photo;
     width: 135px;
     height: 135px;
+    background-color: var(--decorative-color);
+    border-radius: var(--border-radius-l);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.SidebarItem-Photo path {
+    color: var(--special-white-color);
+}
 .SidebarItem-Name {
     grid-area: name;
     max-width: 300px;
