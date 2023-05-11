@@ -24,9 +24,9 @@ export const Main = ({ facilityObjects: initialFacilityObjects }: MainScreenPage
             <Beginning />
             <section className={styles['Main-Sponsors']}>
                 {!isLight && <div className={styles['Main-Surface']} />}
-                <Image width={222} height={61} src="/images/contacts/SPBu.png" layout="fixed" />
-                <Image width={226} height={72} src="/images/contacts/District.png" layout="fixed" />
-                <Image width={201} height={61} src="/images/contacts/Administration.png" layout="fixed" />
+                <Image width={297} height={80} src="/images/contacts/spbu.svg" layout="fixed" />
+                <Image width={226} height={80} src="/images/contacts/admin_dis.svg" layout="fixed" />
+                <Image width={243} height={80} src="/images/contacts/admin_spb.svg" layout="fixed" />
             </section>
             <Features />
             <MapView initialFacilityObjects={initialFacilityObjects} />

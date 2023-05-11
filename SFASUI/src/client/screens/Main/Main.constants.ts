@@ -1,1 +1,1 @@
-export const SEARCH_QUERY = { limit: undefined, offset: undefined };
+export const SEARCH_QUERY = { limit: undefined, offset: undefined, hidden: false };

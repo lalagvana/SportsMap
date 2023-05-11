@@ -7,6 +7,7 @@ import { searchFacility } from 'src/client/shared/utils/api/facilities';
 import { getSearchQuery, mapLayoutRenderer, MapObjects, MapObjectsPageProps } from 'src/client/screens/MapObjects';
 
 import NextError from 'src/pages/_error';
+import { hasCookie } from 'cookies-next';
 
 type MapPageProps = {
     data?: MapObjectsPageProps;
@@ -14,7 +15,9 @@ type MapPageProps = {
 };
 
 export const getServerSideProps: GetServerSideProps<MapPageProps> = async ({ query }) => {
-    const facilityObjects = await searchFacility({}, 'https://sportsmap.spb.ru/');
+    const isLogged = hasCookie('sportsmap_token');
+
+    const facilityObjects = await searchFacility({ hidden: isLogged ? undefined : false }, 'https://sportsmap.spb.ru/');
 
     const searchQuery = getSearchQuery(query);
 

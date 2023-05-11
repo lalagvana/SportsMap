@@ -4,8 +4,8 @@ import React from 'react';
 import { Main, MainScreenPageProps } from "src/client/screens/Main";
 
 import NextError from 'src/pages/_error';
-import { searchFacility } from "../client/shared/utils/api/facilities";
-import { SEARCH_QUERY } from "../client/screens/Main/Main.constants";
+import { searchFacility } from "src/client/shared/utils/api/facilities";
+import { SEARCH_QUERY } from "src/client/screens/Main/Main.constants";
 
 type MainPageProps = {
     data?: MainScreenPageProps;

@@ -20,7 +20,7 @@ export const Features = memo(() => {
                         key={name}
                         className={[styles['Features-Image'], styles[`Features-Image_${name}`]].join(' ')}
                     >
-                        <Image width={200} height={200} src={`/images/main/${name}.png`} layout="fixed" />
+                        <Image width={200} height={200} src={isLight ? `/images/main/${name}.png` :  `/images/main/${name}_black.png`} layout="fixed" />
                         <div className={styles['Features-Description']}>
                             <div className={styles['Features-Label']}>
                                 <h3 className={styles['Features-Heading']}>{heading}</h3>

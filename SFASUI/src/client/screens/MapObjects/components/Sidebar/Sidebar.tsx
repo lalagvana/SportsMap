@@ -10,6 +10,8 @@ import { SidebarItemsListSkeleton } from '../SidebarItemsListSkeleton';
 import { SidebarMessage } from '../SidebarMessage';
 
 import styles from './Sidebar.module.css';
+import Link from 'next/link';
+import { pageRoutes } from '../../../../shared/routes';
 
 type SidebarProps = {
     items?: Definitions.FacilityResponse[];
@@ -51,7 +53,15 @@ export const Sidebar = ({
                     titleClassName={styles['Sidebar-NotFoundText']}
                     title="Мы не нашли подходящих спортивных объектов"
                     message="Но вы можете их предложить"
-                    button={<Button text="Предложить объект" className={styles['Sidebar-NotFoundButton']} />}
+                    button={
+                        <Button className={styles['Sidebar-NotFoundButton']}>
+                            <Link passHref href={pageRoutes.root}>
+                                <a>
+                                    <span className={styles['Sidebar-NotFoundButtonText']}>Предложить объект</span>
+                                </a>
+                            </Link>
+                        </Button>
+                    }
                 />
             )}
 

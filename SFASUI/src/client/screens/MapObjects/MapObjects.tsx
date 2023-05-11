@@ -11,6 +11,7 @@ import { Sidebar } from './components/Sidebar';
 import { getPlacemarkIcon, getSearchQuery } from './MapObjects.helpers';
 
 import styles from './MapObject.module.css';
+import { hasCookie } from 'cookies-next';
 
 export type MapObjectsPageProps = {
     facilityObjects?: SearchFacilities.Response;
@@ -39,8 +40,10 @@ export const MapObjects = ({
         'map'
     );
 
+    const isLogged = hasCookie('sportsmap_token');
+
     const { data: sportObjectsListAll } = useFacilitySearchAll(
-        {},
+        { hidden: isLogged ? undefined : false },
         {
             fallbackData: initialFacilityObjects,
             revalidateOnFocus: false,

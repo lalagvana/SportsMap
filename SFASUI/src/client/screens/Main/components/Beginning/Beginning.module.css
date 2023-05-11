@@ -26,10 +26,12 @@
 
 @keyframes cycle {
     from {
-        transform: translateX(-200%);
+        opacity: 0;
+        transform: translateX(-75%);
     }
 
     to {
+        opacity: 1;
         transform: translateX(0);
     }
 }

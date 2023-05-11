@@ -6,6 +6,10 @@
     color: var(--base-default-color);
 }
 
+.Sidebar-NotFoundButtonText {
+    color: var(--special-white-color);
+}
+
 .Sidebar {
     max-height: calc(100% - var(--space-m));
 }

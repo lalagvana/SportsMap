@@ -38,7 +38,7 @@ export const Footer = () => {
                         <TelegramIcon width={26} height={21}/>
                     </div>
                     <span className={styles['Footer-Header_mini']}>Создано при поддержке</span>
-                    <Image width={160} height={47} src="/images/contacts/SPBu.png" layout="fixed" />
+                    <Image width={160} height={47} src="/images/contacts/spbu.svg" layout="fixed" />
                 </section>
 
                 <section className={styles['Footer-Section']}>
