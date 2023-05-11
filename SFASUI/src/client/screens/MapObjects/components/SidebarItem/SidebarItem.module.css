@@ -38,7 +38,7 @@
     justify-content: center;
 }
 
-.SidebarItem-Photo path {
+.SidebarItem-Photo path,  .SidebarItem-Photo circle {
     color: var(--special-white-color);
 }
 .SidebarItem-Name {
