@@ -1,9 +1,11 @@
 export namespace EmailSubscribe {
-    export type Response = Paths.ApiEmailSubscribe$Email.Post.Responses.$200;
-    export type Parameters = Paths.ApiEmailSubscribe$Email.Post.PathParameters;
+    export type Body = Paths.NewApiV1EmailSubscribe.Post.Parameters.Body;
 }
 
-export namespace EmailSend {
-    export type Body = Paths.ApiEmailSend.Post.RequestBody;
-    export type Response = Paths.ApiEmailSend.Post.Responses.$200;
+export namespace EmailOfferObject {
+    export type Body = Paths.NewApiV1EmailOfferObject.Post.Parameters.Body;
+}
+
+export namespace EmailSuggestions {
+    export type Body = Paths.NewApiV1EmailSuggestions.Post.Parameters.Body;
 }

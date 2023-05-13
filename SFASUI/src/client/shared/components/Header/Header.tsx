@@ -25,17 +25,17 @@ type HeaderProps = {
 };
 
 export const Header = ({ className }: HeaderProps) => {
-    const { push } = useRouter();
+    const { reload } = useRouter();
 
     const isLogged = hasCookie('sportsmap_token');
 
-    const logoutHandler = useCallback(async () => {
+    const logoutHandler = useCallback( () => {
         deleteCookie('sportsmap_token');
         deleteCookie('sportsmap_expiresIn');
         deleteCookie('sportsmap_refreshToken');
 
-        await push('/login');
-    }, [push]);
+        reload();
+    }, [reload]);
 
     return (
         <header className={[styles['Header'], className].join(' ')}>

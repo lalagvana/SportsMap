@@ -1,7 +1,7 @@
 import axios, { RawAxiosRequestConfig } from 'axios';
 import { toast } from 'react-toastify';
 
-import {Notification} from 'src/client/shared/components/Notification'
+import { Notification } from 'src/client/shared/components/Notification';
 import { BASE_PATH } from 'src/client/shared/utils/environment';
 import { prepareMessage } from 'src/client/shared/utils/notifications';
 
@@ -27,8 +27,6 @@ export async function fetch<T>(path: string, options: RawAxiosRequestConfig = {}
             throw Error('not logged in');
         }
 
-        console.log(token)
-
         headers['Authorization'] = `Bearer ${token}`;
     }
 
@@ -49,7 +47,13 @@ export async function fetch<T>(path: string, options: RawAxiosRequestConfig = {}
     } catch (error) {
         // Ошибки GET больше нигде не нотифицируются
         if (method.toUpperCase() === 'GET') {
-            toast(<Notification type="error" imageType='cross' description={prepareMessage(error, 'Произошла ошибка во время получения данных')} />);
+            toast(
+                <Notification
+                    type="error"
+                    imageType="cross"
+                    description={prepareMessage(error, 'Произошла ошибка во время получения данных')}
+                />
+            );
         }
 
         throw error;

@@ -5,9 +5,9 @@
     --typography-secondary-color: #b5cfe7;
     --base-active-input-color: #617fb9;
     --base-default-color: #5f85db;
-    --base-secondary-color: #90b8f8;
-    --base-additional-color: #365eb9;
-    --white-color: #2e2e2e;
+    --base-secondary-color: #365EB9;
+    --base-additional-color: #90B8F8;
+    --white-color: #353941;
     --placeholder-color: #b0c9e0;
     --field-color: #3d4351;
     --error-color: #F39898;
@@ -19,7 +19,7 @@
     --transparent-white: 46, 46, 46;
 
     --surface-color-0: var(--field-color);
-    --surface-color-1: #353941;
+    --surface-color-1: var(--white-color);
     --surface--color-modal: var(--field-color);
 
     --active-button-color: var(--base-default-color);

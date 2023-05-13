@@ -43,7 +43,6 @@ export const ItemModal = ({ item: initialItem, hide, className }: ItemModalProps
                     type={item?.type as string}
                 />
             }
-            closeIcon={<Close width={10} height={10} />}
             footer={null}
             width={1015}
             onCancel={hide}

@@ -34,6 +34,9 @@ export const Catalog = ({ facilityObjects: initialFacilityObjects }: CatalogPage
         'catalog'
     );
 
+    const showObjects = facilityObjects?.facilities && facilityObjects.facilities.length > 0;
+    const showPagination = showObjects && facilityObjects?.count && facilityObjects?.count > LIMIT;
+
     return (
         <>
             <Head>
@@ -47,11 +50,9 @@ export const Catalog = ({ facilityObjects: initialFacilityObjects }: CatalogPage
                     <output className={styles['Catalog-Found_count']}>{facilityObjects?.count || 0}</output>
                 </section>
                 {isValidating && <Loading />}
-                {!isValidating && facilityObjects?.facilities && (
-                    <CatalogCardGrid items={facilityObjects?.facilities} />
-                )}
-                {!isValidating && facilityObjects?.count && facilityObjects?.count > LIMIT && (
-                    <CatalogPagination className={styles['Catalog-Pagination']} total={facilityObjects?.count} />
+                {!isValidating && showObjects && <CatalogCardGrid items={facilityObjects?.facilities} />}
+                {!isValidating && showPagination && (
+                    <CatalogPagination className={styles['Catalog-Pagination']} total={facilityObjects.count || 0} />
                 )}
             </main>
         </>

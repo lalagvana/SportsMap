@@ -1,16 +1,30 @@
 declare namespace Definitions {
+    export interface EmailOfferObjectRequest {
+        owner: string;
+        note?: string;
+        address: string;
+    }
+    export interface EmailSubscribeRequest {
+        email: string; // email
+    }
+    export interface EmailSuggestionsRequest {
+        last_name: string;
+        email: string; // email
+        text?: string;
+        first_name: string;
+    }
     export interface ErrorResponse {
-        message?: string;
         detail?: {
             [key: string]: any;
         };
+        message?: string;
     }
     export interface ExcelImportValidationError {
-        name?: string;
-        type?: string;
         detail?: {
             [key: string]: any;
         };
+        name?: string;
+        type?: string;
         n?: number; // int32
     }
     export interface ExcelImportValidationResponse {
@@ -26,166 +40,168 @@ declare namespace Definitions {
         data?: string[];
     }
     export interface FacilityPatchRequest {
-        age?: string[];
-        hidden?: boolean;
+        length?: number; // float
         x?: number; // float
-        width?: number; // float
         eps?: number; // int32
+        name?: string;
+        covering_type?: string;
+        hidden?: boolean;
+        note?: string;
+        width?: number; // float
+        accessibility?: boolean;
+        depth?: number; // float
+        phone_number?: string;
+        age?: string[];
+        owning_type?: string;
         actual_workload?: number; // int32
+        annual_capacity?: number; // int32
+        area?: number; // float
+        height?: number; // float
+        y?: number; // float
+        type?: string;
+        document?: string;
         working_hours?: {
-            thursday: FacilityWorkingHoursItem;
-            monday: FacilityWorkingHoursItem;
-            saturday: FacilityWorkingHoursItem;
-            wednesday: FacilityWorkingHoursItem;
-            tuesday: FacilityWorkingHoursItem;
             friday: FacilityWorkingHoursItem;
             sunday: FacilityWorkingHoursItem;
+            monday: FacilityWorkingHoursItem;
+            wednesday: FacilityWorkingHoursItem;
+            tuesday: FacilityWorkingHoursItem;
+            thursday: FacilityWorkingHoursItem;
+            saturday: FacilityWorkingHoursItem;
         };
-        type?: string;
-        accessibility?: boolean;
         site?: string;
-        phone_number?: string;
-        document?: string;
-        name?: string;
-        owner?: string;
-        annual_capacity?: number; // int32
-        y?: number; // float
-        covering_type?: string;
-        owning_type?: string;
-        note?: string;
-        length?: number; // float
-        depth?: number; // float
-        height?: number; // float
         address?: string;
         paying_type?: string[];
-        area?: number; // float
+        owner?: string;
     }
     export interface FacilityPayingTypeResponse {
         data?: string[];
     }
     export interface FacilityPhotoResponse {
         url?: string;
+        filename?: string;
         id?: string; // uuid
     }
     export interface FacilityPutRequest {
-        age?: string[];
-        hidden?: boolean;
+        length?: number; // float
         x?: number; // float
-        width?: number; // float
         eps?: number; // int32
+        name: string;
+        covering_type?: string;
+        hidden?: boolean;
+        note?: string;
+        width?: number; // float
+        accessibility?: boolean;
+        depth?: number; // float
+        phone_number?: string;
+        age?: string[];
+        owning_type?: string;
         actual_workload?: number; // int32
+        annual_capacity?: number; // int32
+        area: number; // float
+        height?: number; // float
+        y?: number; // float
+        type: string;
+        document?: string;
         working_hours?: {
-            thursday: FacilityWorkingHoursItem;
-            monday: FacilityWorkingHoursItem;
-            saturday: FacilityWorkingHoursItem;
-            wednesday: FacilityWorkingHoursItem;
-            tuesday: FacilityWorkingHoursItem;
             friday: FacilityWorkingHoursItem;
             sunday: FacilityWorkingHoursItem;
+            monday: FacilityWorkingHoursItem;
+            wednesday: FacilityWorkingHoursItem;
+            tuesday: FacilityWorkingHoursItem;
+            thursday: FacilityWorkingHoursItem;
+            saturday: FacilityWorkingHoursItem;
         };
-        type?: string;
-        accessibility?: boolean;
         site?: string;
-        phone_number?: string;
-        document?: string;
-        name: string;
-        owner: string;
-        annual_capacity?: number; // int32
-        y?: number; // float
-        covering_type?: string;
-        owning_type?: string;
-        note?: string;
-        length?: number; // float
-        depth?: number; // float
-        height?: number; // float
         address: string;
         paying_type?: string[];
-        area: number; // float
+        owner: string;
     }
     export interface FacilityRequest {
-        age?: string[];
-        hidden?: boolean;
+        length?: number; // float
         x?: number; // float
-        width?: number; // float
         eps?: number; // int32
+        name: string;
+        covering_type?: string;
+        hidden?: boolean;
+        note?: string;
+        width?: number; // float
+        accessibility?: boolean;
+        depth?: number; // float
+        phone_number?: string;
+        age?: string[];
+        owning_type?: string;
         actual_workload?: number; // int32
+        annual_capacity?: number; // int32
+        area: number; // float
+        height?: number; // float
+        y?: number; // float
+        type: string;
+        document?: string;
         working_hours?: {
-            thursday: FacilityWorkingHoursItem;
-            monday: FacilityWorkingHoursItem;
-            saturday: FacilityWorkingHoursItem;
-            wednesday: FacilityWorkingHoursItem;
-            tuesday: FacilityWorkingHoursItem;
             friday: FacilityWorkingHoursItem;
             sunday: FacilityWorkingHoursItem;
+            monday: FacilityWorkingHoursItem;
+            wednesday: FacilityWorkingHoursItem;
+            tuesday: FacilityWorkingHoursItem;
+            thursday: FacilityWorkingHoursItem;
+            saturday: FacilityWorkingHoursItem;
         };
-        type: string;
-        accessibility?: boolean;
         site?: string;
-        phone_number?: string;
-        document?: string;
-        name: string;
-        owner: string;
-        annual_capacity?: number; // int32
-        y?: number; // float
-        covering_type?: string;
-        owning_type?: string;
-        note?: string;
-        length?: number; // float
-        depth?: number; // float
-        height?: number; // float
         address: string;
         paying_type?: string[];
-        area: number; // float
+        owner: string;
     }
     export interface FacilityResponse {
-        age: string[];
-        hidden?: boolean;
+        length?: number; // float
         x: number; // float
-        width?: number; // float
         eps?: number; // int32
+        name: string;
+        covering_type?: string;
+        hidden?: boolean;
+        note?: string;
+        width?: number; // float
+        accessibility?: boolean;
+        id: string; // uuid
+        photo?: FacilityPhotoResponse[];
+        depth?: number; // float
+        phone_number?: string;
+        age: string[];
+        owning_type?: string;
         actual_workload?: number; // int32
+        annual_capacity?: number; // int32
+        area?: number; // float
+        height?: number; // float
+        y: number; // float
+        type: string;
+        document?: string;
         working_hours?: {
-            thursday: FacilityWorkingHoursItem;
-            monday: FacilityWorkingHoursItem;
-            saturday: FacilityWorkingHoursItem;
-            wednesday: FacilityWorkingHoursItem;
-            tuesday: FacilityWorkingHoursItem;
             friday: FacilityWorkingHoursItem;
             sunday: FacilityWorkingHoursItem;
+            monday: FacilityWorkingHoursItem;
+            wednesday: FacilityWorkingHoursItem;
+            tuesday: FacilityWorkingHoursItem;
+            thursday: FacilityWorkingHoursItem;
+            saturday: FacilityWorkingHoursItem;
         };
-        type: string;
-        accessibility?: boolean;
         site?: string;
-        phone_number?: string;
-        document?: string;
-        name: string;
-        owner: string;
-        annual_capacity?: number; // int32
-        y: number; // float
-        covering_type?: string;
-        owning_type?: string;
-        note?: string;
-        length?: number; // float
-        depth?: number; // float
-        height?: number; // float
         address: string;
         paying_type: string[];
-        photo?: FacilityPhotoResponse[];
-        area?: number; // float
-        id: string; // uuid
+        owner: string;
     }
     export interface FacilitySearchRequest {
-        age?: string[];
-        order_by?: string;
-        filters?: FieldFilter[];
         limit?: number; // int32
+        filters?: FieldFilter[];
+        paying_type?: string[];
+        q?: string;
+        all?: boolean;
+        age?: string[];
         covering_type?: string[];
         type?: string[];
         owning_type?: string[];
-        all?: boolean;
+        hidden?: boolean;
+        order_by?: string;
         order_desc?: boolean;
-        q?: string;
-        paying_type?: string[];
         offset?: number; // int32
     }
     export interface FacilitySearchResponse {
@@ -196,64 +212,117 @@ declare namespace Definitions {
         data?: string[];
     }
     export interface FacilityWorkingHours {
-        thursday: FacilityWorkingHoursItem;
-        monday: FacilityWorkingHoursItem;
-        saturday: FacilityWorkingHoursItem;
-        wednesday: FacilityWorkingHoursItem;
-        tuesday: FacilityWorkingHoursItem;
         friday: FacilityWorkingHoursItem;
         sunday: FacilityWorkingHoursItem;
+        monday: FacilityWorkingHoursItem;
+        wednesday: FacilityWorkingHoursItem;
+        tuesday: FacilityWorkingHoursItem;
+        thursday: FacilityWorkingHoursItem;
+        saturday: FacilityWorkingHoursItem;
     }
     export interface FacilityWorkingHoursItem {
-        all_day?: boolean;
-        open: boolean;
-        since?: string;
         to?: string;
+        since?: string;
+        open: boolean;
+        all_day?: boolean;
     }
     export interface FieldFilter {
-        lt?: number;
-        eq?: string;
-        gt?: number;
         field?: string;
+        lt?: number;
+        gt?: number;
+        eq?: string;
     }
     export interface UserCreateRequest {
-        first_name?: string;
-        email: string; // email
         last_name?: string;
+        email: string; // email
         password: string;
+        first_name?: string;
     }
     export interface UserLoginRequest {
         email: string; // email
         password: string;
     }
     export interface UserLoginResponse {
+        first_name?: string;
+        last_name?: string;
         access_token?: string;
         refresh_token?: string;
-        admin?: boolean;
-        email: string; // email
-        access_token_expires_in?: number; // int32
-        first_name?: string;
-        last_name?: string;
         id: string; // uuid
+        access_token_expires_in?: number; // int32
+        email: string; // email
+        admin?: boolean;
     }
     export interface UserPatchRequest {
-        first_name?: string;
         last_name?: string;
         password?: string;
+        first_name?: string;
     }
     export interface UserRefreshTokenRequest {
         access_token: string;
         refresh_token: string;
     }
     export interface UserResponse {
-        admin?: boolean;
-        email: string; // email
         first_name?: string;
         last_name?: string;
         id: string; // uuid
+        email: string; // email
+        admin?: boolean;
     }
 }
 declare namespace Paths {
+    namespace NewApiV1EmailOfferObject {
+        namespace Post {
+            export interface BodyParameters {
+                body?: Parameters.Body;
+            }
+            namespace Parameters {
+                export type Body = Definitions.EmailOfferObjectRequest;
+            }
+            namespace Responses {
+                export type $400 = Definitions.ErrorResponse;
+                export type $422 = Definitions.ErrorResponse;
+            }
+        }
+    }
+    namespace NewApiV1EmailSubscribe {
+        namespace Post {
+            export interface BodyParameters {
+                body?: Parameters.Body;
+            }
+            namespace Parameters {
+                export type Body = Definitions.EmailSubscribeRequest;
+            }
+        }
+    }
+    namespace NewApiV1EmailSuggestions {
+        namespace Post {
+            export interface BodyParameters {
+                body?: Parameters.Body;
+            }
+            namespace Parameters {
+                export type Body = Definitions.EmailSuggestionsRequest;
+            }
+            namespace Responses {
+                export type $400 = Definitions.ErrorResponse;
+                export type $422 = Definitions.ErrorResponse;
+            }
+        }
+    }
+    namespace NewApiV1ExcelExport {
+        namespace Post {
+            export interface BodyParameters {
+                body?: Parameters.Body;
+            }
+            namespace Parameters {
+                export type Body = Definitions.FacilitySearchRequest;
+            }
+            namespace Responses {
+                export type $400 = Definitions.ErrorResponse;
+                export type $401 = Definitions.ErrorResponse;
+                export type $403 = Definitions.ErrorResponse;
+            }
+        }
+    }
     namespace NewApiV1ExcelImport {
         namespace Post {
             namespace Responses {
