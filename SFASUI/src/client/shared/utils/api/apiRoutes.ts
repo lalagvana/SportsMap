@@ -29,4 +29,9 @@ export const apiRoutes = {
     facilityPhotoDelete(id: string, photoId: string) {
         return `${BACKEND_URL}/facility/${id}/photo/${photoId}`;
     },
+
+    emailProposal: `${BACKEND_URL}/email/suggestions`,
+    emailNewObject: `${BACKEND_URL}/email/offer-object`,
+    emailSubscribe: `${BACKEND_URL}/email/subscribe`,
+    emailUnsubscribe: `${BACKEND_URL}/email/unsubscribe`,
 };

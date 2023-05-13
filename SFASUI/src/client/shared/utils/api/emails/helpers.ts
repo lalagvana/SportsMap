@@ -1,16 +1,24 @@
 import { fetch } from 'src/client/shared/utils/api/fetch';
 import { apiRoutes } from 'src/client/shared/utils/api/apiRoutes';
 
-import { EmailSubscribe, EmailSend } from '.';
+import { EmailSubscribe, EmailSuggestions, EmailOfferObject } from '.';
 
-export const subscribeEmail = (email: string) => {
-    return fetch<EmailSubscribe.Response>(apiRoutes.emailSubscribe(email), {
+export const emailNewObject = (body: EmailOfferObject.Body) => {
+    return fetch(apiRoutes.emailNewObject, {
         method: 'POST',
+        data: body,
     });
 };
 
-export const sendEmail = (body: EmailSend.Body) => {
-    return fetch<EmailSend.Response>(apiRoutes.emailSend, {
+export const emailProposal = (body: EmailSuggestions.Body) => {
+    return fetch(apiRoutes.emailProposal, {
+        method: 'POST',
+        data: body,
+    });
+};
+
+export const emailSubscribe = (body: EmailSubscribe.Body) => {
+    return fetch(apiRoutes.emailSubscribe, {
         method: 'POST',
         data: body,
     });

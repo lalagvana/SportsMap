@@ -1,12 +1,20 @@
 import { useCallback } from 'react';
-import { FormikHelpers } from 'formik';
 import { toast } from 'react-toastify';
 
-import { Notification } from "src/client/shared/components/Notification";
+import { Notification } from 'src/client/shared/components/Notification';
+import { emailNewObject } from 'src/client/shared/utils/api/emails';
+import { prepareMessage } from 'src/client/shared/utils/notifications';
 
-import { NewObjectFormFields } from "./NewObjectForm.types";
+import { createNewObject } from './NewObjectForm.helpers';
+import { NewObjectFormFields } from './NewObjectForm.types';
 
 export const useHandleSubmit = () =>
-    useCallback((fields: NewObjectFormFields, formikHelpers: FormikHelpers<NewObjectFormFields>) => {
-      toast(<Notification type="error" imageType='cross' description='Функционал пока не готов' />);
+    useCallback(async (fields: NewObjectFormFields) => {
+        try {
+            await emailNewObject(createNewObject(fields));
+
+            toast(<Notification type="success" description="Мы обязательно рассмотрим ваше предложение" />);
+        } catch (e) {
+            toast(<Notification type="error" imageType="cross" description={prepareMessage(e)} />);
+        }
     }, []);
