@@ -6,8 +6,6 @@ import { TextWithIcon } from 'src/client/shared/components/TextWithIcon';
 import { FILE_REQUIREMENTS } from './FileLoadModal.constants';
 import { useOnFileChange, useValidation } from './FileLoadModal.hooks';
 
-import Close from 'public/icons/close.svg'
-
 import styles from './FileLoadModal.module.css';
 
 type FileLoadModalProps = {
@@ -23,7 +21,6 @@ export const FileLoadModal = ({ hide }: FileLoadModalProps) => {
             afterClose={hide}
             open
             title={<h2 className={styles['FileLoadModal-Title']}>Загрузка файла</h2>}
-            closeIcon={<Close className={styles['FileLoadModal-Title']} width={10} height={10} />}
             footer={<Button text="Сохранить" disabled={!validationStatus} onClick={saveHandler} />}
             width={578}
             onCancel={hide}

@@ -49,7 +49,6 @@ export const ItemEditModal = ({ handleSubmit, initialValues, hide, isNew, classN
                         {isNew ? 'Создание спортивного объекта' : 'Редактирование спортивного объекта'}
                     </h2>
                 }
-                closeIcon={<Image width={10} height={10} src="/icons/close.svg" layout="fixed" />}
                 footer={<Button onClick={clickHandler} text={buttonText} />}
                 width={1110}
                 destroyOnClose
