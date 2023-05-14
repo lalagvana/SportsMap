@@ -7,7 +7,7 @@ import { TextWithIcon } from 'src/client/shared/components/TextWithIcon';
 
 import { RegisterFormField } from './RegisterForm.types';
 import { INITIAL_REGISTER_FORM_FIELDS } from './RegisterForm.constants';
-import { useSchema } from "./RegisterForm.schema";
+import { useSchema } from './RegisterForm.schema';
 
 import styles from './RegisterForm.module.css';
 
@@ -25,12 +25,7 @@ export const RegisterForm = ({ handleSubmit }: RegisterFormProps) => {
     return (
         <FormikProvider value={formikStateAndHelpers}>
             <form>
-                <TextWithIcon
-                  iconType="user"
-                    width={24}
-                    height={36}
-                    className={styles['Register-LabelWrapper']}
-                >
+                <TextWithIcon iconType="user" width={24} height={36} className={styles['Register-LabelWrapper']}>
                     <TextInputField
                         placeholder="Имя"
                         fieldName="name"
@@ -46,12 +41,7 @@ export const RegisterForm = ({ handleSubmit }: RegisterFormProps) => {
                     hiddenLabel
                     className={styles['Register-Input_noIcon']}
                 />
-                <TextWithIcon
-                  iconType="mail"
-                    width={24}
-                    height={36}
-                    className={styles['Register-LabelWrapper']}
-                >
+                <TextWithIcon iconType="mail" width={24} height={36} className={styles['Register-LabelWrapper']}>
                     <TextInputField
                         type="email"
                         placeholder="Электронная почта"
@@ -61,12 +51,7 @@ export const RegisterForm = ({ handleSubmit }: RegisterFormProps) => {
                         className={styles['Register-Input']}
                     />
                 </TextWithIcon>
-                <TextWithIcon
-                  iconType="password"
-                    width={24}
-                    height={36}
-                    className={styles['Register-LabelWrapper']}
-                >
+                <TextWithIcon iconType="password" width={24} height={36} className={styles['Register-LabelWrapper']}>
                     <TextInputField
                         type="password"
                         placeholder="Пароль"
@@ -89,6 +74,7 @@ export const RegisterForm = ({ handleSubmit }: RegisterFormProps) => {
                 className={styles['Register-Button']}
                 text="Зарегистрироваться"
                 onClick={formikStateAndHelpers.submitForm}
+                isLoading={formikStateAndHelpers.isSubmitting}
             />
         </FormikProvider>
     );

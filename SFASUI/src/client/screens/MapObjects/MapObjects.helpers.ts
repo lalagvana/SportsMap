@@ -1,12 +1,12 @@
 import { NextRouter } from 'next/router';
+import { getCookie } from "cookies-next";
 
 import { LIMIT, SEARCH_QUERY } from './MapObjects.constants';
-import { hasCookie } from "cookies-next";
 
 export const getSearchQuery = (query: NextRouter['query']) => {
     const { page = 1, q = '', type, age, paying_type } = query;
 
-    const isLogged = hasCookie('sportsmap_token');
+    const isLogged = getCookie('sportsmap_is_admin');
 
     return {
         ...SEARCH_QUERY,

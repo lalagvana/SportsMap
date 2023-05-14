@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Clusterer, Map, Placemark, ZoomControl } from '@pbe/react-yandex-maps';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { getCookie } from "cookies-next";
 
 import { SearchFacilities, useFacilitySearch, useFacilitySearchAll } from 'src/client/shared/utils/api/facilities';
 import { useTheme } from 'src/client/shared/hooks/use-theme';
@@ -11,7 +12,6 @@ import { Sidebar } from './components/Sidebar';
 import { getPlacemarkIcon, getSearchQuery } from './MapObjects.helpers';
 
 import styles from './MapObject.module.css';
-import { hasCookie } from 'cookies-next';
 
 export type MapObjectsPageProps = {
     facilityObjects?: SearchFacilities.Response;
@@ -40,7 +40,7 @@ export const MapObjects = ({
         'map'
     );
 
-    const isLogged = hasCookie('sportsmap_token');
+    const isLogged = getCookie('sportsmap_is_admin');
 
     const { data: sportObjectsListAll } = useFacilitySearchAll(
         { hidden: isLogged ? undefined : false },

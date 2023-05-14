@@ -1,17 +1,17 @@
 declare namespace Definitions {
     export interface EmailOfferObjectRequest {
-        owner: string;
-        note?: string;
         address: string;
+        note?: string;
+        owner: string;
     }
     export interface EmailSubscribeRequest {
         email: string; // email
     }
     export interface EmailSuggestionsRequest {
-        last_name: string;
-        email: string; // email
         text?: string;
+        last_name: string;
         first_name: string;
+        email: string; // email
     }
     export interface ErrorResponse {
         detail?: {
@@ -19,13 +19,16 @@ declare namespace Definitions {
         };
         message?: string;
     }
+    export interface ExcelExportResponse {
+        url?: string; // url
+    }
     export interface ExcelImportValidationError {
+        n?: number; // int32
         detail?: {
             [key: string]: any;
         };
-        name?: string;
         type?: string;
-        n?: number; // int32
+        name?: string;
     }
     export interface ExcelImportValidationResponse {
         errors?: ExcelImportValidationError[];
@@ -40,169 +43,169 @@ declare namespace Definitions {
         data?: string[];
     }
     export interface FacilityPatchRequest {
-        length?: number; // float
-        x?: number; // float
-        eps?: number; // int32
-        name?: string;
-        covering_type?: string;
-        hidden?: boolean;
-        note?: string;
-        width?: number; // float
-        accessibility?: boolean;
-        depth?: number; // float
-        phone_number?: string;
-        age?: string[];
-        owning_type?: string;
-        actual_workload?: number; // int32
-        annual_capacity?: number; // int32
-        area?: number; // float
         height?: number; // float
-        y?: number; // float
+        actual_workload?: number; // int32
+        area?: number; // float
+        annual_capacity?: number; // int32
+        name?: string;
+        hidden?: boolean;
+        depth?: number; // float
+        accessibility?: boolean;
+        age?: string[];
+        eps?: number; // int32
+        length?: number; // float
+        paying_type?: string[];
+        phone_number?: string;
         type?: string;
-        document?: string;
+        covering_type?: string;
+        note?: string;
+        owning_type?: string;
+        address?: string;
+        y?: number; // float
+        width?: number; // float
+        site?: string;
         working_hours?: {
+            tuesday: FacilityWorkingHoursItem;
+            saturday: FacilityWorkingHoursItem;
+            thursday: FacilityWorkingHoursItem;
             friday: FacilityWorkingHoursItem;
+            wednesday: FacilityWorkingHoursItem;
             sunday: FacilityWorkingHoursItem;
             monday: FacilityWorkingHoursItem;
-            wednesday: FacilityWorkingHoursItem;
-            tuesday: FacilityWorkingHoursItem;
-            thursday: FacilityWorkingHoursItem;
-            saturday: FacilityWorkingHoursItem;
         };
-        site?: string;
-        address?: string;
-        paying_type?: string[];
+        x?: number; // float
         owner?: string;
+        document?: string;
     }
     export interface FacilityPayingTypeResponse {
         data?: string[];
     }
     export interface FacilityPhotoResponse {
-        url?: string;
         filename?: string;
+        url?: string;
         id?: string; // uuid
     }
     export interface FacilityPutRequest {
-        length?: number; // float
-        x?: number; // float
-        eps?: number; // int32
-        name: string;
-        covering_type?: string;
-        hidden?: boolean;
-        note?: string;
-        width?: number; // float
-        accessibility?: boolean;
-        depth?: number; // float
-        phone_number?: string;
-        age?: string[];
-        owning_type?: string;
-        actual_workload?: number; // int32
-        annual_capacity?: number; // int32
-        area: number; // float
         height?: number; // float
-        y?: number; // float
+        actual_workload?: number; // int32
+        area: number; // float
+        annual_capacity?: number; // int32
+        name: string;
+        hidden?: boolean;
+        depth?: number; // float
+        accessibility?: boolean;
+        age?: string[];
+        eps?: number; // int32
+        length?: number; // float
+        paying_type?: string[];
+        phone_number?: string;
         type: string;
-        document?: string;
+        covering_type?: string;
+        note?: string;
+        owning_type?: string;
+        address: string;
+        y?: number; // float
+        width?: number; // float
+        site?: string;
         working_hours?: {
+            tuesday: FacilityWorkingHoursItem;
+            saturday: FacilityWorkingHoursItem;
+            thursday: FacilityWorkingHoursItem;
             friday: FacilityWorkingHoursItem;
+            wednesday: FacilityWorkingHoursItem;
             sunday: FacilityWorkingHoursItem;
             monday: FacilityWorkingHoursItem;
-            wednesday: FacilityWorkingHoursItem;
-            tuesday: FacilityWorkingHoursItem;
-            thursday: FacilityWorkingHoursItem;
-            saturday: FacilityWorkingHoursItem;
         };
-        site?: string;
-        address: string;
-        paying_type?: string[];
+        x?: number; // float
         owner: string;
+        document?: string;
     }
     export interface FacilityRequest {
-        length?: number; // float
-        x?: number; // float
-        eps?: number; // int32
-        name: string;
-        covering_type?: string;
-        hidden?: boolean;
-        note?: string;
-        width?: number; // float
-        accessibility?: boolean;
-        depth?: number; // float
-        phone_number?: string;
-        age?: string[];
-        owning_type?: string;
-        actual_workload?: number; // int32
-        annual_capacity?: number; // int32
-        area: number; // float
         height?: number; // float
-        y?: number; // float
+        actual_workload?: number; // int32
+        area: number; // float
+        annual_capacity?: number; // int32
+        name: string;
+        hidden?: boolean;
+        depth?: number; // float
+        accessibility?: boolean;
+        age?: string[];
+        eps?: number; // int32
+        length?: number; // float
+        paying_type?: string[];
+        phone_number?: string;
         type: string;
-        document?: string;
+        covering_type?: string;
+        note?: string;
+        owning_type?: string;
+        address: string;
+        y?: number; // float
+        width?: number; // float
+        site?: string;
         working_hours?: {
+            tuesday: FacilityWorkingHoursItem;
+            saturday: FacilityWorkingHoursItem;
+            thursday: FacilityWorkingHoursItem;
             friday: FacilityWorkingHoursItem;
+            wednesday: FacilityWorkingHoursItem;
             sunday: FacilityWorkingHoursItem;
             monday: FacilityWorkingHoursItem;
-            wednesday: FacilityWorkingHoursItem;
-            tuesday: FacilityWorkingHoursItem;
-            thursday: FacilityWorkingHoursItem;
-            saturday: FacilityWorkingHoursItem;
         };
-        site?: string;
-        address: string;
-        paying_type?: string[];
+        x?: number; // float
         owner: string;
+        document?: string;
     }
     export interface FacilityResponse {
-        length?: number; // float
-        x: number; // float
-        eps?: number; // int32
-        name: string;
-        covering_type?: string;
-        hidden?: boolean;
-        note?: string;
-        width?: number; // float
-        accessibility?: boolean;
-        id: string; // uuid
-        photo?: FacilityPhotoResponse[];
-        depth?: number; // float
-        phone_number?: string;
-        age: string[];
-        owning_type?: string;
-        actual_workload?: number; // int32
-        annual_capacity?: number; // int32
-        area?: number; // float
         height?: number; // float
-        y: number; // float
+        actual_workload?: number; // int32
+        area?: number; // float
+        annual_capacity?: number; // int32
+        id: string; // uuid
+        name: string;
+        photo?: FacilityPhotoResponse[];
+        hidden?: boolean;
+        depth?: number; // float
+        accessibility?: boolean;
+        age: string[];
+        eps?: number; // int32
+        length?: number; // float
+        paying_type: string[];
+        phone_number?: string;
         type: string;
-        document?: string;
+        covering_type?: string;
+        note?: string;
+        owning_type?: string;
+        address: string;
+        y: number; // float
+        width?: number; // float
+        site?: string;
         working_hours?: {
+            tuesday: FacilityWorkingHoursItem;
+            saturday: FacilityWorkingHoursItem;
+            thursday: FacilityWorkingHoursItem;
             friday: FacilityWorkingHoursItem;
+            wednesday: FacilityWorkingHoursItem;
             sunday: FacilityWorkingHoursItem;
             monday: FacilityWorkingHoursItem;
-            wednesday: FacilityWorkingHoursItem;
-            tuesday: FacilityWorkingHoursItem;
-            thursday: FacilityWorkingHoursItem;
-            saturday: FacilityWorkingHoursItem;
         };
-        site?: string;
-        address: string;
-        paying_type: string[];
+        x: number; // float
         owner: string;
+        document?: string;
     }
     export interface FacilitySearchRequest {
-        limit?: number; // int32
+        hidden?: boolean;
         filters?: FieldFilter[];
-        paying_type?: string[];
-        q?: string;
-        all?: boolean;
+        type?: string[];
         age?: string[];
         covering_type?: string[];
-        type?: string[];
-        owning_type?: string[];
-        hidden?: boolean;
-        order_by?: string;
+        all?: boolean;
         order_desc?: boolean;
         offset?: number; // int32
+        order_by?: string;
+        owning_type?: string[];
+        limit?: number; // int32
+        q?: string;
+        paying_type?: string[];
     }
     export interface FacilitySearchResponse {
         facilities?: FacilityResponse[];
@@ -212,64 +215,84 @@ declare namespace Definitions {
         data?: string[];
     }
     export interface FacilityWorkingHours {
+        tuesday: FacilityWorkingHoursItem;
+        saturday: FacilityWorkingHoursItem;
+        thursday: FacilityWorkingHoursItem;
         friday: FacilityWorkingHoursItem;
+        wednesday: FacilityWorkingHoursItem;
         sunday: FacilityWorkingHoursItem;
         monday: FacilityWorkingHoursItem;
-        wednesday: FacilityWorkingHoursItem;
-        tuesday: FacilityWorkingHoursItem;
-        thursday: FacilityWorkingHoursItem;
-        saturday: FacilityWorkingHoursItem;
     }
     export interface FacilityWorkingHoursItem {
-        to?: string;
-        since?: string;
         open: boolean;
+        since?: string;
+        to?: string;
         all_day?: boolean;
     }
     export interface FieldFilter {
-        field?: string;
-        lt?: number;
-        gt?: number;
         eq?: string;
+        lt?: number;
+        field?: string;
+        gt?: number;
+    }
+    export interface PasswordRefreshRequest {
+        email: string; // email
     }
     export interface UserCreateRequest {
         last_name?: string;
-        email: string; // email
         password: string;
         first_name?: string;
+        email: string; // email
     }
     export interface UserLoginRequest {
-        email: string; // email
         password: string;
+        email: string; // email
     }
     export interface UserLoginResponse {
-        first_name?: string;
         last_name?: string;
         access_token?: string;
         refresh_token?: string;
-        id: string; // uuid
         access_token_expires_in?: number; // int32
-        email: string; // email
         admin?: boolean;
+        id: string; // uuid
+        first_name?: string;
+        email: string; // email
     }
     export interface UserPatchRequest {
         last_name?: string;
         password?: string;
         first_name?: string;
     }
+    export interface UserRefreshPassword {
+        new_password: string;
+    }
     export interface UserRefreshTokenRequest {
-        access_token: string;
         refresh_token: string;
+        access_token: string;
     }
     export interface UserResponse {
-        first_name?: string;
         last_name?: string;
-        id: string; // uuid
-        email: string; // email
         admin?: boolean;
+        id: string; // uuid
+        first_name?: string;
+        email: string; // email
     }
 }
 declare namespace Paths {
+    namespace NewApiV1EmailNewPassword {
+        namespace Post {
+            export interface BodyParameters {
+                body?: Parameters.Body;
+            }
+            namespace Parameters {
+                export type Body = Definitions.PasswordRefreshRequest;
+            }
+            namespace Responses {
+                export type $400 = Definitions.ErrorResponse;
+                export type $422 = Definitions.ErrorResponse;
+            }
+        }
+    }
     namespace NewApiV1EmailOfferObject {
         namespace Post {
             export interface BodyParameters {
@@ -292,6 +315,10 @@ declare namespace Paths {
             namespace Parameters {
                 export type Body = Definitions.EmailSubscribeRequest;
             }
+            namespace Responses {
+                export type $400 = Definitions.ErrorResponse;
+                export type $422 = Definitions.ErrorResponse;
+            }
         }
     }
     namespace NewApiV1EmailSuggestions {
@@ -308,6 +335,32 @@ declare namespace Paths {
             }
         }
     }
+    namespace NewApiV1EmailUnsubscribe$Secret {
+        namespace Get {
+            namespace Parameters {
+                export type Secret = string;
+            }
+            export interface PathParameters {
+                secret: Parameters.Secret;
+            }
+            namespace Responses {
+                export type $400 = Definitions.ErrorResponse;
+                export type $422 = Definitions.ErrorResponse;
+            }
+        }
+        namespace Head {
+            namespace Parameters {
+                export type Secret = string;
+            }
+            export interface PathParameters {
+                secret: Parameters.Secret;
+            }
+            namespace Responses {
+                export type $400 = Definitions.ErrorResponse;
+                export type $422 = Definitions.ErrorResponse;
+            }
+        }
+    }
     namespace NewApiV1ExcelExport {
         namespace Post {
             export interface BodyParameters {
@@ -317,6 +370,7 @@ declare namespace Paths {
                 export type Body = Definitions.FacilitySearchRequest;
             }
             namespace Responses {
+                export type $200 = Definitions.ExcelExportResponse;
                 export type $400 = Definitions.ErrorResponse;
                 export type $401 = Definitions.ErrorResponse;
                 export type $403 = Definitions.ErrorResponse;
@@ -483,16 +537,6 @@ declare namespace Paths {
             }
         }
     }
-    namespace NewApiV1FacilityAge$Id {
-        namespace Delete {
-            namespace Parameters {
-                export type Id = string;
-            }
-            export interface PathParameters {
-                id: Parameters.Id;
-            }
-        }
-    }
     namespace NewApiV1FacilityCoveringType {
         namespace Get {
             namespace Responses {
@@ -526,16 +570,6 @@ declare namespace Paths {
         namespace Head {
             namespace Responses {
                 export type $200 = Definitions.FacilityPayingTypeResponse;
-            }
-        }
-    }
-    namespace NewApiV1FacilityPayingType$Id {
-        namespace Delete {
-            namespace Parameters {
-                export type Id = string;
-            }
-            export interface PathParameters {
-                id: Parameters.Id;
             }
         }
     }
@@ -649,6 +683,24 @@ declare namespace Paths {
             }
             namespace Responses {
                 export type $200 = Definitions.UserLoginResponse;
+                export type $400 = Definitions.ErrorResponse;
+                export type $422 = Definitions.ErrorResponse;
+            }
+        }
+    }
+    namespace NewApiV1UserPasswordRefresh$Secret {
+        namespace Post {
+            export interface BodyParameters {
+                body?: Parameters.Body;
+            }
+            namespace Parameters {
+                export type Body = Definitions.UserRefreshPassword;
+                export type Secret = string;
+            }
+            export interface PathParameters {
+                secret: Parameters.Secret;
+            }
+            namespace Responses {
                 export type $400 = Definitions.ErrorResponse;
                 export type $422 = Definitions.ErrorResponse;
             }

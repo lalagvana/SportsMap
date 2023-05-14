@@ -1,8 +1,9 @@
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React from 'react';
 
 import { Contacts } from 'src/client/shared/components/Contacts';
-import { useTheme } from "src/client/shared/hooks/use-theme";
+import { useTheme } from 'src/client/shared/hooks/use-theme';
 
 import { EmailForm } from '../EmailForm';
 
@@ -12,7 +13,14 @@ export const Development = () => {
     const { isLight } = useTheme();
 
     return (
-        <section className={[styles['Development'], isLight ? styles['Development_light'] : styles['Development_dark']].join(' ')}>
+        <motion.section
+            className={[styles['Development'], isLight ? styles['Development_light'] : styles['Development_dark']].join(
+                ' '
+            )}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+        >
             <div className={styles['Development-Content']}>
                 <h2 className={styles['Development-BigHeading']}>Давайте развивать проект вместе!</h2>
 
@@ -21,7 +29,9 @@ export const Development = () => {
                         <Image width={52} height={52} src="/images/main/Emoji.svg" layout="fixed" />
                     </div>
                     <p className={styles['Development-HintText']}>
-                        {'Если у Вас есть пожелания и замечания или Вы знаете объект,\nкоторый мы ещё не учли, ниже выберите форму для заполнения'}
+                        {
+                            'Если у Вас есть пожелания и замечания или Вы знаете объект,\nкоторый мы ещё не учли, ниже выберите форму для заполнения'
+                        }
                     </p>
                 </div>
 
@@ -32,6 +42,6 @@ export const Development = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 };

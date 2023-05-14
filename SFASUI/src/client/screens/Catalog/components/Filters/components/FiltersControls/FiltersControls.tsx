@@ -1,5 +1,5 @@
 import { mutate } from 'swr';
-import { hasCookie } from 'cookies-next';
+import { getCookie } from "cookies-next";
 
 import { Button, ButtonType } from 'src/client/shared/components/Button';
 import { useVisible } from 'src/client/shared/hooks/use-visible';
@@ -10,6 +10,7 @@ import { apiRoutes } from 'src/client/shared/utils/api/apiRoutes';
 import { FileLoadModal } from '../FileLoadModal';
 import { ItemAddModal } from 'src/client/screens/Catalog/components/ItemEditModal/components/ItemAddModal';
 import { sortingSelectOptions } from './FiltersControls.constants';
+import { useExportHandler } from "./FiltersControls.hooks";
 
 import ExcelImportIcon from 'public/icons/importExcel.svg';
 import ExcelExportIcon from 'public/icons/exportExcel.svg';
@@ -21,7 +22,9 @@ export const FiltersControls = () => {
     const { isVisible: isFileModalVisible, open: openFileModal, hide: hideFileModal } = useVisible({});
     const { isVisible: isAddItemModalVisible, open: openAddItemModal, hide: hideAddItemModal } = useVisible({});
 
-    const isLogged = hasCookie('sportsmap_token');
+    const isLogged = getCookie('sportsmap_is_admin');
+
+    const onExport = useExportHandler();
 
     return (
         <div className={styles['FiltersControls']}>
@@ -43,6 +46,7 @@ export const FiltersControls = () => {
                         view={ButtonType.Active}
                         text="Скачать отчет"
                         icon={<ExcelExportIcon width={18} height={18} />}
+                        onClick={onExport}
                     />
                     <Button
                         view={ButtonType.Active}

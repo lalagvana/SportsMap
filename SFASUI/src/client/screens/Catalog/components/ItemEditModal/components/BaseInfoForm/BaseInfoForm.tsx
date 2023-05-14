@@ -79,6 +79,7 @@ export const BaseInfoForm = () => {
                     className={styles['BaseInfo-Availability']}
                     fieldName="accessibility"
                     label="Доступная среда"
+                    hint="спортивный объект, оборудованный с учетом потребностей, возникающих у людей с ограниченными возможностями, и позволяющая им вести независимый образ жизни"
                 />
             </div>
             <div className={styles['BaseInfo-Column']}>

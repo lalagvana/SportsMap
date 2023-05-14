@@ -10,6 +10,7 @@ type CheckboxFieldProps = Omit<CheckboxProps, 'id' | 'value' | 'name' | 'onChang
     label: string;
     description?: string;
     required?: boolean;
+    hint?: string;
 };
 
 export const CheckboxField = ({

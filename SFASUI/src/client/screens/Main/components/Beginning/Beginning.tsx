@@ -17,6 +17,7 @@ export const Beginning = ({ className }: BeginningProps) => {
 
     return (
         <section
+
             className={[
                 styles['Beginning'],
                 className,

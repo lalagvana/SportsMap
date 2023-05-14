@@ -1,6 +1,7 @@
 import { Clusterer, Map, Placemark, useYMaps, ZoomControl } from '@pbe/react-yandex-maps';
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 import { Button } from 'src/client/shared/components/Button';
 import { TextWithIcon } from 'src/client/shared/components/TextWithIcon';
@@ -43,7 +44,9 @@ export const MapView = ({ initialFacilityObjects }: MapViewProps) => {
     }, [ymaps]);
 
     return (
-        <section className={styles['MapView']}>
+        <motion.section className={styles['MapView']}  initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}>
             <Map
                 width="100%"
                 height="849px"
@@ -98,6 +101,6 @@ export const MapView = ({ initialFacilityObjects }: MapViewProps) => {
                     </p>
                 </TextWithIcon>
             </div>
-        </section>
+        </motion.section>
     );
 };

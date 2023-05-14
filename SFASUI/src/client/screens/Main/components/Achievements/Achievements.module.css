@@ -35,7 +35,7 @@
 }
 
 .Achievements-Text {
-    max-width: 200px;
+    max-width: 230px;
     font-size: var(--font-size-2xs);
     color: var(--black-color);
     text-align: center;

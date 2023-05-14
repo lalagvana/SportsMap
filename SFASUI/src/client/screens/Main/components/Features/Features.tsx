@@ -1,8 +1,10 @@
 import Image from 'next/image';
 import React, { memo } from 'react';
+import { motion } from 'framer-motion';
+
+import { useTheme } from "src/client/shared/hooks/use-theme";
 
 import { useItems } from './Features.hooks';
-import { useTheme } from "src/client/shared/hooks/use-theme";
 
 import styles from './Features.module.css';
 
@@ -11,8 +13,11 @@ export const Features = memo(() => {
     const { isLight } = useTheme();
 
     return (
-        <section
+        <motion.section
             className={[styles['Features'], isLight ? styles['Features_light'] : styles['Features_dark']].join(' ')}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
         >
             <div className={styles['Features-Content']}>
                 {items.map(({ name, heading, text }) => (
@@ -30,6 +35,6 @@ export const Features = memo(() => {
                     </section>
                 ))}
             </div>
-        </section>
+        </motion.section>
     );
 });

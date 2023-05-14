@@ -1,10 +1,10 @@
 import { NextRouter } from 'next/router';
+import { getCookie } from "cookies-next";
 
 import { getArrayQuery } from 'src/client/shared/utils/query';
 
 import { SEARCH_QUERY, LIMIT } from './Catalog.constants';
 import { SIZE_INPUTS_NAME, OTHER_INPUTS_NAME } from './components/Filters';
-import { hasCookie } from "cookies-next";
 
 export const getFiltersQuery = (query: NextRouter['query']) => {
     const queryInput = Object.keys(query).filter((key) => [...SIZE_INPUTS_NAME, ...OTHER_INPUTS_NAME].includes(key));
@@ -27,7 +27,7 @@ export const getSearchQuery = (query: NextRouter['query']) => {
 
     const filters = getFiltersQuery(query);
 
-    const isLogged = hasCookie('sportsmap_token');
+    const isLogged = getCookie('sportsmap_is_admin');
 
     return {
         ...SEARCH_QUERY,

@@ -23,7 +23,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("/images/LoginBackground.png");
     background-size: cover;
     flex-direction: column;
     gap: var(--space-m);
@@ -31,6 +30,14 @@
 
 .Login path {
     color: var(--base-secondary-color);
+}
+
+.Login_light {
+    background-image: url("/images/LoginBackground.png");
+}
+
+.Login_dark {
+    background-image: url("/images/LoginBackground_dark.png");
 }
 
 @media (--viewport-tablet) {

@@ -30,16 +30,20 @@
     grid-area: photo;
     width: 135px;
     height: 135px;
-    background-color: var(--decorative-color);
     border-radius: var(--border-radius-l);
+    background-color: var(--decorative-color);
 
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.SidebarItem-Photo path,  .SidebarItem-Photo circle {
+.SidebarItem-Photo_light path,  .SidebarItem-Photo_light circle {
     color: var(--special-white-color);
+}
+
+.SidebarItem-Photo_dark path,  .SidebarItem-Photo_dark circle {
+    color: var(--base-additional-color);
 }
 .SidebarItem-Name {
     grid-area: name;

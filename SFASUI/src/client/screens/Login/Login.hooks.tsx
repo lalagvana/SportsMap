@@ -2,6 +2,7 @@ import React, { useCallback, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { setCookie } from 'cookies-next';
 import { toast } from 'react-toastify';
+import { FormikHelpers } from 'formik';
 
 import { pageRoutes } from 'src/client/shared/routes';
 import { login, register } from 'src/client/shared/utils/api/login';
@@ -17,15 +18,18 @@ export const useLoginHandler = () => {
     const router = useRouter();
 
     return useCallback(
-        async (fields: LoginFields) => {
+        async (fields: LoginFields, formikHelpers: FormikHelpers<LoginFields>) => {
             try {
+                formikHelpers.setSubmitting(true);
+
                 const res = await login(createLoginUser(fields));
-                const { access_token, access_token_expires_in, refresh_token } = res;
+                const { access_token, access_token_expires_in, refresh_token, admin } = res;
                 setCookie('sportsmap_token', access_token);
                 setCookie('sportsmap_expiresIn', access_token_expires_in, {
                     maxAge: access_token_expires_in,
                 });
                 setCookie('sportsmap_refreshToken', refresh_token);
+                setCookie('sportsmap_is_admin', admin);
 
                 toast(
                     <Notification
@@ -34,8 +38,12 @@ export const useLoginHandler = () => {
                         description="Теперь вам доступен весь функционал"
                     />
                 );
+                formikHelpers.setSubmitting(false);
+
                 await router.replace(pageRoutes.search);
             } catch (error) {
+                formikHelpers.setSubmitting(false);
+
                 toast(
                     <Notification
                         type="error"
@@ -55,15 +63,18 @@ export const useRegisterHandler = () => {
     const router = useRouter();
 
     return useCallback(
-        async (fields: RegisterFormField) => {
+        async (fields: RegisterFormField, formikHelpers: FormikHelpers<RegisterFormField>) => {
             try {
+                formikHelpers.setSubmitting(true);
+
                 const res = await register(createRegisterUser(fields));
-                const { access_token, access_token_expires_in, refresh_token } = res;
+                const { access_token, access_token_expires_in, refresh_token, admin } = res;
                 setCookie('sportsmap_token', access_token);
                 setCookie('sportsmap_expiresIn', access_token_expires_in, {
                     maxAge: access_token_expires_in,
                 });
                 setCookie('sportsmap_refreshToken', refresh_token);
+                setCookie('sportsmap_is_admin', admin);
 
                 toast(
                     <Notification
@@ -72,8 +83,12 @@ export const useRegisterHandler = () => {
                         description="Теперь у вас есть аккаунт на нашем сайте"
                     />
                 );
+                formikHelpers.setSubmitting(false);
+
                 await router.replace(pageRoutes.search);
             } catch (error) {
+                formikHelpers.setSubmitting(false);
+
                 toast(
                     <Notification
                         type="error"

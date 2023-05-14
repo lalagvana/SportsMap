@@ -70,13 +70,22 @@ export const Accordeon = ({ item, className }: AccordeonProps) => {
                     {owning_type && (
                         <ItemField label="Форма собственности" value={owning_type} className="Accordeon-HalfField" />
                     )}
-                    {eps && <ItemField label="ЕПС" value={eps} units={'чел.'} className="Accordeon-HalfField" />}
+                    {eps && (
+                        <ItemField
+                            label="ЕПС"
+                            value={eps}
+                            units={'чел.'}
+                            className="Accordeon-HalfField"
+                            hint="максимальное количество людей, которое может находиться в спортивном учреждении одновременно при сохранении комфортных условий"
+                        />
+                    )}
                     {actual_workload && (
                         <ItemField
                             label="Фактическая загруженность"
                             value={actual_workload}
                             units={'чел./час'}
                             className="Accordeon-HalfField"
+                            hint="количество людей, которые регулярно посещают спортивный объект"
                         />
                     )}
                     {annual_capacity && (
@@ -85,6 +94,7 @@ export const Accordeon = ({ item, className }: AccordeonProps) => {
                             value={annual_capacity}
                             units={'чел./год'}
                             className="Accordeon-HalfField"
+                            hint="количество людей, которые могут использовать спортивный объект в течение года"
                         />
                     )}
                     {note && <ItemField label="Примечания" className="Accordeon-MaxField" value={note} />}

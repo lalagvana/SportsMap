@@ -1,4 +1,6 @@
-import { InputHTMLAttributes, useCallback, useEffect, useState } from 'react';
+import React, { InputHTMLAttributes, useCallback, useEffect, useState } from 'react';
+
+import { Hint } from 'src/client/shared/components/Hint';
 
 import styles from './Checkbox.module.css';
 
@@ -6,9 +8,10 @@ export type CheckboxProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChang
     className?: string;
     label: string;
     onChange?: (checked: boolean) => void;
+    hint?: string;
 };
 
-export const Checkbox = ({ className, onChange, checked, label, ...rest }: CheckboxProps) => {
+export const Checkbox = ({ className, onChange, checked, label, hint, ...rest }: CheckboxProps) => {
     const [isChecked, setIsChecked] = useState(checked);
     const onChangeHandler = useCallback(() => {
         if (onChange) {
@@ -29,6 +32,7 @@ export const Checkbox = ({ className, onChange, checked, label, ...rest }: Check
                 type="checkbox"
             />
             {label && <span>{label}</span>}
+            {hint && <Hint text={hint} />}
         </label>
     );
 };

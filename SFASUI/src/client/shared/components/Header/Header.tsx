@@ -33,6 +33,7 @@ export const Header = ({ className }: HeaderProps) => {
         deleteCookie('sportsmap_token');
         deleteCookie('sportsmap_expiresIn');
         deleteCookie('sportsmap_refreshToken');
+        deleteCookie('sportsmap_is_admin');
 
         reload();
     }, [reload]);

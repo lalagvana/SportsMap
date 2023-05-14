@@ -10,7 +10,6 @@ export type SelectProps = SelectBaseProps & {
 export const Select = ({ className, popupClassName, ...rest }: SelectProps) => {
     return (
         <SelectBase
-            allowClear
             rootClassName={[styles['Select'], className].join(' ')}
             popupClassName={[styles['Select-Popup'], popupClassName].join(' ')}
             {...rest}

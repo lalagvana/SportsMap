@@ -43,6 +43,20 @@
     color: #2C96B8;
 }
 
+.FileLoadModal-Validation_blue svg {
+    animation: cycle 1s linear infinite;
+}
+
+@keyframes cycle {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .FileLoadModal-Validation_red, .FileLoadModal-Validation_red path {
     background-color: #FCF0F0;
     border-color: #EB5353;

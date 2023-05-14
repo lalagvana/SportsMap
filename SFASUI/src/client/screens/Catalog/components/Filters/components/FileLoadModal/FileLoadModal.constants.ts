@@ -1,1 +1,0 @@
-export const FILE_REQUIREMENTS = ['Сверьтесь с шаблоном таблицы']

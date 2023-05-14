@@ -21,13 +21,14 @@ export const FileLoadModal = ({ hide }: FileLoadModalProps) => {
             afterClose={hide}
             open
             title={<h2 className={styles['FileLoadModal-Title']}>Загрузка файла</h2>}
-            footer={<Button text="Сохранить" disabled={!validationStatus} onClick={saveHandler} />}
+            footer={
+                <Button text="Сохранить" disabled={!validationStatus} onClick={saveHandler} isLoading={isLoading} />
+            }
             width={578}
             onCancel={hide}
         >
             <div className={styles['FileLoadModal']}>
                 <div className={styles['FileLoadModal-Requirements']}>
-                    <h3 className={styles['FileLoadModal-RequirementsTitle']}>Требования</h3>
                     <ul className={styles['FileLoadModal-List']}>
                         {FILE_REQUIREMENTS.map((requirement, index) => (
                             <li className={styles['FileLoadModal-ListItem']} key={index}>

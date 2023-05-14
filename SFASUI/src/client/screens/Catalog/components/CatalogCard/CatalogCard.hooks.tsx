@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import { mutate } from 'swr';
-import { hasCookie } from 'cookies-next';
+import { getCookie, hasCookie } from "cookies-next";
 import { toast } from 'react-toastify';
 
 import { FacilityType } from 'src/client/shared/types/facilities';
@@ -65,13 +65,15 @@ export const useDeleteHandler = ({ setLoading, id, onSuccess }: UseDeleteHandler
             await deleteFacility(id);
 
             setLoading(true);
+
+
+            toast(<Notification type="success" imageType='delete' heading='Вы удалили объект!' description='Это действие нельзя отменить' />);
+            setLoading(false);
+
             await mutate(`catalog${apiRoutes.facilitySearch}`);
             if (onSuccess) {
                 onSuccess();
             }
-
-            toast(<Notification type="success" imageType='delete' heading='Вы удалили объект!' description='Это действие нельзя отменить' />);
-            setLoading(false);
         } catch (error) {
             toast(<Notification description={prepareMessage(error)} imageType="cross" type="error" />);
             setLoading(false);
@@ -107,7 +109,7 @@ export const useMenuItems = ({
         onSuccess: hidePopup,
     });
 
-    const isLogged = hasCookie('sportsmap_token');
+    const isLogged = getCookie('sportsmap_is_admin');
 
     const menuItems = useMemo(() => {
         const items = [{ text: 'Подробнее', onClick: openInfoModal }];

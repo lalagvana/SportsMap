@@ -1,5 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 
+import { Hint } from 'src/client/shared/components/Hint';
+
 import styles from 'src/client/shared/components/Field/Field.module.css';
 
 type FieldProps = PropsWithChildren<{
@@ -14,6 +16,9 @@ type FieldProps = PropsWithChildren<{
 
     /** Текст, отображаемый под инпутом */
     description?: string;
+
+    /** Текст, отображаемый подсказке */
+    hint?: string;
 
     /** Параметр, отвечающий за отображение красной звездочки возле лейбла */
     required?: boolean;
@@ -38,6 +43,7 @@ export const Field = ({
     description,
     required,
     error,
+    hint,
     tag: Root = 'label',
     children,
     hiddenLabel = false,
@@ -48,6 +54,7 @@ export const Field = ({
             {label}
 
             {required && <span className={styles['Field-Star']}> *</span>}
+            {hint && <Hint text={hint} />}
         </div>
 
         <div role={role} className={styles['Field-InputWrapper']}>

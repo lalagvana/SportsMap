@@ -7,7 +7,7 @@ import { UploadChangeParam } from 'antd/es/upload/interface';
 import { excelImport, validateExcel } from 'src/client/shared/utils/api/excel';
 import { apiRoutes } from 'src/client/shared/utils/api/apiRoutes';
 import { prepareMessage } from 'src/client/shared/utils/notifications';
-import { Notification } from "src/client/shared/components/Notification";
+import { Notification } from 'src/client/shared/components/Notification';
 
 export const useOnFileChange = (onSuccess: () => void) => {
     const [isLoading, setIsLoading] = useState(false);
@@ -35,7 +35,13 @@ export const useOnFileChange = (onSuccess: () => void) => {
                     setIsLoading(false);
                 } catch (e) {
                     setIsLoading(false);
-                    toast(<Notification type="error" imageType='cross' description={prepareMessage(e, 'Ошибка валидации файла')} />);
+                    toast(
+                        <Notification
+                            type="error"
+                            imageType="cross"
+                            description={prepareMessage(e, 'Ошибка валидации файла')}
+                        />
+                    );
                     setValidationStatus(false);
                 }
             }
@@ -54,11 +60,13 @@ export const useOnFileChange = (onSuccess: () => void) => {
                 setValidationStatus(null);
                 setFileList([]);
             }
-            toast(<Notification type="success" heading='Вы загрузили файл' description='Мы добавим все новые объекты' />);
+            toast(
+                <Notification type="success" heading="Вы загрузили файл" description="Мы добавим все новые объекты" />
+            );
             onSuccess();
             await mutate(`catalog${apiRoutes.facilitySearch}`);
         } catch (e) {
-            toast(<Notification type="error" imageType='cross' description={e.message} />);
+            toast(<Notification type="error" imageType="cross" description={e.message} />);
         }
     }, [setFileList, setValidationStatus, fileList, validationStatus, onSuccess]);
 

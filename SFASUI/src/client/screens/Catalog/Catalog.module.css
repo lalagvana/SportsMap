@@ -25,6 +25,32 @@
     margin: var(--space-2xl) auto;
 }
 
+.Catalog-NoResults {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+    width: 100%;
+    align-items: center;
+}
+
+.Catalog-NoResultsCaption {
+    font-size: var(--font-size-m);
+    color: var(--typography-secondary-color);
+    text-align: center;
+}
+
+.Catalog-NoResults path {
+    color: var(--base-default-color);
+}
+
+.Catalog-NoResultsText {
+    font-family: var(--ubuntu);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-2xs);
+    color: var(--black-color);
+    text-align: center;
+}
+
 @media (--viewport-wide-desktop) {
     .Catalog-Main {
         max-width: var(--width-max-content);
