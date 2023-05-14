@@ -32,6 +32,7 @@ export const AdditionalInfoForm = ({ isNew }: { isNew: boolean }) => {
                         label="Годовая мощность"
                         placeholder="чел./год"
                         type="number"
+                        hint="количество людей, которые могут использовать спортивный объект в течение года"
                     />
                 </div>
                 <div className={styles['AdditionalInfo-InputSection']}>
@@ -42,6 +43,7 @@ export const AdditionalInfoForm = ({ isNew }: { isNew: boolean }) => {
                         label="ЕПС"
                         placeholder="чел."
                         type="number"
+                        hint="максимальное количество людей, которое может находиться в спортивном учреждении одновременно при сохранении комфортных условий"
                     />
                     <TextInputField
                         inputClassName={styles['AdditionalInfo-CapacityInput']}
@@ -50,6 +52,7 @@ export const AdditionalInfoForm = ({ isNew }: { isNew: boolean }) => {
                         label="Фактическая загруженность"
                         placeholder="чел./час"
                         type="number"
+                        hint="количество людей, которые регулярно посещают спортивный объект"
                     />
                 </div>
                 <MarkdownEditor
@@ -92,7 +95,11 @@ export const AdditionalInfoForm = ({ isNew }: { isNew: boolean }) => {
                     options={coveringTypeSelectOptions}
                 />
                 {!isNew && <PhotoUploader />}
-                {isNew && <p  className={styles['AdditionalInfo-PhotoText']}>Чтобы добавить фотографии к объекту, сначала создайте его</p>}
+                {isNew && (
+                    <p className={styles['AdditionalInfo-PhotoText']}>
+                        Чтобы добавить фотографии к объекту, сначала создайте его
+                    </p>
+                )}
             </div>
         </form>
     );

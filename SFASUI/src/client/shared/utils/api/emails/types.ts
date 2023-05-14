@@ -9,3 +9,7 @@ export namespace EmailOfferObject {
 export namespace EmailSuggestions {
     export type Body = Paths.NewApiV1EmailSuggestions.Post.Parameters.Body;
 }
+
+export namespace EmailNewPassword {
+    export type Body = Paths.NewApiV1EmailNewPassword.Post.Parameters.Body;
+}

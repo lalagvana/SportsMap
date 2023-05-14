@@ -53,7 +53,7 @@ export const CatalogCard = ({ item, disabled }: CatalogCardProps) => {
         hide: hideDeleteModal,
     } = useVisible({ onOpen: hidePopup });
 
-    const { menuItems, deleteHandler } = useMenuItems({
+    const { menuItems, deleteHandler, isLoading } = useMenuItems({
         hidePopup,
         item,
         openEditModal,
@@ -117,6 +117,7 @@ export const CatalogCard = ({ item, disabled }: CatalogCardProps) => {
                     title="Удалить объект?"
                     onCancel={hideDeleteModal}
                     onOk={deleteHandler}
+                    isLoading={isLoading}
                 />
             )}
         </>

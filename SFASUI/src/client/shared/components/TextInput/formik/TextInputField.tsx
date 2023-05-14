@@ -13,6 +13,7 @@ type TextFieldProps = Omit<TextInputProps, 'id' | 'value' | 'name' | 'onChange' 
     required?: boolean;
     hiddenLabel?: boolean;
     inputClassName?: string;
+    hint?: string;
 };
 
 export const TextInputField = ({
@@ -22,6 +23,7 @@ export const TextInputField = ({
     inputClassName,
     description,
     hiddenLabel,
+  hint,
     required = false,
     ...restProps
 }: TextFieldProps) => {
@@ -38,6 +40,7 @@ export const TextInputField = ({
             required={required}
             error={showError ? meta.error : undefined}
             htmlFor={formikField.name}
+            hint={hint}
         >
             <TextInput
                 {...restProps}

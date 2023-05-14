@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { useCallback, useState } from 'react';
 import { FormikHelpers, FormikProvider, useFormik } from 'formik';
 
@@ -8,9 +7,9 @@ import { Button } from 'src/client/shared/components/Button';
 import { FacilityType } from 'src/client/shared/types/facilities';
 
 import { useOnNextTab, useTabs } from './ItemEditModal.hooks';
+import { useSchema } from './ItemEditModal.schema';
 
 import styles from './ItemEditModal.module.css';
-import { useSchema } from './ItemEditModal.schema';
 
 type ItemEditModalProps = {
     handleSubmit: (fields: FacilityType, formikHelpers: FormikHelpers<FacilityType>) => Promise<void>;
@@ -49,7 +48,9 @@ export const ItemEditModal = ({ handleSubmit, initialValues, hide, isNew, classN
                         {isNew ? 'Создание спортивного объекта' : 'Редактирование спортивного объекта'}
                     </h2>
                 }
-                footer={<Button onClick={clickHandler} text={buttonText} />}
+                footer={
+                    <Button isLoading={formikStateAndHelpers.isSubmitting} onClick={clickHandler} text={buttonText} />
+                }
                 width={1110}
                 destroyOnClose
                 afterClose={hide}

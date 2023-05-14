@@ -34,11 +34,12 @@
 
 .Footer-ImageContainer {
     display: flex;
-    gap: var(--space-2m);
-    margin-bottom: var(--space-2l);
+    gap: var(--space-l);
+    margin-bottom: var(--space-xl);
 }
 
-.Footer-Contacts {
+
+.Footer-Contacts path, .Footer-Contacts li div  {
     color: var(--typography-secondary-color);
 }
 

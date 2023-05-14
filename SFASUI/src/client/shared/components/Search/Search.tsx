@@ -1,8 +1,9 @@
 import { useCallback, useState } from 'react';
-import Image from 'next/image';
 import { debounce } from 'lodash';
 
 import { TextInput } from 'src/client/shared/components/TextInput';
+
+import SearchIcon from 'public/icons/search.svg';
 
 import styles from './Search.module.css';
 
@@ -27,6 +28,7 @@ export const Search = ({ className, initialValue = '', onSearch }: SearchProps) 
 
     return (
         <div className={[styles['Search-Wrapper'], className].join(' ')}>
+            <SearchIcon width={21} height={21} className={styles['Search-Icon']} />
             <TextInput value={value} onChange={onChange} id="search" placeholder="Поиск" className={styles['Search']} />
         </div>
     );

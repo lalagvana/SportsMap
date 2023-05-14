@@ -1,7 +1,7 @@
 import { fetch } from '../fetch';
 import { apiRoutes } from '../apiRoutes';
 
-import { ExcelImport, ExcelValidate } from './types';
+import { ExcelImport, ExcelValidate, ExcelExport } from './types';
 
 export const excelImport = (body: ExcelImport.Body) => {
     return fetch(apiRoutes.excelImport, {
@@ -10,6 +10,13 @@ export const excelImport = (body: ExcelImport.Body) => {
         headers: {
             'Content-Type': 'multipart/form-data;',
         },
+    });
+};
+
+export const excelExport = (body: ExcelExport.Body) => {
+    return fetch<ExcelExport.Response>(apiRoutes.excelExport, {
+        method: 'POST',
+        data: body,
     });
 };
 

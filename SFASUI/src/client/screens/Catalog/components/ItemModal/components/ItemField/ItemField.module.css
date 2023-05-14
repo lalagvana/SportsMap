@@ -16,3 +16,10 @@
     margin: 0;
     font-size: var(--font-size-l);
 }
+
+.ItemField-LabelWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-xs);
+}

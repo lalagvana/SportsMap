@@ -14,7 +14,7 @@
     border: none;
     border-radius: var(--border-radius-m);
 
-    transition: .1s linear all;
+    transition: 0.1s linear all;
 }
 
 .Button_default {
@@ -41,5 +41,29 @@
 
 .Button_disabled {
     pointer-events: none;
-    background-color: var(--typography-default-color);
+    background-color: var(--typography-default-color) !important;
+}
+
+.Button_loading {
+    pointer-events: none;
+    background-color: var(--success-color) !important;
+}
+
+.Button-LoadingIcon {
+    width: auto;
+    animation: cycle 1s linear infinite;
+}
+
+.Button-LoadingIcon path {
+    color: var(--special-white-color) !important;
+}
+
+@keyframes cycle {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }

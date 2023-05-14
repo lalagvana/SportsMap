@@ -65,6 +65,7 @@ export const ForgetPasswordForm = ({}: ForgetPasswordFormProps) => {
                     className={styles['ForgetPassword-Button']}
                     onClick={formikStateAndHelpers.submitForm}
                     text="Восстановить пароль"
+                    isLoading={formikStateAndHelpers.isSubmitting}
                 />
             </FormikProvider>
         </motion.div>

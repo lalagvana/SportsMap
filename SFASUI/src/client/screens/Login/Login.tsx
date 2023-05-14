@@ -4,6 +4,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 
 import { Tabs } from 'src/client/shared/components/Tabs';
 import { useVisible } from 'src/client/shared/hooks/use-visible';
+import { useTheme } from 'src/client/shared/hooks/use-theme';
 
 import { useTabs } from './Login.hooks';
 import { ForgetPasswordForm } from './components/ForgetPasswordForm';
@@ -19,13 +20,15 @@ export const Login = () => {
 
     const shouldReduceMotion = useReducedMotion();
 
+    const { theme } = useTheme();
+
     return (
         <>
             <Head>
                 <title>Вход</title>
                 <meta name="title" content="Вход" />
             </Head>
-            <main className={styles['Login']}>
+            <main className={[styles['Login'], styles[`Login_${theme}`]].join(' ')}>
                 <motion.div layout={shouldReduceMotion ? false : 'position'} className={styles['Login-Form']}>
                     <Tabs items={items} activeKey={activeTab} onChange={onTabChange} />
                 </motion.div>

@@ -1,9 +1,11 @@
+import React from 'react';
 import { isEmpty } from 'lodash';
 
 import { TagGroup } from 'src/client/shared/components/TagGroup';
 import { TagTypes } from 'src/client/shared/components/Tag';
 import { TextWithIcon } from 'src/client/shared/components/TextWithIcon';
 import { WorkingHours } from 'src/client/shared/components/WorkingHours';
+import { Hint } from 'src/client/shared/components/Hint';
 
 import styles from './ItemInfo.module.css';
 
@@ -32,6 +34,7 @@ export const ItemInfo = ({
         {accessibility && (
             <TextWithIcon className={styles['ItemInfo-Availability']} iconType="accessibility">
                 <span>Доступная среда</span>
+                <Hint text="спортивный объект, оборудованный с учетом потребностей, возникающих у людей с ограниченными возможностями, и позволяющая им вести независимый образ жизни" />
             </TextWithIcon>
         )}
         {!isEmpty(working_hours) && <WorkingHours hours={working_hours} />}

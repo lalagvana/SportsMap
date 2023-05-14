@@ -73,7 +73,7 @@ export const ProposalForm = () => {
                     />
                 </div>
             </form>
-            <Button text="Отправить" onClick={formikStateAndHelpers.submitForm} />
+            <Button text="Отправить" onClick={formikStateAndHelpers.submitForm} isLoading={formikStateAndHelpers.isSubmitting}/>
         </FormikProvider>
     );
 };

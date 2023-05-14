@@ -2,6 +2,8 @@ import { ButtonHTMLAttributes, PropsWithChildren, ReactNode } from 'react';
 
 import { ButtonType } from './Button.types';
 
+import LoadingIcon from 'public/icons/loading.svg';
+
 import styles from './Button.module.css';
 
 export type ButtonProps = PropsWithChildren<
@@ -12,6 +14,7 @@ export type ButtonProps = PropsWithChildren<
         className?: string;
         icon?: ReactNode;
         onClick?: () => void;
+        isLoading?: boolean;
     }
 >;
 
@@ -23,6 +26,7 @@ export const Button = ({
     onClick,
     disabled = false,
     children,
+    isLoading = false,
 }: ButtonProps) => (
     <button
         type="button"
@@ -30,11 +34,13 @@ export const Button = ({
         className={[
             styles['Button'],
             styles[`Button_${view}`],
-            disabled ? styles['Button_disabled'] : undefined,
             className,
+            disabled ? styles['Button_disabled'] : undefined,
+            isLoading ? styles['Button_loading'] : undefined,
         ].join(' ')}
         disabled={disabled}
     >
+        {isLoading && <LoadingIcon width={20} height={20} className={styles['Button-LoadingIcon']} />}
         {text && <span className={styles['Button-Text']}>{text}</span>}
         {children}
         {icon}

@@ -6,6 +6,9 @@
 .Field-Caption {
     margin-bottom: var(--space-s);
     font-size: var(--font-size-l);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
 }
 
 .Field-Subtext_error {

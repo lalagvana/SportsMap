@@ -3,6 +3,10 @@ const BACKEND_URL = 'api';
 export const apiRoutes = {
     login: `${BACKEND_URL}/user/login`,
     resfreshToken: `${BACKEND_URL}/user/token/refresh`,
+    refreshPassword(token: string) {
+        return `${BACKEND_URL}/user/password-refresh/${token}`;
+    },
+
     user: `${BACKEND_URL}/user`,
     users(id: number) {
         return `${BACKEND_URL}/user/${id}`;
@@ -22,6 +26,7 @@ export const apiRoutes = {
 
     excelImport: `${BACKEND_URL}/excel/import`,
     excelValidate: `${BACKEND_URL}/excel/validate`,
+    excelExport: `${BACKEND_URL}/excel/export`,
 
     facilityPhoto(id: string) {
         return `${BACKEND_URL}/facility/${id}/photo`;
@@ -34,4 +39,5 @@ export const apiRoutes = {
     emailNewObject: `${BACKEND_URL}/email/offer-object`,
     emailSubscribe: `${BACKEND_URL}/email/subscribe`,
     emailUnsubscribe: `${BACKEND_URL}/email/unsubscribe`,
+    newPassword: `${BACKEND_URL}/email/new-password`,
 };

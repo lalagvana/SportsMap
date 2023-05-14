@@ -10,5 +10,6 @@ export const UNPROTECTED_PATHS = [
     apiRoutes.emailNewObject,
     apiRoutes.emailProposal,
     apiRoutes.emailSubscribe,
+    apiRoutes.newPassword,
     `${PREFIX}/${apiRoutes.facilitySearch}`,
 ];

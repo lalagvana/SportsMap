@@ -47,8 +47,18 @@ export const LoginForm = ({ handleSubmit, showForgetPassword }: LoginFormProps) 
                     />
                 </TextWithIcon>
             </form>
-            <Button className={styles['Login-Button']} onClick={formikStateAndHelpers.submitForm} text="Войти" />
-            <Button className={styles['Login-ForgetPassword']} view={ButtonType.Clear} text="Забыли пароль?" onClick={showForgetPassword} />
+            <Button
+                className={styles['Login-Button']}
+                onClick={formikStateAndHelpers.submitForm}
+                text="Войти"
+                isLoading={formikStateAndHelpers.isSubmitting}
+            />
+            <Button
+                className={styles['Login-ForgetPassword']}
+                view={ButtonType.Clear}
+                text="Забыли пароль?"
+                onClick={showForgetPassword}
+            />
         </FormikProvider>
     );
 };

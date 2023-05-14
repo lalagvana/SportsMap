@@ -13,11 +13,11 @@ const DEFAULT_HEADERS = {
     Accept: 'application/json',
 };
 
-export async function fetch<T>(path: string, options: RawAxiosRequestConfig = {}): Promise<T> {
+export async function fetch<T>(path: string, options: RawAxiosRequestConfig = {}, skipValidation = false): Promise<T> {
     const { method = 'GET', headers = {}, ...restOptions } = options;
 
     // Если нужна авторизация для эндпоинта
-    if (!UNPROTECTED_PATHS.includes(path) && method.toUpperCase() !== 'GET') {
+    if (!UNPROTECTED_PATHS.includes(path) && method.toUpperCase() !== 'GET' && !skipValidation) {
         const token = await getAuthToken();
 
         // TODO: сделать редирект на логин?

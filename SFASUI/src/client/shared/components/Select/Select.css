@@ -15,9 +15,17 @@
 
 .ant-select-focused .ant-select-selector,
 .ant-select-selector:hover {
-    border-color: black !important;
+    border-color: var(--black-color) !important;
 }
 
 .ant-select-selection-placeholder {
     color: var(--placeholder-color) !important;
+}
+
+.ant-select-item.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+    background-color: var(--decorative-color);
+}
+
+.ant-select-open .ant-select-selection-item {
+    color: var(--black-color) !important;
 }

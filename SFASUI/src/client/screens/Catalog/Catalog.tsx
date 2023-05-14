@@ -12,6 +12,8 @@ import { CatalogCardGrid } from './components/CatalogCardGrid';
 import { LIMIT } from './Catalog.constants';
 import { CatalogPagination } from './components/CatalogPagination';
 
+import NoSearchResults from 'public/images/NoSearchResults.svg';
+
 import styles from './Catalog.module.css';
 
 export type CatalogPageProps = {
@@ -53,6 +55,17 @@ export const Catalog = ({ facilityObjects: initialFacilityObjects }: CatalogPage
                 {!isValidating && showObjects && <CatalogCardGrid items={facilityObjects?.facilities} />}
                 {!isValidating && showPagination && (
                     <CatalogPagination className={styles['Catalog-Pagination']} total={facilityObjects.count || 0} />
+                )}
+                {!isValidating && (
+                    <div className={styles['Catalog-NoResults']}>
+                        <NoSearchResults width={150} height={150} />
+                        <p className={styles['Catalog-NoResultsText']}>
+                            К сожалению, по вашему запросу ничего не найдено
+                        </p>
+                        <p className={styles['Catalog-NoResultsCaption']}>
+                            Попробуйте поменять фильтры
+                        </p>
+                    </div>
                 )}
             </main>
         </>
