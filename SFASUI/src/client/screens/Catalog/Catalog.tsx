@@ -56,7 +56,7 @@ export const Catalog = ({ facilityObjects: initialFacilityObjects }: CatalogPage
                 {!isValidating && showPagination && (
                     <CatalogPagination className={styles['Catalog-Pagination']} total={facilityObjects.count || 0} />
                 )}
-                {!isValidating && (
+                {!isValidating && !showObjects && (
                     <div className={styles['Catalog-NoResults']}>
                         <NoSearchResults width={150} height={150} />
                         <p className={styles['Catalog-NoResultsText']}>
