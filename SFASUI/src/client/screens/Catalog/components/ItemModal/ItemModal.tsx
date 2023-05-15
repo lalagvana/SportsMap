@@ -57,8 +57,10 @@ export const ItemModal = ({ item: initialItem, hide, className }: ItemModalProps
                     )}
                     <section className={styles['ItemModal-Map']}>
                         <Map
-                            width="432px"
-                            height={hasPhoto ? '300px' : '100%'}
+                            className={[
+                                styles['ItemModal-MapContainer'],
+                                hasPhoto ? styles['ItemModal-MapContainer_photo'] : undefined,
+                            ].join(' ')}
                             defaultState={{
                                 center: [item?.x || 59.9386, item?.y || 30.3141],
                                 zoom: 13,

@@ -4,8 +4,6 @@
     color: inherit;
     font-weight: inherit;
 
-    width: 125px;
-
     text-align: center;
 }
 
@@ -43,5 +41,9 @@
 @media (--viewport-tablet) {
     .Login-Form {
         width: 646px;
+    }
+
+    .Login-TabTitle {
+        width: 125px;
     }
 }

@@ -27,7 +27,13 @@
     --padding-xl: 24px;
     --padding-2l: 32px;
     --padding-2xl: 48px;
-    --width-map-sidebar: 500px;
+    --width-map-sidebar: calc(100% - var(--space-xl));
     --width-max-content: 1520px;
     --width-catalog-item: 356px;
+}
+
+@media (min-width: 500px) {
+    :root {
+        --width-map-sidebar: 500px;
+    }
 }

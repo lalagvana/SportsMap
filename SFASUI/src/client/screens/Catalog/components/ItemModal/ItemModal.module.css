@@ -1,9 +1,12 @@
 .ItemModal {
     display: flex;
-    gap: 80px;
+    gap: var(--space-xl);
+
+    flex-direction: column;
 }
 
-.ItemModal-Info, .ItemModal-Aside {
+.ItemModal-Info,
+.ItemModal-Aside {
     flex-basis: 50%;
 }
 
@@ -19,9 +22,33 @@
 }
 
 .ItemModal-Map {
+    height: 300px;
+}
+
+.ItemModal-MapContainer {
+    width: 100%;
     height: 100%;
 }
 
 .ItemModal path {
     color: var(--base-default-color);
+}
+
+.ItemModal-MapContainer_photo {
+    height: 300px;
+}
+
+@media (--viewport-tablet) {
+    .ItemModal {
+        flex-direction: row;
+        gap: 80px;
+    }
+
+    .ItemModal-Map {
+        height: 100%;
+    }
+
+    .ItemModal-MapContainer {
+        width: 432px;
+    }
 }

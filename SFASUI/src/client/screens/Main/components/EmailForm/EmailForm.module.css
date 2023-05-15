@@ -4,6 +4,8 @@
     background-color: var(--white-color);
     border-radius: var(--border-radius-l);
     max-width: 1000px;
+    width: calc(100% - var(--space-xl) * 2);
+    box-sizing: border-box;
 }
 
 .EmailForm-TabTitle {
@@ -15,4 +17,10 @@
 
 .EmailForm path {
     color: var(--base-default-color);
+}
+
+@media (--viewport-tablet) {
+    .EmailForm {
+        width: auto;
+    }
 }

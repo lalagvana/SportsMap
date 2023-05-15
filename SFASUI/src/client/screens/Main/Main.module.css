@@ -1,5 +1,4 @@
 .Main-Sponsors {
-    display: flex;
     gap: var(--space-2xl);
     align-items: center;
     justify-content: center;
@@ -7,6 +6,8 @@
     margin-top: var(--space-2l);
 
     position: relative;
+
+    display: none;
 }
 
 .Main-Surface {
@@ -17,8 +18,19 @@
     bottom: calc(-1 * var(--space-xl));
     height: 231px;
     max-width: 100%;
+
+    display: none;
 }
 
 .Main {
     background-color: var(--surface-color-0);
+}
+
+@media (--viewport-phone) {
+    .Main-Sponsors {
+        display: flex;
+    }
+    .Main-Surface {
+        display: initial;
+    }
 }
