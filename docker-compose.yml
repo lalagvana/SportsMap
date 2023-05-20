@@ -6,11 +6,6 @@ services:
       - 3000
     env_file:
       - .env
-  backend-old:
-    build: ./SFASServer
-    expose:
-      - 6002
-      - 6001
   backend:
     build: ../sportsmap-api
     expose:
@@ -25,4 +20,3 @@ services:
     depends_on:
       - frontend
       - backend
-      - backend-old
