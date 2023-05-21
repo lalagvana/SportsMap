@@ -24,7 +24,7 @@ export const RegisterForm = ({ handleSubmit }: RegisterFormProps) => {
 
     return (
         <FormikProvider value={formikStateAndHelpers}>
-            <form>
+            <form className={styles['RegisterForm']}>
                 <TextWithIcon iconType="user" width={24} height={36} className={styles['Register-LabelWrapper']}>
                     <TextInputField
                         placeholder="Имя"

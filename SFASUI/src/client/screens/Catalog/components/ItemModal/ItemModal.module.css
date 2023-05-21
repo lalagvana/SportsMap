@@ -18,7 +18,7 @@
 }
 
 .ItemModal-Name {
-    max-width: calc(50% - 60px);
+    max-width: calc(100% - 22px);
 }
 
 .ItemModal-Map {
@@ -50,5 +50,10 @@
 
     .ItemModal-MapContainer {
         width: 432px;
+    }
+
+    .ItemModal-Name {
+        max-width: calc(50% - 60px);
+
     }
 }

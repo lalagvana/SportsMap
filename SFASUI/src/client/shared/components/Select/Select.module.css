@@ -1,8 +1,15 @@
 .Select {
    font-size: var(--font-size-m);
+   width: 100%;
 }
 
 .Select-Popup {
    width: fit-content !important; /* чтобы перебить стили antdesign */
    font-size: var(--font-size-m);
+}
+
+@media (--viewport-tablet) {
+   .Select{
+      width: auto;
+   }
 }

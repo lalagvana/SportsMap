@@ -65,7 +65,7 @@
     }
 }
 
-@media (--viewport-tablet) {
+@media (--viewport-desktop) {
     .Development-ContactsBlock {
         display: initial;
     }

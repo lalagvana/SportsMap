@@ -1,10 +1,12 @@
 import React, { useCallback } from 'react';
 import { toast } from 'react-toastify';
-import { Notification } from '../../../../../../shared/components/Notification';
-import { prepareMessage } from '../../../../../../shared/utils/notifications';
-import { excelExport } from '../../../../../../shared/utils/api/excel';
 import { useRouter } from 'next/router';
-import { getSearchQuery } from '../../../../Catalog.helpers';
+
+import { Notification } from 'src/client/shared/components/Notification';
+import { prepareMessage } from 'src/client/shared/utils/notifications';
+import { excelExport } from 'src/client/shared/utils/api/excel';
+
+import { getSearchQuery } from 'src/client/screens/Catalog';
 
 export const useExportHandler = () => {
     const { query } = useRouter();

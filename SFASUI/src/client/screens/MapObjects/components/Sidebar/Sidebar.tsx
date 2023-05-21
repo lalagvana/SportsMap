@@ -1,7 +1,10 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, SetStateAction, useMemo } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import Link from 'next/link';
 
 import { Button } from 'src/client/shared/components/Button';
+import { pageRoutes } from 'src/client/shared/routes';
+import { Drawer } from 'src/client/shared/components/Drawer';
 
 import { SidebarDetails } from '../SidebarDetails';
 import { SidebarItemsList } from '../SidebarItemList';
@@ -10,8 +13,6 @@ import { SidebarItemsListSkeleton } from '../SidebarItemsListSkeleton';
 import { SidebarMessage } from '../SidebarMessage';
 
 import styles from './Sidebar.module.css';
-import Link from 'next/link';
-import { pageRoutes } from '../../../../shared/routes';
 
 type SidebarProps = {
     items?: Definitions.FacilityResponse[];
@@ -21,6 +22,8 @@ type SidebarProps = {
     className?: string;
     activeItem: Definitions.FacilityResponse | null;
     setActiveItem: Dispatch<SetStateAction<Definitions.FacilityResponse | null>>;
+    isDrawerOpen: boolean;
+    setIsDrawerOpen: Dispatch<boolean>;
 };
 
 export const Sidebar = ({
@@ -31,12 +34,46 @@ export const Sidebar = ({
     className,
     activeItem,
     setActiveItem,
+    isDrawerOpen,
+    setIsDrawerOpen,
 }: SidebarProps) => {
     const showContent = !error && !isLoading && items && items.length > 0;
     const showNotFound = !error && !isLoading && items && items.length === 0;
 
     const showList = (!error && isLoading) || (showContent && !activeItem);
     const shouldReduceMotion = useReducedMotion();
+
+    const sidebarComponent = useMemo(() => {
+        return (
+            <div>
+                {showList && (
+                    <motion.div
+                        key="list"
+                        initial={{ x: '-100%' }}
+                        animate={{ x: 0 }}
+                        exit={{ x: '-100%' }}
+                        transition={
+                            shouldReduceMotion
+                                ? undefined
+                                : {
+                                      x: { type: 'spring', stiffness: 300, damping: 30 },
+                                  }
+                        }
+                    >
+                        {!error && isLoading && <SidebarItemsListSkeleton />}
+
+                        {showContent && !activeItem && (
+                            <SidebarItemsList setActiveItem={setActiveItem} items={items} count={count || 0} />
+                        )}
+                    </motion.div>
+                )}
+
+                {!showList && activeItem && (
+                    <SidebarDetails item={activeItem} onBackClick={() => setActiveItem(null)} />
+                )}
+            </div>
+        );
+    }, [showList, activeItem, showContent, items, count, isLoading]);
 
     return (
         <aside className={[styles['Sidebar'], className].join(' ')}>
@@ -64,34 +101,22 @@ export const Sidebar = ({
                     }
                 />
             )}
-
-            <AnimatePresence initial={false} exitBeforeEnter>
-                {showList && (
-                    <motion.div
-                        key="list"
-                        initial={{ x: '-100%' }}
-                        animate={{ x: 0 }}
-                        exit={{ x: '-100%' }}
-                        transition={
-                            shouldReduceMotion
-                                ? undefined
-                                : {
-                                      x: { type: 'spring', stiffness: 300, damping: 30 },
-                                  }
-                        }
-                    >
-                        {!error && isLoading && <SidebarItemsListSkeleton />}
-
-                        {showContent && !activeItem && (
-                            <SidebarItemsList setActiveItem={setActiveItem} items={items} count={count || 0} />
-                        )}
-                    </motion.div>
-                )}
-
-                {!showList && activeItem && (
-                    <SidebarDetails item={activeItem} onBackClick={() => setActiveItem(null)} />
-                )}
-            </AnimatePresence>
+            <Drawer
+                open={isDrawerOpen}
+                rootClassName={styles['Sidebar-Drawer']}
+                className={styles['Sidebar-DrawerContent']}
+                placement="bottom"
+                onClose={() => setIsDrawerOpen(false)}
+                closable={false}
+                height="90%"
+            >
+                {sidebarComponent}
+            </Drawer>
+            <div className={styles['Sidebar_desktop']}>
+                <AnimatePresence initial={false} exitBeforeEnter>
+                    {sidebarComponent}
+                </AnimatePresence>
+            </div>
         </aside>
     );
 };

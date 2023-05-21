@@ -3,6 +3,9 @@
     gap: var(--space-2l);
     margin-bottom: var(--space-2l);
     flex-direction: column-reverse;
+    margin-left: var(--space-xs);
+    padding: 1px;
+
 }
 
 .NewObjectForm-InputColumn,

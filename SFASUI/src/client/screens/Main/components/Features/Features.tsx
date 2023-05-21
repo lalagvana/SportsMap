@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React, { memo } from 'react';
 import { motion } from 'framer-motion';
 
-import { useTheme } from "src/client/shared/hooks/use-theme";
+import { useTheme } from 'src/client/shared/hooks/use-theme';
 
 import { useItems } from './Features.hooks';
 
@@ -25,7 +25,13 @@ export const Features = memo(() => {
                         key={name}
                         className={[styles['Features-Image'], styles[`Features-Image_${name}`]].join(' ')}
                     >
-                        <Image width={200} height={200} src={isLight ? `/images/main/${name}.png` :  `/images/main/${name}_black.png`} layout="fixed" />
+                        <Image
+                            width={200}
+                            height={200}
+                            src={isLight ? `/images/main/${name}.png` : `/images/main/${name}_black.png`}
+                            layout="fixed"
+                            className={styles['Features-ImageContent']}
+                        />
                         <div className={styles['Features-Description']}>
                             <div className={styles['Features-Label']}>
                                 <h3 className={styles['Features-Heading']}>{heading}</h3>

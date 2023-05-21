@@ -13,3 +13,20 @@
     width: 100%;
     height: calc(100vh - 70px);
 }
+
+.MapObjects-ShowButton {
+    pointer-events: auto;
+
+    position: absolute;
+    inset: auto 0 0 0;
+
+    background-color: var(--white-color);
+    padding: var(--space-xl);
+    z-index: 10;
+}
+
+@media (--viewport-tablet) {
+    .MapObjects-ShowButton {
+        display: none;
+    }
+}

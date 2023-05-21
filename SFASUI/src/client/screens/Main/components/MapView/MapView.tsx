@@ -1,5 +1,5 @@
-import { Clusterer, Map, Placemark, useYMaps, ZoomControl } from '@pbe/react-yandex-maps';
-import React, { useEffect, useRef } from 'react';
+import { Clusterer, Map, Placemark, ZoomControl } from '@pbe/react-yandex-maps';
+import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
@@ -26,22 +26,6 @@ export const MapView = ({ initialFacilityObjects }: MapViewProps) => {
     });
 
     const { isLight } = useTheme();
-
-    const mapRef = useRef(null);
-    const ymaps = useYMaps(['Map']);
-
-    useEffect(() => {
-        if (!ymaps || !mapRef.current) {
-            return;
-        }
-
-        const map = new ymaps.Map(mapRef.current, {
-            center: [59.9386, 30.3141],
-            zoom: 13,
-        });
-
-        map.behaviors.disable('scrollZoom');
-    }, [ymaps]);
 
     return (
         <motion.section className={styles['MapView']}  initial={{ opacity: 0, y: 30 }}

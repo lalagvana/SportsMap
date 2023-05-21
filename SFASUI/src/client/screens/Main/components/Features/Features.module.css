@@ -67,23 +67,12 @@
     gap: var(--space-m);
     align-items: center;
     flex-basis: 100%;
+    margin: 0;
 }
 
 .Features-Description {
     max-width: 332px;
     flex-shrink: 10;
-}
-
-.Features-Image_basketball {
-}
-
-.Features-Image_golf {
-}
-
-.Features-Image_racket {
-}
-
-.Features-Image_football {
 }
 
 
@@ -98,6 +87,12 @@
     }
 }
 
+@media (--viewport-tablet) {
+    .Features-Image {
+        margin-left: 20%;
+    }
+
+}
 
 @media (--viewport-desktop) {
     .Features-Content {
@@ -106,5 +101,6 @@
 
     .Features-Image {
         flex-basis: 50%;
+        margin: 0;
     }
 }

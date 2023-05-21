@@ -25,7 +25,7 @@ export const LoginForm = ({ handleSubmit, showForgetPassword }: LoginFormProps) 
 
     return (
         <FormikProvider value={formikStateAndHelpers}>
-            <form>
+            <form className={styles['LoginForm']}>
                 <TextWithIcon iconType="mail" width={24} height={36} className={styles['Login-LabelWrapper']}>
                     <TextInputField
                         type="email"

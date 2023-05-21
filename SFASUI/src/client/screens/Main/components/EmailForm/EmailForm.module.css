@@ -19,8 +19,34 @@
     color: var(--base-default-color);
 }
 
+.EmailForm_desktop {
+    display: none;
+}
+
+.EmailForm_mobile {
+    margin-top: calc(var(--space-2l) + 3px);
+}
+
+.EmailForm-Dots {
+    top: calc(-1 * (var(--space-2l) + 3px)) !important;
+}
+
+.EmailForm-Dots button {
+    background: var(--base-default-color) !important;
+}
+
 @media (--viewport-tablet) {
     .EmailForm {
         width: auto;
+    }
+}
+
+@media (--viewport-tablet) {
+    .EmailForm_desktop {
+        display: initial;
+    }
+
+    .EmailForm_mobile {
+        display: none;
     }
 }

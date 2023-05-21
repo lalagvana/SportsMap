@@ -1,6 +1,7 @@
 .WorkingHoursForm {
     display: flex;
     justify-content: space-between;
+    margin: 0 var(--space-xs);
 }
 
 .WorkingHoursForm-Data {
@@ -12,6 +13,8 @@
     padding: 0;
 
     border: none;
+
+    width: 100%;
 }
 
 .WorkingHoursForm-Header {
@@ -19,4 +22,24 @@
     font-size: var(--font-size-l);
     font-weight: var(--font-weight-medium);
     color: var(--base-default-color);
+}
+
+.WorkingHoursForm-Image {
+    display: none;
+}
+
+@media (--viewport-tablet) {
+    .WorkingHoursForm {
+        margin: 0;
+    }
+
+    .WorkingHoursForm-Data {
+        width: auto;
+    }
+}
+
+@media (--viewport-desktop) {
+    .WorkingHoursForm-Image {
+        display: initial;
+    }
 }

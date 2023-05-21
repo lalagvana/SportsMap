@@ -1,5 +1,5 @@
 import { mutate } from 'swr';
-import { getCookie } from "cookies-next";
+import { getCookie } from 'cookies-next';
 
 import { Button, ButtonType } from 'src/client/shared/components/Button';
 import { useVisible } from 'src/client/shared/hooks/use-visible';
@@ -10,7 +10,7 @@ import { apiRoutes } from 'src/client/shared/utils/api/apiRoutes';
 import { FileLoadModal } from '../FileLoadModal';
 import { ItemAddModal } from 'src/client/screens/Catalog/components/ItemEditModal/components/ItemAddModal';
 import { sortingSelectOptions } from './FiltersControls.constants';
-import { useExportHandler } from "./FiltersControls.hooks";
+import { useExportHandler } from './FiltersControls.hooks';
 
 import ExcelImportIcon from 'public/icons/importExcel.svg';
 import ExcelExportIcon from 'public/icons/exportExcel.svg';
@@ -34,6 +34,7 @@ export const FiltersControls = () => {
                     onSuccess={() => mutate(`catalog${apiRoutes.facilitySearch}`)}
                 />
                 <QuerySelect
+                  className={styles['FiltersControls-Select']}
                     name="order_by"
                     placeholder="Сортировка"
                     options={sortingSelectOptions}
@@ -43,18 +44,21 @@ export const FiltersControls = () => {
             {isLogged && (
                 <div className={styles['FiltersControls-ButtonGroup']}>
                     <Button
+                        className={styles['FiltersControls-ButtonExport']}
                         view={ButtonType.Active}
                         text="Скачать отчет"
                         icon={<ExcelExportIcon width={18} height={18} />}
                         onClick={onExport}
                     />
                     <Button
+                        className={styles['FiltersControls-ButtonAdd']}
                         view={ButtonType.Active}
                         text="Добавить объект"
                         onClick={openAddItemModal}
                         icon={<AddObjectIcon width={18} height={18} />}
                     />
                     <Button
+                        className={styles['FiltersControls-ButtonImport']}
                         view={ButtonType.Active}
                         text="Загрузить файл"
                         onClick={openFileModal}

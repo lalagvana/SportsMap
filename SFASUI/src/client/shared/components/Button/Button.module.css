@@ -6,8 +6,8 @@
     align-items: center;
     justify-content: center;
 
-    width: fit-content;
-    padding: var(--padding-2xs) var(--padding-l);
+    width: 100%;
+    padding: var(--padding-s) var(--padding-l);
 
     font-size: var(--font-size-m);
 
@@ -65,5 +65,13 @@
 
     to {
         transform: rotate(360deg);
+    }
+}
+
+@media (--viewport-tablet) {
+    .Button {
+        width: fit-content;
+        padding: var(--padding-2xs) var(--padding-l);
+
     }
 }

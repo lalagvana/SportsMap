@@ -2,14 +2,15 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    height: 38px;
+    flex-wrap: wrap;
+    gap: var(--space-l);
 }
 
 .WorkingHoursInput-Input {
     display: flex;
     gap: var(--space-s);
     align-items: center;
-    margin-left: 50px;
+    flex-basis: 100%;
 }
 
 .WorkingHoursInput-Input::placeholder {
@@ -17,14 +18,18 @@
 }
 
 .WorkingHoursInput-Day {
-    width: 180px;
+    width: 110px;
     font-size: var(--font-size-l);
+    margin-right: auto;
 }
 
 .WorkingHoursInput-HoursInput {
     box-sizing: border-box;
-    width: 70px;
     text-align: center;
+}
+
+.WorkingHoursInput-Field {
+    width: 100%;
 }
 
 .WorkingHoursInput-Divider {
@@ -35,4 +40,32 @@
     margin-left: var(--space-l);
     font-size: var(--font-size-l);
     color: var(--typography-default-color);
+}
+
+@media (--viewport-phone) {
+    .WorkingHoursInput-Day {
+        width: 180px;
+    }
+
+}
+
+@media (--viewport-tablet) {
+    .WorkingHoursInput {
+        flex-wrap: nowrap;
+    }
+
+    .WorkingHoursInput-Input {
+        flex-basis: auto;
+        margin-left: 50px;
+        height: 38px;
+        gap: 0;
+    }
+
+    .WorkingHoursInput-HoursInput {
+        width: 70px;
+    }
+
+    .WorkingHoursInput-Day {
+        margin-right: 0;
+    }
 }

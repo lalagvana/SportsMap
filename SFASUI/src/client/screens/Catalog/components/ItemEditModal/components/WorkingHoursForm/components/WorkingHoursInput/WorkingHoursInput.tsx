@@ -37,6 +37,7 @@ export const WorkingHoursInput = ({ day }: WorkingHoursInputProps) => {
             {isOpen && (
                 <div className={styles['WorkingHoursInput-Input']}>
                     <TextInputField
+                        className={styles['WorkingHoursInput-Field']}
                         fieldName={`working_hours.${day}.since`}
                         label={`Начало работы в ${rusDay}`}
                         hiddenLabel
@@ -45,6 +46,7 @@ export const WorkingHoursInput = ({ day }: WorkingHoursInputProps) => {
                     />
                     <Divider className={styles['WorkingHoursInput-Divider']} />
                     <TextInputField
+                        className={styles['WorkingHoursInput-Field']}
                         fieldName={`working_hours.${day}.to`}
                         label={`Конец работы в ${rusDay}`}
                         hiddenLabel
