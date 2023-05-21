@@ -7,13 +7,17 @@
     padding: 0;
 
     border: none;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+
 }
 
 .FiltersControls {
     display: flex;
-    gap: 57px;
+    gap:  var(--space-l) 57px;
     justify-content: space-between;
     width: 100%;
+    flex-wrap: wrap;
 }
 
 .FiltersControls-ButtonGroup {
@@ -23,4 +27,42 @@
 
 .FiltersControls-Search {
     width: 100%;
+}
+
+.FiltersControls-Select {
+    flex-basis: 100%;
+}
+
+.FiltersControls-ButtonImport,
+.FiltersControls-ButtonExport,
+.FiltersControls-ButtonAdd {
+    height: 38px;
+
+}
+
+.FiltersControls-ButtonImport,
+.FiltersControls-ButtonExport {
+    display: none;
+}
+
+
+@media (--viewport-phone) {
+    .FiltersControls-Fieldset, .FiltersControls-Select {
+        flex-basis: auto;
+    }
+}
+
+@media (--viewport-tablet) {
+    .FiltersControls-Fieldset {
+        flex-wrap: nowrap;
+    }
+
+    .FiltersControls-ButtonAdd {
+        height: auto;
+    }
+
+    .FiltersControls-ButtonImport,
+    .FiltersControls-ButtonExport {
+        display: flex;
+    }
 }

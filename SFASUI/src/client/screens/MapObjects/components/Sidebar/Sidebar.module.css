@@ -12,4 +12,41 @@
 
 .Sidebar {
     max-height: calc(100% - var(--space-m));
+    height: 100%;
+    width: calc(100% - var(--space-2m));
+}
+
+.Sidebar-DrawerContent > div > div > div {
+    height: 100%;
+}
+
+.Sidebar-ShowButton {
+    margin-top: auto;
+    pointer-events: auto;
+
+    position: absolute;
+    inset: auto 0 0 0;
+    left: calc(-1 * var(--space-2m));
+
+    background-color: var(--white-color);
+    padding: var(--space-xl);
+}
+
+.Sidebar_desktop {
+    display: none;
+}
+
+@media (--viewport-tablet) {
+    .Sidebar_desktop {
+     display: initial;
+    }
+
+    .Sidebar-ShowButton, .Sidebar-Drawer {
+        display: none;
+    }
+
+    .Sidebar {
+        width: var(--width-map-sidebar);
+    }
+
 }

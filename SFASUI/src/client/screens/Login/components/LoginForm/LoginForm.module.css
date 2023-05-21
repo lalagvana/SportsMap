@@ -5,7 +5,7 @@
 
 
 .Login-Button {
-    margin-top: var(--space-2xl);
+    margin-top: var(--space-xl);
 }
 
 .Login-Input {
@@ -16,3 +16,14 @@
     padding: 0;
     margin-top: var(--space-l);
 }
+
+.LoginForm {
+    margin-right: var(--space-xs);
+}
+
+@media (--viewport-tablet) {
+    .Login-Button {
+        margin-top: var(--space-2xl);
+    }
+}
+

@@ -1,13 +1,22 @@
-.Main-Sponsors {
+.Main-Sponsors_desktop, .Main-Sponsors_mobile {
     gap: var(--space-2xl);
     align-items: center;
     justify-content: center;
-
     margin-top: var(--space-2l);
 
-    position: relative;
+}
 
+.Main-Sponsors_mobile {
+    display: flex;
+}
+
+.Main-Sponsors_desktop {
     display: none;
+}
+
+.Main-Sponsors {
+    position: relative;
+    display: initial;
 }
 
 .Main-Surface {
@@ -18,19 +27,21 @@
     bottom: calc(-1 * var(--space-xl));
     height: 231px;
     max-width: 100%;
-
-    display: none;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 .Main {
     background-color: var(--surface-color-0);
 }
 
-@media (--viewport-phone) {
-    .Main-Sponsors {
+@media (--viewport-desktop) {
+    .Main-Sponsors_desktop {
         display: flex;
     }
-    .Main-Surface {
-        display: initial;
+
+    .Main-Sponsors_mobile {
+        display: none;
     }
 }

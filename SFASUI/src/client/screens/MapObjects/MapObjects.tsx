@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Clusterer, Map, Placemark, ZoomControl } from '@pbe/react-yandex-maps';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { getCookie } from "cookies-next";
+import { getCookie } from 'cookies-next';
 
 import { SearchFacilities, useFacilitySearch, useFacilitySearchAll } from 'src/client/shared/utils/api/facilities';
 import { useTheme } from 'src/client/shared/hooks/use-theme';
 import { appLayoutRenderer } from 'src/client/shared/layouts/AppLayout';
+import { Button, ButtonType } from 'src/client/shared/components/Button';
 
 import { Sidebar } from './components/Sidebar';
 import { getPlacemarkIcon, getSearchQuery } from './MapObjects.helpers';
@@ -55,6 +56,13 @@ export const MapObjects = ({
     const { isLight } = useTheme();
     const [activeItem, setActiveItem] = useState<Definitions.FacilityResponse | null>(null);
 
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+    const openItem = useCallback((item) => {
+        setActiveItem(item);
+        setIsDrawerOpen(true);
+    }, []);
+
     return (
         <>
             <Head>
@@ -70,7 +78,12 @@ export const MapObjects = ({
                     isLoading={isValidating}
                     activeItem={activeItem}
                     setActiveItem={setActiveItem}
+                    isDrawerOpen={isDrawerOpen}
+                    setIsDrawerOpen={setIsDrawerOpen}
                 />
+                <div className={styles['MapObjects-ShowButton']}>
+                    <Button view={ButtonType.Clear} text="Показать объекты" onClick={() => setIsDrawerOpen(true)} />
+                </div>
                 <Map
                     width="100%"
                     height="100%"
@@ -88,7 +101,7 @@ export const MapObjects = ({
                     >
                         {sportObjectsListAll?.facilities?.map((item) => (
                             <Placemark
-                                onClick={() => setActiveItem(item)}
+                                onClick={() => openItem(item)}
                                 key={item.id}
                                 modules={['geoObject.addon.hint']}
                                 geometry={[item.x, item.y]}

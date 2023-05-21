@@ -12,3 +12,35 @@
     color: inherit;
     font-weight: inherit;
 }
+
+.ItemEditModal_desktop {
+    display: none;
+}
+
+.ItemEditModal_mobile {
+    margin-top: calc(var(--space-2l) + 3px);
+}
+
+.ItemEditModal-Dots {
+    top: calc(-1 * (var(--space-2l) + 3px)) !important;
+}
+
+.ItemEditModal-Dots button {
+    background: var(--base-default-color) !important;
+}
+
+@media (--viewport-tablet) {
+    .ItemEditModal {
+        width: auto;
+    }
+}
+
+@media (--viewport-tablet) {
+    .ItemEditModal_desktop {
+        display: initial;
+    }
+
+    .ItemEditModal_mobile {
+        display: none;
+    }
+}

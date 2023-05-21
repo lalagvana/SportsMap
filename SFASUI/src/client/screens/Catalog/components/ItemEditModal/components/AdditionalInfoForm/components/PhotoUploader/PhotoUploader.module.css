@@ -1,8 +1,9 @@
 .PhotoUploader-Label {
     display: flex;
-    gap: var(--space-s);
-    align-items: center;
+    gap: var(--space-xs);
+    align-items: flex-start;
     margin-bottom: var(--space-s);
+    flex-direction: column;
 }
 
 .PhotoUploader-Label_main {
@@ -13,4 +14,21 @@
 .PhotoUploader-Label_subtext {
     font-size: var(--font-size-m);
     color: var(--typography-default-color);
+}
+
+
+.PhotoUploader-Button {
+    width: 100%;
+}
+
+@media (--viewport-tablet) {
+    .PhotoUploader-Label {
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-s);
+    }
+
+    .PhotoUploader-Button {
+        width: fit-content;
+    }
 }

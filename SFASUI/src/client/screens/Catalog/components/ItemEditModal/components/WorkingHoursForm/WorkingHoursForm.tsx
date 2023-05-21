@@ -14,7 +14,7 @@ export const WorkingHoursForm = () => {
                     <WorkingHoursInput day={day} />
                 ))}
             </fieldset>
-            <div className={styles['BaseInfo-Image']}>
+            <div className={styles['WorkingHoursForm-Image']}>
                 <Image width={476} height={546} src="/images/Clock.svg" layout="fixed" />
             </div>
         </form>

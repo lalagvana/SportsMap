@@ -10,9 +10,8 @@
     column-gap: var(--space-l);
 
     box-sizing: border-box;
-    width: var(--width-map-sidebar);
     padding: var(--padding-m);
-
+    width: 100%;
     background-color: var(--white-color);
     border-radius: var(--border-radius-l);
     box-shadow: 2px 4px 20px rgb(0 0 0 / 10%);
@@ -47,7 +46,7 @@
 }
 .SidebarItem-Name {
     grid-area: name;
-    max-width: 300px;
+    max-width: 200px;
     margin-bottom: var(--space-l);
 }
 
@@ -68,4 +67,14 @@
 
 .SidebarItem-AgeTags {
     grid-area: age;
+}
+
+@media (--viewport-tablet) {
+    .SidebarItem {
+        width: var(--width-map-sidebar);
+    }
+
+    .SidebarItem-Name {
+        max-width: 300px;
+    }
 }

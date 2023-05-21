@@ -104,10 +104,13 @@ export const useRegisterHandler = () => {
     );
 };
 
-export const useTabs = ({ showForgetPassword }: { showForgetPassword: () => void }) => {
-    const handleSubmitLogin = useLoginHandler();
-    const handleSubmitRegister = useRegisterHandler();
+type UseTabsProps = {
+    showForgetPassword: () => void;
+    handleSubmitLogin: (fields: LoginFields) => Promise<void>;
+    handleSubmitRegister: (fields: RegisterFormField) => Promise<void>;
+};
 
+export const useTabs = ({ showForgetPassword, handleSubmitLogin, handleSubmitRegister }: UseTabsProps) => {
     return useMemo(
         () => [
             {

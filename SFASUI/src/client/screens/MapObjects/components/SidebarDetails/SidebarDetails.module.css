@@ -3,18 +3,15 @@
     position: relative;
 
     box-sizing: border-box;
-    width: var(--width-map-sidebar);
-    padding: var(--padding-xl);
 
     font-size: var(--font-size-m);
 
-    background-color: var(--white-color);
+
     border-radius: var(--border-radius-l);
-    box-shadow: 2px 4px 20px rgb(0 0 0 / 10%);
+
 
     overflow-y: auto;
-    max-height: calc(100vh - 9rem);
-
+    height: 100%;
     overflow-x: hidden;
 
 }
@@ -47,4 +44,15 @@
 
 .SidebarDetails-Name_top {
     margin: calc(var(--space-l) + var(--space-2m)) 0 var(--space-xl);
+}
+
+@media (--viewport-tablet) {
+    .SidebarDetails {
+        box-shadow: 2px 4px 20px rgb(0 0 0 / 10%);
+        background-color: var(--white-color);
+        padding: var(--padding-xl);
+        max-height: calc(100vh - 9rem);
+        width: var(--width-map-sidebar);
+
+    }
 }

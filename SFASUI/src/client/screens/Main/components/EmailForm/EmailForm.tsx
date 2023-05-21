@@ -1,8 +1,11 @@
 import { useCallback, useState } from 'react';
 
 import { Tabs } from 'src/client/shared/components/Tabs';
+import { Carousel } from 'src/client/shared/components/Carousel';
 
 import { useTabs } from './EmailForm.hooks';
+import { ProposalForm } from './components/ProposalForm';
+import { NewObjectForm } from './components/NewObjectForm';
 
 import styles from './EmailForm.module.css';
 
@@ -14,7 +17,22 @@ export const EmailForm = () => {
 
     return (
         <div className={styles['EmailForm']}>
-            <Tabs items={items} activeKey={activeTab} onChange={onTabChange} />
+            <div className={styles['EmailForm_desktop']}>
+                <Tabs items={items} activeKey={activeTab} onChange={onTabChange} />
+            </div>
+            <div className={styles['EmailForm_mobile']}>
+                <Carousel
+                    draggable
+                    infinite={false}
+                    dotPosition="top"
+                    adaptiveHeight
+                    centerPadding="100px"
+                    dots={{ className: styles['EmailForm-Dots'] }}
+                >
+                    <ProposalForm />
+                    <NewObjectForm />
+                </Carousel>
+            </div>
         </div>
     );
 };

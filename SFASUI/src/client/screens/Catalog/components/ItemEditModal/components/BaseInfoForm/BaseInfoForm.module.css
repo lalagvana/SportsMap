@@ -2,23 +2,51 @@
     display: flex;
     gap: var(--space-2l);
     justify-content: space-between;
+    flex-direction: column;
+    margin-right: var(--space-xs);
 }
 
 .BaseInfo-Column {
     display: flex;
-    flex-basis: 50%;
+    flex-basis: 100%;
     flex-direction: column;
     gap: var(--space-2m);
     justify-content: flex-start;
-
 }
 
 .BaseInfo-InputSection {
     display: flex;
-    gap: var(--space-2l);
+    gap: var(--space-l);
 }
 
 .BaseInfo-Input {
     width: 100%;
-    max-width: 327px;
+}
+
+.BaseInfo-Owner {
+    flex-grow: 1;
+}
+
+@media (--viewport-tablet) {
+    .BaseInfo {
+        flex-direction: row;
+
+        margin-right: 0;
+    }
+
+    .BaseInfo-Owner {
+        flex-grow: 0;
+    }
+
+    .BaseInfo-Column {
+        flex-basis: 50%;
+    }
+
+    .BaseInfo-Input {
+        max-width: 327px;
+    }
+
+    .BaseInfo-InputSection {
+        gap: var(--space-2l);
+    }
 }

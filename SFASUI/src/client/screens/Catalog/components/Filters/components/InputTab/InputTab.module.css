@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: var(--space-2m) var(--space-2xl);
+    gap: var(--space-l);
 
     margin: 0;
     padding: var(--padding-m) 0;
@@ -28,4 +28,11 @@ input.InputTab-TextField {
     margin-left: var(--space-xs);
     font-family: var(--ubuntu);
     font-size: var(--font-size-m);
+}
+
+@media (--viewport-tablet) {
+    .CheckboxTab {
+        row-gap: var(--space-2m);
+        column-gap: var(--space-2xl);
+    }
 }

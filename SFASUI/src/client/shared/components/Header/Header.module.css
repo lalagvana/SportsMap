@@ -46,7 +46,7 @@ nav.Header-Links {
 
 .Header-Burger {
     margin-right: auto;
-
+    width: fit-content;
 }
 
 .Header-Burger path {

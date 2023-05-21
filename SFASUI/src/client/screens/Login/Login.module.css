@@ -8,8 +8,9 @@
 }
 
 .Login-Form {
+    position: relative;
     background-color: var(--white-color);
-    padding: 60px 100px;
+    padding: calc(var(--space-2l) + 3px) var(--space-xl) var(--space-xl);
     border-radius: var(--border-radius-l);
     width: calc(100% - var(--space-xl) * 2);
     box-sizing: border-box;
@@ -31,19 +32,40 @@
 }
 
 .Login_light {
-    background-image: url("/images/LoginBackground.png");
+    background-image: url('/images/LoginBackground.png');
 }
 
 .Login_dark {
-    background-image: url("/images/LoginBackground_dark.png");
+    background-image: url('/images/LoginBackground_dark.png');
+}
+
+.Login-Form_desktop {
+    display: none;
+}
+
+.Login-Dots {
+    top: calc(-1 * (var(--space-2l) + 3px)) !important;
+}
+
+.Login-Dots button {
+    background: var(--base-default-color) !important;
 }
 
 @media (--viewport-tablet) {
-    .Login-Form {
-        width: 646px;
-    }
-
     .Login-TabTitle {
         width: 125px;
+    }
+
+    .Login-Form_desktop {
+        display: initial;
+    }
+
+    .Login-Form_mobile {
+        display: none;
+    }
+
+    .Login-Form {
+        padding: 60px 100px;
+        width: 646px;
     }
 }

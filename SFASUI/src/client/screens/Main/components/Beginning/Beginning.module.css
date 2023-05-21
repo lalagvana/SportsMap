@@ -68,7 +68,7 @@
     margin: 0;
 
     font-family: var(--ubuntu);
-    font-size: 52px;
+    font-size: 32px;
     font-weight: var(--font-weight-bold);
     color: var(--white-color);
     letter-spacing: 1px;
@@ -83,6 +83,7 @@
 
 .Beginning-Button {
     background-color: #ea6d0a;
+    width: fit-content;
 }
 
 .Beginning-LinkText {
@@ -90,4 +91,11 @@
     font-size: var(--font-size-m);
     font-weight: var(--font-weight-medium);
     color: var(--special-white-color);
+}
+
+
+@media (--viewport-tablet) {
+    .Beginning-Heading {
+        font-size: 52px;
+    }
 }

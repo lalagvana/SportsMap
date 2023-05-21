@@ -7,7 +7,7 @@
 }
 
 .Register-Button {
-    margin-top: var(--space-2xl);
+    margin-top: var(--space-xl);
 }
 
 .Register-Input_noIcon {
@@ -16,4 +16,15 @@
 
 .Register-Input, .Register-Input_noIcon {
     flex-grow: 1;
+}
+
+.RegisterForm {
+    margin-left: var(--space-xs);
+}
+
+@media (--viewport-tablet) {
+
+    .Register-Button {
+        margin-top: var(--space-2xl);
+    }
 }

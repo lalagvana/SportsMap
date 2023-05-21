@@ -31,9 +31,16 @@ export const Main = ({ facilityObjects: initialFacilityObjects }: MainScreenPage
                     viewport={{ once: true }}
                 >
                     {!isLight && <div className={styles['Main-Surface']} />}
-                    <Image width={297} height={80} src="/images/contacts/spbu.svg" layout="fixed" />
-                    <Image width={226} height={80} src="/images/contacts/admin_dis.svg" layout="fixed" />
-                    <Image width={243} height={80} src="/images/contacts/admin_spb.svg" layout="fixed" />
+                    <div className={styles['Main-Sponsors_desktop']}>
+                        <Image width={297} height={80} src="/images/contacts/spbu.svg" layout="fixed" />
+                        <Image width={226} height={80} src="/images/contacts/admin_dis.svg" layout="fixed" />
+                        <Image width={243} height={80} src="/images/contacts/admin_spb.svg" layout="fixed" />
+                    </div>
+                    <div className={styles['Main-Sponsors_mobile']}>
+                        <Image width={44} height={50} src="/images/contacts/spbu_mobile.svg" layout="fixed" />
+                        <Image width={44} height={50} src="/images/contacts/admin_dis_mobile.svg" layout="fixed" />
+                        <Image width={44} height={50} src="/images/contacts/admin_spb_mobile.svg" layout="fixed" />
+                    </div>
                 </motion.section>
                 <Features />
                 <MapView initialFacilityObjects={initialFacilityObjects} />

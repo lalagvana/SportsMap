@@ -19,7 +19,7 @@
     background-color: rgba(var(--transparent-white), 60%);
     border-radius: var(--border-radius-l);
     padding: var(--space-l);
-    max-width: 300px;
+    width: 100%;
     pointer-events: auto;
     box-sizing: border-box;
 }
@@ -32,6 +32,8 @@
     margin: 0;
     font-weight: var(--font-weight-medium);
     font-size: var(--font-size-l);
+
+    text-align: center;
 }
 
 .MapView-DetailsLinkText {
@@ -61,8 +63,19 @@
     }
 }
 
+@media (--viewport-tablet) {
+    .MapView-Details {
+        max-width: 300px;
+    }
+
+    .MapView-DetailsText {
+        text-align: left;
+    }
+}
+
 
 @media (--viewport-desktop) {
+
     .MapView-Hint {
         inset: auto 0 var(--space-xl) auto;
     }

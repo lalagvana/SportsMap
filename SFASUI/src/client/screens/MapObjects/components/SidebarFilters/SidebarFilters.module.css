@@ -13,7 +13,7 @@
 }
 
 .SidebarFilters-Search {
-    width: var(--width-map-sidebar);
+    width: calc(var(--width-map-sidebar) - 37px + var(--space-m));
 }
 
 button.SidebarFilters-Toggle {
@@ -27,9 +27,54 @@ button.SidebarFilters-Toggle_closed {
     background-color: var(--white-color);
 }
 
+.SidebarFilters_desktop {
+    display: none;
+
+    flex-flow: row wrap;
+    gap: var(--space-m);
+
+}
+
+.SidebarFilters_mobile {
+    display: initial;
+}
+
+.SidebarFilters-Drawer {
+    background-color: var(--white-color);
+
+}
+
+.SidebarFilters-DrawerContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+
 @media (--viewport-tablet) {
     .SidebarFilters {
-        width: auto;
+        width: calc(var(--width-map-sidebar) + 37px + var(--space-m));
+    }
+
+    .SidebarFilters_desktop {
+        display: flex;
+
+    }
+
+    .SidebarFilters_mobile {
+        display: none;
+    }
+
+    .SidebarFilters-Search {
+        width: var(--width-map-sidebar);
     }
 }
+
+@media (--viewport-desktop) {
+    .SidebarFilters {
+        width: max-content;
+    }
+}
+
+
 

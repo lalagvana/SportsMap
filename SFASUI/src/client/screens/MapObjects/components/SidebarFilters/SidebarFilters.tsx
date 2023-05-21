@@ -1,19 +1,32 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { mutate } from 'swr';
 
 import { Button, ButtonType } from 'src/client/shared/components/Button';
 import { QuerySelect } from 'src/client/shared/components/QuerySelect';
 import { QuerySearch } from 'src/client/shared/components/QuerySearch';
 import { apiRoutes } from 'src/client/shared/utils/api/apiRoutes';
+import { Drawer } from 'src/client/shared/components/Drawer';
 
 import { useFilters } from './SidebarFilters.hooks';
 
 import styles from './SidebarFilters.module.css';
 
 export const SidebarFilters = () => {
-    const [isOpen, setOpen] = useState(true);
+    const [isOpen, setOpen] = useState(false);
     const filters = useFilters();
+
+    const filtersComponent = useMemo(
+        () =>
+            filters.map((selectProps) => (
+                <QuerySelect
+                    {...selectProps}
+                    key={selectProps.name}
+                    onSuccess={() => mutate(`map${apiRoutes.facilitySearch}`)}
+                />
+            )),
+        [filters]
+    );
 
     return (
         <fieldset className={styles['SidebarFilters']}>
@@ -37,14 +50,17 @@ export const SidebarFilters = () => {
                     />
                 }
             />
-            {isOpen &&
-                filters.map((selectProps) => (
-                    <QuerySelect
-                        {...selectProps}
-                        key={selectProps.name}
-                        onSuccess={() => mutate(`map${apiRoutes.facilitySearch}`)}
-                    />
-                ))}
+            {isOpen && <div className={styles['SidebarFilters_desktop']}>{filtersComponent}</div>}
+            <Drawer
+                open={isOpen}
+                rootClassName={styles['SidebarFilters_mobile']}
+                className={styles['SidebarFilters-Drawer']}
+                placement="bottom"
+                onClose={() => setOpen(false)}
+                closable={false}
+            >
+                <div className={styles['SidebarFilters-DrawerContent']}>{filtersComponent}</div>
+            </Drawer>
         </fieldset>
     );
 };

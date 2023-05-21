@@ -1,33 +1,40 @@
 .AdditionalInfo {
     display: flex;
     gap: var(--space-2l);
+    flex-direction: column;
+    padding: 1px;
+    margin-left: var(--space-xs);
 }
 
 .AdditionalInfo-Column {
     display: flex;
-    flex-basis: 50%;
+    flex-basis: 100%;
     flex-direction: column;
     gap: var(--space-l);
-    max-width: 50%;
+    max-width: 100%;
 }
 
 .AdditionalInfo-InputSection {
     display: flex;
     gap: var(--space-l);
     justify-content: flex-start;
+    flex-direction: column;
+}
+
+.AdditionalInfo-InputSection input {
+    width: 100%;
 }
 
 .AdditionalInfo-NumberInput {
     box-sizing: border-box;
-    width: 67px;
+    width: 100%;
     text-align: center;
 }
 
 
 .AdditionalInfo-CapacityInput {
-    box-sizing: border-box;
-    width: 87px;
     text-align: center;
+    width: 100%;
 }
 
 .AdditionalInfo-Header {
@@ -45,4 +52,43 @@
     color: var(--typography-default-color);
     margin: 0;
     font-size: var(--font-size-m);
+}
+
+@media (--viewport-phone) {
+    .AdditionalInfo-InputSection {
+        flex-direction: row;
+    }
+
+}
+
+    @media (--viewport-tablet) {
+    .AdditionalInfo {
+        flex-direction: row;
+        margin-left: 0;
+    }
+
+    .AdditionalInfo-Column {
+        flex-basis: 50%;
+        max-width: 50%;
+    }
+
+
+
+
+    .AdditionalInfo-ActualWorkload {
+        flex-grow: 1;
+    }
+
+    .AdditionalInfo-InputSection input {
+        width: auto;
+    }
+
+    input.AdditionalInfo-NumberInput {
+        width: 67px;
+    }
+
+    input.AdditionalInfo-CapacityInput {
+        box-sizing: border-box;
+        width: 87px;
+    }
 }

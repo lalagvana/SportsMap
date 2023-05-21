@@ -5,11 +5,16 @@ import { Modal } from 'src/client/shared/components/Modal';
 import { Tabs } from 'src/client/shared/components/Tabs';
 import { Button } from 'src/client/shared/components/Button';
 import { FacilityType } from 'src/client/shared/types/facilities';
+import { Carousel } from 'src/client/shared/components/Carousel';
 
 import { useOnNextTab, useTabs } from './ItemEditModal.hooks';
 import { useSchema } from './ItemEditModal.schema';
+import { BaseInfoForm } from "./components/BaseInfoForm";
+import { WorkingHoursForm } from "./components/WorkingHoursForm";
+import { AdditionalInfoForm } from "./components/AdditionalInfoForm";
 
 import styles from './ItemEditModal.module.css';
+
 
 type ItemEditModalProps = {
     handleSubmit: (fields: FacilityType, formikHelpers: FormikHelpers<FacilityType>) => Promise<void>;
@@ -56,7 +61,23 @@ export const ItemEditModal = ({ handleSubmit, initialValues, hide, isNew, classN
                 afterClose={hide}
                 onCancel={hide}
             >
-                <Tabs items={items} activeKey={activeTab} onChange={onTabChange} />
+                <div className={styles['ItemEditModal_desktop']}>
+                    <Tabs items={items} activeKey={activeTab} onChange={onTabChange} />
+                </div>
+                <div className={styles['ItemEditModal_mobile']}>
+                    <Carousel
+                        draggable
+                        infinite={false}
+                        dotPosition="top"
+                        adaptiveHeight
+                        centerPadding="100px"
+                        dots={{ className: styles['ItemEditModal-Dots'] }}
+                    >
+                        <BaseInfoForm />
+                        <WorkingHoursForm />
+                        <AdditionalInfoForm isNew={isNew} />
+                    </Carousel>
+                </div>
             </Modal>
         </FormikProvider>
     );

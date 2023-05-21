@@ -9,7 +9,7 @@
     column-gap: var(--space-l);
 
     box-sizing: border-box;
-    width: var(--width-map-sidebar);
+    width: 100%;
     padding: var(--padding-m);
 
     background-color: var(--white-color);
@@ -42,4 +42,10 @@
     grid-area: age;
     height: 24px;
     border-radius: var(--border-radius-m);
+}
+
+@media (--viewport-tablet) {
+    .SidebarItemSkeleton {
+        width: var(--width-map-sidebar);
+    }
 }
