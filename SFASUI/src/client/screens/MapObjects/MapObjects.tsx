@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { Clusterer, Map, Placemark, ZoomControl } from '@pbe/react-yandex-maps';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -55,16 +55,14 @@ export const MapObjects = ({
 
     const { isLight } = useTheme();
 
-    const [mapState, setMapState] = useState({
-        center: [59.9386, 30.3141],
-        zoom: 13,
-    });
+    const mapRef = useRef(null);
 
     const [activeItem, setActiveItem] = useState<Definitions.FacilityResponse | null>(null);
 
     const onOpenItem = useCallback((item: Definitions.FacilityResponse | null) => {
-        if (item) {
-            setMapState({ center: [item.x, item.y], zoom: 18 });
+        if (item && mapRef.current) {
+            mapRef.current.options.set('maxAnimationZoomDifference', Infinity);
+            mapRef.current.panTo([item.x, item.y]).then(() => mapRef.current.setZoom(18, { duration: 500 }));
         }
         setActiveItem(item);
         setIsDrawerOpen(true);
@@ -96,11 +94,11 @@ export const MapObjects = ({
                 <Map
                     width="100%"
                     height="100%"
+                    instanceRef={mapRef}
                     defaultState={{
                         center: [59.9386, 30.3141],
                         zoom: 13,
                     }}
-                    state={mapState}
                 >
                     <ZoomControl options={{ position: { right: 20, top: '30vh' } }} />
                     <Clusterer
