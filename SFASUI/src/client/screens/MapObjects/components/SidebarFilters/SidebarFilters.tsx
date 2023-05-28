@@ -22,7 +22,12 @@ export const SidebarFilters = () => {
                 <QuerySelect
                     {...selectProps}
                     key={selectProps.name}
-                    onSuccess={() => mutate(`map${apiRoutes.facilitySearch}`)}
+                    onSuccess={() =>
+                        Promise.all([
+                            mutate(`map${apiRoutes.facilitySearch}`),
+                            mutate(`all${apiRoutes.facilitySearch}`),
+                        ])
+                    }
                 />
             )),
         [filters]
@@ -43,8 +48,8 @@ export const SidebarFilters = () => {
                 ].join(' ')}
                 icon={
                     <Image
-                        width={37}
-                        height={37}
+                        width={38}
+                        height={38}
                         src={isOpen ? '/icons/filters_active.svg' : '/icons/filters_default.svg'}
                         layout="fixed"
                     />

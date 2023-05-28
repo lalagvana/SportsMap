@@ -3,18 +3,17 @@
 
     display: grid;
     grid-template-areas:
-        'name photo'
-        'age photo'
-        'address photo';
-    grid-template-columns: 1fr 135px;
+        'name name'
+        'age age'
+        'address address';
     column-gap: var(--space-l);
 
     box-sizing: border-box;
     padding: var(--padding-m);
-    width: 100%;
+    width:100%;
     background-color: var(--white-color);
-    border-radius: var(--border-radius-l);
-    box-shadow: 2px 4px 20px rgb(0 0 0 / 10%);
+    border-radius: var(--border-radius-l);        box-shadow: 2px 4px 20px rgb(0 0 0 / 10%);
+
 }
 
 .SidebarItem path {
@@ -32,7 +31,7 @@
     border-radius: var(--border-radius-l);
     background-color: var(--decorative-color);
 
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
 }
@@ -46,7 +45,8 @@
 }
 .SidebarItem-Name {
     grid-area: name;
-    max-width: 200px;
+    width: 100%;
+    max-width: 250px;
     margin-bottom: var(--space-l);
 }
 
@@ -72,9 +72,21 @@
 @media (--viewport-tablet) {
     .SidebarItem {
         width: var(--width-map-sidebar);
+        grid-template-areas:
+        'name photo'
+        'age photo'
+        'address photo';
+        grid-template-columns: 1fr 135px;
+        box-shadow: none;
+
     }
 
     .SidebarItem-Name {
         max-width: 300px;
     }
+
+    .SidebarItem-Photo {
+        display: flex;
+    }
+
 }

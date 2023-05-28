@@ -72,7 +72,7 @@ export const MapView = ({ initialFacilityObjects }: MapViewProps) => {
                     <p className={styles['MapView-DetailsText']}>Подробнее узнать об объекте Вы можете на карте</p>
                     <Button className={styles['MapView-DetailsButton']}>
                         <Link passHref href={pageRoutes.map}>
-                            <a>
+                            <a href={pageRoutes.map}>
                                 <span className={styles['MapView-DetailsLinkText']}>Перейти на карту</span>
                             </a>
                         </Link>

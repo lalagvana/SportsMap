@@ -1,7 +1,6 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { deleteCookie, hasCookie } from 'cookies-next';
+import { hasCookie } from 'cookies-next';
 
 import { Button, ButtonType } from 'src/client/shared/components/Button';
 import { pageRoutes } from 'src/client/shared/routes';
@@ -9,6 +8,7 @@ import { pageRoutes } from 'src/client/shared/routes';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
 import { Burger } from './components/Burger';
 import { HeaderLinks } from './components/HeaderLinks';
+import { useLogoutHandler } from "./Header.hooks";
 
 import Exit from 'public/icons/auth/exit.svg';
 import User from 'public/icons/user.svg';
@@ -25,18 +25,9 @@ type HeaderProps = {
 };
 
 export const Header = ({ className }: HeaderProps) => {
-    const { reload } = useRouter();
-
     const isLogged = hasCookie('sportsmap_token');
 
-    const logoutHandler = useCallback( () => {
-        deleteCookie('sportsmap_token');
-        deleteCookie('sportsmap_expiresIn');
-        deleteCookie('sportsmap_refreshToken');
-        deleteCookie('sportsmap_is_admin');
-
-        reload();
-    }, [reload]);
+    const logoutHandler = useLogoutHandler();
 
     return (
         <header className={[styles['Header'], className].join(' ')}>
@@ -60,7 +51,7 @@ export const Header = ({ className }: HeaderProps) => {
                             className={styles['Header-UserLogout']}
                         />
                     ) : (
-                        <Link passHref href="/login">
+                        <Link passHref href={pageRoutes.login}>
                             <a className={styles['Header-UserLink']}>
                                 <User width={40} height={40} />
                             </a>

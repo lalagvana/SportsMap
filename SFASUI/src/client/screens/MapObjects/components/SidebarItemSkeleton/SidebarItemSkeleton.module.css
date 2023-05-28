@@ -1,12 +1,11 @@
 .SidebarItemSkeleton {
     display: grid;
     grid-template-areas:
-        'name photo'
-        'address photo'
-        'age photo';
-    grid-template-columns: 1fr 135px;
-    grid-template-rows: auto max-content 1fr;
+        'name name'
+        'age age'
+        'address address';
     column-gap: var(--space-l);
+    row-gap: var(--space-m);
 
     box-sizing: border-box;
     width: 100%;
@@ -15,6 +14,8 @@
     background-color: var(--white-color);
     border-radius: var(--border-radius-l);
     box-shadow: 2px 4px 20px rgb(0 0 0 / 10%);
+
+    height: 140px;
 }
 
 .SidebarItemSkeleton-Photo {
@@ -22,12 +23,12 @@
     width: 135px;
     height: 135px;
     border-radius: var(--border-radius-l);
+    display: none;
 }
 
 .SidebarItemSkeleton-Name {
     grid-area: name;
-    height: 42px;
-    margin-bottom: var(--space-l);
+    height: 24px;
     border-radius: var(--border-radius-m);
 }
 
@@ -47,5 +48,24 @@
 @media (--viewport-tablet) {
     .SidebarItemSkeleton {
         width: var(--width-map-sidebar);
+        grid-template-areas:
+        'name photo'
+        'age photo'
+        'address photo';
+        grid-template-rows: auto max-content 1fr;
+        grid-template-columns: auto min-content;
+        height: auto;
+        box-shadow: none;
+    }
+
+    .SidebarItemSkeleton-Name {
+        max-width: 100%;
+        height: 42px;
+        margin-bottom: var(--space-l);
+    }
+
+    .SidebarItemSkeleton-Photo {
+        display: flex;
     }
 }
+

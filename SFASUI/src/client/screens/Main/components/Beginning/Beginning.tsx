@@ -25,7 +25,7 @@ export const Beginning = ({ className }: BeginningProps) => {
             ].join(' ')}
         >
             <article className={styles['Beginning-Greeting']}>
-                <h1 className={styles['Beginning-Heading']}>{`Здоровое тело -\nв здоровом поиске!`}</h1>
+                <h1 className={styles['Beginning-Heading']}>{`Здоровое тело -\nв\u00A0здоровом поиске!`}</h1>
                 <p className={styles['Beginning-Caption']}>
                     Интерактивная карта поможет найти для себя и своих близких место для занятий спортом
                 </p>

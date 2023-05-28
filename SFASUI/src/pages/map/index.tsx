@@ -1,6 +1,6 @@
 import React from 'react';
 import { GetServerSideProps } from 'next';
-import { getCookie } from "cookies-next";
+import { getCookie } from 'cookies-next';
 
 import { ExtendedNextPage } from 'src/client/shared/types/next';
 import { searchFacility } from 'src/client/shared/utils/api/facilities';
@@ -17,9 +17,12 @@ type MapPageProps = {
 export const getServerSideProps: GetServerSideProps<MapPageProps> = async ({ query }) => {
     const isLogged = getCookie('sportsmap_is_admin');
 
-    const facilityObjects = await searchFacility({ hidden: isLogged ? undefined : false }, 'https://sportsmap.spb.ru/');
-
     const searchQuery = getSearchQuery(query);
+
+    const facilityObjects = await searchFacility(
+        { ...searchQuery, hidden: isLogged ? undefined : false, limit: undefined, offset: undefined },
+        'https://sportsmap.spb.ru/'
+    );
 
     const facilityObjectsQuery = await searchFacility(searchQuery, 'https://sportsmap.spb.ru/');
 

@@ -58,6 +58,10 @@ nav.Header-Links {
     padding: 0;
 }
 
+.Header-UserLogout, .Header-UserLink {
+    display: none;
+}
+
 @media (--viewport-wide-desktop) {
     .Header-Content {
         max-width: var(--width-max-content);
@@ -77,5 +81,9 @@ nav.Header-Links {
 
     .Header-Logo {
         margin-right: auto;
+    }
+
+    .Header-UserLogout, .Header-UserLink {
+        display: flex;
     }
 }

@@ -25,8 +25,8 @@ export const Burger = ({ className }: BurgerProps) => {
                 view={ButtonType.Clear}
                 onClick={open}
             />
-            <Drawer open={isVisible} onClose={hide} placement="top" height={230} closable={false}>
-                <HeaderLinks className={styles['Burger-Links']}/>
+            <Drawer open={isVisible} onClose={hide} placement="top" height={300} closable={false}>
+                <HeaderLinks className={styles['Burger-Links']} hide={hide}/>
             </Drawer>
         </>
     );

@@ -12,6 +12,7 @@
 .HeaderLinks-Link {
     font-family: var(--ubuntu);
     color: var(--base-default-color);
+    font-size: var(--font-size-2xs);
 }
 
 .HeaderLinks-Link_active {
