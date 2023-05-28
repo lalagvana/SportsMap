@@ -25,6 +25,7 @@ export default function App({ Component, pageProps }: Omit<AppProps, 'Component'
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <title>SportsMap - твоя спортивная карта Санкт-Петербурга</title>
+
             </Head>
             <YMaps query={{ apikey: 'f90d801e-5706-4c4d-96df-2742aec12e8f' }}>
                 <ThemeConfigProvider>{layoutRenderer(<Component {...pageProps} />)}</ThemeConfigProvider>

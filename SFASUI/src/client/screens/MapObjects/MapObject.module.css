@@ -22,7 +22,7 @@
 
     background-color: var(--white-color);
     padding: var(--space-xl);
-    z-index: 10;
+    z-index: 100;
 }
 
 @media (--viewport-tablet) {

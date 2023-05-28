@@ -44,7 +44,7 @@ export const MapObjects = ({
     const isLogged = getCookie('sportsmap_is_admin');
 
     const { data: sportObjectsListAll } = useFacilitySearchAll(
-        { hidden: isLogged ? undefined : false },
+        { ...searchQuery, hidden: isLogged ? undefined : false, limit: undefined, offset: undefined },
         {
             fallbackData: initialFacilityObjects,
             revalidateOnFocus: false,
@@ -54,14 +54,23 @@ export const MapObjects = ({
     );
 
     const { isLight } = useTheme();
+
+    const [mapState, setMapState] = useState({
+        center: [59.9386, 30.3141],
+        zoom: 13,
+    });
+
     const [activeItem, setActiveItem] = useState<Definitions.FacilityResponse | null>(null);
 
-    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
-    const openItem = useCallback((item) => {
+    const onOpenItem = useCallback((item: Definitions.FacilityResponse | null) => {
+        if (item) {
+            setMapState({ center: [item.x, item.y], zoom: 18 });
+        }
         setActiveItem(item);
         setIsDrawerOpen(true);
     }, []);
+
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
     return (
         <>
@@ -77,7 +86,7 @@ export const MapObjects = ({
                     items={sportObjectsList?.facilities}
                     isLoading={isValidating}
                     activeItem={activeItem}
-                    setActiveItem={setActiveItem}
+                    setActiveItem={onOpenItem}
                     isDrawerOpen={isDrawerOpen}
                     setIsDrawerOpen={setIsDrawerOpen}
                 />
@@ -91,6 +100,7 @@ export const MapObjects = ({
                         center: [59.9386, 30.3141],
                         zoom: 13,
                     }}
+                    state={mapState}
                 >
                     <ZoomControl options={{ position: { right: 20, top: '30vh' } }} />
                     <Clusterer
@@ -101,7 +111,7 @@ export const MapObjects = ({
                     >
                         {sportObjectsListAll?.facilities?.map((item) => (
                             <Placemark
-                                onClick={() => openItem(item)}
+                                onClick={() => onOpenItem(item)}
                                 key={item.id}
                                 modules={['geoObject.addon.hint']}
                                 geometry={[item.x, item.y]}

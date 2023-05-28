@@ -20,7 +20,7 @@
     margin: 0 auto 76px;
 
     font-family: var(--ubuntu);
-    font-size: 48px;
+    font-size: 28px;
     font-weight: var(--font-weight-bold);
     color: var(--special-white-color);
     text-align: center;
@@ -30,7 +30,7 @@
 
 .Development-HintText {
     font-family: var(--ubuntu);
-    font-size: var(--font-size-2xs);
+    font-size: var(--font-size-l);
     font-weight: var(--font-weight-medium);
     color: var(--special-white-color);
     white-space: pre-wrap;

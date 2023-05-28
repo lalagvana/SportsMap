@@ -10,6 +10,8 @@
 
     border: none;
     width: var(--width-map-sidebar);
+
+    align-items: center;
 }
 
 .SidebarFilters-Search {
