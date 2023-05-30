@@ -5,7 +5,7 @@
     height: 70px;
 
     background-color: var(--surface-color-0);
-    box-shadow: 2px 4px 20px rgb(0 0 0 / 10%);
+    box-shadow: var(--box-shadow-default);
 
     position: sticky;
 

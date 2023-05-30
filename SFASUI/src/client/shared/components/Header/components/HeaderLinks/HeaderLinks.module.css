@@ -19,3 +19,10 @@
     font-weight: var(--font-weight-bold);
     color: var(--base-secondary-color);
 }
+
+@media (--viewport-tablet) {
+    .HeaderLinks-Link_login {
+        display: none;
+    }
+}
+

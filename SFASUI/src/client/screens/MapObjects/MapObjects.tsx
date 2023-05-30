@@ -23,7 +23,7 @@ export const MapObjects = ({
     facilityObjects: initialFacilityObjects,
     facilityObjectsQuery: initialFacilityObjectsQuery,
 }: MapObjectsPageProps) => {
-    const { query } = useRouter();
+    const { query, push } = useRouter();
     const searchQuery = getSearchQuery(query);
 
     const {
@@ -96,7 +96,7 @@ export const MapObjects = ({
                     height="100%"
                     instanceRef={mapRef}
                     defaultState={{
-                        center: [59.9386, 30.3141],
+                        center: [59.964462, 30.460398],
                         zoom: 13,
                     }}
                 >
@@ -105,6 +105,8 @@ export const MapObjects = ({
                         options={{
                             clusterIconColor: isLight ? '#59C2E7' : '#5F85DB',
                             groupByCoordinates: false,
+                            hasBalloon: true,
+                            hasHint: true,
                         }}
                     >
                         {sportObjectsListAll?.facilities?.map((item) => (

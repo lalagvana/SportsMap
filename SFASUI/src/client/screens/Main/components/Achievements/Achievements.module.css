@@ -117,3 +117,10 @@
         align-self: flex-start;
     }
 }
+
+
+@media (--viewport-tablet) {
+    .Achievements-BigHeading {
+        font-size: 48px;
+    }
+}

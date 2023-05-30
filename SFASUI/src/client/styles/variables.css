@@ -30,7 +30,7 @@
     --width-max-content: 1520px;
     --width-catalog-item: 356px;
     --width-map-sidebar: 500px;
-
+    --box-shadow-default: 2px 4px 20px rgb(0 0 0 / 10%);
 }
 
 
@@ -41,6 +41,6 @@
         --font-size-2xs: 18px;
         --font-size-xl: 20px;
         --width-map-sidebar: calc(100% - var(--space-xl));
-
+        --box-shadow-default: 0 0 12px rgb(0 0 0 / 10%);
     }
 }

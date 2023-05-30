@@ -9,7 +9,7 @@
 
     background-color: var(--surface-color-0);
     border-radius: var(--border-radius-l);
-    box-shadow: 2px 4px 20px rgb(0 0 0 / 10%);
+    box-shadow: var(--box-shadow-default);
 }
 
 .CatalogCard-Text {

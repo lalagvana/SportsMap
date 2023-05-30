@@ -38,7 +38,7 @@
 .Features-Text,
 .Features-TextLink {
     font-family: var(--ubuntu);
-    font-size: var(--font-size-2xs);
+    font-size: var(--font-size-l);
     font-weight: var(--font-weight-medium);
     color: var(--black-color);
 }
@@ -90,6 +90,11 @@
 @media (--viewport-tablet) {
     .Features-Image {
         margin-left: 20%;
+    }
+
+    .Features-Text,
+    .Features-TextLink {
+        font-size: var(--font-size-2xs);
     }
 
 }
