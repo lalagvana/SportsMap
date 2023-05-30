@@ -41,13 +41,14 @@ export const HeaderLinks = ({ className, hide }: HeaderLinksProps) => {
             ))}
             {isLogged ? (
                 <Button view={ButtonType.Clear} onClick={logoutHandler}>
-                    <span className={styles['HeaderLinks-Link']}>Выйти</span>
+                    <span className={[styles['HeaderLinks-Link'], styles['HeaderLinks-Link_login']].join(' ')}>Выйти</span>
                 </Button>
             ) : (
                 <Link passHref href={pageRoutes.login}>
                     <a
                       onClick={hide}
                         className={[
+                            styles['HeaderLinks-Link_login'],
                             styles['HeaderLinks-Link'],
                             pathname === pageRoutes.login ? styles['HeaderLinks-Link_active'] : '',
                         ].join(' ')}

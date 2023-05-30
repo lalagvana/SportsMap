@@ -4,7 +4,7 @@ import { getCookie } from "cookies-next";
 import { LIMIT, SEARCH_QUERY } from './MapObjects.constants';
 
 export const getSearchQuery = (query: NextRouter['query']) => {
-    const { page = 1, q = '', type, age, paying_type } = query;
+    const { page = 1, q = '', type, age, paying_type, x, y } = query;
 
     const isLogged = getCookie('sportsmap_is_admin');
 
@@ -12,6 +12,8 @@ export const getSearchQuery = (query: NextRouter['query']) => {
         ...SEARCH_QUERY,
         offset: LIMIT * (Number(page) - 1),
         q: q ? String(q) : undefined,
+        x: x ? x : undefined,
+        y: y ? y : undefined,
         type: type ? [String(type)] : undefined,
         age: age ? [String(age)] : undefined,
         paying_type: paying_type ? [String(paying_type)] : undefined,

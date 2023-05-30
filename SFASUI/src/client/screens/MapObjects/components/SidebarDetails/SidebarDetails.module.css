@@ -48,7 +48,7 @@
 
 @media (--viewport-tablet) {
     .SidebarDetails {
-        box-shadow: 2px 4px 20px rgb(0 0 0 / 10%);
+        box-shadow: var(--box-shadow-default);
         background-color: var(--white-color);
         padding: var(--padding-xl);
         max-height: calc(100vh - 9rem);

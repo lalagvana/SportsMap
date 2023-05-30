@@ -1,5 +1,5 @@
 .Development {
-    min-height: 913px;
+    min-height: 1150px;
     padding: 26px 0 var(--space-xl);
     background-size: cover;
 }
@@ -68,5 +68,20 @@
 @media (--viewport-desktop) {
     .Development-ContactsBlock {
         display: initial;
+    }
+}
+
+@media (--viewport-tablet) {
+    .Development-BigHeading {
+        font-size: 48px;
+    }
+
+    .Development-HintText {
+        font-size: var(--font-size-2xs);
+    }
+
+    .Development {
+        height: auto;
+        min-height: 913px;
     }
 }

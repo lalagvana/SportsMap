@@ -35,9 +35,9 @@ export const MapView = ({ initialFacilityObjects }: MapViewProps) => {
                 width="100%"
                 height="849px"
                 defaultState={{
-                    center: [59.9386, 30.3141],
+                    center: [59.964462, 30.460398],
                     zoom: 13,
-                    behaviors: ['drag', 'dblClickZoom', 'multiTouch'],
+                    behaviors: ['dblClickZoom', 'multiTouch'],
                 }}
             >
                 <ZoomControl options={{ position: { right: 20, top: '30vh' } }} />

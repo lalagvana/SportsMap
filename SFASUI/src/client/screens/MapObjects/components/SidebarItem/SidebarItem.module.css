@@ -12,7 +12,8 @@
     padding: var(--padding-m);
     width:100%;
     background-color: var(--white-color);
-    border-radius: var(--border-radius-l);        box-shadow: 2px 4px 20px rgb(0 0 0 / 10%);
+    border-radius: var(--border-radius-l);
+    box-shadow: var(--box-shadow-default);
 
 }
 
